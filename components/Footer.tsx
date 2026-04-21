@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Image from 'next/image'
+import Image from '@/components/AppImage'
 
 const services = [
   { label: 'Custom Tank Design & Engineering', href: '/services/custom-tank-design' },

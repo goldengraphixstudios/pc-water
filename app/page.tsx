@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
+import Image from '@/components/AppImage'
 import AnimatedSection from '@/components/AnimatedSection'
 import StaggerContainer, { StaggerItem } from '@/components/StaggerContainer'
 import AnimatedCounter from '@/components/AnimatedCounter'

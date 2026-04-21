@@ -1,9 +1,11 @@
 import type { MetadataRoute } from 'next'
 
-const BASE_URL = 'https://www.pctanks.com.au'
+export const dynamic = 'force-static'
+
+const BASE_URL = process.env.SITE_URL || 'https://goldengraphixstudios.github.io/pc-water'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date()
+  const lastModified = new Date('2026-04-21T00:00:00.000Z')
 
   const routes: MetadataRoute.Sitemap = [
     // Core pages

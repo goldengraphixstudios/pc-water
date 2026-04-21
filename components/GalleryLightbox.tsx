@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect, useCallback } from 'react'
-import Image from 'next/image'
+import Image from '@/components/AppImage'
 import { motion, AnimatePresence } from 'framer-motion'
 
 interface GalleryImage {

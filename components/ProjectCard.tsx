@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import Image from 'next/image'
+import Image from '@/components/AppImage'
 import { motion } from 'framer-motion'
 
 interface ProjectCardProps {

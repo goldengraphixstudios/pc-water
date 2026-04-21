@@ -1,7 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import Image from 'next/image'
+import Image from '@/components/AppImage'
 
 const particles = [
   { size: 4, top: '20%', left: '10%', delay: 0 },

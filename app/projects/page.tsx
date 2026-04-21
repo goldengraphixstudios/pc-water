@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
+import Image from '@/components/AppImage'
 import ProjectsGrid from '@/components/ProjectsGrid'
 import CTABanner from '@/components/CTABanner'
 
