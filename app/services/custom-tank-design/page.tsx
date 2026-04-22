@@ -150,10 +150,10 @@ export default function CustomTankDesignPage() {
               href="/projects/borumba-hydro"
             />
             <ProjectCard
-              title="Doomadgee Water Treatment Plant"
+              title="Doomadgee 2ML Reservoir"
               sector="Remote Community / Government"
               location="Doomadgee, QLD"
-              scope="2ML ground-level tank custom design & delivery"
+              scope="2ML ground-level reservoir custom design & delivery"
               href="/projects/doomadgee-wtp"
             />
           </div>

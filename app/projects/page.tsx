@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from '@/components/AppImage'
 import ProjectsGrid from '@/components/ProjectsGrid'
 import CTABanner from '@/components/CTABanner'
+import { getPublicProjects, toProjectGridItems } from '@/lib/cms/queries'
 
 export const metadata: Metadata = {
   title: 'Projects',
@@ -9,7 +10,11 @@ export const metadata: Metadata = {
     'Pacific Water Tanks project portfolio — water storage infrastructure delivered across government, mining, industrial, commercial, and remote community sectors across Australia.',
 }
 
-export default function ProjectsPage() {
+export const dynamic = 'force-dynamic'
+
+export default async function ProjectsPage() {
+  const projects = await getPublicProjects()
+
   return (
     <>
       <section className="relative pt-40 pb-24 overflow-hidden min-h-[500px] flex items-center">
@@ -33,7 +38,7 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      <ProjectsGrid />
+      <ProjectsGrid projects={toProjectGridItems(projects)} />
 
       <CTABanner
         heading="DISCUSS A SIMILAR PROJECT"

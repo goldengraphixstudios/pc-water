@@ -40,8 +40,8 @@ export default function HobartNyrstarPage() {
             Back to Projects
           </Link>
           <div className="flex flex-wrap gap-3 mb-6">
-            <span className="bg-[#3e91ce] text-white text-xs font-semibold px-3 py-1 rounded-full">Industrial / Mining</span>
-            <span className="bg-white/10 text-white text-xs font-semibold px-3 py-1 rounded-full">Corrosion-Resistant Design</span>
+            <span className="bg-[#3e91ce] text-white text-xs font-semibold px-3 py-1 rounded-full">Refurbish</span>
+            <span className="bg-white/10 text-white text-xs font-semibold px-3 py-1 rounded-full">Corrosion-Critical Environment</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-black text-white mb-4">Hobart Nyrstar Industrial</h1>
           <p className="text-gray-300 text-lg">Hobart, Tasmania</p>
@@ -81,7 +81,7 @@ export default function HobartNyrstarPage() {
                 <h3 className="font-black text-[#30505b] text-sm tracking-widest uppercase mb-4">Project Snapshot</h3>
                 <dl className="space-y-3 text-sm">
                   {[
-                    { label: 'Sector', value: 'Industrial / Mining' },
+                    { label: 'Sector', value: 'Refurbish' },
                     { label: 'Location', value: 'Hobart, Tasmania' },
                     { label: 'Scope', value: '2 × industrial tanks' },
                     { label: 'Application', value: 'Industrial process water' },

@@ -5,15 +5,15 @@ import CTABanner from '@/components/CTABanner'
 import GalleryLightbox from '@/components/GalleryLightbox'
 
 export const metadata: Metadata = {
-  title: 'Doomadgee Water Treatment Plant | Projects',
+  title: 'Doomadgee 2ML Reservoir | Projects',
   description:
-    'Pacific Water Tanks delivered a 2ML ground-level tank for the Doomadgee water treatment plant — providing safe water to a remote Indigenous community in Queensland.',
+    'Pacific Water Tanks delivered a 2ML ground-level reservoir for Doomadgee — providing safe water storage to a remote Indigenous community in Queensland.',
 }
 
 const gallery = [
   { src: '/projects/doomadgee-01.jpg', alt: 'Doomadgee WTP earthworks site' },
   { src: '/projects/doomadgee-02.jpg', alt: 'Doomadgee WTP ground preparation' },
-  { src: '/projects/doomadgee-03.jpg', alt: 'Doomadgee water treatment plant earthworks' },
+  { src: '/projects/doomadgee-03.jpg', alt: 'Doomadgee 2ML reservoir earthworks' },
   { src: '/projects/doomadgee-04.jpg', alt: 'Aerial view of Doomadgee WTP tank installation' },
   { src: '/projects/doomadgee-05.jpg', alt: 'Doomadgee WTP aerial drone view' },
   { src: '/projects/doomadgee-06.jpg', alt: 'Doomadgee site earthworks progress' },
@@ -26,7 +26,7 @@ export default function DoomadgeeWTPPage() {
       <section className="relative pt-40 pb-24 overflow-hidden min-h-[480px] flex items-end">
         <Image
           src="/projects/doomadgee-04.jpg"
-          alt="Doomadgee Water Treatment Plant — aerial view"
+          alt="Doomadgee 2ML Reservoir — aerial view"
           fill
           priority
           className="object-cover object-center"
@@ -45,7 +45,7 @@ export default function DoomadgeeWTPPage() {
             <span className="bg-white/10 text-white text-xs font-semibold px-3 py-1 rounded-full">Remote Delivery</span>
             <span className="bg-white/10 text-white text-xs font-semibold px-3 py-1 rounded-full">Indigenous Community</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-4">Doomadgee Water Treatment Plant</h1>
+          <h1 className="text-4xl md:text-5xl font-black text-white mb-4">Doomadgee 2ML Reservoir</h1>
           <p className="text-gray-300 text-lg">Doomadgee, Queensland (Remote)</p>
         </div>
       </section>

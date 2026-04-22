@@ -28,7 +28,7 @@ const services: { label: string; href: string; icon: React.ReactNode }[] = [
   { label: 'Remote Area Project Delivery', href: '/services/remote-area-delivery', icon: <IcPin /> },
   { label: 'Tank Maintenance & Upgrades', href: '/services/tank-maintenance-upgrades', icon: <IcWrench /> },
   { label: 'Tank Inspection Technology', href: '/services/tank-inspection-technology', icon: <IcScan /> },
-  { label: 'RPVC Liner Systems', href: '/services/rpvc-liner-systems', icon: <IcShield /> },
+  { label: 'RPVC Liners', href: '/services/rpvc-liner-systems', icon: <IcShield /> },
   { label: 'Tender & Procurement Support', href: '/services/tender-procurement-support', icon: <IcDoc /> },
   { label: 'Builder & Contractor Partnerships', href: '/services/builder-contractor-partnerships', icon: <IcPeople /> },
 ]
@@ -105,12 +105,12 @@ export default function Header() {
               </svg>
               1300 029 804
             </a>
-            <a href="mailto:info@pctanks.com.au" className="flex items-center gap-1.5 hover:text-[#3e91ce] transition-colors group">
+            <a href="mailto:info@pacificwatergroup.com.au" className="flex items-center gap-1.5 hover:text-[#3e91ce] transition-colors group">
               <svg className="w-3 h-3 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                 <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
               </svg>
-              info@pctanks.com.au
+              info@pacificwatergroup.com.au
             </a>
             <span className="text-gray-600">Mon–Sun 8:30am–5pm</span>
           </div>
@@ -128,11 +128,11 @@ export default function Header() {
           <Link href="/" className="flex-shrink-0 group">
             <div className="relative overflow-hidden">
               <Image
-                src="/logo-colour.webp"
-                alt="Pacific Water Tanks"
-                width={180}
-                height={50}
-                className={`h-12 w-auto transition-all duration-500 group-hover:scale-105 ${
+                src="/logo-pacific-water-group.png"
+                alt="PC Water / Pacific Water Group - Engineered Water Solutions"
+                width={320}
+                height={98}
+                className={`h-11 md:h-12 w-auto transition-all duration-500 group-hover:scale-105 ${
                   scrolled ? 'brightness-0 invert' : ''
                 }`}
                 priority

@@ -9,7 +9,7 @@ const services = [
   { label: 'Remote Area Project Delivery', href: '/services/remote-area-delivery' },
   { label: 'Tank Maintenance & Upgrades', href: '/services/tank-maintenance-upgrades' },
   { label: 'Tank Inspection Technology', href: '/services/tank-inspection-technology' },
-  { label: 'RPVC Liner Systems', href: '/services/rpvc-liner-systems' },
+  { label: 'RPVC Liners', href: '/services/rpvc-liner-systems' },
   { label: 'Tender & Procurement Support', href: '/services/tender-procurement-support' },
   { label: 'Builder & Contractor Partnerships', href: '/services/builder-contractor-partnerships' },
 ]
@@ -33,15 +33,17 @@ export default function Footer() {
         {/* Top section: logo + tagline + newsletter */}
         <div className="mb-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           <div>
-            <Image
-              src="/logo-colour.webp"
-              alt="Pacific Water Tanks"
-              width={200}
-              height={55}
-              className="h-14 w-auto mb-4 brightness-0 invert"
-            />
+            <div className="inline-flex mb-4">
+              <Image
+                src="/logo-pacific-water-group.png"
+                alt="PC Water / Pacific Water Group - Engineered Water Solutions"
+                width={320}
+                height={98}
+                className="h-12 md:h-14 w-auto"
+              />
+            </div>
             <p className="text-[#3e91ce] font-bold text-sm tracking-widest uppercase mb-3">
-              PIONEERING A NEW ERA OF WATER STORAGE ENGINEERING
+              PC WATER / PACIFIC WATER GROUP
             </p>
             <p className="text-gray-400 text-sm max-w-md">
               Australian-Made Tanks. Global-Standard Performance. Engineered water storage solutions for demanding infrastructure across Australia.
@@ -116,7 +118,7 @@ export default function Footer() {
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
                 </svg>
-                <a href="mailto:info@pctanks.com.au" className="hover:text-white transition-colors">info@pctanks.com.au</a>
+                <a href="mailto:info@pacificwatergroup.com.au" className="hover:text-white transition-colors">info@pacificwatergroup.com.au</a>
               </li>
               <li className="flex items-center gap-3">
                 <svg className="w-4 h-4 text-[#3e91ce] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">

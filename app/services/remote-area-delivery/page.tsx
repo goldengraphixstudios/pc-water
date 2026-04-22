@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const faqs = [
   { question: 'How far into remote areas can you deliver?', answer: 'We have delivered to some of Australia\'s most isolated locations — including Doomadgee in remote Queensland and other sites requiring fly-in/fly-out crews and chartered freight. If there is a road or an airstrip, we can deliver.' },
-  { question: 'Do you have experience with Indigenous community projects?', answer: 'Yes. The Doomadgee Water Treatment Plant is an example of our work delivering water infrastructure to a remote Indigenous community. We approach these projects with cultural sensitivity, community engagement, and a genuine commitment to improving access to safe water.' },
+  { question: 'Do you have experience with Indigenous community projects?', answer: 'Yes. The Doomadgee 2ML Reservoir is an example of our work delivering water infrastructure to a remote Indigenous community. We approach these projects with cultural sensitivity, community engagement, and a genuine commitment to improving access to safe water.' },
   { question: 'What special materials do you use for harsh environments?', answer: 'Remote and harsh environments often require specific material selection — corrosion-resistant steel grades, UV-stable coatings, and materials rated for extreme temperature ranges. We specify materials appropriate to the environmental conditions of each project.' },
   { question: 'How do you manage logistics for remote sites?', answer: 'Remote logistics planning is integrated into project planning from day one. We coordinate freight, equipment, crew accommodation, site access, and supply chain management — including contingency planning for weather and access delays.' },
   { question: 'Can you work with local subcontractors in remote communities?', answer: 'Where possible, we engage local subcontractors and community members in project delivery — providing training, employment opportunities, and community benefit alongside the infrastructure outcome.' },
@@ -72,7 +72,7 @@ export default function RemoteAreaDeliveryPage() {
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-2xl font-black text-[#30505b] mb-8 text-center">Related Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            <ProjectCard title="Doomadgee Water Treatment Plant" sector="Remote Community / Government" location="Doomadgee, QLD (Remote)" scope="2ML ground-level tank — remote community water supply" href="/projects/doomadgee-wtp" />
+            <ProjectCard title="Doomadgee 2ML Reservoir" sector="Remote Community / Government" location="Doomadgee, QLD (Remote)" scope="2ML ground-level reservoir — remote community water storage" href="/projects/doomadgee-wtp" />
             <ProjectCard title="Borumba Hydro Scheme" sector="Hydro Energy / Government" location="Borumba Dam, QLD" scope="Remote site dual-purpose tank system" href="/projects/borumba-hydro" />
           </div>
         </div>

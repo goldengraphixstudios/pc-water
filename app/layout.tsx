@@ -1,16 +1,14 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import PageTransition from '@/components/PageTransition'
+import SiteChrome from '@/components/SiteChrome'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Pacific Water Tanks | Engineered Water Storage Solutions',
-    template: '%s | Pacific Water Tanks',
+    default: 'PC Water | Pacific Water Group - Engineered Water Solutions',
+    template: '%s | Pacific Water Group',
   },
   description:
-    'Pacific Water Tanks delivers engineered water storage solutions across Australia. Custom design, installation, RPVC liners, fire water tanks, and remote project delivery.',
+    'PC Water / Pacific Water Group delivers engineered water storage solutions across Australia. Custom design, installation, RPVC liners, fire water tanks, and remote project delivery.',
   keywords: [
     'water tanks',
     'water storage',
@@ -25,21 +23,21 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_AU',
-    siteName: 'Pacific Water Tanks',
+    siteName: 'Pacific Water Group',
   },
 }
 
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Pacific Water Tanks',
+  name: 'Pacific Water Group',
   url: 'https://www.pctanks.com.au',
-  logo: 'https://www.pctanks.com.au/logo-colour.webp',
+  logo: 'https://goldengraphixstudios.github.io/pc-water/logo-pacific-water-group.png',
   description:
-    'Pacific Water Tanks delivers engineered water storage solutions across Australia. Founded 2013.',
+    'PC Water / Pacific Water Group delivers engineered water storage solutions across Australia. Founded 2013.',
   foundingDate: '2013',
   telephone: '1300029804',
-  email: 'info@pctanks.com.au',
+  email: 'info@pacificwatergroup.com.au',
   address: {
     '@type': 'PostalAddress',
     postOfficeBoxNumber: 'PO Box 961',
@@ -77,11 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-1">
-          <PageTransition>{children}</PageTransition>
-        </main>
-        <Footer />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   )

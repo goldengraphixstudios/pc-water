@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 }
 
 const faqs = [
-  { question: 'Do you have experience delivering to Indigenous communities?', answer: 'Yes. The Doomadgee Water Treatment Plant is one example of our work delivering critical water infrastructure to a remote Indigenous community. We approach these projects with cultural sensitivity, genuine community engagement, and a commitment to outcomes that serve the community well beyond project completion.' },
+  { question: 'Do you have experience delivering to Indigenous communities?', answer: 'Yes. The Doomadgee 2ML Reservoir is one example of our work delivering critical water infrastructure to a remote Indigenous community. We approach these projects with cultural sensitivity, genuine community engagement, and a commitment to outcomes that serve the community well beyond project completion.' },
   { question: 'What is your approach to cultural sensitivity in community projects?', answer: 'We respect Traditional Custodian rights and community protocols in all remote community projects. This includes engaging with community elders and representatives early in the project, supporting local employment where possible, and operating in a way that respects the cultural significance of country.' },
   { question: 'How do you handle environmental sensitivity in remote areas?', answer: 'Remote areas often involve significant environmental sensitivity — wetlands, protected species, and Traditional Custodian country. We manage environmental risks through early assessment, appropriate material selection, and construction methods designed to minimise ground disturbance and environmental impact.' },
   { question: 'Can you train local community members in tank maintenance?', answer: 'Yes. Where projects support it, we provide basic training to local community members in routine tank inspection and maintenance — supporting long-term water security and local capability.' },
@@ -70,7 +70,7 @@ export default function RemoteRegionalCommunitiesPage() {
                   { service: 'Remote Area Project Delivery', href: '/services/remote-area-delivery' },
                   { service: 'Custom Tank Design & Engineering', href: '/services/custom-tank-design' },
                   { service: 'Tank Maintenance & Upgrades', href: '/services/tank-maintenance-upgrades' },
-                  { service: 'RPVC Liner Systems', href: '/services/rpvc-liner-systems' },
+                  { service: 'RPVC Liners', href: '/services/rpvc-liner-systems' },
                   { service: 'Foundation & Civil Integration', href: '/services/foundation-civil-integration' },
                 ].map((s) => (
                   <Link key={s.href} href={s.href} className="flex items-center gap-3 bg-[#F4F6F8] rounded-xl p-4 hover:bg-[#3e91ce]/10 transition-colors group">
@@ -88,7 +88,7 @@ export default function RemoteRegionalCommunitiesPage() {
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-2xl font-black text-[#30505b] mb-8 text-center">Community Projects</h2>
           <div className="max-w-lg mx-auto">
-            <ProjectCard title="Doomadgee Water Treatment Plant" sector="Remote Community / Government" location="Doomadgee, QLD (Remote)" scope="2ML ground-level tank delivering safe water to remote Indigenous community" href="/projects/doomadgee-wtp" />
+            <ProjectCard title="Doomadgee 2ML Reservoir" sector="Remote Community / Government" location="Doomadgee, QLD (Remote)" scope="2ML ground-level reservoir delivering safe water to a remote Indigenous community" href="/projects/doomadgee-wtp" />
           </div>
         </div>
       </section>

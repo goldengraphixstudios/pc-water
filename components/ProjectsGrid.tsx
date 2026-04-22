@@ -3,74 +3,11 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import ProjectCard from '@/components/ProjectCard'
 
-interface Project {
-  title: string
-  sector: string
-  location: string
-  scope: string
-  imageSrc?: string
-  imageAlt?: string
-  href: string
-  filterTags: string[]
-}
+import type { ProjectGridItem } from '@/lib/cms/types'
 
-const filters = ['All Projects', 'Government', 'Mining & Industrial', 'Commercial', 'Remote Community', 'RPVC Liner']
-
-const projects: Project[] = [
-  {
-    title: 'Borumba Hydro Scheme',
-    sector: 'Hydro Energy / Government',
-    location: 'Borumba Dam, QLD',
-    scope: '2 × 521KL tanks — potable and effluent dual-purpose system',
-    imageSrc: '/projects/borumba-01.jpg',
-    imageAlt: 'Aerial view of Borumba Hydro tank site',
-    href: '/projects/borumba-hydro',
-    filterTags: ['Government'],
-  },
-  {
-    title: 'Hobart Nyrstar Industrial',
-    sector: 'Industrial / Mining',
-    location: 'Hobart, Tasmania',
-    scope: '2 × industrial tanks for zinc processing environment',
-    imageSrc: '/projects/hobart-01.jpg',
-    imageAlt: 'Aerial drone view of Hobart Nyrstar industrial tanks',
-    href: '/projects/hobart-nyrstar',
-    filterTags: ['Mining & Industrial'],
-  },
-  {
-    title: 'Doomadgee Water Treatment Plant',
-    sector: 'Remote Community / Government',
-    location: 'Doomadgee, QLD (Remote)',
-    scope: '2ML ground-level tank for community water treatment plant',
-    imageSrc: '/projects/doomadgee-04.jpg',
-    imageAlt: 'Aerial view of Doomadgee WTP tank installation',
-    href: '/projects/doomadgee-wtp',
-    filterTags: ['Government', 'Remote Community'],
-  },
-  {
-    title: 'Albury Reservoir Reline',
-    sector: 'Municipal / Government',
-    location: 'Albury, NSW',
-    scope: '600kL reservoir RPVC reline and full refurbishment',
-    imageSrc: '/projects/albury-01.jpg',
-    imageAlt: 'Albury reservoir reline and refurbishment',
-    href: '/projects/albury-reservoir',
-    filterTags: ['Government', 'RPVC Liner'],
-  },
-  {
-    title: 'Clarence Road Liner Replacement',
-    sector: 'Commercial',
-    location: '107 Clarence Road',
-    scope: '2 × tank RPVC liner replacement',
-    imageSrc: '/projects/clarence-01.jpg',
-    imageAlt: 'Clarence Road tank liner replacement',
-    href: '/projects/clarence-road-liner',
-    filterTags: ['Commercial', 'RPVC Liner'],
-  },
-]
-
-export default function ProjectsGrid() {
+export default function ProjectsGrid({ projects }: { projects: ProjectGridItem[] }) {
   const [active, setActive] = useState('All Projects')
+  const filters = ['All Projects', ...Array.from(new Set(projects.flatMap((project) => project.filterTags)))]
 
   const visible = active === 'All Projects'
     ? projects

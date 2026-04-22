@@ -106,7 +106,7 @@ export default function TankInstallationPage() {
           <h2 className="text-2xl font-black text-[#30505b] mb-8 text-center">Related Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             <ProjectCard title="Borumba Hydro Scheme" sector="Hydro Energy / Government" location="Borumba Dam, QLD" scope="Full installation of 2 × 521KL tanks" href="/projects/borumba-hydro" />
-            <ProjectCard title="Hobart Nyrstar Industrial" sector="Industrial / Mining" location="Hobart, Tasmania" scope="Industrial tank installation — corrosion resistant" href="/projects/hobart-nyrstar" />
+            <ProjectCard title="Hobart Nyrstar Industrial" sector="Refurbish" location="Hobart, Tasmania" scope="Industrial tank refurbishment in a corrosion-critical environment" href="/projects/hobart-nyrstar" />
           </div>
         </div>
       </section>

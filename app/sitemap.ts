@@ -1,11 +1,13 @@
 import type { MetadataRoute } from 'next'
+import { getPublicPosts, getPublicProjects } from '@/lib/cms/queries'
 
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 
 const BASE_URL = process.env.SITE_URL || 'https://goldengraphixstudios.github.io/pc-water'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const lastModified = new Date('2026-04-21T00:00:00.000Z')
+  const [posts, projects] = await Promise.all([getPublicPosts(), getPublicProjects()])
 
   const routes: MetadataRoute.Sitemap = [
     // Core pages
@@ -36,17 +38,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/industries/commercial-fire-compliance`, lastModified, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/industries/remote-regional-communities`, lastModified, changeFrequency: 'monthly', priority: 0.7 },
 
-    // Projects
+    // Project hub
     { url: `${BASE_URL}/projects`, lastModified, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${BASE_URL}/projects/borumba-hydro`, lastModified, changeFrequency: 'yearly', priority: 0.6 },
-    { url: `${BASE_URL}/projects/hobart-nyrstar`, lastModified, changeFrequency: 'yearly', priority: 0.6 },
-    { url: `${BASE_URL}/projects/doomadgee-wtp`, lastModified, changeFrequency: 'yearly', priority: 0.6 },
-    { url: `${BASE_URL}/projects/albury-reservoir`, lastModified, changeFrequency: 'yearly', priority: 0.6 },
-    { url: `${BASE_URL}/projects/clarence-road-liner`, lastModified, changeFrequency: 'yearly', priority: 0.6 },
 
-    // Resources
+    // Resource hub
     { url: `${BASE_URL}/resources`, lastModified, changeFrequency: 'weekly', priority: 0.7 },
   ]
 
-  return routes
+  const projectRoutes = projects
+    .filter((project) => project.status === 'published')
+    .map((project) => ({
+      url: `${BASE_URL}/projects/${project.slug}`,
+      lastModified: project.updatedAt ? new Date(project.updatedAt) : lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    }))
+
+  const postRoutes = posts
+    .filter((post) => post.status === 'published')
+    .map((post) => ({
+      url: `${BASE_URL}/resources/${post.slug}`,
+      lastModified: post.updatedAt ? new Date(post.updatedAt) : lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.65,
+    }))
+
+  return [...routes, ...projectRoutes, ...postRoutes]
 }

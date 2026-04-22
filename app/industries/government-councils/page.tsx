@@ -92,7 +92,7 @@ export default function GovernmentCouncilsPage() {
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-2xl font-black text-[#30505b] mb-8 text-center">Government Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            <ProjectCard title="Doomadgee Water Treatment Plant" sector="Remote Community / Government" location="Doomadgee, QLD" scope="2ML tank for remote community water treatment plant" href="/projects/doomadgee-wtp" />
+            <ProjectCard title="Doomadgee 2ML Reservoir" sector="Remote Community / Government" location="Doomadgee, QLD" scope="2ML reservoir for remote community water storage" href="/projects/doomadgee-wtp" />
             <ProjectCard title="Albury Reservoir Reline" sector="Municipal / Government" location="Albury, NSW" scope="600kL reservoir reline and refurbishment" href="/projects/albury-reservoir" />
           </div>
         </div>

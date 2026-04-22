@@ -91,7 +91,7 @@ export default function IndustrialFacilitiesPage() {
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-2xl font-black text-[#30505b] mb-8 text-center">Industrial Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            <ProjectCard title="Hobart Nyrstar Industrial" sector="Industrial / Mining" location="Hobart, Tasmania" scope="2 × industrial tanks engineered for zinc processing environment" href="/projects/hobart-nyrstar" />
+            <ProjectCard title="Hobart Nyrstar Industrial" sector="Refurbish" location="Hobart, Tasmania" scope="Industrial tank refurbishment for a zinc processing environment" href="/projects/hobart-nyrstar" />
             <ProjectCard title="Clarence Road Liner Replacement" sector="Commercial" location="107 Clarence Road" scope="2 × tank RPVC liner replacement" href="/projects/clarence-road-liner" />
           </div>
         </div>

@@ -12,9 +12,9 @@ import PartnerMarquee from '@/components/PartnerMarquee'
 import HeroSection from '@/components/HeroSection'
 
 export const metadata: Metadata = {
-  title: 'Pacific Water Tanks | Engineered Water Storage Solutions',
+  title: 'PC Water | Pacific Water Group - Engineered Water Solutions',
   description:
-    'Pacific Water Tanks delivers purpose-built water storage systems across Australia. Custom design, installation, RPVC liners, fire water, and remote project delivery since 2013.',
+    'PC Water / Pacific Water Group delivers purpose-built water storage systems across Australia. Custom design, installation, RPVC liners, fire water, and remote project delivery since 2013.',
 }
 
 const services = [
@@ -61,7 +61,7 @@ const services = [
     href: '/services/tank-inspection-technology',
   },
   {
-    title: 'RPVC Liner Systems',
+    title: 'RPVC Liners',
     description:
       'High-performance RPVC liner installation to protect tanks, extend asset life, and meet potable water standards.',
     href: '/services/rpvc-liner-systems',
@@ -125,18 +125,18 @@ const projects = [
   },
   {
     title: 'Hobart Nyrstar Industrial',
-    sector: 'Industrial / Mining',
+    sector: 'Refurbish',
     location: 'Hobart, Tasmania',
-    scope: '2 × industrial tanks — corrosion-resistant design',
+    scope: 'Industrial tank refurbishment for a corrosive processing environment',
     imageSrc: '/projects/hobart-01.jpg',
     imageAlt: 'Aerial drone view of Hobart Nyrstar industrial tanks',
     href: '/projects/hobart-nyrstar',
   },
   {
-    title: 'Doomadgee Water Treatment Plant',
+    title: 'Doomadgee 2ML Reservoir',
     sector: 'Remote Community / Government',
     location: 'Doomadgee, QLD (Remote)',
-    scope: '2ML ground-level tank for water treatment plant',
+    scope: '2ML ground-level reservoir for remote community water storage',
     imageSrc: '/projects/doomadgee-04.jpg',
     imageAlt: 'Aerial view of Doomadgee WTP tank installation',
     href: '/projects/doomadgee-wtp',
@@ -182,7 +182,7 @@ const faqs = [
   {
     question: 'Who do I contact to discuss a project?',
     answer:
-      'Contact our director Michael Spiller directly via our enquiry form at /contact, by phone on 1300 029 804, or by email at info@pctanks.com.au. We respond to all enquiries within one business day.',
+      'Contact our director Michael Spiller directly via our enquiry form at /contact, by phone on 1300 029 804, or by email at info@pacificwatergroup.com.au. We respond to all enquiries within one business day.',
   },
 ]
 

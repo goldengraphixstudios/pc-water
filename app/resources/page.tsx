@@ -2,57 +2,14 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
 import CTABanner from '@/components/CTABanner'
+import { formatDate } from '@/lib/cms/utils'
+import { getPublicPosts } from '@/lib/cms/queries'
 
 export const metadata: Metadata = {
   title: 'Resources & Insights',
   description:
     'Insights, guides, and resources on water storage engineering, tank maintenance, fire water compliance, RPVC liners, and remote project delivery across Australia.',
 }
-
-const articles = [
-  {
-    title: 'From Mines To Hospitals: What Every Sector Gets Wrong About Tank Maintenance',
-    excerpt: 'Tank maintenance failures follow predictable patterns across sectors. Understanding what goes wrong — and why — is the first step to better outcomes.',
-    tag: 'Maintenance',
-    readTime: '5 min read',
-    href: '#',
-  },
-  {
-    title: 'Why Your Fire Tank Might Fail Compliance — And How To Fix It Fast',
-    excerpt: 'AS2304 and AS1851 compliance failures in fire water systems are more common than most operators realise. Here is what to look for and how to act.',
-    tag: 'Fire Compliance',
-    readTime: '4 min read',
-    href: '#',
-  },
-  {
-    title: 'Is Your Water Tank A Ticking Time Bomb? 5 Signs Your Tank Is Failing',
-    excerpt: 'Most tank failures give warning signs long before catastrophic failure. Knowing what to look for can save significant cost and prevent compliance crises.',
-    tag: 'Asset Management',
-    readTime: '4 min read',
-    href: '#',
-  },
-  {
-    title: 'Corrosion Is Killing Your Storage Tanks — And Here\'s How To Stop It',
-    excerpt: 'Corrosion is the single biggest threat to water storage asset longevity. Understanding the mechanisms and available solutions can extend tank life by decades.',
-    tag: 'RPVC Liners',
-    readTime: '6 min read',
-    href: '#',
-  },
-  {
-    title: 'How RPVC Liners Extend The Life Of Aging Water Tanks',
-    excerpt: 'RPVC liner technology can restore aging tanks to full compliance and extend service life by 20+ years. Here is how the technology works and when to apply it.',
-    tag: 'RPVC Liners',
-    readTime: '5 min read',
-    href: '#',
-  },
-  {
-    title: 'Water Storage In Harsh Environments: What You Need To Know',
-    excerpt: 'Remote and harsh environments test water storage infrastructure to its limits. Specialist design, materials, and delivery capability are non-negotiable.',
-    tag: 'Remote Projects',
-    readTime: '5 min read',
-    href: '#',
-  },
-]
 
 const downloads = [
   { title: 'Capability Statement', desc: 'Full company capability, project track record, and compliance documentation.', tag: 'Company Profile' },
@@ -69,7 +26,11 @@ const faqs = [
   { question: 'What is the difference between a fire tank and a regular storage tank?', answer: 'Fire water tanks must be specifically designed and installed to AS2304, which sets requirements for structural design, fittings, access, and performance. They also require annual AS1851 inspection and maintenance. Standard storage tanks do not carry these specific compliance requirements.' },
 ]
 
-export default function ResourcesPage() {
+export const dynamic = 'force-dynamic'
+
+export default async function ResourcesPage() {
+  const articles = await getPublicPosts()
+
   return (
     <>
       <section className="bg-gradient-to-br from-[#0d1b2a] via-[#30505b] to-[#3e91ce] pt-40 pb-24">
@@ -93,17 +54,19 @@ export default function ResourcesPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {articles.map((article) => (
-              <a key={article.title} href={article.href} className="group bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-shadow block">
+              <Link key={article.id} href={`/resources/${article.slug}`} className="group bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-shadow block">
                 <div className="h-40 bg-gradient-to-br from-[#0d1b2a] via-[#30505b] to-[#3e91ce]" />
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="bg-[#3e91ce]/10 text-[#3e91ce] text-xs font-semibold px-3 py-1 rounded-full">{article.tag}</span>
-                    <span className="text-gray-400 text-xs">{article.readTime}</span>
+                    <span className="bg-[#3e91ce]/10 text-[#3e91ce] text-xs font-semibold px-3 py-1 rounded-full">
+                      {article.tags[0]?.name ?? 'Insights'}
+                    </span>
+                    <span className="text-gray-400 text-xs">{article.readTime ?? formatDate(article.publishedAt)}</span>
                   </div>
                   <h3 className="font-bold text-[#30505b] text-base mb-3 group-hover:text-[#3e91ce] transition-colors leading-snug">{article.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{article.excerpt}</p>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
