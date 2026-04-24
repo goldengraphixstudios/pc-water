@@ -202,7 +202,7 @@ export default function AboutPage() {
 
       <CTABanner
         heading="LET'S WORK TOGETHER"
-        subheading="Schedule a free project consultation with Michael Spiller and the PC Water Infrastructure team."
+        subheading="Schedule a free project consultation with our specialist engineering team."
         primaryCTA={{ label: 'Schedule a Free Consultation', href: '/contact' }}
         secondaryCTA={{ label: 'Download Capability Statement', href: '#' }}
       />

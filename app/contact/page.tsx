@@ -92,7 +92,7 @@ export default function ContactPage() {
                 <div className="space-y-4">
                   {[
                     { step: '01', desc: 'We review your enquiry and project details within 1 business day.' },
-                    { step: '02', desc: 'Michael or our project team contacts you to discuss your requirements.' },
+                    { step: '02', desc: 'Our specialists will contact you to discuss your requirements.' },
                     { step: '03', desc: 'We provide a tailored proposal or capability overview for your project.' },
                   ].map((step) => (
                     <div key={step.step} className="flex items-start gap-3">

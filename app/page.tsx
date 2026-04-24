@@ -182,7 +182,7 @@ const faqs = [
   {
     question: 'Who do I contact to discuss a project?',
     answer:
-      'Contact our director Michael Spiller directly via our enquiry form at /contact, by phone on 1300 029 804, or by email at info@pacificwatergroup.com.au. We respond to all enquiries within one business day.',
+      'Reach our team via the enquiry form at /contact, by phone on 1300 029 804, or by email at info@pacificwatergroup.com.au. Our specialists respond to all enquiries within one business day.',
   },
 ]
 
