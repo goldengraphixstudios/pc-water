@@ -27,7 +27,13 @@ This creates:
 - `cms_project_tags`
 - RLS policies for public reads and admin writes
 
-## 3. Create an admin user
+## 3. Enable media uploads
+
+Run the SQL in [supabase/cms-storage.sql](./supabase/cms-storage.sql) inside the Supabase SQL editor.
+
+This creates a public `cms-media` storage bucket and limits upload/update/delete access to authenticated CMS admins.
+
+## 4. Create an admin user
 
 Create the user in Supabase Auth first, then whitelist the email:
 
@@ -36,11 +42,11 @@ insert into public.cms_admin_emails (email)
 values ('your-admin-email@example.com');
 ```
 
-## 4. Sign in
+## 5. Sign in
 
 Go to `/cms/login` and sign in with that Supabase Auth account.
 
-## 5. Runtime note
+## 6. Runtime note
 
 This CMS requires a real Next.js server runtime.
 

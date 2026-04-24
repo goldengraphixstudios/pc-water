@@ -4,9 +4,17 @@ import Link from 'next/link'
 import AppImage from '@/components/AppImage'
 import CTABanner from '@/components/CTABanner'
 import GalleryLightbox from '@/components/GalleryLightbox'
-import { getPublicProjectBySlug, renderContentParagraphs } from '@/lib/cms/queries'
+import { getPublicProjectBySlug, getPublicProjects, renderContentParagraphs } from '@/lib/cms/queries'
 
 export const dynamic = 'force-dynamic'
+
+export async function generateStaticParams() {
+  const projects = await getPublicProjects()
+
+  return projects.map((project) => ({
+    slug: project.slug,
+  }))
+}
 
 export async function generateMetadata({
   params,

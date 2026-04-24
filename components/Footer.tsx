@@ -36,14 +36,14 @@ export default function Footer() {
             <div className="inline-flex mb-4">
               <Image
                 src="/logo-pacific-water-group.png"
-                alt="PC Water / Pacific Water Group - Engineered Water Solutions"
+                alt="PC Water Infrastructure - Engineered Water Systems"
                 width={320}
                 height={98}
                 className="h-12 md:h-14 w-auto"
               />
             </div>
             <p className="text-[#3e91ce] font-bold text-sm tracking-widest uppercase mb-3">
-              PC WATER / PACIFIC WATER GROUP
+              PC WATER INFRASTRUCTURE
             </p>
             <p className="text-gray-400 text-sm max-w-md">
               Australian-Made Tanks. Global-Standard Performance. Engineered water storage solutions for demanding infrastructure across Australia.

@@ -129,7 +129,7 @@ export default function Header() {
             <div className="relative overflow-hidden">
               <Image
                 src="/logo-pacific-water-group.png"
-                alt="PC Water / Pacific Water Group - Engineered Water Solutions"
+                alt="PC Water Infrastructure - Engineered Water Systems"
                 width={320}
                 height={98}
                 className={`h-11 md:h-12 w-auto transition-all duration-500 group-hover:scale-105 ${

@@ -19,6 +19,8 @@ jobs:
       DEPLOY_TARGET: gh-pages
       NEXT_PUBLIC_BASE_PATH: /pc-water
       SITE_URL: https://goldengraphixstudios.github.io/pc-water
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -35,8 +37,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Disable Proxy for static export
-        run: mv proxy.ts proxy.ts.disabled
+      - name: Prepare public-only static export
+        run: node scripts/prepare-gh-pages.cjs
 
       - name: Build static export
         run: npm run build

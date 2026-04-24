@@ -2,9 +2,17 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import CTABanner from '@/components/CTABanner'
-import { getPublicPostBySlug, renderContentParagraphs } from '@/lib/cms/queries'
+import { getPublicPostBySlug, getPublicPosts, renderContentParagraphs } from '@/lib/cms/queries'
 
 export const dynamic = 'force-dynamic'
+
+export async function generateStaticParams() {
+  const posts = await getPublicPosts()
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }))
+}
 
 export async function generateMetadata({
   params,

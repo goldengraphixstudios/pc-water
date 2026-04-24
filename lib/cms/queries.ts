@@ -11,6 +11,7 @@ import type {
 } from '@/lib/cms/types'
 import { normalizeOptionalText, normalizeTagNames, slugify } from '@/lib/cms/utils'
 import { hasSupabaseEnv } from '@/lib/supabase/config'
+import { createSupabasePublicClient } from '@/lib/supabase/public'
 import { createSupabaseServerClient } from '@/lib/supabase/server'
 
 type TagJoinRow = {
@@ -133,7 +134,7 @@ export async function getPublicPosts() {
     return fallbackPosts
   }
 
-  const supabase = await createSupabaseServerClient()
+  const supabase = createSupabasePublicClient()
   if (!supabase) {
     return fallbackPosts
   }
@@ -160,7 +161,7 @@ export async function getPublicPostBySlug(slug: string) {
     return fallback ?? null
   }
 
-  const supabase = await createSupabaseServerClient()
+  const supabase = createSupabasePublicClient()
   if (!supabase) {
     return fallback ?? null
   }
@@ -186,7 +187,7 @@ export async function getPublicProjects() {
     return fallbackProjects
   }
 
-  const supabase = await createSupabaseServerClient()
+  const supabase = createSupabasePublicClient()
   if (!supabase) {
     return fallbackProjects
   }
@@ -219,7 +220,7 @@ export async function getPublicProjectBySlug(slug: string) {
     return fallback ?? null
   }
 
-  const supabase = await createSupabaseServerClient()
+  const supabase = createSupabasePublicClient()
   if (!supabase) {
     return fallback ?? null
   }
@@ -258,6 +259,15 @@ export function renderContentParagraphs(content: string) {
     .split(/\n{2,}/)
     .map((paragraph) => paragraph.trim())
     .filter(Boolean)
+}
+
+export function getProjectFilterOptions(projects: CmsProject[]) {
+  return {
+    classifications: normalizeTagNames(projects.map((project) => project.sector).filter(Boolean)),
+    tags: normalizeTagNames(
+      projects.flatMap((project) => project.tags.map((tag) => tag.name)).filter(Boolean),
+    ),
+  }
 }
 
 export async function getCmsAuthContext() {
@@ -329,6 +339,11 @@ export async function getAdminProjects() {
   }
 
   return (data as ProjectRow[]).map(mapProject)
+}
+
+export async function getAdminProjectFilterOptions() {
+  const projects = await getAdminProjects()
+  return getProjectFilterOptions(projects)
 }
 
 export async function getAdminPostById(id: string) {

@@ -8,11 +8,11 @@ export default function CmsShell({
   email: string
 }) {
   return (
-    <div className="min-h-screen lg:flex bg-[#f4f6f8]">
+    <div className="min-h-screen bg-[#F0F3F9] dark:bg-[#0C0E16]">
       <CmsSidebar email={email} />
-      <div className="flex-1 min-w-0">
-        <div className="px-4 py-6 md:px-8 md:py-8">{children}</div>
-      </div>
+      <main className="max-w-6xl mx-auto px-5 sm:px-7 py-7">
+        {children}
+      </main>
     </div>
   )
 }

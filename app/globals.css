@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 @import "tailwindcss";
 
+/* Enable class-based dark mode for CMS panel */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --color-primary: #30505b;
   --color-accent: #3e91ce;
@@ -153,9 +156,9 @@ body {
 .field {
   width: 100%;
   border: 1px solid #dbe1e5;
-  border-radius: 1rem;
-  padding: 0.85rem 1rem;
-  font-size: 0.95rem;
+  border-radius: 0.75rem;
+  padding: 0.75rem 0.875rem;
+  font-size: 0.875rem;
   line-height: 1.5;
   color: #30505b;
   background: #ffffff;
@@ -166,4 +169,25 @@ body {
   outline: none;
   border-color: #3e91ce;
   box-shadow: 0 0 0 3px rgba(62, 145, 206, 0.14);
+}
+
+/* Dark mode field overrides */
+.dark .field {
+  background: #1a1d2e;
+  border-color: #2a2f47;
+  color: #e2e8f0;
+}
+
+.dark .field::placeholder {
+  color: #4a5568;
+}
+
+.dark .field:focus {
+  border-color: #5babdc;
+  box-shadow: 0 0 0 3px rgba(91, 171, 220, 0.18);
+}
+
+.dark select.field option {
+  background: #1a1d2e;
+  color: #e2e8f0;
 }

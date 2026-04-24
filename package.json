@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "cms:import": "node scripts/import-cms-content.cjs",
+    "cms:upload-media": "node scripts/upload-existing-media.cjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.10.2",
