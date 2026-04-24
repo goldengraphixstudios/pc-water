@@ -48,7 +48,7 @@ export default function CustomTankDesignPage() {
               <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Service Overview</p>
               <h2 className="text-3xl font-black text-[#30505b] mb-6">What This Service Covers</h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Every Pacific Water Tanks project begins with engineering — not with a product catalogue. Our custom tank design service delivers purpose-built solutions that match your exact site, capacity, regulatory, and operational requirements.
+            Every PC Water Infrastructure project begins with engineering — not with a product catalogue. Our custom tank design service delivers purpose-built solutions that match your exact site, capacity, regulatory, and operational requirements.
               </p>
               <p className="text-gray-600 leading-relaxed">
                 From initial concept through to construction-ready documentation, our RPEQ-certified engineers manage every aspect of the design process — ensuring your tank performs reliably for decades.

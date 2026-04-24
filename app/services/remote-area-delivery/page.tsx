@@ -41,7 +41,7 @@ export default function RemoteAreaDeliveryPage() {
               <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Our Remote Capability</p>
               <h2 className="text-3xl font-black text-[#30505b] mb-6">Where Others Stop, We Start</h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Remote project delivery is not a service we offer reluctantly — it is a capability we have built deliberately over many years. From Indigenous community water supply projects to remote mining operations, Pacific Water Tanks has the systems, experience, and crew capability to deliver where others cannot.
+            Remote project delivery is not a service we offer reluctantly — it is a capability we have built deliberately over many years. From Indigenous community water supply projects to remote mining operations, PC Water Infrastructure has the systems, experience, and crew capability to deliver where others cannot.
               </p>
               <p className="text-gray-600 leading-relaxed">
                 Our remote delivery expertise covers logistics, crew deployment, materials specification for harsh environments, Indigenous community engagement, and contingency planning for the unexpected challenges that remote projects always bring.

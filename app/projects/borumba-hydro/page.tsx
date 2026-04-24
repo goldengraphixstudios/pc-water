@@ -7,7 +7,7 @@ import GalleryLightbox from '@/components/GalleryLightbox'
 export const metadata: Metadata = {
   title: 'Borumba Hydro Scheme | Projects',
   description:
-    'Pacific Water Tanks delivered 2 × 521KL tanks for the Borumba Hydro Scheme — custom dual-purpose design for potable and effluent storage at a remote Queensland dam site.',
+    'PC Water Infrastructure delivered 2 × 521KL tanks for the Borumba Hydro Scheme — custom dual-purpose design for potable and effluent storage at a remote Queensland dam site.',
 }
 
 const gallery = [
@@ -56,7 +56,7 @@ export default function BorumbaHydroPage() {
             <div className="lg:col-span-2">
               <h2 className="text-2xl font-black text-[#30505b] mb-6">Project Overview</h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                The Borumba Hydro Scheme is a major renewable energy infrastructure project in Queensland. Pacific Water Tanks was engaged to design and install two 521KL tanks serving dual purposes — potable water storage and effluent containment — as part of the broader scheme infrastructure.
+            The Borumba Hydro Scheme is a major renewable energy infrastructure project in Queensland. PC Water Infrastructure was engaged to design and install two 521KL tanks serving dual purposes — potable water storage and effluent containment — as part of the broader scheme infrastructure.
               </p>
               <p className="text-gray-600 leading-relaxed mb-6">
                 The remote site location at Borumba Dam required careful project planning, remote logistics coordination, and engineering design that accounted for site accessibility, environmental conditions, and the stringent potable water standards required for one of the two tanks.
@@ -72,7 +72,7 @@ export default function BorumbaHydroPage() {
 
               <h3 className="text-xl font-black text-[#30505b] mt-8 mb-4">The Solution</h3>
               <p className="text-gray-600 leading-relaxed">
-                Pacific Water Tanks developed a custom dual-purpose tank design certified by RPEQ engineers. The potable water tank was designed to AS4020 standards with RPVC liner system, while the effluent storage tank was engineered for its specific containment requirements. Civil integration and remote logistics were managed by Pacific Water Tanks as a single-point delivery package.
+            PC Water Infrastructure developed a custom dual-purpose tank design certified by RPEQ engineers. The potable water tank was designed to AS4020 standards with RPVC liner system, while the effluent storage tank was engineered for its specific containment requirements. Civil integration and remote logistics were managed by PC Water Infrastructure as a single-point delivery package.
               </p>
 
               <h3 className="text-xl font-black text-[#30505b] mt-8 mb-4">The Outcome</h3>

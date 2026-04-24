@@ -26,7 +26,7 @@ const faqs = [
   { question: 'What is the difference between a fire tank and a regular storage tank?', answer: 'Fire water tanks must be specifically designed and installed to AS2304, which sets requirements for structural design, fittings, access, and performance. They also require annual AS1851 inspection and maintenance. Standard storage tanks do not carry these specific compliance requirements.' },
 ]
 
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-static'
 
 export default async function ResourcesPage() {
   const articles = await getPublicPosts()

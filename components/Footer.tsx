@@ -162,13 +162,13 @@ export default function Footer() {
           </div>
           <p className="text-gray-500 text-xs leading-relaxed max-w-3xl">
             <span className="text-gray-400 font-medium">Acknowledgement of Country: </span>
-            Pacific Water Tanks acknowledges the Traditional Custodians of the land on which we work and live. We pay our respects to Elders past, present and emerging.
+            PC Water Infrastructure acknowledges the Traditional Custodians of the land on which we work and live. We pay our respects to Elders past, present and emerging.
           </p>
         </div>
 
         {/* Copyright */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-          <p>© 2013–2026 Pacific Water Tanks. All Rights Reserved.</p>
+          <p>© 2013–2026 PC Water Infrastructure. All Rights Reserved.</p>
           <div className="flex items-center gap-4">
             <Link href="/" className="hover:text-gray-300 transition-colors">Home</Link>
             <Link href="/projects" className="hover:text-gray-300 transition-colors">Projects</Link>

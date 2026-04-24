@@ -4,6 +4,7 @@ import { useMemo, useState, useEffect } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { createSupabaseBrowserClient } from '@/lib/supabase/browser'
 import ThemeToggle from '@/components/cms/ThemeToggle'
+import { withBasePath } from '@/lib/base-path'
 
 export default function LoginForm() {
   const router       = useRouter()
@@ -16,6 +17,7 @@ export default function LoginForm() {
 
   const configured  = useMemo(() => Boolean(createSupabaseBrowserClient()), [])
   const accessError = searchParams.get('error') === 'access-denied'
+  const isGitHubPages = process.env.NEXT_PUBLIC_BASE_PATH === '/pc-water'
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -46,7 +48,7 @@ export default function LoginForm() {
       return
     }
 
-    router.replace('/cms/dashboard')
+    router.replace(isGitHubPages ? withBasePath('/cms/') : '/cms/dashboard')
     router.refresh()
   }
 
@@ -164,7 +166,7 @@ export default function LoginForm() {
         </div>
 
         <p className="text-center text-xs text-slate-400 dark:text-slate-600 mt-5">
-          Pacific Water Tanks · Content Management System
+          PC Water Infrastructure · Content Management System
         </p>
       </div>
     </div>

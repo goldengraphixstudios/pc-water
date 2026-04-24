@@ -12,9 +12,9 @@ import PartnerMarquee from '@/components/PartnerMarquee'
 import HeroSection from '@/components/HeroSection'
 
 export const metadata: Metadata = {
-  title: 'PC Water | Pacific Water Group - Engineered Water Solutions',
+  title: 'PC Water Infrastructure - Engineered Water Solutions',
   description:
-    'PC Water / Pacific Water Group delivers purpose-built water storage systems across Australia. Custom design, installation, RPVC liners, fire water, and remote project delivery since 2013.',
+    'PC Water Infrastructure delivers purpose-built water storage systems across Australia. Custom design, installation, RPVC liners, fire water, and remote project delivery since 2013.',
 }
 
 const services = [
@@ -145,14 +145,14 @@ const projects = [
 
 const faqs = [
   {
-    question: 'What tank sizes and configurations can Pacific Water Tanks design?',
+    question: 'What tank sizes and configurations can PC Water Infrastructure design?',
     answer:
       'We design tanks from small 10KL installations through to multi-megalitre reservoirs. Every tank is purpose-engineered for the specific site, application, and compliance requirement — including dual-purpose potable and effluent storage, fire water tanks, and process water systems.',
   },
   {
     question: 'Are your tanks compliant with Australian standards?',
     answer:
-      'Yes. All Pacific Water Tanks designs are engineered to AS2304 (water storage tanks), AS4020 (potable water contact), AS1851 (fire system maintenance), and relevant ISO standards. Our engineers are RPEQ-certified and all documentation is available for tender and compliance purposes.',
+      'Yes. All PC Water Infrastructure designs are engineered to AS2304 (water storage tanks), AS4020 (potable water contact), AS1851 (fire system maintenance), and relevant ISO standards. Our engineers are RPEQ-certified and all documentation is available for tender and compliance purposes.',
   },
   {
     question: 'Can you deliver to remote locations?',
@@ -177,7 +177,7 @@ const faqs = [
   {
     question: 'What is the difference between a fire water tank and a standard storage tank?',
     answer:
-      'Fire water tanks must be designed and installed specifically to AS2304 to ensure sufficient storage volume, flow rates, and pump system compatibility. They require annual inspections under AS1851. Standard storage tanks do not carry these compliance requirements. Pacific Water Tanks can design, install, and maintain both.',
+      'Fire water tanks must be designed and installed specifically to AS2304 to ensure sufficient storage volume, flow rates, and pump system compatibility. They require annual inspections under AS1851. Standard storage tanks do not carry these compliance requirements. PC Water Infrastructure can design, install, and maintain both.',
   },
   {
     question: 'Who do I contact to discuss a project?',
@@ -331,14 +331,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── WHY PWT ─── */}
+      {/* ─── WHY PC WATER INFRASTRUCTURE ─── */}
       <section className="bg-[#30505b] py-24 relative overflow-hidden">
         <div className="dot-pattern absolute inset-0 opacity-10 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-br from-[#0d1b2a]/50 to-transparent pointer-events-none" />
         <div className="relative z-10 max-w-6xl mx-auto px-4">
           <AnimatedSection className="text-center mb-16">
             <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Our Difference</p>
-            <h2 className="text-4xl md:text-5xl font-black text-white">WHY PACIFIC WATER TANKS</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-white">WHY PC WATER INFRASTRUCTURE</h2>
             <p className="text-gray-300 mt-5 max-w-2xl mx-auto text-lg">
               Not a product supplier. A specialist engineering firm that understands water infrastructure from the
               ground up.

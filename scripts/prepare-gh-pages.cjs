@@ -13,7 +13,8 @@ function moveIfExists(sourceRelativePath, targetRelativePath) {
 
   fs.mkdirSync(path.dirname(targetPath), { recursive: true })
   fs.rmSync(targetPath, { recursive: true, force: true })
-  fs.renameSync(sourcePath, targetPath)
+  fs.cpSync(sourcePath, targetPath, { recursive: true, force: true })
+  fs.rmSync(sourcePath, { recursive: true, force: true })
 }
 
 function replaceInFile(relativePath, searchValue, replaceValue) {
@@ -28,7 +29,7 @@ function replaceInFile(relativePath, searchValue, replaceValue) {
 }
 
 moveIfExists('proxy.ts', path.join('.gh-pages-disabled', 'proxy.ts'))
-moveIfExists(path.join('app', 'cms'), path.join('.gh-pages-disabled', 'app-cms'))
+moveIfExists(path.join('app', 'cms', '(protected)'), path.join('.gh-pages-disabled', 'app-cms-protected'))
 moveIfExists(path.join('app', 'api', 'cms'), path.join('.gh-pages-disabled', 'app-api-cms'))
 
 ;[

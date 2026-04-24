@@ -6,7 +6,7 @@ import CTABanner from '@/components/CTABanner'
 export const metadata: Metadata = {
   title: 'Services',
   description:
-    'Pacific Water Tanks delivers 10 core services: custom tank design, installation, fire water solutions, RPVC liners, inspection, remote delivery, and more.',
+    'PC Water Infrastructure delivers 10 core services: custom tank design, installation, fire water solutions, RPVC liners, inspection, remote delivery, and more.',
 }
 
 const services = [
@@ -73,7 +73,7 @@ export default function ServicesPage() {
             COMPLETE WATER STORAGE SERVICES
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
-            From design and installation through to inspection, lining, maintenance, and remote delivery — Pacific Water Tanks covers every stage of your water storage project.
+            From design and installation through to inspection, lining, maintenance, and remote delivery — PC Water Infrastructure covers every stage of your water storage project.
           </p>
         </div>
       </section>
@@ -94,7 +94,7 @@ export default function ServicesPage() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-black text-[#30505b] mb-6">ONE PARTNER. EVERY STAGE.</h2>
           <p className="text-gray-600 text-lg leading-relaxed mb-8">
-            Rather than managing multiple contractors across your water storage project, Pacific Water Tanks provides a single point of accountability — from initial design through to long-term maintenance. Our integrated service model reduces handover risk, improves compliance outcomes, and keeps your project on schedule.
+            Rather than managing multiple contractors across your water storage project, PC Water Infrastructure provides a single point of accountability — from initial design through to long-term maintenance. Our integrated service model reduces handover risk, improves compliance outcomes, and keeps your project on schedule.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
             {[

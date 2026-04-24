@@ -7,7 +7,7 @@ import GalleryLightbox from '@/components/GalleryLightbox'
 export const metadata: Metadata = {
   title: 'Clarence Road Liner Replacement | Projects',
   description:
-    'Pacific Water Tanks delivered RPVC liner replacement for 2 tanks at 107 Clarence Road — restoring compliance and returning tanks to service.',
+    'PC Water Infrastructure delivered RPVC liner replacement for 2 tanks at 107 Clarence Road — restoring compliance and returning tanks to service.',
 }
 
 const gallery = [
@@ -54,7 +54,7 @@ export default function ClarenceRoadLinerPage() {
             <div className="lg:col-span-2">
               <h2 className="text-2xl font-black text-[#30505b] mb-6">Project Overview</h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Two water storage tanks at 107 Clarence Road had reached a point of liner failure — deteriorated liners created compliance risk and potential contamination of stored water. Pacific Water Tanks was engaged to assess the tanks and deliver RPVC liner replacement to restore both tanks to compliant, operational condition.
+            Two water storage tanks at 107 Clarence Road had reached a point of liner failure — deteriorated liners created compliance risk and potential contamination of stored water. PC Water Infrastructure was engaged to assess the tanks and deliver RPVC liner replacement to restore both tanks to compliant, operational condition.
               </p>
               <p className="text-gray-600 leading-relaxed mb-6">
                 The project is a representative example of a common maintenance need for commercial and industrial tank owners — liner deterioration that, if addressed proactively, can be resolved efficiently and cost-effectively through RPVC liner replacement rather than full tank replacement.
@@ -67,7 +67,7 @@ export default function ClarenceRoadLinerPage() {
 
               <h3 className="text-xl font-black text-[#30505b] mt-8 mb-4">The Solution</h3>
               <p className="text-gray-600 leading-relaxed">
-                Pacific Water Tanks conducted an internal inspection of both tanks to confirm structural condition and determine liner specification. RPVC liner replacement was completed by specialist welders — both tanks were cleaned, prepared, lined, and integrity-tested before return to service. Full compliance documentation was provided with handover.
+            PC Water Infrastructure conducted an internal inspection of both tanks to confirm structural condition and determine liner specification. RPVC liner replacement was completed by specialist welders — both tanks were cleaned, prepared, lined, and integrity-tested before return to service. Full compliance documentation was provided with handover.
               </p>
 
               <h3 className="text-xl font-black text-[#30505b] mt-8 mb-4">The Outcome</h3>

@@ -7,7 +7,7 @@ import GalleryLightbox from '@/components/GalleryLightbox'
 export const metadata: Metadata = {
   title: 'Doomadgee 2ML Reservoir | Projects',
   description:
-    'Pacific Water Tanks delivered a 2ML ground-level reservoir for Doomadgee — providing safe water storage to a remote Indigenous community in Queensland.',
+    'PC Water Infrastructure delivered a 2ML ground-level reservoir for Doomadgee — providing safe water storage to a remote Indigenous community in Queensland.',
 }
 
 const gallery = [
@@ -57,7 +57,7 @@ export default function DoomadgeeWTPPage() {
             <Image src="/aboriginal-flag.png" alt="Aboriginal flag" fill className="object-contain" sizes="48px" />
           </div>
           <p className="text-gray-200 text-sm">
-            Pacific Water Tanks acknowledges the Traditional Custodians of the land at Doomadgee and pays respect to Elders past, present, and emerging. We are proud to have contributed to safe water access for this community.
+            PC Water Infrastructure acknowledges the Traditional Custodians of the land at Doomadgee and pays respect to Elders past, present, and emerging. We are proud to have contributed to safe water access for this community.
           </p>
         </div>
       </section>
@@ -68,10 +68,10 @@ export default function DoomadgeeWTPPage() {
             <div className="lg:col-span-2">
               <h2 className="text-2xl font-black text-[#30505b] mb-6">Project Overview</h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Doomadgee is a remote Indigenous community in Queensland's Gulf Country, located approximately 200 kilometres south of the Gulf of Carpentaria. Pacific Water Tanks was engaged to deliver a 2-megalitre ground-level tank as part of the community's water treatment plant infrastructure — providing the storage capacity needed to ensure reliable, safe water supply to the community.
+                Doomadgee is a remote Indigenous community in Queensland's Gulf Country, located approximately 200 kilometres south of the Gulf of Carpentaria. PC Water Infrastructure was engaged to deliver a 2-megalitre ground-level tank as part of the community's water treatment plant infrastructure — providing the storage capacity needed to ensure reliable, safe water supply to the community.
               </p>
               <p className="text-gray-600 leading-relaxed mb-6">
-                This project represents one of the most logistically complex deliveries in Pacific Water Tanks' portfolio — combining extreme remoteness, significant civil earthworks in challenging soil conditions, and the responsibility of delivering infrastructure that would directly impact community health and wellbeing.
+                This project represents one of the most logistically complex deliveries in PC Water Infrastructure's portfolio — combining extreme remoteness, significant civil earthworks in challenging soil conditions, and the responsibility of delivering infrastructure that would directly impact community health and wellbeing.
               </p>
 
               <h3 className="text-xl font-black text-[#30505b] mt-10 mb-4">The Challenge</h3>
@@ -81,12 +81,12 @@ export default function DoomadgeeWTPPage() {
 
               <h3 className="text-xl font-black text-[#30505b] mt-8 mb-4">The Solution</h3>
               <p className="text-gray-600 leading-relaxed">
-                Pacific Water Tanks coordinated a comprehensive remote project delivery plan — scheduling construction activities within the dry season window, pre-positioning materials ahead of wet season risk, and engaging with community and government representatives to ensure the project proceeded with community support. Civil earthworks were engineered to address the site's specific soil conditions.
+                PC Water Infrastructure coordinated a comprehensive remote project delivery plan — scheduling construction activities within the dry season window, pre-positioning materials ahead of wet season risk, and engaging with community and government representatives to ensure the project proceeded with community support. Civil earthworks were engineered to address the site's specific soil conditions.
               </p>
 
               <h3 className="text-xl font-black text-[#30505b] mt-8 mb-4">The Outcome</h3>
               <p className="text-gray-600 leading-relaxed">
-                The 2ML storage tank was successfully delivered and commissioned, providing the Doomadgee community with the water storage capacity needed to support the water treatment plant's operations. The project contributes directly to safe water access for one of Australia's most remote communities — an outcome Pacific Water Tanks is genuinely proud of.
+                The 2ML storage tank was successfully delivered and commissioned, providing the Doomadgee community with the water storage capacity needed to support the water treatment plant's operations. The project contributes directly to safe water access for one of Australia's most remote communities — an outcome PC Water Infrastructure is genuinely proud of.
               </p>
             </div>
 
@@ -134,7 +134,7 @@ export default function DoomadgeeWTPPage() {
         </div>
       </section>
 
-      <CTABanner heading="DISCUSS A REMOTE COMMUNITY PROJECT" subheading="Pacific Water Tanks has the expertise to deliver water infrastructure where it matters most." primaryCTA={{ label: 'Discuss Your Project', href: '/contact' }} secondaryCTA={{ label: 'View All Projects', href: '/projects' }} />
+      <CTABanner heading="DISCUSS A REMOTE COMMUNITY PROJECT" subheading="PC Water Infrastructure has the expertise to deliver water infrastructure where it matters most." primaryCTA={{ label: 'Discuss Your Project', href: '/contact' }} secondaryCTA={{ label: 'View All Projects', href: '/projects' }} />
     </>
   )
 }

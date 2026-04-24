@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 }
 
 const faqs = [
-  { question: 'Why is an engineered foundation so important?', answer: 'Tank foundations must be designed to handle the full static load of a filled tank — which can run to hundreds of tonnes. An under-engineered foundation leads to differential settlement, structural cracking, and in extreme cases, catastrophic failure. All Pacific Water Tanks foundations are engineered to site-specific geotechnical conditions.' },
+  { question: 'Why is an engineered foundation so important?', answer: 'Tank foundations must be designed to handle the full static load of a filled tank — which can run to hundreds of tonnes. An under-engineered foundation leads to differential settlement, structural cracking, and in extreme cases, catastrophic failure. All PC Water Infrastructure foundations are engineered to site-specific geotechnical conditions.' },
   { question: 'Do you conduct geotechnical assessments?', answer: 'We coordinate geotechnical investigations on behalf of clients and use the results to inform our foundation design. This ensures the foundation is appropriate for actual soil conditions, not assumptions.' },
   { question: 'Can you coordinate with existing civil contractors?', answer: 'Yes. We regularly work alongside existing civil contractors on construction projects, providing specialist tank foundation and civil integration scope as a subcontractor or as the lead civil manager.' },
   { question: 'What are your concrete specifications?', answer: 'Concrete specifications are project-specific and determined by structural loads, site conditions, and applicable Australian standards. All concrete work is subject to quality testing and documented compliance verification.' },
@@ -39,7 +39,7 @@ export default function FoundationCivilPage() {
               <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Service Overview</p>
               <h2 className="text-3xl font-black text-[#30505b] mb-6">The Foundation Matters As Much As The Tank</h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                A tank is only as good as what it sits on. Pacific Water Tanks provides specialist foundation engineering and civil integration services — ensuring every tank is supported by an engineered, compliant foundation designed for the actual site conditions.
+            A tank is only as good as what it sits on. PC Water Infrastructure provides specialist foundation engineering and civil integration services — ensuring every tank is supported by an engineered, compliant foundation designed for the actual site conditions.
               </p>
               <p className="text-gray-600 leading-relaxed">
                 Our civil integration service also extends to coordinating tanks with surrounding infrastructure — stormwater, pipework, access roads, and earthworks — providing a seamless delivery experience.

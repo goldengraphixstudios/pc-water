@@ -7,7 +7,7 @@ import GalleryLightbox from '@/components/GalleryLightbox'
 export const metadata: Metadata = {
   title: 'Hobart Nyrstar Industrial | Projects',
   description:
-    'Pacific Water Tanks delivered 2 industrial tanks for the Nyrstar zinc processing facility in Hobart — corrosion-resistant design for a demanding industrial chemical environment.',
+    'PC Water Infrastructure delivered 2 industrial tanks for the Nyrstar zinc processing facility in Hobart — corrosion-resistant design for a demanding industrial chemical environment.',
 }
 
 const gallery = [
@@ -54,7 +54,7 @@ export default function HobartNyrstarPage() {
             <div className="lg:col-span-2">
               <h2 className="text-2xl font-black text-[#30505b] mb-6">Project Overview</h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Nyrstar operates one of the world's largest zinc smelters in Hobart, Tasmania. Pacific Water Tanks was engaged to supply and install two industrial tanks for the facility — a demanding industrial environment characterised by chemical exposure, corrosive atmospheres, and stringent operational requirements.
+            Nyrstar operates one of the world's largest zinc smelters in Hobart, Tasmania. PC Water Infrastructure was engaged to supply and install two industrial tanks for the facility — a demanding industrial environment characterised by chemical exposure, corrosive atmospheres, and stringent operational requirements.
               </p>
               <p className="text-gray-600 leading-relaxed mb-6">
                 The zinc processing environment at the Hobart facility creates highly aggressive conditions for water storage infrastructure. Standard tank specification is insufficient for this type of environment — materials, coatings, and fittings all need to be specifically selected for compatibility with the chemical environment and resistance to accelerated corrosion.
@@ -67,12 +67,12 @@ export default function HobartNyrstarPage() {
 
               <h3 className="text-xl font-black text-[#30505b] mt-8 mb-4">The Solution</h3>
               <p className="text-gray-600 leading-relaxed">
-                Pacific Water Tanks designed and installed two industrial tanks with materials and coatings specifically selected for the Nyrstar operating environment. Corrosion-resistant steel grades, specialist protective coating systems, and chemically compatible fittings were specified to ensure longevity in the aggressive industrial environment.
+            PC Water Infrastructure designed and installed two industrial tanks with materials and coatings specifically selected for the Nyrstar operating environment. Corrosion-resistant steel grades, specialist protective coating systems, and chemically compatible fittings were specified to ensure longevity in the aggressive industrial environment.
               </p>
 
               <h3 className="text-xl font-black text-[#30505b] mt-8 mb-4">The Outcome</h3>
               <p className="text-gray-600 leading-relaxed">
-                Both tanks were delivered to specification, meeting the facility's operational requirements and the specific engineering demands of the Nyrstar zinc processing environment. The project demonstrates Pacific Water Tanks' capability to deliver specialist industrial tank solutions in complex, demanding facilities.
+            Both tanks were delivered to specification, meeting the facility's operational requirements and the specific engineering demands of the Nyrstar zinc processing environment. The project demonstrates PC Water Infrastructure's capability to deliver specialist industrial tank solutions in complex, demanding facilities.
               </p>
             </div>
 

@@ -11,7 +11,7 @@ const gallery = [
 export const metadata: Metadata = {
   title: 'Albury Reservoir Reline | Projects',
   description:
-    'Pacific Water Tanks delivered a complete 600kL reservoir reline and refurbishment in Albury NSW — restoring AS4020 potable water compliance and extending asset life.',
+    'PC Water Infrastructure delivered a complete 600kL reservoir reline and refurbishment in Albury NSW — restoring AS4020 potable water compliance and extending asset life.',
 }
 
 export default function AlburyReservoirPage() {
@@ -50,10 +50,10 @@ export default function AlburyReservoirPage() {
             <div className="lg:col-span-2">
               <h2 className="text-2xl font-black text-[#30505b] mb-6">Project Overview</h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                An aging 600kL municipal reservoir in Albury, New South Wales had reached a point where corrosion and liner deterioration created compliance risk for potable water storage. Pacific Water Tanks was engaged to deliver a complete reline and refurbishment — restoring the reservoir to AS4020 potable water compliance and extending its service life by decades.
+            An aging 600kL municipal reservoir in Albury, New South Wales had reached a point where corrosion and liner deterioration created compliance risk for potable water storage. PC Water Infrastructure was engaged to deliver a complete reline and refurbishment — restoring the reservoir to AS4020 potable water compliance and extending its service life by decades.
               </p>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Rather than recommending reservoir replacement — which would have been significantly more expensive and disruptive — Pacific Water Tanks' assessment identified that the underlying structure remained sound and that RPVC liner installation combined with targeted refurbishment would fully restore the asset.
+            Rather than recommending reservoir replacement — which would have been significantly more expensive and disruptive — PC Water Infrastructure's assessment identified that the underlying structure remained sound and that RPVC liner installation combined with targeted refurbishment would fully restore the asset.
               </p>
 
               <h3 className="text-xl font-black text-[#30505b] mt-10 mb-4">The Challenge</h3>
@@ -63,7 +63,7 @@ export default function AlburyReservoirPage() {
 
               <h3 className="text-xl font-black text-[#30505b] mt-8 mb-4">The Solution</h3>
               <p className="text-gray-600 leading-relaxed">
-                Pacific Water Tanks conducted a structural assessment confirming the reservoir shell remained sound. An RPVC liner installation program was developed — the tank was taken offline, the interior cleaned and prepared, and specialist RPVC welders installed a new AS4020-compliant membrane lining. Full refurbishment of fittings and access infrastructure was completed alongside the liner installation.
+            PC Water Infrastructure conducted a structural assessment confirming the reservoir shell remained sound. An RPVC liner installation program was developed — the tank was taken offline, the interior cleaned and prepared, and specialist RPVC welders installed a new AS4020-compliant membrane lining. Full refurbishment of fittings and access infrastructure was completed alongside the liner installation.
               </p>
 
               <h3 className="text-xl font-black text-[#30505b] mt-8 mb-4">The Outcome</h3>

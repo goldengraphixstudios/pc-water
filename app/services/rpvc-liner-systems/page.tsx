@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const faqs = [
   { question: 'What is an RPVC liner?', answer: 'RPVC (Rigid PVC) liner is a thick, welded PVC membrane installed inside a water storage tank to protect the structural shell from corrosion and to meet potable water compliance requirements under AS4020. It is welded in place by specialist welders and provides a fully sealed internal surface.' },
   { question: 'How long does an RPVC liner last?', answer: 'A correctly installed and maintained RPVC liner will typically extend the service life of a tank by 20-25 years or more. The liner protects the structural steel or concrete from contact with stored water, dramatically reducing corrosion rates.' },
-  { question: 'Is RPVC liner suitable for potable water?', answer: 'Yes. RPVC liner material used by Pacific Water Tanks is AS4020 compliant — meaning it is suitable for contact with potable (drinking) water. This is an important compliance requirement for many water storage applications.' },
+  { question: 'Is RPVC liner suitable for potable water?', answer: 'Yes. RPVC liner material used by PC Water Infrastructure is AS4020 compliant — meaning it is suitable for contact with potable (drinking) water. This is an important compliance requirement for many water storage applications.' },
   { question: 'Can a liner be installed in a tank that is still serviceable?', answer: 'Yes. RPVC liners can be installed as a proactive measure to prevent corrosion in tanks that are currently serviceable. This is often more cost-effective than waiting until significant corrosion has occurred and the tank requires major structural remediation.' },
   { question: 'What is involved in the liner installation process?', answer: 'The tank is taken offline, cleaned, and prepared. The RPVC membrane panels are fabricated to size, installed, and welded in place by specialist welders. The liner is then tested for integrity before the tank is returned to service. The full process typically takes a few days depending on tank size.' },
 ]
@@ -44,7 +44,7 @@ export default function RPVCLinerPage() {
                 Replacing an aging water tank is expensive and disruptive. In most cases, a correctly installed RPVC liner can restore the tank to full compliance, prevent further corrosion, and extend operational life by two decades or more — at a fraction of replacement cost.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Pacific Water Tanks is a specialist RPVC liner contractor with expert welders trained in membrane preparation, installation, and integrity testing. Every liner is installed to AS4020 potable water standards and tested before the tank returns to service.
+            PC Water Infrastructure is a specialist RPVC liner contractor with expert welders trained in membrane preparation, installation, and integrity testing. Every liner is installed to AS4020 potable water standards and tested before the tank returns to service.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">

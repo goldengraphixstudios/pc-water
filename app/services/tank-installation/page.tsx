@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 }
 
 const faqs = [
-  { question: 'Do you manage the full installation process?', answer: 'Yes. Pacific Water Tanks manages everything from site preparation and foundation work through to structural erection, commissioning, and handover — providing a single point of accountability for your project.' },
+  { question: 'Do you manage the full installation process?', answer: 'Yes. PC Water Infrastructure manages everything from site preparation and foundation work through to structural erection, commissioning, and handover — providing a single point of accountability for your project.' },
   { question: 'How do you manage safety on installation sites?', answer: 'All installations operate under comprehensive JSA (Job Safety Analysis) and SWMS (Safe Work Method Statements). Our zero injury record reflects embedded daily toolbox talks, strict PPE compliance, and continuous safety monitoring.' },
   { question: 'Can you install in remote locations?', answer: 'Yes. Remote installation is a core capability. We coordinate FIFO crew deployment, remote logistics, and site-specific safety planning for installations across Queensland, Western Australia, Northern Territory, and beyond.' },
   { question: 'Do you provide project scheduling?', answer: 'All installation projects are managed with Gantt-based scheduling that provides clients with clear milestones, dependencies, and progress visibility throughout the project.' },
@@ -41,7 +41,7 @@ export default function TankInstallationPage() {
               <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ What We Deliver</p>
               <h2 className="text-3xl font-black text-[#30505b] mb-6">Turnkey Installation, National Reach</h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Pacific Water Tanks provides end-to-end installation services across Australia. Our certified installation crews bring the expertise, equipment, and safety systems needed to deliver complex tank projects on schedule and within compliance requirements.
+            PC Water Infrastructure provides end-to-end installation services across Australia. Our certified installation crews bring the expertise, equipment, and safety systems needed to deliver complex tank projects on schedule and within compliance requirements.
               </p>
               <p className="text-gray-600 leading-relaxed">
                 Whether you are installing a single fire water tank on a commercial site or multiple tanks as part of a major infrastructure program, we provide the same standard of professional delivery — with Gantt-based scheduling and single-point project accountability.

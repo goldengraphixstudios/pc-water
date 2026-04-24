@@ -1,15 +1,5 @@
-import { redirect } from 'next/navigation'
+import CmsAccessClient from '@/components/cms/CmsAccessClient'
 
-import { getCmsAuthContext } from '@/lib/cms/queries'
-
-export const dynamic = 'force-dynamic'
-
-export default async function CmsIndexPage() {
-  const auth = await getCmsAuthContext()
-
-  if (auth.user && auth.isAdmin) {
-    redirect('/cms/dashboard')
-  }
-
-  redirect('/cms/login')
+export default function CmsIndexPage() {
+  return <CmsAccessClient mode="landing" />
 }

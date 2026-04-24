@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const faqs = [
   { question: 'Do you have experience with local government procurement?', answer: 'Yes. We have delivered projects for local and state government clients and understand the documentation requirements, compliance expectations, and procurement processes involved. We provide full capability statements, RPEQ certification, and compliance documentation to support tender evaluation.' },
   { question: 'Can you support panel supply arrangements?', answer: 'Yes. We are experienced with government panel supply arrangements and can provide all required pre-qualification documentation. Contact us to discuss your panel requirements.' },
-  { question: 'How do you support public asset accountability?', answer: 'Every Pacific Water Tanks project includes full compliance documentation — engineering certificates, AS certification records, inspection reports, and handover documentation — ensuring public asset accountability from design through to commissioning and ongoing maintenance.' },
+  { question: 'How do you support public asset accountability?', answer: 'Every PC Water Infrastructure project includes full compliance documentation — engineering certificates, AS certification records, inspection reports, and handover documentation — ensuring public asset accountability from design through to commissioning and ongoing maintenance.' },
   { question: 'Do you deliver to regional and remote council areas?', answer: 'Remote delivery is a core specialisation. We have delivered to remote Queensland communities and understand the logistical challenges of delivering infrastructure to regional and remote council areas.' },
 ]
 

@@ -37,7 +37,7 @@ export default function RemoteRegionalCommunitiesPage() {
       <section className="bg-[#30505b] py-8">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <p className="text-gray-200 text-sm leading-relaxed">
-            Pacific Water Tanks acknowledges the Traditional Custodians of the lands on which we work. We are committed to delivering water infrastructure that serves remote and Indigenous communities with respect, dignity, and lasting impact.
+            PC Water Infrastructure acknowledges the Traditional Custodians of the lands on which we work. We are committed to delivering water infrastructure that serves remote and Indigenous communities with respect, dignity, and lasting impact.
           </p>
         </div>
       </section>

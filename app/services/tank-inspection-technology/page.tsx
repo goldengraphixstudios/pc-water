@@ -40,7 +40,7 @@ export default function TankInspectionPage() {
               <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Advanced Technology</p>
               <h2 className="text-3xl font-black text-[#30505b] mb-6">See More. Disrupt Less.</h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Traditional tank inspection requires dewatering — taking the asset offline, disposing of or transferring stored water, and conducting a manual internal inspection. For large tanks, this is expensive, time-consuming, and disruptive. Pacific Water Tanks uses advanced ROV and UAV technology to deliver superior inspection data with a fraction of the cost and disruption.
+            Traditional tank inspection requires dewatering — taking the asset offline, disposing of or transferring stored water, and conducting a manual internal inspection. For large tanks, this is expensive, time-consuming, and disruptive. PC Water Infrastructure uses advanced ROV and UAV technology to deliver superior inspection data with a fraction of the cost and disruption.
               </p>
               <p className="text-gray-600 leading-relaxed">
                 Our inspection reports provide detailed photographic and video documentation, condition ratings, and maintenance recommendations — giving asset owners the information they need to make smart decisions about their water storage assets.

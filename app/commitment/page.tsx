@@ -5,7 +5,7 @@ import CTABanner from '@/components/CTABanner'
 export const metadata: Metadata = {
   title: 'Our Commitment',
   description:
-    'Pacific Water Tanks commitment to safety, quality, sustainability, and community — including our SQE policies, engineering standards, and Indigenous engagement principles.',
+    'PC Water Infrastructure commitment to safety, quality, sustainability, and community — including our SQE policies, engineering standards, and Indigenous engagement principles.',
 }
 
 export default function CommitmentPage() {
@@ -30,7 +30,7 @@ export default function CommitmentPage() {
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Our Mission</p>
           <h2 className="text-3xl font-black text-white mb-4">SAFE WATER IS NOT A PRIVILEGE. IT IS A RIGHT.</h2>
           <p className="text-gray-300 text-lg leading-relaxed">
-            From remote Indigenous communities to major industrial facilities, every person deserves access to safe, reliable water. Pacific Water Tanks exists to deliver the infrastructure that makes that possible — with technical excellence, genuine care, and lasting commitment.
+            From remote Indigenous communities to major industrial facilities, every person deserves access to safe, reliable water. PC Water Infrastructure exists to deliver the infrastructure that makes that possible — with technical excellence, genuine care, and lasting commitment.
           </p>
         </div>
       </section>
@@ -109,14 +109,14 @@ export default function CommitmentPage() {
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Indigenous Engagement</p>
           <h2 className="text-3xl font-black text-[#30505b] mb-6">OUR COMMITMENT TO COUNTRY AND COMMUNITY</h2>
           <p className="text-gray-600 leading-relaxed mb-6">
-            Pacific Water Tanks acknowledges the Traditional Custodians of the land on which we work and live. We pay our respects to Elders past, present and emerging. This acknowledgement is not performative — it reflects our genuine commitment to respectful engagement with Indigenous communities and our ongoing responsibility to deliver projects that benefit, not burden, the communities we work alongside.
+            PC Water Infrastructure acknowledges the Traditional Custodians of the land on which we work and live. We pay our respects to Elders past, present and emerging. This acknowledgement is not performative — it reflects our genuine commitment to respectful engagement with Indigenous communities and our ongoing responsibility to deliver projects that benefit, not burden, the communities we work alongside.
           </p>
           <p className="text-gray-600 leading-relaxed mb-6">
             In practice, our Indigenous engagement commitment means: we engage with community elders and representatives before and during projects on Traditional land; we support and prioritise local employment on community projects; we design and deliver infrastructure that serves communities for decades; and we manage environmental impacts with the seriousness that Traditional land deserves.
           </p>
           <div className="bg-[#30505b] rounded-xl p-6 text-white">
             <p className="text-sm italic text-gray-200 leading-relaxed">
-              "Pacific Water Tanks acknowledges the Traditional Custodians of the land on which we work and live. We pay our respects to Elders past, present and emerging."
+              "PC Water Infrastructure acknowledges the Traditional Custodians of the land on which we work and live. We pay our respects to Elders past, present and emerging."
             </p>
           </div>
         </div>

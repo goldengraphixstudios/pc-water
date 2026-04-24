@@ -4,11 +4,11 @@ import SiteChrome from '@/components/SiteChrome'
 
 export const metadata: Metadata = {
   title: {
-    default: 'PC Water | Pacific Water Group - Engineered Water Solutions',
-    template: '%s | Pacific Water Group',
+    default: 'PC Water Infrastructure - Engineered Water Solutions',
+    template: '%s | PC Water Infrastructure',
   },
   description:
-    'PC Water / Pacific Water Group delivers engineered water storage solutions across Australia. Custom design, installation, RPVC liners, fire water tanks, and remote project delivery.',
+    'PC Water Infrastructure delivers engineered water storage solutions across Australia. Custom design, installation, RPVC liners, fire water tanks, and remote project delivery.',
   keywords: [
     'water tanks',
     'water storage',
@@ -23,18 +23,18 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_AU',
-    siteName: 'Pacific Water Group',
+    siteName: 'PC Water Infrastructure',
   },
 }
 
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Pacific Water Group',
+  name: 'PC Water Infrastructure',
   url: 'https://www.pctanks.com.au',
   logo: 'https://goldengraphixstudios.github.io/pc-water/logo-pacific-water-group.png',
   description:
-    'PC Water / Pacific Water Group delivers engineered water storage solutions across Australia. Founded 2013.',
+    'PC Water Infrastructure delivers engineered water storage solutions across Australia. Founded 2013.',
   foundingDate: '2013',
   telephone: '1300029804',
   email: 'info@pacificwatergroup.com.au',

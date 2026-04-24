@@ -4,7 +4,7 @@ import Link from 'next/link'
 import CTABanner from '@/components/CTABanner'
 import { getPublicPostBySlug, getPublicPosts, renderContentParagraphs } from '@/lib/cms/queries'
 
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-static'
 
 export async function generateStaticParams() {
   const posts = await getPublicPosts()

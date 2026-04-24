@@ -5,7 +5,7 @@ import CTABanner from '@/components/CTABanner'
 export const metadata: Metadata = {
   title: 'Industries We Serve',
   description:
-    'Pacific Water Tanks delivers water storage solutions to government, mining, industrial, commercial, and remote community sectors across Australia.',
+    'PC Water Infrastructure delivers water storage solutions to government, mining, industrial, commercial, and remote community sectors across Australia.',
 }
 
 const industries = [
@@ -44,7 +44,7 @@ export default function IndustriesPage() {
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Industries</p>
           <h1 className="text-5xl md:text-6xl font-black text-white mb-6">BUILT FOR YOUR SECTOR</h1>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
-            Every industry has unique water storage demands. Pacific Water Tanks has the experience, compliance capability, and sector-specific expertise to meet yours.
+            Every industry has unique water storage demands. PC Water Infrastructure has the experience, compliance capability, and sector-specific expertise to meet yours.
           </p>
         </div>
       </section>

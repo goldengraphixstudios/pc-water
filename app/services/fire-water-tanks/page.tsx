@@ -11,10 +11,10 @@ export const metadata: Metadata = {
 
 const faqs = [
   { question: 'What standard applies to fire water tanks in Australia?', answer: 'Fire water storage tanks in Australia must be designed and installed to AS2304 (Water Storage Tanks for Fire Protection Systems). Annual maintenance and inspection must comply with AS1851 (Maintenance of Fire Protection Systems and Equipment).' },
-  { question: 'How do I know if my fire water tank is compliant?', answer: 'If your tank has not had an AS1851 annual inspection, or if the tank pre-dates AS2304 compliance documentation, there is a compliance risk. Pacific Water Tanks can conduct an inspection and provide a condition report with remediation recommendations.' },
-  { question: 'What is the minimum storage volume required?', answer: 'Minimum fire water storage volume is determined by the fire engineer\'s report for your building or facility, based on risk category, sprinkler system design, and local authority requirements. Pacific Water Tanks works with fire engineers to design tanks that meet the specified flow duration and volume.' },
+  { question: 'How do I know if my fire water tank is compliant?', answer: 'If your tank has not had an AS1851 annual inspection, or if the tank pre-dates AS2304 compliance documentation, there is a compliance risk. PC Water Infrastructure can conduct an inspection and provide a condition report with remediation recommendations.' },
+  { question: 'What is the minimum storage volume required?', answer: 'Minimum fire water storage volume is determined by the fire engineer\'s report for your building or facility, based on risk category, sprinkler system design, and local authority requirements. PC Water Infrastructure works with fire engineers to design tanks that meet the specified flow duration and volume.' },
   { question: 'Do you integrate pump systems with fire water tanks?', answer: 'Yes. We coordinate fire pump system integration as part of our fire water tank installation scope, ensuring compatibility with the storage tank, pipework design, and AS2304 performance requirements.' },
-  { question: 'How often does a fire water tank need to be inspected?', answer: 'Under AS1851, fire protection systems — including water storage tanks — require annual inspection and maintenance by a qualified contractor. Pacific Water Tanks provides ongoing AS1851 inspection and maintenance services.' },
+  { question: 'How often does a fire water tank need to be inspected?', answer: 'Under AS1851, fire protection systems — including water storage tanks — require annual inspection and maintenance by a qualified contractor. PC Water Infrastructure provides ongoing AS1851 inspection and maintenance services.' },
 ]
 
 export default function FireWaterTanksPage() {
@@ -40,7 +40,7 @@ export default function FireWaterTanksPage() {
               <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ What This Service Covers</p>
               <h2 className="text-3xl font-black text-[#30505b] mb-6">Compliance You Cannot Afford to Skip</h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                A fire water tank that does not perform in an emergency is not just a compliance failure — it is a catastrophic risk. Pacific Water Tanks designs, installs, and maintains fire water storage systems to AS2304, with full documentation for insurance, regulatory, and building compliance purposes.
+            A fire water tank that does not perform in an emergency is not just a compliance failure — it is a catastrophic risk. PC Water Infrastructure designs, installs, and maintains fire water storage systems to AS2304, with full documentation for insurance, regulatory, and building compliance purposes.
               </p>
               <p className="text-gray-600 leading-relaxed">
                 We work alongside fire engineers, building certifiers, and facility managers to ensure your system is designed to the correct flow rates and storage volumes — and remains compliant through ongoing AS1851 inspection and maintenance.

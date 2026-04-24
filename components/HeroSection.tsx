@@ -18,7 +18,7 @@ export default function HeroSection() {
       {/* Background image */}
       <Image
         src="/hero.png"
-        alt="Pacific Water Tanks — engineered water storage infrastructure"
+              alt="PC Water Infrastructure — engineered water storage infrastructure"
         fill
         priority
         className="object-cover object-center"

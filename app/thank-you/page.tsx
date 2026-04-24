@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Thank You — Enquiry Received',
-  description: 'Your enquiry has been received. The Pacific Water Tanks team will respond within one business day.',
+  description: 'Your enquiry has been received. The PC Water Infrastructure team will respond within one business day.',
 }
 
 export default function ThankYouPage() {
@@ -20,7 +20,7 @@ export default function ThankYouPage() {
         <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Enquiry Received</p>
         <h1 className="text-4xl font-black text-[#30505b] mb-4">THANK YOU — WE&apos;LL BE IN TOUCH</h1>
         <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-          Your enquiry has been received and the Pacific Water Tanks team will review your project details and respond <strong>within one business day</strong>.
+            Your enquiry has been received and the PC Water Infrastructure team will review your project details and respond <strong>within one business day</strong>.
         </p>
 
         {/* What happens next */}

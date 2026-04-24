@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Contact Us',
   description:
-    'Contact Pacific Water Tanks to discuss your water storage project. Phone: 1300 029 804. Email: info@pacificwatergroup.com.au. We respond within one business day.',
+    'Contact PC Water Infrastructure to discuss your water storage project. Phone: 1300 029 804. Email: info@pacificwatergroup.com.au. We respond within one business day.',
 }
 
 export default function ContactPage() {

@@ -7,10 +7,10 @@ import { getPublicProjects, toProjectGridItems } from '@/lib/cms/queries'
 export const metadata: Metadata = {
   title: 'Projects',
   description:
-    'Pacific Water Tanks project portfolio — water storage infrastructure delivered across government, mining, industrial, commercial, and remote community sectors across Australia.',
+    'PC Water Infrastructure project portfolio — water storage infrastructure delivered across government, mining, industrial, commercial, and remote community sectors across Australia.',
 }
 
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-static'
 
 export default async function ProjectsPage() {
   const projects = await getPublicProjects()
@@ -20,7 +20,7 @@ export default async function ProjectsPage() {
       <section className="relative pt-40 pb-24 overflow-hidden min-h-[500px] flex items-center">
         <Image
           src="/projects/borumba-03.jpg"
-          alt="Pacific Water Tanks project portfolio"
+            alt="PC Water Infrastructure project portfolio"
           fill
           priority
           className="object-cover object-center"
@@ -33,7 +33,7 @@ export default async function ProjectsPage() {
             BUILT TO PERFORM.<br />DESIGNED TO LAST.
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
-            From remote Indigenous communities to industrial facilities, hydro energy schemes to municipal reservoirs — every Pacific Water Tanks project is delivered with the same commitment to engineering excellence and lasting performance.
+            From remote Indigenous communities to industrial facilities, hydro energy schemes to municipal reservoirs — every PC Water Infrastructure project is delivered with the same commitment to engineering excellence and lasting performance.
           </p>
         </div>
       </section>

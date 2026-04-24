@@ -123,7 +123,7 @@ export const fallbackProjects: CmsProject[] = [
     slug: 'borumba-hydro',
     summary: '2 × 521KL tanks — potable and effluent dual-purpose system',
     content:
-      'Pacific Water Tanks delivered two 521KL tanks for the Borumba Hydro Scheme, combining potable and effluent storage requirements into a coordinated infrastructure outcome.\n\nThe project required design integration, remote site planning, and disciplined delivery sequencing to fit the broader energy program.',
+      'PC Water Infrastructure delivered two 521KL tanks for the Borumba Hydro Scheme, combining potable and effluent storage requirements into a coordinated infrastructure outcome.\n\nThe project required design integration, remote site planning, and disciplined delivery sequencing to fit the broader energy program.',
     sector: 'Hydro Energy / Government',
     location: 'Borumba Dam, QLD',
     scope: '2 × 521KL tanks — potable and effluent dual-purpose system',
@@ -144,7 +144,7 @@ export const fallbackProjects: CmsProject[] = [
     slug: 'hobart-nyrstar',
     summary: 'Industrial tank refurbishment for a zinc processing environment',
     content:
-      'Hobart Nyrstar required an outcome suited to a corrosion-critical industrial environment. Pacific Water Tanks delivered a refurbishment-led solution aligned to the operating conditions of the facility.\n\nThe project highlights the need for sector-specific material and maintenance decisions in aggressive process environments.',
+      'Hobart Nyrstar required an outcome suited to a corrosion-critical industrial environment. PC Water Infrastructure delivered a refurbishment-led solution aligned to the operating conditions of the facility.\n\nThe project highlights the need for sector-specific material and maintenance decisions in aggressive process environments.',
     sector: 'Refurbish',
     location: 'Hobart, Tasmania',
     scope: 'Industrial tank refurbishment for a zinc processing environment',
@@ -165,7 +165,7 @@ export const fallbackProjects: CmsProject[] = [
     slug: 'doomadgee-wtp',
     summary: '2ML ground-level reservoir for remote community water storage',
     content:
-      'Pacific Water Tanks delivered a 2ML ground-level reservoir in Doomadgee as part of remote community water infrastructure delivery.\n\nThe project required remote logistics, community-aware delivery planning, and coordination around challenging site conditions.',
+      'PC Water Infrastructure delivered a 2ML ground-level reservoir in Doomadgee as part of remote community water infrastructure delivery.\n\nThe project required remote logistics, community-aware delivery planning, and coordination around challenging site conditions.',
     sector: 'Remote Community / Government',
     location: 'Doomadgee, QLD (Remote)',
     scope: '2ML ground-level reservoir for remote community water storage',
@@ -189,7 +189,7 @@ export const fallbackProjects: CmsProject[] = [
     slug: 'albury-reservoir',
     summary: '600kL reservoir RPVC reline and full refurbishment',
     content:
-      'Pacific Water Tanks completed a full refurbishment and RPVC relining scope for an aging municipal reservoir in Albury.\n\nThe project is a strong example of lining as a lifecycle extension strategy when the core structure remains sound.',
+      'PC Water Infrastructure completed a full refurbishment and RPVC relining scope for an aging municipal reservoir in Albury.\n\nThe project is a strong example of lining as a lifecycle extension strategy when the core structure remains sound.',
     sector: 'Municipal / Government',
     location: 'Albury, NSW',
     scope: '600kL reservoir RPVC reline and full refurbishment',
@@ -215,7 +215,7 @@ export const fallbackProjects: CmsProject[] = [
     slug: 'clarence-road-liner',
     summary: '2 × tank RPVC liner replacement',
     content:
-      'Pacific Water Tanks replaced failing liners for two tanks at 107 Clarence Road, restoring compliant operation and extending usable life.\n\nThis project reflects a common remediation pathway for commercial assets that need practical intervention without full replacement.',
+      'PC Water Infrastructure replaced failing liners for two tanks at 107 Clarence Road, restoring compliant operation and extending usable life.\n\nThis project reflects a common remediation pathway for commercial assets that need practical intervention without full replacement.',
     sector: 'Commercial',
     location: '107 Clarence Road',
     scope: '2 × tank RPVC liner replacement',

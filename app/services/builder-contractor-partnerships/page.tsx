@@ -39,7 +39,7 @@ export default function BuilderContractorPage() {
               <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ The Subcontract Model</p>
               <h2 className="text-3xl font-black text-[#30505b] mb-6">Your Specialist Water Storage Partner</h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                When your project requires specialist water storage capability — custom tank design, RPVC lining, fire water compliance, or remote installation — Pacific Water Tanks delivers as a reliable, professional subcontractor. We slot into your program, deliver our scope to your timeline, and provide all required compliance documentation.
+            When your project requires specialist water storage capability — custom tank design, RPVC lining, fire water compliance, or remote installation — PC Water Infrastructure delivers as a reliable, professional subcontractor. We slot into your program, deliver our scope to your timeline, and provide all required compliance documentation.
               </p>
               <p className="text-gray-600 leading-relaxed">
                 Our contractor partnerships are built on reliability, clear communication, and technical competence. We understand that your reputation depends on your subcontractors performing — which is why we make accountability our standard.

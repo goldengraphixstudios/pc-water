@@ -6,7 +6,7 @@ import CTABanner from '@/components/CTABanner'
 import GalleryLightbox from '@/components/GalleryLightbox'
 import { getPublicProjectBySlug, getPublicProjects, renderContentParagraphs } from '@/lib/cms/queries'
 
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-static'
 
 export async function generateStaticParams() {
   const projects = await getPublicProjects()

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { getPublicPosts, getPublicProjects } from '@/lib/cms/queries'
 
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-static'
 
 const BASE_URL = process.env.SITE_URL || 'https://goldengraphixstudios.github.io/pc-water'
 

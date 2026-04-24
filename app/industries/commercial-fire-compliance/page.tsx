@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 
 const faqs = [
   { question: 'Does my commercial building need a fire water tank?', answer: 'The requirement for a fire water storage tank is determined by the fire engineer\'s report for your building, the applicable BCA/NCC fire system design, and local authority requirements. If your building has or requires a fire sprinkler system, suppression system, or hydrant system, a compliant water storage tank is typically required.' },
-  { question: 'How often does a commercial fire water tank need to be inspected?', answer: 'Under AS1851, fire protection system components — including water storage tanks — require annual inspection and maintenance. Pacific Water Tanks provides AS1851 annual inspection services for commercial fire water tanks.' },
-  { question: 'What happens if my fire water tank fails AS1851 inspection?', answer: 'If your tank fails annual inspection, it needs to be remediated to return to compliance. Depending on the findings, this might involve RPVC liner installation, structural repair, fitting replacement, or capacity verification. Pacific Water Tanks can assess and remediate tanks that have failed inspection.' },
+  { question: 'How often does a commercial fire water tank need to be inspected?', answer: 'Under AS1851, fire protection system components — including water storage tanks — require annual inspection and maintenance. PC Water Infrastructure provides AS1851 annual inspection services for commercial fire water tanks.' },
+  { question: 'What happens if my fire water tank fails AS1851 inspection?', answer: 'If your tank fails annual inspection, it needs to be remediated to return to compliance. Depending on the findings, this might involve RPVC liner installation, structural repair, fitting replacement, or capacity verification. PC Water Infrastructure can assess and remediate tanks that have failed inspection.' },
   { question: 'Does fire water tank compliance affect my building insurance?', answer: 'Yes. An AS2304 compliant fire water tank and current AS1851 annual inspection are typically conditions of commercial property insurance. Non-compliance can void insurance coverage in the event of a fire — a significant financial risk for property owners.' },
 ]
 
@@ -83,7 +83,7 @@ export default function CommercialFireCompliancePage() {
       </section>
 
       <FAQBlock faqs={faqs} heading="Commercial Fire Compliance — FAQs" />
-      <CTABanner heading="IS YOUR FIRE WATER SYSTEM COMPLIANT?" subheading="Get a compliance review from Pacific Water Tanks and protect your property, people, and insurance." primaryCTA={{ label: 'Request a Compliance Review', href: '/contact' }} secondaryCTA={{ label: 'Download Fire Water Guide', href: '#' }} variant="navy" />
+      <CTABanner heading="IS YOUR FIRE WATER SYSTEM COMPLIANT?" subheading="Get a compliance review from PC Water Infrastructure and protect your property, people, and insurance." primaryCTA={{ label: 'Request a Compliance Review', href: '/contact' }} secondaryCTA={{ label: 'Download Fire Water Guide', href: '#' }} variant="navy" />
     </>
   )
 }

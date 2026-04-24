@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Coming Soon',
   description:
-    'This section of the Pacific Water Tanks website is temporarily unavailable while the site is being staged.',
+    'This section of the PC Water Infrastructure website is temporarily unavailable while the site is being staged.',
 }
 
 export default function ComingSoonPage() {
@@ -24,7 +24,7 @@ export default function ComingSoonPage() {
             <span className="gradient-text">SOON</span>
           </h1>
           <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-gray-300">
-            This section is temporarily offline while the new Pacific Water Tanks site is being staged.
+            This section is temporarily offline while the new PC Water Infrastructure site is being staged.
             For now, use the live pages below.
           </p>
 

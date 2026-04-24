@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 }
 
 const faqs = [
-  { question: 'What procurement support do you provide?', answer: 'We support clients through the full procurement process — from specification development and tender preparation through to compliance documentation and ongoing panel supply. Our goal is to make Pacific Water Tanks the easiest, most credible choice in any tender evaluation.' },
+  { question: 'What procurement support do you provide?', answer: 'We support clients through the full procurement process — from specification development and tender preparation through to compliance documentation and ongoing panel supply. Our goal is to make PC Water Infrastructure the easiest, most credible choice in any tender evaluation.' },
   { question: 'Can you help develop technical specifications?', answer: 'Yes. We provide technical specification development support to ensure that procurement documents accurately reflect best-practice water storage requirements — including applicable Australian standards, material specifications, and performance criteria.' },
   { question: 'Are you on any government panels?', answer: 'Our procurement support service is specifically designed to support government and council procurement processes. We can provide all required documentation to support panel registration applications and ongoing panel supply.' },
   { question: 'Do you have a capability statement available?', answer: 'Yes. Our capability statement is available for download and covers our full service range, project track record, compliance certifications, and key personnel. It is designed to meet common government procurement documentation requirements.' },
@@ -24,7 +24,7 @@ export default function TenderProcurementPage() {
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Services</p>
           <h1 className="text-5xl md:text-6xl font-black text-white mb-6">Tender & Procurement Support</h1>
           <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
-            Specialist procurement and tendering support for councils, government agencies, and major contractors — making Pacific Water Tanks easy to engage and easy to trust.
+            Specialist procurement and tendering support for councils, government agencies, and major contractors — making PC Water Infrastructure easy to engage and easy to trust.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link href="/contact" className="inline-flex items-center gap-2 bg-[#3e91ce] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#2d7ab8] transition-colors">
@@ -44,7 +44,7 @@ export default function TenderProcurementPage() {
               <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ What We Provide</p>
               <h2 className="text-3xl font-black text-[#30505b] mb-6">Government-Ready. Panel-Ready. Project-Ready.</h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Government procurement requires more than capability — it requires documentation, compliance records, and a demonstrable track record. Pacific Water Tanks has built its procurement support service to make the evaluation process straightforward for councils, agencies, and major contractors.
+            Government procurement requires more than capability — it requires documentation, compliance records, and a demonstrable track record. PC Water Infrastructure has built its procurement support service to make the evaluation process straightforward for councils, agencies, and major contractors.
               </p>
               <p className="text-gray-600 leading-relaxed">
                 From pre-qualification through to tender response and contract delivery, we provide the documentation, expertise, and reliability that government procurement demands.
@@ -73,7 +73,7 @@ export default function TenderProcurementPage() {
 
       <section className="bg-[#F4F6F8] py-20">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-2xl font-black text-[#30505b] mb-8 text-center">Why Government Procurement Teams Choose Pacific Water Tanks</h2>
+            <h2 className="text-2xl font-black text-[#30505b] mb-8 text-center">Why Government Procurement Teams Choose PC Water Infrastructure</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               { title: 'Proven Track Record', desc: 'Delivered projects for government, councils, and major agencies across Australia — with documented project outcomes and client references.' },

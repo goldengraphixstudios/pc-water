@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const faqs = [
   { question: 'How often should a water tank be maintained?', answer: 'At minimum, water tanks should be inspected annually and maintained on a schedule that reflects the inspection findings, operating environment, and age of the asset. In corrosive environments or with older assets, more frequent inspection and maintenance is warranted.' },
   { question: 'What is the difference between maintenance and an upgrade?', answer: 'Maintenance addresses existing conditions — cleaning, coating touch-ups, minor structural repairs, fitting replacement. An upgrade increases capacity, improves structural integrity, or extends the asset\'s life through more significant intervention like RPVC liner installation or structural reinforcement.' },
-  { question: 'Can you extend the life of an aging tank rather than replacing it?', answer: 'In most cases, yes. Depending on the condition of the tank, options including RPVC liner installation, structural repair, and corrosion treatment can extend asset life by 20+ years at a fraction of replacement cost. Pacific Water Tanks provides honest assessments of what is achievable for each asset.' },
+  { question: 'Can you extend the life of an aging tank rather than replacing it?', answer: 'In most cases, yes. Depending on the condition of the tank, options including RPVC liner installation, structural repair, and corrosion treatment can extend asset life by 20+ years at a fraction of replacement cost. PC Water Infrastructure provides honest assessments of what is achievable for each asset.' },
   { question: 'Do you provide emergency reactive maintenance?', answer: 'Yes. We respond to urgent maintenance requests where tank failure or compliance breaches require immediate attention. Contact us directly on 1300 029 804 to discuss urgent maintenance needs.' },
 ]
 
@@ -39,7 +39,7 @@ export default function TankMaintenancePage() {
               <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Service Overview</p>
               <h2 className="text-3xl font-black text-[#30505b] mb-6">Protect Your Asset Investment</h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Water storage tanks represent significant capital investment. Without planned maintenance, that investment deteriorates faster than necessary — leading to compliance failures, emergency repairs, and premature replacement. Pacific Water Tanks provides systematic maintenance programs that protect your asset and extend its operational life.
+            Water storage tanks represent significant capital investment. Without planned maintenance, that investment deteriorates faster than necessary — leading to compliance failures, emergency repairs, and premature replacement. PC Water Infrastructure provides systematic maintenance programs that protect your asset and extend its operational life.
               </p>
               <p className="text-gray-600 leading-relaxed">
                 From routine annual maintenance to major structural upgrades, our maintenance and upgrade services are inspection-led — meaning every recommendation is grounded in the actual condition of your asset, not generic assumptions.

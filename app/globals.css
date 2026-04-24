@@ -69,15 +69,40 @@ body {
 }
 
 /* Marquee */
-@keyframes marquee {
+@keyframes marquee-left-primary {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(-100%); }
 }
-.animate-marquee {
-  animation: marquee 30s linear infinite;
+
+@keyframes marquee-left-secondary {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0); }
 }
-.animate-marquee:hover {
-  animation-play-state: paused;
+
+@keyframes marquee-right-primary {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes marquee-right-secondary {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
+}
+
+.marquee-left-primary {
+  animation: marquee-left-primary 32s linear infinite;
+}
+
+.marquee-left-secondary {
+  animation: marquee-left-secondary 32s linear infinite;
+}
+
+.marquee-right-primary {
+  animation: marquee-right-primary 32s linear infinite;
+}
+
+.marquee-right-secondary {
+  animation: marquee-right-secondary 32s linear infinite;
 }
 
 /* Grid dot pattern */
