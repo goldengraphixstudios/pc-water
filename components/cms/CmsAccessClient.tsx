@@ -6,7 +6,6 @@ import { useRouter } from 'next/navigation'
 
 import LoginForm from '@/components/cms/LoginForm'
 import { createSupabaseBrowserClient } from '@/lib/supabase/browser'
-import { withBasePath } from '@/lib/base-path'
 
 type CmsAccessClientProps = {
   mode: 'login' | 'landing'
@@ -132,14 +131,14 @@ export default function CmsAccessClient({ mode }: CmsAccessClientProps) {
               </Link>
             ) : (
               <Link
-                href={withBasePath('/cms/login/')}
+                href="/cms/login"
                 className="glow-btn rounded-full bg-[#3e91ce] px-8 py-4 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:bg-[#2d7ab8]"
               >
                 Go to CMS Login
               </Link>
             )}
             <Link
-              href={withBasePath('/')}
+              href="/"
               className="rounded-full border border-white/20 px-8 py-4 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:bg-white/10"
             >
               Back to Website
