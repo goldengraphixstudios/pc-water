@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
 import CTABanner from '@/components/CTABanner'
-import ProjectCard from '@/components/ProjectCard'
+import SectionProjects from '@/components/SectionProjects'
 
 export const metadata: Metadata = {
   title: 'Water Storage Solutions for Government & Councils',
@@ -88,15 +88,7 @@ export default function GovernmentCouncilsPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-2xl font-black text-[#30505b] mb-8 text-center">Government Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            <ProjectCard title="Doomadgee 2ML Reservoir" sector="Remote Community / Government" location="Doomadgee, QLD" scope="2ML reservoir for remote community water storage" href="/projects/doomadgee-wtp" />
-            <ProjectCard title="Albury Reservoir Reline" sector="Municipal / Government" location="Albury, NSW" scope="600kL reservoir reline and refurbishment" href="/projects/albury-reservoir" />
-          </div>
-        </div>
-      </section>
+      <SectionProjects heading="Government Projects" limit={2} sector="Government" bgColor="bg-white" />
 
       <FAQBlock faqs={faqs} heading="Government & Councils — FAQs" />
       <CTABanner heading="READY TO DISCUSS YOUR GOVERNMENT PROJECT?" subheading="Download our capability statement or contact us directly to discuss your project requirements." primaryCTA={{ label: 'Discuss Your Project', href: '/contact' }} secondaryCTA={{ label: 'Download Capability Statement', href: '#' }} />

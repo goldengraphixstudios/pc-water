@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
 import CTABanner from '@/components/CTABanner'
-import ProjectCard from '@/components/ProjectCard'
+import SectionProjects from '@/components/SectionProjects'
 
 export const metadata: Metadata = {
   title: 'Water Storage for Remote & Regional Communities',
@@ -84,14 +84,7 @@ export default function RemoteRegionalCommunitiesPage() {
         </div>
       </section>
 
-      <section className="bg-[#F4F6F8] py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-2xl font-black text-[#30505b] mb-8 text-center">Community Projects</h2>
-          <div className="max-w-lg mx-auto">
-            <ProjectCard title="Doomadgee 2ML Reservoir" sector="Remote Community / Government" location="Doomadgee, QLD (Remote)" scope="2ML ground-level reservoir delivering safe water to a remote Indigenous community" href="/projects/doomadgee-wtp" />
-          </div>
-        </div>
-      </section>
+      <SectionProjects heading="Community Projects" limit={2} sector="Remote" bgColor="bg-[#F4F6F8]" />
 
       <FAQBlock faqs={faqs} heading="Remote Communities — FAQs" />
       <CTABanner heading="DELIVERING SAFE WATER WHERE IT MATTERS MOST" subheading="Contact us to discuss your remote community water storage project." primaryCTA={{ label: 'Discuss Your Project', href: '/contact' }} secondaryCTA={{ label: 'Download Remote Project Guide', href: '#' }} />

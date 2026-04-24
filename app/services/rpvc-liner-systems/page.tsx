@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
 import CTABanner from '@/components/CTABanner'
-import ProjectCard from '@/components/ProjectCard'
+import SectionProjects from '@/components/SectionProjects'
 
 export const metadata: Metadata = {
   title: 'RPVC Liner Systems',
@@ -68,15 +68,7 @@ export default function RPVCLinerPage() {
         </div>
       </section>
 
-      <section className="bg-[#F4F6F8] py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-2xl font-black text-[#30505b] mb-8 text-center">Related Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            <ProjectCard title="Albury Reservoir Reline" sector="Municipal / Government" location="Albury, NSW" scope="600kL reservoir RPVC reline & refurbishment" href="/projects/albury-reservoir" />
-            <ProjectCard title="Clarence Road Liner Replacement" sector="Commercial" location="107 Clarence Road" scope="2 × tank RPVC liner replacement" href="/projects/clarence-road-liner" />
-          </div>
-        </div>
-      </section>
+      <SectionProjects heading="Related Projects" limit={2} bgColor="bg-[#F4F6F8]" />
 
       <section className="bg-[#30505b] py-20">
         <div className="max-w-6xl mx-auto px-4">

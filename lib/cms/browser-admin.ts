@@ -114,6 +114,25 @@ async function syncJoinTable(
 
 // ── Data fetching ─────────────────────────────────────────────────────────────
 
+// ── Public (no auth required) ─────────────────────────────────────────────────
+
+export async function fetchPublishedProjects(limit = 6): Promise<CmsProject[]> {
+  const supabase = createSupabaseBrowserClient()
+  if (!supabase) return []
+
+  const { data, error } = await supabase
+    .from('cms_projects')
+    .select(PROJECT_SELECT)
+    .eq('status', 'published')
+    .order('published_at', { ascending: false })
+    .limit(limit)
+
+  if (error || !data) return []
+  return (data as ProjectRow[]).map(mapProject)
+}
+
+// ── Admin (auth required) ─────────────────────────────────────────────────────
+
 export async function fetchAdminPosts(): Promise<CmsPost[]> {
   const supabase = createSupabaseBrowserClient()
   if (!supabase) return []

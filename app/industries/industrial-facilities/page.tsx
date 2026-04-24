@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
 import CTABanner from '@/components/CTABanner'
-import ProjectCard from '@/components/ProjectCard'
+import SectionProjects from '@/components/SectionProjects'
 
 export const metadata: Metadata = {
   title: 'Industrial Water Storage Solutions',
@@ -87,15 +87,7 @@ export default function IndustrialFacilitiesPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-2xl font-black text-[#30505b] mb-8 text-center">Industrial Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            <ProjectCard title="Hobart Nyrstar Industrial" sector="Refurbish" location="Hobart, Tasmania" scope="Industrial tank refurbishment for a zinc processing environment" href="/projects/hobart-nyrstar" />
-            <ProjectCard title="Clarence Road Liner Replacement" sector="Commercial" location="107 Clarence Road" scope="2 × tank RPVC liner replacement" href="/projects/clarence-road-liner" />
-          </div>
-        </div>
-      </section>
+      <SectionProjects heading="Industrial Projects" limit={2} sector="Industrial" bgColor="bg-white" />
 
       <FAQBlock faqs={faqs} heading="Industrial Facilities — FAQs" />
       <CTABanner heading="INDUSTRIAL WATER STORAGE THAT PERFORMS" subheading="Contact us to discuss your process water or fire suppression requirements." primaryCTA={{ label: 'Discuss Your Project', href: '/contact' }} secondaryCTA={{ label: 'Download Capability Statement', href: '#' }} />

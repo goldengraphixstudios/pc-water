@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
 import CTABanner from '@/components/CTABanner'
-import ProjectCard from '@/components/ProjectCard'
+import SectionProjects from '@/components/SectionProjects'
 
 export const metadata: Metadata = {
   title: 'Professional Tank Installation',
@@ -101,15 +101,7 @@ export default function TankInstallationPage() {
         </div>
       </section>
 
-      <section className="bg-[#F4F6F8] py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-2xl font-black text-[#30505b] mb-8 text-center">Related Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            <ProjectCard title="Borumba Hydro Scheme" sector="Hydro Energy / Government" location="Borumba Dam, QLD" scope="Full installation of 2 × 521KL tanks" href="/projects/borumba-hydro" />
-            <ProjectCard title="Hobart Nyrstar Industrial" sector="Refurbish" location="Hobart, Tasmania" scope="Industrial tank refurbishment in a corrosion-critical environment" href="/projects/hobart-nyrstar" />
-          </div>
-        </div>
-      </section>
+      <SectionProjects heading="Related Projects" limit={2} bgColor="bg-[#F4F6F8]" />
 
       <FAQBlock faqs={faqs} heading="Tank Installation — FAQs" />
       <CTABanner heading="READY TO DISCUSS YOUR INSTALLATION?" subheading="Contact us to discuss your project scope, timeline, and site requirements." primaryCTA={{ label: 'Discuss a Project', href: '/contact' }} secondaryCTA={{ label: 'Download Capability Statement', href: '#' }} />

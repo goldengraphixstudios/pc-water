@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
 import CTABanner from '@/components/CTABanner'
-import ProjectCard from '@/components/ProjectCard'
+import SectionProjects from '@/components/SectionProjects'
 
 export const metadata: Metadata = {
   title: 'Water Storage for Mining & Resources',
@@ -87,15 +87,7 @@ export default function MiningResourcesPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-2xl font-black text-[#30505b] mb-8 text-center">Mining & Industrial Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            <ProjectCard title="Hobart Nyrstar Industrial" sector="Refurbish" location="Hobart, Tasmania" scope="Industrial tank refurbishment for a corrosive processing environment" href="/projects/hobart-nyrstar" />
-            <ProjectCard title="Doomadgee 2ML Reservoir" sector="Remote Community" location="Doomadgee, QLD (Remote)" scope="2ML ground-level reservoir — remote delivery" href="/projects/doomadgee-wtp" />
-          </div>
-        </div>
-      </section>
+      <SectionProjects heading="Mining & Industrial Projects" limit={2} sector="Mining" bgColor="bg-white" />
 
       <FAQBlock faqs={faqs} heading="Mining & Resources — FAQs" />
       <CTABanner heading="GOT A MINE SITE WATER STORAGE CHALLENGE?" subheading="Contact us to discuss your project requirements — remote, harsh environment, and compliance-critical." primaryCTA={{ label: 'Discuss Your Project', href: '/contact' }} secondaryCTA={{ label: 'Download Capability Statement', href: '#' }} variant="navy" />
