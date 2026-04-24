@@ -17,8 +17,6 @@ export default function CmsAccessClient({ mode }: CmsAccessClientProps) {
   const [status, setStatus] = useState<'checking' | 'admin' | 'not-admin' | 'signed-out'>('checking')
   const [email, setEmail] = useState<string | null>(null)
 
-  const isGitHubPages = process.env.NEXT_PUBLIC_BASE_PATH === '/pc-water'
-  const cmsHomeHref = useMemo(() => withBasePath('/cms/'), [])
 
   useEffect(() => {
     let active = true
@@ -62,9 +60,8 @@ export default function CmsAccessClient({ mode }: CmsAccessClientProps) {
       if (adminRow) {
         setStatus('admin')
 
-        if (mode === 'login' && !isGitHubPages) {
+        if (mode === 'login') {
           router.replace('/cms/dashboard')
-          router.refresh()
         }
         return
       }
@@ -87,36 +84,6 @@ export default function CmsAccessClient({ mode }: CmsAccessClientProps) {
             Checking CMS access...
           </div>
         </div>
-      )
-    }
-
-    if (status === 'admin' && isGitHubPages) {
-      return (
-        <main className="min-h-screen bg-[#F0F3F9] dark:bg-[#0C0E16] flex items-center justify-center p-4">
-          <div className="w-full max-w-xl rounded-3xl border border-slate-200 bg-white p-8 shadow-sm dark:border-[#1E2235] dark:bg-[#13161F]">
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-[#3e91ce]">CMS Access</p>
-            <h1 className="mb-4 text-3xl font-black text-[#30505b] dark:text-slate-100">Signed In</h1>
-            <p className="mb-6 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-              You are signed in as <span className="font-semibold text-slate-900 dark:text-slate-100">{email}</span>.
-              This GitHub Pages deployment can host the CMS login entry, but the editing dashboard still needs the
-              server runtime build.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href={cmsHomeHref}
-                className="rounded-full bg-[#3e91ce] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#2d7ab8]"
-              >
-                Open CMS Entry
-              </Link>
-              <Link
-                href={withBasePath('/')}
-                className="rounded-full border border-slate-200 px-5 py-2.5 text-sm font-semibold text-[#30505b] transition-colors hover:border-[#3e91ce] hover:text-[#3e91ce] dark:border-[#1E2235] dark:text-slate-200"
-              >
-                Back to Website
-              </Link>
-            </div>
-          </div>
-        </main>
       )
     }
 
