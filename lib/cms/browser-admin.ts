@@ -4,7 +4,7 @@
  * Works identically on GitHub Pages (static export) and Vercel/Node.
  */
 import { createSupabaseBrowserClient } from '@/lib/supabase/browser'
-import { buildPostPayload, buildProjectPayload } from '@/lib/cms/queries'
+import { buildPostPayload, buildProjectPayload } from '@/lib/cms/payloads'
 import { normalizeTagNames, slugify } from '@/lib/cms/utils'
 import type { CmsPost, CmsProject, CmsPostInput, CmsProjectInput } from '@/lib/cms/types'
 
