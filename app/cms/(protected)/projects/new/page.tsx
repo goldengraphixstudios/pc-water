@@ -1,21 +1,20 @@
+'use client'
+
+import { useEffect, useState } from 'react'
+import { fetchAdminProjectFilterOptions } from '@/lib/cms/browser-admin'
 import ProjectEditorForm from '@/components/cms/ProjectEditorForm'
-import { getAdminProjectFilterOptions } from '@/lib/cms/queries'
 
-export const dynamic = 'force-dynamic'
+export default function NewProjectPage() {
+  const [filterOptions, setFilterOptions] = useState<{ classifications: string[]; tags: string[] } | null>(null)
 
-export default async function NewProjectPage() {
-  const filterOptions = await getAdminProjectFilterOptions()
+  useEffect(() => {
+    fetchAdminProjectFilterOptions().then(setFilterOptions)
+  }, [])
 
   return (
-    <div className="space-y-6">
-      <div>
-        <p className="text-xs uppercase tracking-[0.25em] text-[#3e91ce] font-bold mb-2">CMS</p>
-        <h1 className="text-4xl font-black text-[#30505b]">New Project</h1>
-      </div>
-      <ProjectEditorForm
-        availableClassifications={filterOptions.classifications}
-        availableTags={filterOptions.tags}
-      />
-    </div>
+    <ProjectEditorForm
+      availableClassifications={filterOptions?.classifications ?? []}
+      availableTags={filterOptions?.tags ?? []}
+    />
   )
 }

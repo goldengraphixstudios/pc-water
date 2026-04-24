@@ -7,6 +7,7 @@ import Link from 'next/link'
 import MediaUploader from '@/components/cms/MediaUploader'
 import SingleValuePicker from '@/components/cms/SingleValuePicker'
 import TagInput from '@/components/cms/TagInput'
+import { browserCreateProject, browserUpdateProject, browserDeleteProject } from '@/lib/cms/browser-admin'
 import type { CmsProject, CmsProjectInput } from '@/lib/cms/types'
 import { slugify } from '@/lib/cms/utils'
 
@@ -71,14 +72,12 @@ export default function ProjectEditorForm({ project, availableClassifications = 
     e.preventDefault()
     setError(null)
     const payload: CmsProjectInput = { ...form, slug: slugify(form.slug || form.title) }
-    const endpoint = project ? `/api/cms/projects/${project.id}` : '/api/cms/projects'
-    const method   = project ? 'PATCH' : 'POST'
     startTransition(async () => {
-      const res    = await fetch(endpoint, { method, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
-      const result = await res.json()
-      if (!res.ok) { setError(result.error ?? 'Save failed.'); return }
+      const result = project
+        ? await browserUpdateProject(project.id, payload)
+        : await browserCreateProject(payload)
+      if (!result.ok) { setError(result.error); return }
       router.push('/cms/projects')
-      router.refresh()
     })
   }
 
@@ -86,11 +85,9 @@ export default function ProjectEditorForm({ project, availableClassifications = 
     if (!project || !window.confirm(`Delete "${project.title}"? This cannot be undone.`)) return
     setError(null)
     startTransition(async () => {
-      const res    = await fetch(`/api/cms/projects/${project.id}`, { method: 'DELETE' })
-      const result = await res.json()
-      if (!res.ok) { setError(result.error ?? 'Delete failed.'); return }
+      const result = await browserDeleteProject(project.id)
+      if (!result.ok) { setError(result.error); return }
       router.push('/cms/projects')
-      router.refresh()
     })
   }
 

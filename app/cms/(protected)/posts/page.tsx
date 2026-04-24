@@ -1,11 +1,21 @@
+'use client'
+
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { getAdminPosts } from '@/lib/cms/queries'
+import { fetchAdminPosts } from '@/lib/cms/browser-admin'
+import type { CmsPost } from '@/lib/cms/types'
 import { formatDate } from '@/lib/cms/utils'
 
-export const dynamic = 'force-dynamic'
+export default function CmsPostsPage() {
+  const [posts, setPosts]     = useState<CmsPost[]>([])
+  const [loading, setLoading] = useState(true)
 
-export default async function CmsPostsPage() {
-  const posts = await getAdminPosts()
+  useEffect(() => {
+    fetchAdminPosts().then((data) => {
+      setPosts(data)
+      setLoading(false)
+    })
+  }, [])
 
   return (
     <div className="space-y-5">
@@ -14,7 +24,9 @@ export default async function CmsPostsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-xl font-bold text-slate-900 dark:text-slate-100">Articles</h1>
-          <p className="text-sm text-slate-500 dark:text-slate-500 mt-0.5">{posts.length} article{posts.length !== 1 ? 's' : ''} total</p>
+          <p className="text-sm text-slate-500 dark:text-slate-500 mt-0.5">
+            {loading ? 'Loading…' : `${posts.length} article${posts.length !== 1 ? 's' : ''} total`}
+          </p>
         </div>
         <Link
           href="/cms/posts/new"
@@ -29,7 +41,15 @@ export default async function CmsPostsPage() {
 
       {/* Table card */}
       <div className="bg-white dark:bg-[#13161F] rounded-xl border border-slate-200 dark:border-[#1E2235] shadow-sm overflow-hidden">
-        {posts.length === 0 ? (
+        {loading ? (
+          <div className="flex flex-col items-center py-16 text-center px-6">
+            <svg className="w-5 h-5 animate-spin text-[#3e91ce] mb-3" fill="none" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+            </svg>
+            <p className="text-sm text-slate-400 dark:text-slate-600">Loading articles…</p>
+          </div>
+        ) : posts.length === 0 ? (
           <div className="flex flex-col items-center py-16 text-center px-6">
             <div className="w-12 h-12 bg-slate-100 dark:bg-[#1A1D2C] rounded-xl flex items-center justify-center mb-3">
               <svg className="w-6 h-6 text-slate-400 dark:text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -91,7 +111,7 @@ export default async function CmsPostsPage() {
                     </td>
                     <td className="px-5 py-3.5 text-right">
                       <Link
-                        href={`/cms/posts/${post.id}`}
+                        href={`/cms/posts/edit?id=${post.id}`}
                         className="text-[12px] font-medium text-slate-400 dark:text-slate-600 hover:text-[#3e91ce] dark:hover:text-[#60AFDF] transition-colors"
                       >
                         Edit →

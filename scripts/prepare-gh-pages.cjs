@@ -29,7 +29,8 @@ function replaceInFile(relativePath, searchValue, replaceValue) {
 }
 
 moveIfExists('proxy.ts', path.join('.gh-pages-disabled', 'proxy.ts'))
-moveIfExists(path.join('app', 'cms', '(protected)'), path.join('.gh-pages-disabled', 'app-cms-protected'))
+// API routes are not supported in static export — move them out before build.
+// The CMS now uses the Supabase browser client directly; these routes are unused.
 moveIfExists(path.join('app', 'api', 'cms'), path.join('.gh-pages-disabled', 'app-api-cms'))
 
 ;[

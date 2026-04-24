@@ -6,6 +6,7 @@ import Link from 'next/link'
 
 import MediaUploader from '@/components/cms/MediaUploader'
 import TagInput from '@/components/cms/TagInput'
+import { browserCreatePost, browserUpdatePost, browserDeletePost } from '@/lib/cms/browser-admin'
 import type { CmsPost, CmsPostInput } from '@/lib/cms/types'
 import { slugify } from '@/lib/cms/utils'
 
@@ -60,14 +61,12 @@ export default function PostEditorForm({ post }: { post?: CmsPost | null }) {
     e.preventDefault()
     setError(null)
     const payload: CmsPostInput = { ...form, slug: slugify(form.slug || form.title) }
-    const endpoint = post ? `/api/cms/posts/${post.id}` : '/api/cms/posts'
-    const method   = post ? 'PATCH' : 'POST'
     startTransition(async () => {
-      const res    = await fetch(endpoint, { method, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
-      const result = await res.json()
-      if (!res.ok) { setError(result.error ?? 'Save failed.'); return }
+      const result = post
+        ? await browserUpdatePost(post.id, payload)
+        : await browserCreatePost(payload)
+      if (!result.ok) { setError(result.error); return }
       router.push('/cms/posts')
-      router.refresh()
     })
   }
 
@@ -75,11 +74,9 @@ export default function PostEditorForm({ post }: { post?: CmsPost | null }) {
     if (!post || !window.confirm(`Delete "${post.title}"? This cannot be undone.`)) return
     setError(null)
     startTransition(async () => {
-      const res    = await fetch(`/api/cms/posts/${post.id}`, { method: 'DELETE' })
-      const result = await res.json()
-      if (!res.ok) { setError(result.error ?? 'Delete failed.'); return }
+      const result = await browserDeletePost(post.id)
+      if (!result.ok) { setError(result.error); return }
       router.push('/cms/posts')
-      router.refresh()
     })
   }
 

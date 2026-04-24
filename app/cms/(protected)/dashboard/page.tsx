@@ -1,8 +1,10 @@
-import Link from 'next/link'
-import { getAdminPosts, getAdminProjects } from '@/lib/cms/queries'
-import { formatDate } from '@/lib/cms/utils'
+'use client'
 
-export const dynamic = 'force-dynamic'
+import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { fetchAdminPosts, fetchAdminProjects } from '@/lib/cms/browser-admin'
+import type { CmsPost, CmsProject } from '@/lib/cms/types'
+import { formatDate } from '@/lib/cms/utils'
 
 function StatusPill({ status }: { status: string }) {
   const published = status === 'published'
@@ -18,18 +20,28 @@ function StatusPill({ status }: { status: string }) {
   )
 }
 
-export default async function CmsDashboardPage() {
-  const [posts, projects] = await Promise.all([getAdminPosts(), getAdminProjects()])
+export default function CmsDashboardPage() {
+  const [posts, setPosts]       = useState<CmsPost[]>([])
+  const [projects, setProjects] = useState<CmsProject[]>([])
+  const [loading, setLoading]   = useState(true)
+
+  useEffect(() => {
+    Promise.all([fetchAdminPosts(), fetchAdminProjects()]).then(([p, proj]) => {
+      setPosts(p)
+      setProjects(proj)
+      setLoading(false)
+    })
+  }, [])
 
   const publishedPosts    = posts.filter(p => p.status === 'published').length
   const publishedProjects = projects.filter(p => p.status === 'published').length
   const featuredProjects  = projects.filter(p => p.featured).length
 
   const metrics = [
-    { label: 'Total Articles',    value: posts.length,      sub: `${publishedPosts} published`,    accent: 'bg-[#3e91ce]',   text: 'text-[#3e91ce] dark:text-[#60AFDF]',   subtle: 'bg-[#EAF4FF] dark:bg-[#162338]' },
-    { label: 'Published Articles',value: publishedPosts,    sub: 'live on website',                accent: 'bg-emerald-500', text: 'text-emerald-600 dark:text-emerald-400', subtle: 'bg-emerald-50 dark:bg-emerald-950/40' },
-    { label: 'Total Projects',    value: projects.length,   sub: `${publishedProjects} published`, accent: 'bg-violet-500',  text: 'text-violet-600 dark:text-violet-400',  subtle: 'bg-violet-50 dark:bg-violet-950/40' },
-    { label: 'Featured Projects', value: featuredProjects,  sub: 'shown on homepage',              accent: 'bg-orange-400',  text: 'text-orange-600 dark:text-orange-400',  subtle: 'bg-orange-50 dark:bg-orange-950/40' },
+    { label: 'Total Articles',     value: posts.length,      sub: `${publishedPosts} published`,    accent: 'bg-[#3e91ce]',   text: 'text-[#3e91ce] dark:text-[#60AFDF]',    subtle: 'bg-[#EAF4FF] dark:bg-[#162338]' },
+    { label: 'Published Articles', value: publishedPosts,    sub: 'live on website',                accent: 'bg-emerald-500', text: 'text-emerald-600 dark:text-emerald-400', subtle: 'bg-emerald-50 dark:bg-emerald-950/40' },
+    { label: 'Total Projects',     value: projects.length,   sub: `${publishedProjects} published`, accent: 'bg-violet-500',  text: 'text-violet-600 dark:text-violet-400',  subtle: 'bg-violet-50 dark:bg-violet-950/40' },
+    { label: 'Featured Projects',  value: featuredProjects,  sub: 'shown on homepage',              accent: 'bg-orange-400',  text: 'text-orange-600 dark:text-orange-400',  subtle: 'bg-orange-50 dark:bg-orange-950/40' },
   ]
 
   return (
@@ -70,7 +82,11 @@ export default async function CmsDashboardPage() {
             <div className={`h-[3px] ${m.accent}`} />
             <div className="p-4 pt-4">
               <div className={`inline-flex items-center justify-center w-8 h-8 rounded-lg mb-3 ${m.subtle}`}>
-                <span className={`text-base font-black ${m.text}`}>{m.value}</span>
+                {loading ? (
+                  <span className="w-3 h-3 rounded-full bg-slate-200 dark:bg-slate-700 animate-pulse" />
+                ) : (
+                  <span className={`text-base font-black ${m.text}`}>{m.value}</span>
+                )}
               </div>
               <p className="text-xs font-semibold text-slate-700 dark:text-slate-300">{m.label}</p>
               <p className="text-xs text-slate-400 dark:text-slate-600 mt-0.5">{m.sub}</p>
@@ -90,7 +106,11 @@ export default async function CmsDashboardPage() {
               Manage all →
             </Link>
           </div>
-          {posts.length === 0 ? (
+          {loading ? (
+            <div className="px-5 py-10 text-center">
+              <p className="text-sm text-slate-400 dark:text-slate-600">Loading…</p>
+            </div>
+          ) : posts.length === 0 ? (
             <div className="px-5 py-10 text-center">
               <p className="text-sm text-slate-400 dark:text-slate-600">No articles yet.</p>
               <Link href="/cms/posts/new" className="text-xs text-[#3e91ce] dark:text-[#60AFDF] hover:underline mt-2 inline-block">Create one →</Link>
@@ -100,7 +120,7 @@ export default async function CmsDashboardPage() {
               {posts.slice(0, 5).map((post) => (
                 <Link
                   key={post.id}
-                  href={`/cms/posts/${post.id}`}
+                  href={`/cms/posts/edit?id=${post.id}`}
                   className="flex items-center gap-3 px-5 py-3 border-b border-slate-50 dark:border-[#161926] last:border-0 hover:bg-slate-50 dark:hover:bg-[#1A1D2C] transition-colors group"
                 >
                   <div className="flex-1 min-w-0">
@@ -122,7 +142,11 @@ export default async function CmsDashboardPage() {
               Manage all →
             </Link>
           </div>
-          {projects.length === 0 ? (
+          {loading ? (
+            <div className="px-5 py-10 text-center">
+              <p className="text-sm text-slate-400 dark:text-slate-600">Loading…</p>
+            </div>
+          ) : projects.length === 0 ? (
             <div className="px-5 py-10 text-center">
               <p className="text-sm text-slate-400 dark:text-slate-600">No projects yet.</p>
               <Link href="/cms/projects/new" className="text-xs text-[#3e91ce] dark:text-[#60AFDF] hover:underline mt-2 inline-block">Create one →</Link>
@@ -132,7 +156,7 @@ export default async function CmsDashboardPage() {
               {projects.slice(0, 5).map((project) => (
                 <Link
                   key={project.id}
-                  href={`/cms/projects/${project.id}`}
+                  href={`/cms/projects/edit?id=${project.id}`}
                   className="flex items-center gap-3 px-5 py-3 border-b border-slate-50 dark:border-[#161926] last:border-0 hover:bg-slate-50 dark:hover:bg-[#1A1D2C] transition-colors group"
                 >
                   <div className="flex-1 min-w-0">
