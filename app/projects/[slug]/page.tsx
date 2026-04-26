@@ -66,7 +66,7 @@ export default async function ManagedProjectPage({
             sizes="100vw"
           />
         ) : (
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0d1b2a] via-[#30505b] to-[#3e91ce]" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#162538] via-[#30505b] to-[#3e91ce]" />
         )}
         <div className="absolute inset-0 bg-[#0d1b2a]/70" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 w-full">

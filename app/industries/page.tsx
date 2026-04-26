@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import IndustryCard from '@/components/IndustryCard'
 import CTABanner from '@/components/CTABanner'
 
@@ -39,7 +39,7 @@ const industries = [
 export default function IndustriesPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-[#0d1b2a] via-[#30505b] to-[#3e91ce] pt-40 pb-24">
+      <section className="bg-gradient-to-br from-[#162538] via-[#30505b] to-[#3e91ce] pt-40 pb-24">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Industries</p>
           <h1 className="text-5xl md:text-6xl font-black text-white mb-6">BUILT FOR YOUR SECTOR</h1>

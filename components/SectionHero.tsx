@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 
@@ -26,7 +26,7 @@ export default function SectionHero({
   const bg =
     variant === 'blue'
       ? 'bg-gradient-to-br from-[#3e91ce] via-[#30505b] to-[#0d1b2a]'
-      : 'bg-gradient-to-br from-[#0d1b2a] via-[#30505b] to-[#3e91ce]'
+      : 'bg-gradient-to-br from-[#162538] via-[#30505b] to-[#3e91ce]'
 
   return (
     <section className={`${bg} pt-40 pb-24 relative overflow-hidden`}>

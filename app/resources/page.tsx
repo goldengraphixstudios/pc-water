@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
 import CTABanner from '@/components/CTABanner'
@@ -33,7 +33,7 @@ export default async function ResourcesPage() {
 
   return (
     <>
-      <section className="bg-gradient-to-br from-[#0d1b2a] via-[#30505b] to-[#3e91ce] pt-40 pb-24">
+      <section className="bg-gradient-to-br from-[#162538] via-[#30505b] to-[#3e91ce] pt-40 pb-24">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Resources</p>
           <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
@@ -55,7 +55,7 @@ export default async function ResourcesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {articles.map((article) => (
               <Link key={article.id} href={`/resources/${article.slug}`} className="group bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-shadow block">
-                <div className="h-40 bg-gradient-to-br from-[#0d1b2a] via-[#30505b] to-[#3e91ce]" />
+                <div className="h-40 bg-gradient-to-br from-[#162538] via-[#30505b] to-[#3e91ce]" />
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
                     <span className="bg-[#3e91ce]/10 text-[#3e91ce] text-xs font-semibold px-3 py-1 rounded-full">

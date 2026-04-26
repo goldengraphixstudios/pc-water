@@ -50,7 +50,6 @@ const socialPaths = [
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'Projects', href: '/projects' },
-  { label: 'Resources', href: '/resources' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ]
@@ -294,6 +293,23 @@ export default function Header() {
                 )}
               </AnimatePresence>
             </div>
+
+            {/* Resources — right of Industries */}
+            <Link
+              href="/resources"
+              className={`relative px-4 py-2 text-sm font-medium transition-colors animated-underline ${
+                scrolled ? 'text-gray-300 hover:text-white' : 'text-[#30505b] hover:text-[#3e91ce]'
+              } ${pathname === '/resources' ? 'text-[#3e91ce]' : ''}`}
+            >
+              Resources
+              {pathname === '/resources' && (
+                <motion.div
+                  layoutId="nav-indicator"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#3e91ce]"
+                  transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                />
+              )}
+            </Link>
           </nav>
 
           {/* CTA buttons */}
@@ -454,18 +470,25 @@ export default function Header() {
                   </AnimatePresence>
                 </motion.div>
 
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.35 }}
+                >
+                  <Link
+                    href="/resources"
+                    className="block text-gray-300 hover:text-white font-medium py-2.5 border-b border-white/5 transition-colors"
+                  >
+                    Resources
+                  </Link>
+                </motion.div>
+
                 <div className="pt-4 space-y-3">
                   <Link
                     href="/contact"
                     className="block w-full text-center bg-[#3e91ce] text-white px-4 py-3 rounded-full text-sm font-semibold"
                   >
                     Discuss a Project
-                  </Link>
-                  <Link
-                    href="/resources"
-                    className="block w-full text-center border border-white/20 text-white px-4 py-3 rounded-full text-sm font-semibold"
-                  >
-                    Capability Statement
                   </Link>
                 </div>
               </div>

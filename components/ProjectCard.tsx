@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import Link from 'next/link'
 import Image from '@/components/AppImage'
 import { motion } from 'framer-motion'
@@ -29,10 +29,10 @@ export default function ProjectCard({ title, sector, location, scope, imageSrc, 
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
             ) : (
-              <div className="absolute inset-0 bg-gradient-to-br from-[#0d1b2a] via-[#30505b] to-[#3e91ce]" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#162538] via-[#30505b] to-[#3e91ce]" />
             )}
             {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0d1b2a] via-[#0d1b2a]/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#162538] via-[#0d1b2a]/20 to-transparent" />
 
             <div className="absolute top-4 left-4">
               <span className="bg-[#3e91ce] text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-sm">

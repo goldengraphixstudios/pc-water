@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from '@/components/AppImage'
@@ -27,7 +27,7 @@ export default function HeroSection() {
 
       {/* Overlays */}
       <div className="absolute inset-0 bg-[#0d1b2a]/72" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0d1b2a]/60 via-transparent to-[#3e91ce]/10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#162538]/60 via-transparent to-[#3e91ce]/10" />
 
       {/* Floating particles */}
       {particles.map((p, i) => (
@@ -71,8 +71,8 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-none tracking-tight"
         >
-          ENGINEERED<br />
-          <span className="gradient-text">WATER STORAGE</span><br />
+          ADVANCED<br />
+          <span className="gradient-text">WATER ASSET</span><br />
           SOLUTIONS
         </motion.h1>
 
@@ -82,7 +82,7 @@ export default function HeroSection() {
           transition={{ duration: 0.7, delay: 0.8 }}
           className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto mb-12 leading-relaxed"
         >
-          Purpose-built water storage systems for demanding infrastructure, remote environments, and compliance-critical projects across Australia.
+          Designed. Built. Delivered.
         </motion.p>
 
         <motion.div

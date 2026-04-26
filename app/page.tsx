@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from '@/components/AppImage'
 import AnimatedSection from '@/components/AnimatedSection'
@@ -214,6 +214,83 @@ export default function HomePage() {
       {/* ─── PARTNERS MARQUEE ─── */}
       <PartnerMarquee />
 
+      {/* ─── ABOUT US ─── */}
+      <section className="bg-white py-24">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <AnimatedSection>
+              <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ About Us</p>
+              <h2 className="text-4xl md:text-5xl font-black text-[#30505b] leading-tight mb-6">
+                TWO BRANDS.<br />
+                <span className="text-[#3e91ce]">ONE TEAM.</span><br />
+                ONE COMMITMENT.
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-5">
+                PC Water Infrastructure is the trading identity of two specialist divisions — <strong>PC Tanks</strong> and <strong>PC Water Solutions</strong> — operating together as part of the Pacific Water Group.
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-5">
+                <strong>PC Tanks</strong> designs and supplies bolted steel water storage tanks, engineered to Australian standards for any capacity or application. <strong>PC Water Solutions</strong> delivers the full project lifecycle — installation, inspection, RPVC lining, maintenance, fire water compliance, and remote area delivery — across every state and territory in Australia.
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-8">
+                Together, we give our clients something rare in the water infrastructure sector: a single partner that covers design, supply, delivery, and long-term asset management — without handover risk, without gaps in accountability.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2 bg-[#3e91ce] text-white px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-[#2d7ab8] transition-all duration-300 hover:scale-105"
+                >
+                  About PC Water Infrastructure
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+                <Link
+                  href="/projects"
+                  className="inline-flex items-center gap-2 border-2 border-[#30505b] text-[#30505b] px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-[#30505b] hover:text-white transition-all duration-300"
+                >
+                  View Our Projects
+                </Link>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.2}>
+              <div className="grid grid-cols-2 gap-5">
+                {[
+                  { label: 'Founded', value: '2013', sub: 'Established in Queensland' },
+                  { label: 'Coverage', value: 'National', sub: 'Every state & territory' },
+                  { label: 'Safety Record', value: 'Zero', sub: 'LTI — non-negotiable culture' },
+                  { label: 'Standards', value: 'AS2304', sub: 'AS4020 · AS1851 · ISO9001' },
+                ].map((stat) => (
+                  <div key={stat.label} className="bg-[#F4F6F8] rounded-2xl p-6 border-2 border-transparent hover:border-[#3e91ce]/30 transition-all duration-300">
+                    <p className="text-[#3e91ce] font-black text-2xl mb-1">{stat.value}</p>
+                    <p className="font-bold text-[#30505b] text-sm mb-1">{stat.label}</p>
+                    <p className="text-gray-500 text-xs">{stat.sub}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-5 bg-gradient-to-br from-[#162538] to-[#30505b] rounded-2xl p-6 text-white">
+                <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Our Footprint</p>
+                <div className="grid grid-cols-2 gap-3">
+                  {[
+                    { name: 'PC Tanks', role: 'Tank Design & Supply' },
+                    { name: 'PC Water Solutions', role: 'Project Delivery & Asset Management' },
+                  ].map((d) => (
+                    <div key={d.name} className="bg-white/10 rounded-xl p-4">
+                      <p className="font-bold text-white text-sm mb-1">{d.name}</p>
+                      <p className="text-gray-300 text-xs">{d.role}</p>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-gray-400 text-xs mt-4">
+                  Part of the Pacific Water Group — delivering water infrastructure solutions across Australia since 2013.
+                </p>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
       {/* ─── STAKES ─── */}
       <section className="bg-white py-24">
         <div className="max-w-6xl mx-auto px-4">
@@ -282,7 +359,7 @@ export default function HomePage() {
       </section>
 
       {/* ─── SERVICES ─── */}
-      <section className="bg-gradient-to-b from-[#0d1b2a] to-[#1a2f3a] py-24 relative overflow-hidden">
+      <section className="bg-gradient-to-b from-[#162538] to-[#1a2f3a] py-24 relative overflow-hidden">
         <div className="dot-pattern absolute inset-0 opacity-20 pointer-events-none" />
         <div className="relative z-10 max-w-6xl mx-auto px-4">
           <AnimatedSection className="text-center mb-16">
@@ -334,7 +411,7 @@ export default function HomePage() {
       {/* ─── WHY PC WATER INFRASTRUCTURE ─── */}
       <section className="bg-[#30505b] py-24 relative overflow-hidden">
         <div className="dot-pattern absolute inset-0 opacity-10 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0d1b2a]/50 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#162538]/50 to-transparent pointer-events-none" />
         <div className="relative z-10 max-w-6xl mx-auto px-4">
           <AnimatedSection className="text-center mb-16">
             <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Our Difference</p>

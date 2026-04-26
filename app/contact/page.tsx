@@ -1,4 +1,5 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
+import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
   title: 'Contact Us',
@@ -10,7 +11,7 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#0d1b2a] via-[#30505b] to-[#3e91ce] pt-40 pb-24">
+      <section className="bg-gradient-to-br from-[#162538] via-[#30505b] to-[#3e91ce] pt-40 pb-24">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Get In Touch</p>
           <h1 className="text-5xl md:text-6xl font-black text-white mb-6">LET&apos;S DISCUSS YOUR PROJECT</h1>
@@ -79,13 +80,6 @@ export default function ContactPage() {
                 ))}
               </div>
 
-              {/* Director */}
-              <div className="mt-8 bg-white rounded-xl p-5 border border-gray-200">
-                <p className="text-xs font-bold text-[#3e91ce] uppercase tracking-wide mb-2">Director</p>
-                <p className="font-bold text-[#30505b]">Michael Spiller</p>
-                <p className="text-gray-500 text-sm">Senior Project Engineer<br />Water Infrastructure Specialist</p>
-              </div>
-
               {/* What happens next */}
               <div className="mt-8">
                 <h3 className="font-black text-[#30505b] mb-4">WHAT HAPPENS NEXT</h3>
@@ -106,138 +100,7 @@ export default function ContactPage() {
 
             {/* Form */}
             <div className="lg:col-span-2">
-              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-                <h2 className="text-xl font-black text-[#30505b] mb-6">PROJECT ENQUIRY FORM</h2>
-                {/* Note: form submission requires backend integration */}
-                <form
-                  method="POST"
-                  action="/thank-you"
-                  className="space-y-5"
-                >
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1.5" htmlFor="firstName">First Name *</label>
-                      <input id="firstName" name="firstName" type="text" required className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#3e91ce] transition-colors" />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1.5" htmlFor="lastName">Last Name *</label>
-                      <input id="lastName" name="lastName" type="text" required className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#3e91ce] transition-colors" />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1.5" htmlFor="company">Company / Organisation</label>
-                    <input id="company" name="company" type="text" className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#3e91ce] transition-colors" />
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1.5" htmlFor="email">Email Address *</label>
-                      <input id="email" name="email" type="email" required className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#3e91ce] transition-colors" />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1.5" htmlFor="phone">Phone Number</label>
-                      <input id="phone" name="phone" type="tel" className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#3e91ce] transition-colors" />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1.5" htmlFor="state">State / Region</label>
-                      <select id="state" name="state" className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#3e91ce] transition-colors bg-white">
-                        <option value="">Select state...</option>
-                        {['QLD', 'NSW', 'VIC', 'TAS', 'SA', 'WA', 'NT', 'ACT', 'Remote'].map(s => <option key={s} value={s}>{s}</option>)}
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1.5" htmlFor="industry">Industry</label>
-                      <select id="industry" name="industry" className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#3e91ce] transition-colors bg-white">
-                        <option value="">Select industry...</option>
-                        {['Government/Council', 'Mining/Resources', 'Industrial', 'Commercial/Fire', 'Remote Community', 'Other'].map(i => <option key={i} value={i}>{i}</option>)}
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1.5" htmlFor="service">Service Needed</label>
-                      <select id="service" name="service" className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#3e91ce] transition-colors bg-white">
-                        <option value="">Select service...</option>
-                        {[
-                          'Custom Tank Design & Engineering',
-                          'Professional Tank Installation',
-                          'Foundation & Civil Integration',
-                          'Fire Water Tank Solutions',
-                          'Remote Area Project Delivery',
-                          'Tank Maintenance & Upgrades',
-                          'Tank Inspection Technology',
-                          'RPVC Liner Systems',
-                          'Tender & Procurement Support',
-                          'Builder & Contractor Partnerships',
-                        ].map(s => <option key={s} value={s}>{s}</option>)}
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1.5" htmlFor="stage">Project Stage</label>
-                      <select id="stage" name="stage" className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#3e91ce] transition-colors bg-white">
-                        <option value="">Select stage...</option>
-                        {['Early Planning', 'Design Phase', 'Ready to Quote', 'Urgent'].map(s => <option key={s} value={s}>{s}</option>)}
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1.5" htmlFor="timeline">Estimated Timeline</label>
-                      <input id="timeline" name="timeline" type="text" placeholder="e.g. 3–6 months" className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#3e91ce] transition-colors" />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1.5" htmlFor="budget">Estimated Budget Range</label>
-                      <input id="budget" name="budget" type="text" placeholder="e.g. $50k–$100k" className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#3e91ce] transition-colors" />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1.5" htmlFor="tankType">Tank Type / Application</label>
-                    <input id="tankType" name="tankType" type="text" placeholder="e.g. Fire water tank, potable storage, process water..." className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#3e91ce] transition-colors" />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1.5" htmlFor="message">Project Description / Message *</label>
-                    <textarea id="message" name="message" required rows={5} placeholder="Tell us about your project, site, and requirements..." className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#3e91ce] transition-colors resize-none" />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1.5" htmlFor="file">File Upload (optional)</label>
-                    <input id="file" name="file" type="file" className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#3e91ce] transition-colors file:mr-4 file:py-1 file:px-3 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-[#3e91ce] file:text-white" accept=".pdf,.doc,.docx,.jpg,.png" />
-                    <p className="text-xs text-gray-400 mt-1">Accepted: PDF, DOC, DOCX, JPG, PNG (max 10MB)</p>
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full bg-[#3e91ce] text-white py-4 rounded-lg font-bold hover:bg-[#2d7ab8] transition-colors text-sm tracking-wide"
-                  >
-                    Submit Enquiry — We Reply Within 1 Business Day
-                  </button>
-
-                  <p className="text-xs text-gray-400 text-center">
-                    Your information is kept strictly confidential and will only be used to respond to your enquiry.
-                  </p>
-                </form>
-
-                {/* Tawk.to placeholder */}
-                {/*
-                  TODO: Add Tawk.to live chat script here.
-                  Replace with your Tawk.to property ID and widget ID:
-                  <script type="text/javascript">
-                    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-                    (function(){ var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-                    s1.async=true; s1.src='https://embed.tawk.to/PROPERTY_ID/WIDGET_ID';
-                    s1.charset='UTF-8'; s1.setAttribute('crossorigin','*');
-                    s0.parentNode.insertBefore(s1,s0); })();
-                  </script>
-                */}
-              </div>
+              <ContactForm />
             </div>
           </div>
         </div>
