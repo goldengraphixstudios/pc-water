@@ -17,6 +17,7 @@ const partners = [
   { src: '/partners/mfe.png', alt: 'MFE' },
   { src: '/partners/parasyn.png', alt: 'Parasyn' },
   { src: '/partners/waters-marine.png', alt: 'Waters Marine' },
+  { src: '/partners/walkabout-civil.png', alt: 'Walkabout Civil' },
 ]
 
 const authorities = [
