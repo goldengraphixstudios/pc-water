@@ -17,7 +17,7 @@ const partners = [
   { src: '/partners/mfe.png', alt: 'MFE' },
   { src: '/partners/parasyn.png', alt: 'Parasyn' },
   { src: '/partners/waters-marine.png', alt: 'Waters Marine' },
-  { src: '/partners/walkabout-civil.png', alt: 'Walkabout Civil' },
+  { src: '/partners/walkabout-civil.png', alt: 'Walkabout Civil', className: 'h-20 w-20' },
 ]
 
 const authorities = [
@@ -30,13 +30,14 @@ const authorities = [
 ]
 
 type Direction = 'left' | 'right'
+type PartnerItem = { src: string; alt: string; className?: string }
 
 function TrackContent({
   items,
   itemClassName,
   copyIndex,
 }: {
-  items: { src: string; alt: string }[]
+  items: PartnerItem[]
   itemClassName: string
   copyIndex: number
 }) {
@@ -45,7 +46,7 @@ function TrackContent({
       {items.map((item, index) => (
         <div
           key={`${copyIndex}-${item.alt}-${index}`}
-          className={`relative flex-shrink-0 bg-white ${itemClassName}`}
+          className={`relative flex-shrink-0 bg-white ${item.className ?? itemClassName}`}
           title={item.alt}
         >
           <Image
@@ -66,7 +67,7 @@ function MarqueeRow({
   itemClassName,
   direction,
 }: {
-  items: { src: string; alt: string }[]
+  items: PartnerItem[]
   itemClassName: string
   direction: Direction
 }) {
