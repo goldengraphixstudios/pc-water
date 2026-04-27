@@ -123,165 +123,44 @@ export default function AboutPage() {
       </section>
 
       {/* Journey / Timeline */}
-      <section className="bg-white py-24 overflow-hidden">
-        <div className="max-w-5xl mx-auto px-4">
+      <section className="bg-[#F4F6F8] py-16">
+        <div className="max-w-3xl mx-auto px-4">
 
-          {/* Heading */}
-          <div className="text-center mb-20">
+          <div className="text-center mb-12">
             <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Our Journey</p>
-            <h2 className="text-4xl font-black text-[#30505b]">HOW WE GOT HERE</h2>
-            <p className="text-gray-400 mt-4 max-w-xl mx-auto text-lg leading-relaxed">
-              Over a decade of deliberate growth — each milestone building the capability to deliver more for our clients and communities.
-            </p>
+            <h2 className="text-3xl font-black text-[#30505b]">HOW WE GOT HERE</h2>
           </div>
 
-          {/* ── Mobile timeline (line on left) ── */}
-          <div className="md:hidden relative">
+          {/* Timeline — single shared layout, line on left */}
+          <div className="relative pl-8">
             {/* Vertical line */}
-            <div className="absolute left-5 top-5 bottom-5 w-0.5 bg-gradient-to-b from-[#3e91ce]/20 via-[#3e91ce]/70 to-[#3e91ce]/20" />
+            <div className="absolute left-[11px] top-2 bottom-2 w-0.5 bg-gradient-to-b from-[#3e91ce]/20 via-[#3e91ce]/50 to-[#3e91ce]/10" />
 
-            <div className="space-y-8">
-              {[
-                {
-                  year: '2013', short: "'13",
-                  phase: 'The Beginning',
-                  title: 'Established in Water Storage',
-                  desc: "Founded with a clear purpose — engineering-led water storage solutions for Australia's most demanding projects. Core capability built on panel tank design, fabrication, and installation.",
-                },
-                {
-                  year: '2016', short: "'16",
-                  phase: 'Growing Capability',
-                  title: 'RPVC Liners & Asset Inspection',
-                  desc: 'Expanded to include RPVC liner systems and structured tank inspection programs — repositioning the company as a full-lifecycle partner, not just a supplier.',
-                },
-                {
-                  year: '2018', short: "'18",
-                  phase: 'National Reach',
-                  title: 'Remote Project Delivery Formalised',
-                  desc: 'Developed specialist remote delivery capability — FIFO crew systems, Indigenous community engagement frameworks, and remote logistics expertise. Water infrastructure delivered to some of the most inaccessible sites in Australia.',
-                },
-                {
-                  year: '2021', short: "'21",
-                  phase: 'A Natural Step',
-                  title: 'PC Water Solutions Division',
-                  desc: 'Established PC Water Solutions as the dedicated project delivery and asset management division — bringing installation, inspection, maintenance, fire water compliance, and remote delivery under one focused identity.',
-                },
-                {
-                  year: '2024', short: "'24",
-                  phase: 'Advanced Technology',
-                  title: 'ROV & UAV Inspection Technology',
-                  desc: 'Introduced remotely operated vehicle (ROV) and UAV drone inspection capability. Superior condition assessment without dewatering — significantly reducing cost and downtime for clients.',
-                },
-                {
-                  year: 'Now', short: 'NOW',
-                  phase: 'Next Chapter',
-                  title: 'Water Treatment Solutions',
-                  desc: 'Formally launching water treatment plant design and delivery services — from raw water intake through to compliant potable water supply. The next deliberate step in a decade-long build of genuine water infrastructure capability.',
-                  isCurrent: true,
-                },
-              ].map((m, i, arr) => (
-                <div key={m.year} className="flex gap-5 relative">
+            <div className="space-y-0">
+              {([
+                { year: '2013', title: 'Founded', desc: 'Tank design, fabrication & installation. Australian-owned from day one.' },
+                { year: '2016', title: 'Full Lifecycle', desc: 'Added RPVC liners and structured inspection services.' },
+                { year: '2018', title: 'National Reach', desc: 'Formalised remote delivery — FIFO crews, Indigenous community projects.' },
+                { year: '2021', title: 'PC Water Solutions', desc: 'Dedicated project delivery division established.' },
+                { year: '2024', title: 'Advanced Inspection', desc: 'ROV & UAV drone technology — no dewatering required.' },
+                { year: 'Now', title: 'Water Treatment', desc: 'WTP design and delivery launched. Source to supply.', current: true },
+              ] as { year: string; title: string; desc: string; current?: boolean }[]).map((m, i, arr) => (
+                <div key={m.year} className="relative flex gap-6 pb-8 last:pb-0">
                   {/* Node */}
-                  <div className="flex flex-col items-center flex-shrink-0 w-10 z-10">
-                    <div className={`w-10 h-10 rounded-full border-4 border-white shadow-lg flex items-center justify-center flex-shrink-0 ${m.isCurrent ? 'bg-[#3e91ce] ring-4 ring-[#3e91ce]/25' : 'bg-[#30505b]'}`}>
-                      <span className="text-white font-black text-[9px] tracking-tight">{m.short}</span>
-                    </div>
+                  <div className="absolute -left-8 top-1 z-10">
+                    <div className={`w-[22px] h-[22px] rounded-full border-[3px] border-white shadow-md flex-shrink-0 ${m.current ? 'bg-[#3e91ce]' : 'bg-[#30505b]'}`} />
                   </div>
-                  {/* Card */}
-                  <div className={`flex-1 pb-2 rounded-2xl p-5 border-2 shadow-sm ${m.isCurrent ? 'bg-[#EAF4FF] border-[#3e91ce]/30' : 'bg-[#F4F6F8] border-transparent'}`}>
-                    {m.isCurrent && (
-                      <span className="inline-block bg-[#3e91ce] text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full tracking-widest uppercase mb-2">Current</span>
-                    )}
-                    <p className="text-[#3e91ce] text-[10px] font-bold tracking-widest uppercase mb-0.5">{m.phase} · {m.year}</p>
-                    <h3 className="font-black text-[#30505b] text-base mb-2 leading-snug">{m.title}</h3>
-                    <p className="text-gray-500 text-sm leading-relaxed">{m.desc}</p>
+                  {/* Content */}
+                  <div className={`flex-1 rounded-xl px-5 py-4 ${m.current ? 'bg-[#EAF4FF] border border-[#3e91ce]/25' : 'bg-white border border-gray-100'}`}>
+                    <div className="flex items-center gap-3 mb-1">
+                      <span className={`text-xs font-black tracking-wider ${m.current ? 'text-[#3e91ce]' : 'text-[#30505b]/50'}`}>{m.year}</span>
+                      {m.current && <span className="bg-[#3e91ce] text-white text-[9px] font-bold px-2 py-0.5 rounded-full tracking-widest uppercase">Now</span>}
+                    </div>
+                    <h3 className="font-black text-[#30505b] text-[15px] mb-0.5">{m.title}</h3>
+                    <p className="text-gray-500 text-sm">{m.desc}</p>
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-
-          {/* ── Desktop timeline (alternating sides, centre line) ── */}
-          <div className="hidden md:block relative">
-            {/* Centre vertical line */}
-            <div className="absolute left-1/2 -translate-x-px top-10 bottom-10 w-0.5 bg-gradient-to-b from-[#3e91ce]/0 via-[#3e91ce]/60 to-[#3e91ce]/0" />
-
-            <div className="space-y-0">
-              {[
-                {
-                  year: '2013', short: "'13",
-                  phase: 'The Beginning',
-                  title: 'Established in Water Storage',
-                  desc: "Founded with a clear purpose — engineering-led water storage solutions for Australia's most demanding projects. Core capability built on panel tank design, fabrication, and installation.",
-                },
-                {
-                  year: '2016', short: "'16",
-                  phase: 'Growing Capability',
-                  title: 'RPVC Liners & Asset Inspection',
-                  desc: 'Expanded to include RPVC liner systems and structured tank inspection programs — repositioning the company as a full-lifecycle partner, not just a supplier.',
-                },
-                {
-                  year: '2018', short: "'18",
-                  phase: 'National Reach',
-                  title: 'Remote Project Delivery Formalised',
-                  desc: 'Developed specialist remote delivery capability — FIFO crew systems, Indigenous community engagement frameworks, and remote logistics expertise. Water infrastructure delivered to some of the most inaccessible sites in Australia.',
-                },
-                {
-                  year: '2021', short: "'21",
-                  phase: 'A Natural Step',
-                  title: 'PC Water Solutions Division',
-                  desc: 'Established PC Water Solutions as the dedicated project delivery and asset management division — bringing installation, inspection, maintenance, fire water compliance, and remote delivery under one focused identity.',
-                },
-                {
-                  year: '2024', short: "'24",
-                  phase: 'Advanced Technology',
-                  title: 'ROV & UAV Inspection Technology',
-                  desc: 'Introduced remotely operated vehicle (ROV) and UAV drone inspection capability. Superior condition assessment without dewatering — significantly reducing cost and downtime for clients.',
-                },
-                {
-                  year: 'Now', short: 'NOW',
-                  phase: 'Next Chapter',
-                  title: 'Water Treatment Solutions',
-                  desc: 'Formally launching water treatment plant design and delivery services — from raw water intake through to compliant potable water supply. The next deliberate step in a decade-long build of genuine water infrastructure capability.',
-                  isCurrent: true,
-                },
-              ].map((m, i) => {
-                const isLeft = i % 2 === 0
-                const card = (
-                  <div className={`relative group rounded-2xl p-7 border-2 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 w-full max-w-[380px] ${m.isCurrent ? 'bg-[#EAF4FF] border-[#3e91ce]/40' : 'bg-[#F4F6F8] border-transparent hover:border-[#3e91ce]/20'}`}>
-                    {m.isCurrent && (
-                      <span className="absolute -top-3 left-5 bg-[#3e91ce] text-white text-[10px] font-bold px-3 py-1 rounded-full tracking-widest uppercase">Current</span>
-                    )}
-                    {/* Connector arrow pointing toward the line */}
-                    <div className={`absolute top-1/2 -translate-y-1/2 w-4 h-4 ${m.isCurrent ? 'bg-[#EAF4FF]' : 'bg-[#F4F6F8]'} rotate-45 ${isLeft ? '-right-2 border-r-2 border-t-2 border-transparent group-hover:border-[#3e91ce]/20' : '-left-2 border-l-2 border-b-2 border-transparent group-hover:border-[#3e91ce]/20'} transition-colors duration-300`} />
-                    <p className="text-[#3e91ce] text-[10px] font-bold tracking-widest uppercase mb-1">{m.phase}</p>
-                    <h3 className="font-black text-[#30505b] text-lg mb-3 leading-snug">{m.title}</h3>
-                    <p className="text-gray-500 text-sm leading-relaxed">{m.desc}</p>
-                    <div className="mt-5 inline-block bg-[#30505b]/8 rounded-lg px-3 py-1.5">
-                      <span className="text-[#30505b] font-black text-sm">{m.year}</span>
-                    </div>
-                  </div>
-                )
-
-                return (
-                  <div key={m.year} className="relative grid grid-cols-2 items-center min-h-[180px]">
-                    {/* Left column */}
-                    <div className={`py-6 flex ${isLeft ? 'justify-end pr-16' : 'pr-16'}`}>
-                      {isLeft && card}
-                    </div>
-                    {/* Right column */}
-                    <div className={`py-6 flex ${!isLeft ? 'justify-start pl-16' : 'pl-16'}`}>
-                      {!isLeft && card}
-                    </div>
-                    {/* Centre node — on top of line */}
-                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-                      <div className={`w-14 h-14 rounded-full border-[5px] border-white shadow-xl flex items-center justify-center ${m.isCurrent ? 'bg-[#3e91ce] ring-4 ring-[#3e91ce]/25' : 'bg-[#30505b]'}`}>
-                        <span className="text-white font-black text-xs tracking-tight">{m.short}</span>
-                      </div>
-                    </div>
-                  </div>
-                )
-              })}
             </div>
           </div>
 
