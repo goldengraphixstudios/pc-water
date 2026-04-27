@@ -40,3 +40,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local-only meta / dev files
+.claudeignore
+AGENTS.md
+CLAUDE.md
+README.md
+SUPABASE_CMS_SETUP.md
+*.txt
