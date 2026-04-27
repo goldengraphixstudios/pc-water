@@ -6,7 +6,7 @@ import StaggerContainer, { StaggerItem } from '@/components/StaggerContainer'
 import AnimatedCounter from '@/components/AnimatedCounter'
 import ServiceCard from '@/components/ServiceCard'
 import IndustryCard from '@/components/IndustryCard'
-import ProjectCard from '@/components/ProjectCard'
+import FeaturedProjectsSection from '@/components/FeaturedProjectsSection'
 import FAQBlock from '@/components/FAQBlock'
 import PartnerMarquee from '@/components/PartnerMarquee'
 import HeroSection from '@/components/HeroSection'
@@ -110,36 +110,6 @@ const industries = [
     description:
       'Safe water access for remote and Indigenous communities — logistics mastered, communities respected.',
     href: '/industries/remote-regional-communities',
-  },
-]
-
-const projects = [
-  {
-    title: 'Borumba Hydro Scheme',
-    sector: 'Hydro Energy / Government',
-    location: 'Borumba Dam, QLD',
-    scope: '2 × 521KL tanks — potable and effluent storage',
-    imageSrc: '/projects/borumba-01.jpg',
-    imageAlt: 'Aerial view of Borumba Hydro tank installation',
-    href: '/projects/borumba-hydro',
-  },
-  {
-    title: 'Hobart Nyrstar Industrial',
-    sector: 'Refurbish',
-    location: 'Hobart, Tasmania',
-    scope: 'Industrial tank refurbishment for a corrosive processing environment',
-    imageSrc: '/projects/hobart-01.jpg',
-    imageAlt: 'Aerial drone view of Hobart Nyrstar industrial tanks',
-    href: '/projects/hobart-nyrstar',
-  },
-  {
-    title: 'Doomadgee 2ML Reservoir',
-    sector: 'Remote Community / Government',
-    location: 'Doomadgee, QLD (Remote)',
-    scope: '2ML ground-level reservoir for remote community water storage',
-    imageSrc: '/projects/doomadgee-04.jpg',
-    imageAlt: 'Aerial view of Doomadgee WTP tank installation',
-    href: '/projects/doomadgee-wtp',
   },
 ]
 
@@ -465,36 +435,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── PROJECTS ─── */}
-      <section className="bg-white py-24">
-        <div className="max-w-6xl mx-auto px-4">
-          <AnimatedSection className="text-center mb-16">
-            <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Projects</p>
-            <h2 className="text-4xl md:text-5xl font-black text-[#30505b]">PROOF IN THE FIELD</h2>
-            <p className="text-gray-400 mt-5 text-lg max-w-xl mx-auto">
-              Real projects. Real outcomes. Delivered in some of Australia&apos;s most challenging environments.
-            </p>
-          </AnimatedSection>
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6" staggerDelay={0.1}>
-            {projects.map((p) => (
-              <StaggerItem key={p.href}>
-                <ProjectCard {...p} />
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-          <AnimatedSection className="text-center mt-12">
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-3 border-2 border-[#30505b] text-[#30505b] px-8 py-4 rounded-full font-semibold hover:bg-[#30505b] hover:text-white transition-all duration-300 hover:scale-105 text-sm"
-            >
-              View All Projects
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </AnimatedSection>
-        </div>
-      </section>
+      {/* ─── PROJECTS (dynamic — driven by CMS featured flag) ─── */}
+      <FeaturedProjectsSection />
 
       {/* ─── LIFECYCLE ─── */}
       <section className="bg-[#0d1b2a] py-24 relative overflow-hidden">

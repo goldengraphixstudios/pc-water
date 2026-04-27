@@ -5,11 +5,11 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
 import MediaUploader from '@/components/cms/MediaUploader'
-import SingleValuePicker from '@/components/cms/SingleValuePicker'
 import TagInput from '@/components/cms/TagInput'
 import { browserCreateProject, browserUpdateProject, browserDeleteProject } from '@/lib/cms/browser-admin'
 import type { CmsProject, CmsProjectInput } from '@/lib/cms/types'
 import { slugify } from '@/lib/cms/utils'
+import { getProjectPageAppearances, PREDEFINED_SECTORS } from '@/lib/cms/page-mappings'
 
 function toFormState(project?: CmsProject | null): CmsProjectInput {
   return {
@@ -37,10 +37,11 @@ type Props = {
   availableTags?:          string[]
 }
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+function Section({ title, children, accent }: { title: string; children: React.ReactNode; accent?: string }) {
   return (
     <div className="bg-white dark:bg-[#13161F] rounded-xl border border-slate-200 dark:border-[#1E2235] shadow-sm overflow-hidden">
-      <div className="px-5 py-3.5 border-b border-slate-100 dark:border-[#1A1D2C]">
+      <div className={`px-5 py-3.5 border-b border-slate-100 dark:border-[#1A1D2C] flex items-center gap-2 ${accent ? '' : ''}`}>
+        {accent && <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${accent}`} />}
         <h3 className="text-[13px] font-semibold text-slate-700 dark:text-slate-300">{title}</h3>
       </div>
       <div className="p-5 space-y-4">{children}</div>
@@ -58,11 +59,59 @@ function Field({ label, hint, children }: { label: string; hint?: string; childr
   )
 }
 
+/** Visual toggle for the "Featured / Homepage" flag */
+function FeaturedToggle({ checked, onChange }: { checked: boolean; onChange: (v: boolean) => void }) {
+  return (
+    <button
+      type="button"
+      onClick={() => onChange(!checked)}
+      className={`w-full flex items-center gap-3 p-4 rounded-xl border-2 transition-all duration-200 text-left ${
+        checked
+          ? 'border-violet-400 dark:border-violet-500 bg-violet-50 dark:bg-violet-950/30'
+          : 'border-slate-200 dark:border-[#1E2235] hover:border-slate-300 dark:hover:border-[#2A2F47] bg-white dark:bg-[#13161F]'
+      }`}
+    >
+      <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors ${
+        checked ? 'bg-violet-500' : 'bg-slate-100 dark:bg-[#1A1D2C]'
+      }`}>
+        <svg className={`w-5 h-5 transition-colors ${checked ? 'text-white' : 'text-slate-400 dark:text-slate-600'}`} fill="currentColor" viewBox="0 0 20 20">
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+        </svg>
+      </div>
+      <div className="flex-1 min-w-0">
+        <p className={`text-[13px] font-semibold transition-colors ${checked ? 'text-violet-700 dark:text-violet-300' : 'text-slate-700 dark:text-slate-300'}`}>
+          Featured on Homepage
+        </p>
+        <p className="text-xs text-slate-400 dark:text-slate-600 mt-0.5">
+          {checked ? 'Shows in homepage Projects section ✓' : 'Enable to show on homepage'}
+        </p>
+      </div>
+      <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all ${
+        checked ? 'border-violet-500 bg-violet-500' : 'border-slate-300 dark:border-[#2A2F47]'
+      }`}>
+        {checked && (
+          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+          </svg>
+        )}
+      </div>
+    </button>
+  )
+}
+
+const typeColors = {
+  homepage: 'bg-violet-100 dark:bg-violet-950/50 text-violet-700 dark:text-violet-300 border-violet-200 dark:border-violet-800/50',
+  industry: 'bg-[#EAF4FF] dark:bg-[#162338] text-[#3e91ce] dark:text-[#60AFDF] border-[#3e91ce]/20 dark:border-[#3e91ce]/20',
+  service:  'bg-slate-100 dark:bg-[#1E2235] text-slate-600 dark:text-slate-300 border-slate-200 dark:border-[#252A3D]',
+}
+const typeLabels = { homepage: 'Homepage', industry: 'Industry', service: 'Service' }
+
 export default function ProjectEditorForm({ project, availableClassifications = [], availableTags = [] }: Props) {
   const router = useRouter()
   const [isPending, startTransition] = useTransition()
   const [form,  setForm]  = useState<CmsProjectInput>(() => toFormState(project))
   const [error, setError] = useState<string | null>(null)
+  const [customSector, setCustomSector] = useState('')
 
   function update<K extends keyof CmsProjectInput>(key: K, value: CmsProjectInput[K]) {
     setForm((curr) => ({ ...curr, [key]: value }))
@@ -90,6 +139,8 @@ export default function ProjectEditorForm({ project, availableClassifications = 
       router.push('/cms/projects')
     })
   }
+
+  const appearances = getProjectPageAppearances(form.sector, form.featured)
 
   return (
     <div className="space-y-5">
@@ -136,10 +187,11 @@ export default function ProjectEditorForm({ project, availableClassifications = 
       )}
 
       <form onSubmit={handleSubmit}>
-        <div className="grid gap-5 lg:grid-cols-[1fr_290px]">
+        <div className="grid gap-5 lg:grid-cols-[1fr_300px]">
 
-          {/* Main */}
+          {/* ── Main Column ── */}
           <div className="space-y-4">
+
             <Section title="Project Details">
               <Field label="Title">
                 <input value={form.title} onChange={(e) => update('title', e.target.value)} className="field" placeholder="Project name" required />
@@ -155,7 +207,7 @@ export default function ProjectEditorForm({ project, availableClassifications = 
                   <input value={form.scope} onChange={(e) => update('scope', e.target.value)} className="field" placeholder="e.g. 2 × 500KL tanks" required />
                 </Field>
               </div>
-              <Field label="Summary" hint="Shown in project cards">
+              <Field label="Summary" hint="Shown in project cards on industry/service pages">
                 <textarea value={form.summary} onChange={(e) => update('summary', e.target.value)} className="field min-h-20 resize-none" placeholder="Short project summary for grid cards and previews." required />
               </Field>
               <Field label="Body">
@@ -163,15 +215,90 @@ export default function ProjectEditorForm({ project, availableClassifications = 
               </Field>
             </Section>
 
-            <Section title="Classification">
-              <SingleValuePicker
-                label="Project Classification"
-                description="Choose from existing filter categories or add a new one."
-                value={form.sector}
-                onChange={(value) => update('sector', value)}
-                options={availableClassifications}
-                placeholder="e.g. Government, Mining, Industrial"
-              />
+            {/* Classification — with predefined sectors + page hint */}
+            <Section title="Classification &amp; Page Visibility">
+              <div>
+                <span className="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-2">Sector / Classification</span>
+                <p className="text-xs text-slate-400 dark:text-slate-600 mb-3">
+                  Controls which Industry &amp; Service pages show this project. Select a preset or type a custom value.
+                </p>
+
+                {/* Predefined options */}
+                <div className="flex flex-wrap gap-2 mb-3">
+                  {PREDEFINED_SECTORS.map((s) => (
+                    <button
+                      key={s.value}
+                      type="button"
+                      title={s.hint}
+                      onClick={() => update('sector', s.value)}
+                      className={`text-[12px] font-medium px-3 py-1.5 rounded-lg border transition-all ${
+                        form.sector === s.value
+                          ? 'bg-[#3e91ce] border-[#3e91ce] text-white shadow-sm shadow-[#3e91ce]/20'
+                          : 'bg-white dark:bg-[#13161F] border-slate-200 dark:border-[#1E2235] text-slate-600 dark:text-slate-400 hover:border-[#3e91ce]/50 dark:hover:border-[#3e91ce]/50 hover:text-[#3e91ce] dark:hover:text-[#60AFDF]'
+                      }`}
+                    >
+                      {s.value}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Custom input */}
+                <div className="flex gap-2">
+                  <input
+                    value={customSector}
+                    onChange={(e) => setCustomSector(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') { e.preventDefault(); if (customSector.trim()) { update('sector', customSector.trim()); setCustomSector('') } }
+                    }}
+                    className="field flex-1 text-sm"
+                    placeholder="Or type a custom sector…"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => { if (customSector.trim()) { update('sector', customSector.trim()); setCustomSector('') } }}
+                    className="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-[#1A1D2C] border border-slate-200 dark:border-[#1E2235] text-slate-600 dark:text-slate-400 text-sm hover:bg-[#3e91ce] hover:border-[#3e91ce] hover:text-white transition-all"
+                  >
+                    Set
+                  </button>
+                </div>
+
+                {form.sector && (
+                  <div className="mt-2 flex items-center gap-2">
+                    <span className="text-xs text-slate-500 dark:text-slate-500">Current:</span>
+                    <span className="text-xs font-semibold text-[#3e91ce] dark:text-[#60AFDF] bg-[#EAF4FF] dark:bg-[#162338] px-2.5 py-0.5 rounded-full">{form.sector}</span>
+                    <button type="button" onClick={() => update('sector', '')} className="text-xs text-slate-400 hover:text-red-400 transition-colors">Clear ×</button>
+                  </div>
+                )}
+              </div>
+
+              {/* Live Page Appearances preview */}
+              <div className="pt-2 border-t border-slate-100 dark:border-[#1A1D2C]">
+                <p className="text-xs font-semibold text-slate-600 dark:text-slate-400 mb-2">This project will appear on:</p>
+                {appearances.length === 0 ? (
+                  <p className="text-xs text-slate-400 dark:text-slate-600 italic">
+                    No pages yet — select a sector above and/or enable Homepage feature.
+                  </p>
+                ) : (
+                  <div className="flex flex-wrap gap-2">
+                    {appearances.map((a) => (
+                      <a
+                        key={a.path}
+                        href={a.path}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`inline-flex items-center gap-1.5 text-[11px] font-semibold px-3 py-1.5 rounded-lg border transition-opacity hover:opacity-80 ${typeColors[a.type]}`}
+                      >
+                        <span className="text-[9px] font-bold uppercase tracking-wider opacity-60">{typeLabels[a.type]}</span>
+                        <span className="opacity-75">·</span>
+                        {a.label}
+                        <svg className="w-3 h-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
             </Section>
 
             <Section title="SEO">
@@ -182,10 +309,12 @@ export default function ProjectEditorForm({ project, availableClassifications = 
                 <textarea value={form.seoDescription ?? ''} onChange={(e) => update('seoDescription', e.target.value)} className="field min-h-20 resize-none" placeholder="Meta description for search result snippets." />
               </Field>
             </Section>
+
           </div>
 
-          {/* Sidebar */}
+          {/* ── Sidebar Column ── */}
           <div className="space-y-4">
+
             <Section title="Publishing">
               <Field label="Status">
                 <select value={form.status} onChange={(e) => update('status', e.target.value as CmsProjectInput['status'])} className="field">
@@ -196,18 +325,9 @@ export default function ProjectEditorForm({ project, availableClassifications = 
               <Field label="Publish Date">
                 <input type="datetime-local" value={form.publishedAt ?? ''} onChange={(e) => update('publishedAt', e.target.value || null)} className="field" />
               </Field>
-              <label className="flex items-start gap-3 cursor-pointer p-3 rounded-xl border border-slate-200 dark:border-[#1E2235] hover:border-[#3e91ce] dark:hover:border-[#3e91ce]/50 hover:bg-[#EAF4FF] dark:hover:bg-[#162338]/50 transition-colors group">
-                <input
-                  type="checkbox"
-                  checked={form.featured}
-                  onChange={(e) => update('featured', e.target.checked)}
-                  className="mt-0.5 w-4 h-4 accent-[#3e91ce] flex-shrink-0"
-                />
-                <div>
-                  <p className="text-xs font-semibold text-slate-700 dark:text-slate-300 group-hover:text-[#3e91ce] dark:group-hover:text-[#60AFDF] transition-colors">Feature on public pages</p>
-                  <p className="text-xs text-slate-400 dark:text-slate-600 mt-0.5">Shown prominently on homepage and projects page</p>
-                </div>
-              </label>
+
+              {/* Big featured toggle */}
+              <FeaturedToggle checked={form.featured} onChange={(v) => update('featured', v)} />
             </Section>
 
             <Section title="Media">
@@ -246,7 +366,7 @@ export default function ProjectEditorForm({ project, availableClassifications = 
             <button
               type="submit"
               disabled={isPending}
-              className="w-full flex items-center justify-center gap-2 bg-[#3e91ce] text-white px-4 py-2.5 rounded-xl text-[13px] font-semibold hover:bg-[#2d7ab8] disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-sm shadow-[#3e91ce]/20"
+              className="w-full flex items-center justify-center gap-2 bg-[#3e91ce] text-white px-4 py-3 rounded-xl text-[13px] font-semibold hover:bg-[#2d7ab8] disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-sm shadow-[#3e91ce]/20"
             >
               {isPending ? (
                 <>
@@ -254,19 +374,33 @@ export default function ProjectEditorForm({ project, availableClassifications = 
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                   </svg>
-                  Saving...
+                  Saving…
                 </>
               ) : (
                 <>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  {project ? 'Update Project' : 'Publish Project'}
+                  {project ? 'Update Project' : 'Create Project'}
                 </>
               )}
             </button>
-          </div>
 
+            {project && (
+              <a
+                href={`/projects/${project.slug}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-[#1E2235] text-slate-500 dark:text-slate-400 hover:border-[#3e91ce] hover:text-[#3e91ce] dark:hover:text-[#60AFDF] text-[13px] font-medium transition-colors"
+              >
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+                Preview on site
+              </a>
+            )}
+
+          </div>
         </div>
       </form>
     </div>
