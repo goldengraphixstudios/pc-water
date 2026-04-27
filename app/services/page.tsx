@@ -11,6 +11,21 @@ export const metadata: Metadata = {
 
 const services = [
   {
+    title: 'Project Managed Water Infrastructure Facilities',
+    description: 'End-to-end project management across the full water infrastructure lifecycle — from initial brief, civil design, and procurement through to commissioning, handover documentation, and ongoing asset support. Single point of accountability.',
+    href: '/services/project-managed-water-infrastructure',
+  },
+  {
+    title: 'Water Treatment Solutions',
+    description: 'Potable water treatment infrastructure from source to supply — covering raw water intake, chemical conditioning, coagulation and filtration, UV and chlorine disinfection, and SCADA-controlled automated operation to Australian Drinking Water Guideline (ADWG) compliance.',
+    href: '/services/water-treatment-solutions',
+  },
+  {
+    title: 'Foundation & Civil Integration',
+    description: 'Engineered concrete foundations and civil integration for tanks of all sizes. Geotechnical assessment, civil contractor coordination, and structural compliance documentation.',
+    href: '/services/foundation-civil-integration',
+  },
+  {
     title: 'Custom Tank Design & Engineering',
     description: 'Purpose-built tank systems engineered to AS2304 & AS4020 for any capacity, site condition, or application. RPEQ-certified structural engineering, material selection, and modular design.',
     href: '/services/custom-tank-design',
@@ -19,11 +34,6 @@ const services = [
     title: 'Professional Tank Installation',
     description: 'End-to-end installation with certified crews, national reach, JSA/SWMS compliance, and Gantt-based project scheduling. Site preparation through to commissioning.',
     href: '/services/tank-installation',
-  },
-  {
-    title: 'Foundation & Civil Integration',
-    description: 'Engineered concrete foundations and civil integration for tanks of all sizes. Geotechnical assessment, civil contractor coordination, and structural compliance documentation.',
-    href: '/services/foundation-civil-integration',
   },
   {
     title: 'Fire Water Tank Solutions',
@@ -57,7 +67,7 @@ const services = [
   },
   {
     title: 'Builder & Contractor Partnerships',
-    description: 'Reliable subcontract services for builders, civil contractors, and project managers who need specialist water storage capability with national reach.',
+    description: 'Reliable subcontract services for builders, civil contractors, and project managers who need specialist water infrastructure capability with national reach.',
     href: '/services/builder-contractor-partnerships',
   },
 ]
@@ -73,7 +83,7 @@ export default function ServicesPage() {
             COMPLETE WATER INFRASTRUCTURE SERVICES
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
-            PC Tanks and PC Water Solutions — together as PC Water Infrastructure — deliver every stage of your water storage project, from design and supply through to installation, inspection, lining, and long-term asset management.
+            PC Water Solutions and PC Tanks — together as PC Water Infrastructure — deliver every stage of your water infrastructure project, from treatment design and supply through to installation, inspection, lining, and long-term asset management.
           </p>
         </div>
       </section>
@@ -86,24 +96,33 @@ export default function ServicesPage() {
             <h2 className="text-3xl font-black text-[#30505b]">HOW OUR SERVICES ARE STRUCTURED</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* PC Tanks */}
+            {/* PC Water Solutions — Division One */}
             <div className="bg-[#F4F6F8] rounded-2xl p-8 border-2 border-transparent hover:border-[#3e91ce]/30 transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-[#3e91ce] rounded-xl flex items-center justify-center flex-shrink-0">
                   <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16M3 21h18M9 21V10h6v11" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                 </div>
                 <div>
                   <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase">Division One</p>
-                  <h3 className="font-black text-[#30505b] text-xl">PC Tanks</h3>
+                  <h3 className="font-black text-[#30505b] text-xl">PC Water Solutions</h3>
                 </div>
               </div>
               <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                Our tank design and manufacturing division. PC Tanks engineers and supplies bolted steel water storage tanks purpose-built to client specifications — any size, any application, fully compliant with AS2304 and AS4020.
+                Our project delivery and asset management division. PC Water Solutions delivers the full project lifecycle — installation, inspection, RPVC lining, maintenance, fire water compliance, and remote area delivery — across every state and territory in Australia.
               </p>
               <ul className="space-y-2">
-                {['Custom Tank Design & Engineering','RPVC Liner Systems','Custom Tank Supply & Fabrication','AS2304 & AS4020 Compliance'].map(s => (
+                {[
+                  'Project Managed Water Infrastructure',
+                  'Water Treatment Solutions',
+                  'Professional Installation & Commissioning',
+                  'Remote Area Project Delivery',
+                  'Tank Inspection Technology',
+                  'Tank Maintenance & Upgrades',
+                  'Fire Water Tank Solutions',
+                  'Foundation & Civil Integration',
+                ].map(s => (
                   <li key={s} className="flex items-center gap-2 text-sm text-[#30505b]">
                     <span className="w-1.5 h-1.5 bg-[#3e91ce] rounded-full flex-shrink-0" />
                     {s}
@@ -112,24 +131,29 @@ export default function ServicesPage() {
               </ul>
             </div>
 
-            {/* PC Water Solutions */}
+            {/* PC Tanks — Division Two */}
             <div className="bg-[#F4F6F8] rounded-2xl p-8 border-2 border-transparent hover:border-[#3e91ce]/30 transition-all duration-300">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-[#30505b] rounded-xl flex items-center justify-center flex-shrink-0">
                   <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16M3 21h18M9 21V10h6v11" />
                   </svg>
                 </div>
                 <div>
                   <p className="text-[#30505b] text-xs font-bold tracking-widest uppercase">Division Two</p>
-                  <h3 className="font-black text-[#30505b] text-xl">PC Water Solutions</h3>
+                  <h3 className="font-black text-[#30505b] text-xl">PC Tanks</h3>
                 </div>
               </div>
               <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                Our project delivery and asset management division. PC Water Solutions manages the full lifecycle of water infrastructure — installation, inspection, maintenance, fire water compliance, and remote project delivery across Australia.
+                Our tank design and manufacturing division. PC Tanks engineers and supplies bolted steel water storage tanks purpose-built to client specifications — any size, any application, fully compliant with AS2304 and AS4020.
               </p>
               <ul className="space-y-2">
-                {['Professional Tank Installation','Remote Area Project Delivery','Tank Inspection Technology','Tank Maintenance & Upgrades','Fire Water Tank Solutions','Foundation & Civil Integration'].map(s => (
+                {[
+                  'Custom Tank Design & Engineering',
+                  'RPVC Liner Systems',
+                  'Custom Tank Supply & Fabrication',
+                  'AS2304 & AS4020 Compliance',
+                ].map(s => (
                   <li key={s} className="flex items-center gap-2 text-sm text-[#30505b]">
                     <span className="w-1.5 h-1.5 bg-[#30505b] rounded-full flex-shrink-0" />
                     {s}

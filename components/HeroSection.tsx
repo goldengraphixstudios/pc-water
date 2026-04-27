@@ -26,8 +26,8 @@ export default function HeroSection() {
       />
 
       {/* Overlays */}
-      <div className="absolute inset-0 bg-[#0d1b2a]/72" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#162538]/60 via-transparent to-[#3e91ce]/10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#051422]/90 via-[#0a2535]/82 to-[#0d1b2a]/88" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0d2e4a]/50 via-transparent to-[#1a6080]/12" />
 
       {/* Floating particles */}
       {particles.map((p, i) => (
