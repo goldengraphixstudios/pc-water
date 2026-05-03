@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
 import CTABanner from '@/components/CTABanner'
+import ResourcesDownloadSection from '@/components/ResourcesDownloadSection'
 import { formatDate } from '@/lib/cms/utils'
 import { getPublicPosts } from '@/lib/cms/queries'
 
@@ -11,13 +12,6 @@ export const metadata: Metadata = {
     'Insights, guides, and resources on water storage engineering, tank maintenance, fire water compliance, RPVC liners, and remote project delivery across Australia.',
 }
 
-const downloads = [
-  { title: 'Capability Statement', desc: 'Full company capability, project track record, and compliance documentation.', tag: 'Company Profile' },
-  { title: 'Tank Maintenance Checklist', desc: 'Practical asset owner checklist for assessing tank condition and maintenance needs.', tag: 'Maintenance' },
-  { title: 'Fire Water Compliance Guide', desc: 'Understanding AS2304 and AS1851 requirements for fire water storage.', tag: 'Compliance' },
-  { title: 'Tank Upgrade Decision Guide', desc: 'When to reline, repair, or replace — practical guidance for asset managers.', tag: 'Asset Management' },
-  { title: 'Remote Project Delivery Guide', desc: 'Water infrastructure delivery in remote and regional Australia — what you need to know.', tag: 'Remote Projects' },
-]
 
 const faqs = [
   { question: 'What Australian standards apply to water storage tanks?', answer: 'The key standards are AS2304 (water storage tanks for fire protection systems), AS4020 (products in contact with drinking water — relevant for potable storage), and AS1851 (maintenance of fire protection systems and equipment). ISO9001 and ISO14001 apply to quality and environmental management systems.' },
@@ -78,22 +72,11 @@ export default async function ResourcesPage() {
           <div className="text-center mb-12">
             <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Downloads</p>
             <h2 className="text-3xl font-black text-[#30505b]">FREE GUIDES & RESOURCES</h2>
+            <p className="text-gray-500 mt-3 text-sm max-w-xl mx-auto leading-relaxed">
+              Practical technical guides for engineers, asset managers, and operators — available free. Enter your email to access any guide instantly.
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {downloads.map((resource) => (
-              <div key={resource.title} className="bg-[#F4F6F8] rounded-xl p-6 border border-gray-100 hover:shadow-md transition-shadow">
-                <span className="inline-block bg-[#3e91ce]/10 text-[#3e91ce] text-xs font-semibold px-3 py-1 rounded-full mb-4">{resource.tag}</span>
-                <h3 className="font-bold text-[#30505b] mb-2">{resource.title}</h3>
-                <p className="text-gray-500 text-sm mb-5 leading-relaxed">{resource.desc}</p>
-                <a href="#" className="flex items-center gap-2 text-[#3e91ce] text-sm font-semibold hover:gap-3 transition-all">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-                  </svg>
-                  Download Free
-                </a>
-              </div>
-            ))}
-          </div>
+          <ResourcesDownloadSection />
         </div>
       </section>
 

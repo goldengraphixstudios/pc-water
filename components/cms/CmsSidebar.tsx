@@ -9,6 +9,7 @@ const navItems = [
   { href: '/cms/dashboard', label: 'Dashboard' },
   { href: '/cms/posts',     label: 'Articles'  },
   { href: '/cms/projects',  label: 'Projects'  },
+  { href: '/cms/leads',     label: 'Leads'     },
 ]
 
 export default function CmsSidebar({ email }: { email: string }) {
