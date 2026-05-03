@@ -12,6 +12,10 @@ function formatDateTime(iso: string) {
     ' · ' + d.toLocaleTimeString('en-AU', { hour: '2-digit', minute: '2-digit', hour12: true })
 }
 
+function formatDateShort(iso: string) {
+  return new Date(iso).toLocaleDateString('en-AU', { day: '2-digit', month: 'short', year: 'numeric' })
+}
+
 function DivisionBadge({ division }: { division: string | null }) {
   const isSolutions = division === 'PC Water Solutions'
   return (
@@ -25,73 +29,275 @@ function DivisionBadge({ division }: { division: string | null }) {
   )
 }
 
+function StatCard({ label, value, sub, accent }: { label: string; value: string | number; sub: string; accent: string }) {
+  return (
+    <div className="bg-white dark:bg-[#13161F] rounded-xl border border-slate-200 dark:border-[#1E2235] shadow-sm overflow-hidden">
+      <div className={`h-[3px] ${accent}`} />
+      <div className="p-4">
+        <p className="text-2xl font-black text-slate-900 dark:text-slate-100 leading-none mb-1">{value}</p>
+        <p className="text-xs font-semibold text-slate-700 dark:text-slate-300">{label}</p>
+        <p className="text-[11px] text-slate-400 dark:text-slate-600 mt-0.5">{sub}</p>
+      </div>
+    </div>
+  )
+}
+
+// ── CSV export ───────────────────────────────────────────────────────────────
+function exportCSV(leads: ResourceLead[]) {
+  const headers = ['Email', 'Resource', 'Division', 'Date']
+  const rows = leads.map((l) => [
+    l.email,
+    l.resource_title ?? l.resource_slug,
+    l.division ?? '',
+    formatDateShort(l.downloaded_at),
+  ])
+  const csv = [headers, ...rows]
+    .map((row) => row.map((cell) => `"${String(cell).replace(/"/g, '""')}"`).join(','))
+    .join('\n')
+
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' })
+  const url  = URL.createObjectURL(blob)
+  const a    = document.createElement('a')
+  a.href     = url
+  a.download = `pc-water-resource-leads-${new Date().toISOString().slice(0, 10)}.csv`
+  document.body.appendChild(a)
+  a.click()
+  document.body.removeChild(a)
+  URL.revokeObjectURL(url)
+}
+
+// ── Main component ────────────────────────────────────────────────────────────
 export default function LeadsDashboardPage() {
-  const [leads, setLeads]             = useState<ResourceLead[]>([])
-  const [loading, setLoading]         = useState(true)
-  const [division, setDivision]       = useState('All')
-  const [search, setSearch]           = useState('')
+  const [leads, setLeads]           = useState<ResourceLead[]>([])
+  const [loading, setLoading]       = useState(true)
+  const [division, setDivision]     = useState('All')
+  const [search, setSearch]         = useState('')
+  const [showSettings, setSettings] = useState(false)
+  const [refreshing, setRefreshing] = useState(false)
 
-  useEffect(() => {
-    fetchResourceLeads().then((data) => {
-      setLeads(data)
-      setLoading(false)
-    })
-  }, [])
+  async function load() {
+    const data = await fetchResourceLeads()
+    setLeads(data)
+    setLoading(false)
+    setRefreshing(false)
+  }
 
-  const filtered = leads.filter((l) => {
-    const matchDivision = division === 'All' || l.division === division
-    const matchSearch   = !search || l.email.toLowerCase().includes(search.toLowerCase()) ||
-                          (l.resource_title ?? '').toLowerCase().includes(search.toLowerCase())
-    return matchDivision && matchSearch
-  })
+  useEffect(() => { load() }, [])
 
-  // Per-resource counts
+  async function handleRefresh() {
+    setRefreshing(true)
+    await load()
+  }
+
+  // ── Derived stats ─────────────────────────────────────────────────────────
+  const uniqueEmails = new Set(leads.map((l) => l.email.toLowerCase())).size
+
+  const oneWeekAgo   = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
+  const thisWeekCount = leads.filter((l) => new Date(l.downloaded_at) >= oneWeekAgo).length
+
   const countsByResource = leads.reduce<Record<string, number>>((acc, l) => {
     const key = l.resource_title ?? l.resource_slug
     acc[key] = (acc[key] ?? 0) + 1
     return acc
   }, {})
-  const topResources = Object.entries(countsByResource)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 5)
+  const sortedResources = Object.entries(countsByResource).sort((a, b) => b[1] - a[1])
+  const topResource     = sortedResources[0]?.[0] ?? '—'
+  const maxCount        = sortedResources[0]?.[1] ?? 1
+
+  // ── Filtered table data ───────────────────────────────────────────────────
+  const filtered = leads.filter((l) => {
+    const matchDiv    = division === 'All' || l.division === division
+    const matchSearch = !search ||
+      l.email.toLowerCase().includes(search.toLowerCase()) ||
+      (l.resource_title ?? '').toLowerCase().includes(search.toLowerCase())
+    return matchDiv && matchSearch
+  })
+
+  // ── Verification status ───────────────────────────────────────────────────
+  const abstractConfigured = Boolean(process.env.NEXT_PUBLIC_ABSTRACT_EMAIL_API_KEY)
 
   return (
     <div className="space-y-6">
 
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      {/* ── Header ── */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
           <h1 className="text-xl font-bold text-slate-900 dark:text-slate-100">Resource Leads</h1>
           <p className="text-sm text-slate-500 dark:text-slate-500 mt-0.5">
-            Emails captured through the free guide downloads.
+            Emails captured through the free guide download gate.
           </p>
         </div>
-        <div className="text-right">
-          <p className="text-2xl font-black text-[#3e91ce] dark:text-[#60AFDF]">{leads.length}</p>
-          <p className="text-xs text-slate-400 dark:text-slate-600 font-medium">total leads</p>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={handleRefresh}
+            disabled={refreshing}
+            title="Refresh"
+            className="w-8 h-8 flex items-center justify-center rounded-lg border border-slate-200 dark:border-[#1E2235] bg-white dark:bg-[#13161F] text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:border-slate-300 dark:hover:border-[#252A3D] transition-colors disabled:opacity-50"
+          >
+            <svg className={`w-3.5 h-3.5 ${refreshing ? 'animate-spin' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+          </button>
+          <button
+            onClick={() => exportCSV(filtered)}
+            disabled={filtered.length === 0}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-[#1E2235] bg-white dark:bg-[#13161F] text-[13px] font-medium text-slate-600 dark:text-slate-300 hover:border-emerald-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors disabled:opacity-40"
+          >
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+            </svg>
+            Export CSV
+          </button>
+          <button
+            onClick={() => setSettings((v) => !v)}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-[13px] font-medium transition-colors ${
+              showSettings
+                ? 'border-[#3e91ce] bg-[#EAF4FF] dark:bg-[#162338] text-[#3e91ce] dark:text-[#60AFDF]'
+                : 'border-slate-200 dark:border-[#1E2235] bg-white dark:bg-[#13161F] text-slate-600 dark:text-slate-300 hover:border-slate-300'
+            }`}
+          >
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            Settings
+          </button>
         </div>
       </div>
 
-      {/* Summary cards */}
-      {!loading && topResources.length > 0 && (
+      {/* ── Stats row ── */}
+      <div className="grid grid-cols-2 xl:grid-cols-4 gap-3">
+        <StatCard label="Total Leads"     value={loading ? '—' : leads.length}      sub="all time"             accent="bg-[#3e91ce]" />
+        <StatCard label="Unique Emails"   value={loading ? '—' : uniqueEmails}      sub="distinct addresses"   accent="bg-violet-500" />
+        <StatCard label="This Week"       value={loading ? '—' : thisWeekCount}      sub="last 7 days"          accent="bg-emerald-500" />
+        <StatCard label="Top Resource"    value={loading ? '—' : sortedResources[0]?.[1] ?? 0} sub={topResource} accent="bg-orange-400" />
+      </div>
+
+      {/* ── Settings panel ── */}
+      {showSettings && (
+        <div className="bg-white dark:bg-[#13161F] rounded-xl border border-slate-200 dark:border-[#1E2235] shadow-sm overflow-hidden">
+          <div className="px-5 py-3.5 border-b border-slate-100 dark:border-[#1A1D2C]">
+            <h2 className="text-[13px] font-semibold text-slate-800 dark:text-slate-200">Settings</h2>
+          </div>
+          <div className="p-5 grid gap-5 sm:grid-cols-2">
+
+            {/* CSV Export */}
+            <div className="bg-slate-50 dark:bg-[#0C0E16] rounded-xl p-4 border border-slate-100 dark:border-[#1E2235]">
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-6 h-6 rounded-lg bg-emerald-100 dark:bg-emerald-950/40 flex items-center justify-center">
+                  <svg className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                  </svg>
+                </div>
+                <p className="text-[13px] font-semibold text-slate-800 dark:text-slate-200">Export Leads</p>
+              </div>
+              <p className="text-[12px] text-slate-500 dark:text-slate-500 mb-3 leading-relaxed">
+                Download all currently visible leads as a CSV file. Filters and search are applied before export.
+              </p>
+              <button
+                onClick={() => exportCSV(filtered)}
+                disabled={filtered.length === 0}
+                className="w-full flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 disabled:opacity-40 text-white text-[12px] font-semibold transition-colors"
+              >
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                </svg>
+                Export {filtered.length} lead{filtered.length !== 1 ? 's' : ''} as CSV
+              </button>
+            </div>
+
+            {/* Email Verification Status */}
+            <div className="bg-slate-50 dark:bg-[#0C0E16] rounded-xl p-4 border border-slate-100 dark:border-[#1E2235]">
+              <div className="flex items-center gap-2 mb-2">
+                <div className={`w-6 h-6 rounded-lg flex items-center justify-center ${abstractConfigured ? 'bg-emerald-100 dark:bg-emerald-950/40' : 'bg-amber-100 dark:bg-amber-950/40'}`}>
+                  <svg className={`w-3.5 h-3.5 ${abstractConfigured ? 'text-emerald-600 dark:text-emerald-400' : 'text-amber-600 dark:text-amber-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                  </svg>
+                </div>
+                <p className="text-[13px] font-semibold text-slate-800 dark:text-slate-200">Email Verification</p>
+                <span className={`ml-auto text-[10px] font-bold px-2 py-0.5 rounded-full ${abstractConfigured ? 'bg-emerald-100 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400' : 'bg-amber-100 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400'}`}>
+                  {abstractConfigured ? 'Active' : 'Basic only'}
+                </span>
+              </div>
+              {abstractConfigured ? (
+                <p className="text-[12px] text-slate-500 dark:text-slate-500 leading-relaxed">
+                  Abstract API is configured. MX record checks, disposable detection, and deliverability scoring are active on the download gate.
+                </p>
+              ) : (
+                <>
+                  <p className="text-[12px] text-slate-500 dark:text-slate-500 mb-2 leading-relaxed">
+                    Currently using format validation + disposable domain blocklist only. Enable Abstract API for MX checks and real deliverability scoring.
+                  </p>
+                  <p className="text-[11px] text-slate-400 dark:text-slate-600 font-mono bg-white dark:bg-[#13161F] border border-slate-200 dark:border-[#1E2235] rounded px-2 py-1.5 leading-relaxed">
+                    NEXT_PUBLIC_ABSTRACT_EMAIL_API_KEY=your_key
+                  </p>
+                  <a
+                    href="https://www.abstractapi.com/api/email-verification-validation-api"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-[11px] text-[#3e91ce] dark:text-[#60AFDF] hover:underline mt-2"
+                  >
+                    Get a free API key at abstractapi.com
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                    </svg>
+                  </a>
+                </>
+              )}
+            </div>
+
+            {/* Validation layers summary */}
+            <div className="sm:col-span-2 bg-slate-50 dark:bg-[#0C0E16] rounded-xl p-4 border border-slate-100 dark:border-[#1E2235]">
+              <p className="text-[13px] font-semibold text-slate-800 dark:text-slate-200 mb-3">Active Validation Layers</p>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                {[
+                  { label: 'Format check',           active: true,              note: 'Regex pattern' },
+                  { label: 'Disposable block',       active: true,              note: '30+ known domains' },
+                  { label: 'Role address block',     active: true,              note: 'noreply, postmaster…' },
+                  { label: 'MX + deliverability',    active: abstractConfigured, note: 'Abstract API' },
+                ].map((layer) => (
+                  <div key={layer.label} className={`rounded-lg p-3 border ${layer.active ? 'bg-white dark:bg-[#13161F] border-slate-200 dark:border-[#1E2235]' : 'bg-slate-100/50 dark:bg-[#13161F]/50 border-slate-100 dark:border-[#1E2235]/50'}`}>
+                    <div className={`w-4 h-4 rounded-full flex items-center justify-center mb-1.5 ${layer.active ? 'bg-emerald-500' : 'bg-slate-200 dark:bg-slate-700'}`}>
+                      {layer.active
+                        ? <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7"/></svg>
+                        : <svg className="w-2.5 h-2.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4"/></svg>
+                      }
+                    </div>
+                    <p className={`text-[11px] font-semibold leading-tight ${layer.active ? 'text-slate-700 dark:text-slate-300' : 'text-slate-400 dark:text-slate-600'}`}>{layer.label}</p>
+                    <p className="text-[10px] text-slate-400 dark:text-slate-600 mt-0.5">{layer.note}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      )}
+
+      {/* ── Resource breakdown ── */}
+      {!loading && sortedResources.length > 0 && (
         <div className="bg-white dark:bg-[#13161F] rounded-xl border border-slate-200 dark:border-[#1E2235] shadow-sm overflow-hidden">
           <div className="px-5 py-3.5 border-b border-slate-100 dark:border-[#1A1D2C]">
             <h2 className="text-[13px] font-semibold text-slate-800 dark:text-slate-200">Downloads by Resource</h2>
           </div>
-          <div className="divide-y divide-slate-50 dark:divide-[#161926]">
-            {topResources.map(([title, count]) => (
-              <div key={title} className="flex items-center justify-between px-5 py-2.5">
-                <p className="text-[13px] text-slate-700 dark:text-slate-300 truncate">{title}</p>
-                <span className="ml-4 flex-shrink-0 bg-[#EAF4FF] dark:bg-[#162338] text-[#3e91ce] dark:text-[#60AFDF] text-xs font-bold px-2.5 py-0.5 rounded-full">
-                  {count}
-                </span>
+          <div className="p-4 space-y-3">
+            {sortedResources.map(([title, count]) => (
+              <div key={title} className="flex items-center gap-3">
+                <p className="text-[12px] text-slate-600 dark:text-slate-400 truncate w-52 flex-shrink-0">{title}</p>
+                <div className="flex-1 h-1.5 rounded-full bg-slate-100 dark:bg-[#1E2235] overflow-hidden">
+                  <div
+                    className="h-full rounded-full bg-[#3e91ce] transition-all duration-500"
+                    style={{ width: `${Math.round((count / maxCount) * 100)}%` }}
+                  />
+                </div>
+                <span className="text-[12px] font-bold text-slate-700 dark:text-slate-300 w-6 text-right flex-shrink-0">{count}</span>
               </div>
             ))}
           </div>
         </div>
       )}
 
-      {/* Filters */}
+      {/* ── Filters ── */}
       <div className="flex flex-col sm:flex-row gap-3">
         <input
           type="text"
@@ -100,12 +306,12 @@ export default function LeadsDashboardPage() {
           placeholder="Search email or resource…"
           className="flex-1 px-4 py-2 rounded-lg border border-slate-200 dark:border-[#1E2235] bg-white dark:bg-[#13161F] text-sm text-slate-800 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:border-[#3e91ce] transition-colors"
         />
-        <div className="flex gap-1.5">
+        <div className="flex gap-1.5 flex-wrap">
           {DIVISIONS.map((d) => (
             <button
               key={d}
               onClick={() => setDivision(d)}
-              className={`px-3 py-2 rounded-lg text-xs font-semibold transition-all ${
+              className={`px-3 py-2 rounded-lg text-xs font-semibold transition-all whitespace-nowrap ${
                 division === d
                   ? 'bg-[#3e91ce] text-white shadow-sm'
                   : 'bg-white dark:bg-[#13161F] border border-slate-200 dark:border-[#1E2235] text-slate-600 dark:text-slate-400 hover:border-[#3e91ce] hover:text-[#3e91ce]'
@@ -117,25 +323,29 @@ export default function LeadsDashboardPage() {
         </div>
       </div>
 
-      {/* Table */}
+      {/* ── Table ── */}
       <div className="bg-white dark:bg-[#13161F] rounded-xl border border-slate-200 dark:border-[#1E2235] shadow-sm overflow-hidden">
         <div className="px-5 py-3.5 border-b border-slate-100 dark:border-[#1A1D2C] flex items-center justify-between">
           <h2 className="text-[13px] font-semibold text-slate-800 dark:text-slate-200">All Leads</h2>
-          <span className="text-[11px] text-slate-400 dark:text-slate-600">{filtered.length} shown</span>
+          <span className="text-[11px] text-slate-400 dark:text-slate-600">
+            {loading ? '…' : `${filtered.length} shown`}
+          </span>
         </div>
 
         {loading ? (
-          <div className="px-5 py-12 text-center">
+          <div className="px-5 py-14 text-center">
             <svg className="w-5 h-5 animate-spin text-[#3e91ce] mx-auto mb-3" fill="none" viewBox="0 0 24 24">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 12 5.373 12 0h4z" />
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
             </svg>
             <p className="text-sm text-slate-400 dark:text-slate-600">Loading leads…</p>
           </div>
         ) : filtered.length === 0 ? (
-          <div className="px-5 py-12 text-center">
+          <div className="px-5 py-14 text-center">
             <p className="text-sm text-slate-400 dark:text-slate-600">
-              {leads.length === 0 ? 'No leads yet. Downloads will appear here.' : 'No results match your filter.'}
+              {leads.length === 0
+                ? 'No leads yet — downloads will appear here as they come in.'
+                : 'No results match your current filter.'}
             </p>
           </div>
         ) : (
@@ -146,7 +356,7 @@ export default function LeadsDashboardPage() {
                   <th className="px-5 py-2.5 text-[11px] font-semibold text-slate-500 dark:text-slate-500 uppercase tracking-wide">Email</th>
                   <th className="px-5 py-2.5 text-[11px] font-semibold text-slate-500 dark:text-slate-500 uppercase tracking-wide">Resource</th>
                   <th className="px-5 py-2.5 text-[11px] font-semibold text-slate-500 dark:text-slate-500 uppercase tracking-wide">Division</th>
-                  <th className="px-5 py-2.5 text-[11px] font-semibold text-slate-500 dark:text-slate-500 uppercase tracking-wide">Date</th>
+                  <th className="px-5 py-2.5 text-[11px] font-semibold text-slate-500 dark:text-slate-500 uppercase tracking-wide">Downloaded</th>
                 </tr>
               </thead>
               <tbody>
@@ -156,7 +366,7 @@ export default function LeadsDashboardPage() {
                     className="border-b border-slate-50 dark:border-[#161926] last:border-0 hover:bg-slate-50 dark:hover:bg-[#1A1D2C] transition-colors"
                   >
                     <td className="px-5 py-3 text-slate-800 dark:text-slate-200 font-medium">{lead.email}</td>
-                    <td className="px-5 py-3 text-slate-600 dark:text-slate-400">{lead.resource_title ?? lead.resource_slug}</td>
+                    <td className="px-5 py-3 text-slate-600 dark:text-slate-400 text-[13px]">{lead.resource_title ?? lead.resource_slug}</td>
                     <td className="px-5 py-3"><DivisionBadge division={lead.division} /></td>
                     <td className="px-5 py-3 text-slate-400 dark:text-slate-600 text-[12px]">{formatDateTime(lead.downloaded_at)}</td>
                   </tr>
@@ -166,6 +376,7 @@ export default function LeadsDashboardPage() {
           </div>
         )}
       </div>
+
     </div>
   )
 }

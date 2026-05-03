@@ -11,44 +11,101 @@ interface Props {
   onClose: () => void
 }
 
-const DISPOSABLE_DOMAINS = [
-  'mailinator.com', 'guerrillamail.com', 'tempmail.com', 'throwaway.email',
-  'sharklasers.com', 'guerrillamailblock.com', 'grr.la', 'guerrillamail.info',
-  'yopmail.com', 'spam4.me', 'trashmail.com', 'dispostable.com', 'maildrop.cc',
-  'fakeinbox.com', 'getairmail.com', 'mailnull.com', 'spamgourmet.com',
-  'getnada.com', 'burnermail.io', 'mailtemp.net',
-]
+// ─── Static disposable domain blocklist ──────────────────────────────────────
+const DISPOSABLE_DOMAINS = new Set([
+  'mailinator.com', 'guerrillamail.com', 'guerrillamail.info', 'guerrillamailblock.com',
+  'tempmail.com', 'throwaway.email', 'sharklasers.com', 'grr.la',
+  'yopmail.com', 'spam4.me', 'trashmail.com', 'dispostable.com',
+  'maildrop.cc', 'fakeinbox.com', 'getairmail.com', 'mailnull.com',
+  'spamgourmet.com', 'getnada.com', 'burnermail.io', 'mailtemp.net',
+  'tempinbox.com', 'spamgmail.com', 'filzmail.com', 'throwam.com',
+  'mailsac.com', 'boun.cr', 'spam.la', 'spaml.com', 'tempr.email',
+  'discard.email', 'trashmail.at', 'trashmail.io', 'trashmail.me',
+  'mailnesia.com', 'tempomail.fr', 'jetable.fr', '10minutemail.com',
+  'tempmail.net', 'tempmail.org', 'emailondeck.com', 'dropmail.me',
+  'guerrillamail.de', 'guerrillamail.net', 'guerrillamail.org',
+])
 
-function isValidEmail(email: string): boolean {
+// ─── Role-based prefixes that suggest non-personal emails ────────────────────
+const ROLE_PREFIXES = ['noreply', 'no-reply', 'donotreply', 'postmaster', 'bounce', 'mailer-daemon']
+
+function isValidFormat(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim())
 }
 
-function isDisposableEmail(email: string): boolean {
+function isDisposable(email: string): boolean {
   const domain = email.trim().toLowerCase().split('@')[1] ?? ''
-  return DISPOSABLE_DOMAINS.includes(domain)
+  return DISPOSABLE_DOMAINS.has(domain)
 }
 
+function isRoleBased(email: string): boolean {
+  const prefix = email.trim().toLowerCase().split('@')[0] ?? ''
+  return ROLE_PREFIXES.includes(prefix)
+}
+
+// ─── Abstract API validation (requires NEXT_PUBLIC_ABSTRACT_EMAIL_API_KEY) ───
+interface AbstractResult {
+  deliverability: 'DELIVERABLE' | 'UNDELIVERABLE' | 'RISKY' | 'UNKNOWN'
+  is_valid_format: { value: boolean }
+  is_disposable_email: { value: boolean }
+  is_mx_found: { value: boolean }
+  is_smtp_valid: { value: boolean }
+  is_role: { value: boolean }
+}
+
+async function checkAbstractAPI(email: string): Promise<{ ok: boolean; reason?: string }> {
+  const apiKey = process.env.NEXT_PUBLIC_ABSTRACT_EMAIL_API_KEY
+  if (!apiKey) return { ok: true } // not configured — skip
+
+  try {
+    const res = await fetch(
+      `https://emailvalidation.abstractapi.com/v1/?api_key=${apiKey}&email=${encodeURIComponent(email)}`,
+      { signal: AbortSignal.timeout(6000) }
+    )
+    if (!res.ok) return { ok: true } // API error — don't block
+
+    const data: AbstractResult = await res.json()
+
+    if (data.is_disposable_email?.value === true) {
+      return { ok: false, reason: 'Disposable email addresses are not accepted. Please use your work or personal email.' }
+    }
+    if (!data.is_mx_found?.value) {
+      return { ok: false, reason: 'This email domain does not appear to accept mail. Please check your address.' }
+    }
+    if (data.deliverability === 'UNDELIVERABLE') {
+      return { ok: false, reason: 'This email address appears to be invalid or unreachable.' }
+    }
+    if (data.is_role?.value === true) {
+      return { ok: false, reason: 'Please use a personal or work email address rather than a shared mailbox.' }
+    }
+
+    return { ok: true }
+  } catch {
+    return { ok: true } // timeout or network error — don't block the user
+  }
+}
+
+// ─── Component ────────────────────────────────────────────────────────────────
 export default function ResourceDownloadGate({ resourceSlug, resourceTitle, division, fileUrl, onClose }: Props) {
   const [email, setEmail]       = useState('')
-  const [status, setStatus]     = useState<'idle' | 'loading' | 'done' | 'error'>('idle')
+  const [status, setStatus]     = useState<'idle' | 'validating' | 'saving' | 'done'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
   const inputRef                = useRef<HTMLInputElement>(null)
   const overlayRef              = useRef<HTMLDivElement>(null)
 
-  // Focus input on open
+  const busy = status === 'validating' || status === 'saving'
+
   useEffect(() => {
     const t = setTimeout(() => inputRef.current?.focus(), 80)
     return () => clearTimeout(t)
   }, [])
 
-  // Close on Escape
   useEffect(() => {
-    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
+    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape' && !busy) onClose() }
     document.addEventListener('keydown', handler)
     return () => document.removeEventListener('keydown', handler)
-  }, [onClose])
+  }, [onClose, busy])
 
-  // Prevent body scroll
   useEffect(() => {
     document.body.style.overflow = 'hidden'
     return () => { document.body.style.overflow = '' }
@@ -58,22 +115,34 @@ export default function ResourceDownloadGate({ resourceSlug, resourceTitle, divi
     e.preventDefault()
     setErrorMsg('')
 
-    const trimmed = email.trim()
+    const trimmed = email.trim().toLowerCase()
 
-    if (!isValidEmail(trimmed)) {
+    // Local checks (instant)
+    if (!isValidFormat(trimmed)) {
       setErrorMsg('Please enter a valid email address.')
       return
     }
-
-    if (isDisposableEmail(trimmed)) {
+    if (isDisposable(trimmed)) {
       setErrorMsg('Disposable email addresses are not accepted. Please use your work or personal email.')
       return
     }
+    if (isRoleBased(trimmed)) {
+      setErrorMsg('Please use a personal or work email address rather than a shared mailbox.')
+      return
+    }
 
-    setStatus('loading')
+    // Abstract API check (if key is configured)
+    setStatus('validating')
+    const { ok, reason } = await checkAbstractAPI(trimmed)
+    if (!ok) {
+      setErrorMsg(reason ?? 'Please enter a valid email address.')
+      setStatus('idle')
+      return
+    }
 
+    // Store lead
+    setStatus('saving')
     await submitResourceLead(trimmed, resourceSlug, resourceTitle, division)
-
     setStatus('done')
 
     // Trigger download
@@ -86,10 +155,15 @@ export default function ResourceDownloadGate({ resourceSlug, resourceTitle, divi
     document.body.removeChild(a)
   }
 
-  // Click outside overlay closes
   function handleOverlayClick(e: React.MouseEvent) {
-    if (e.target === overlayRef.current) onClose()
+    if (e.target === overlayRef.current && !busy) onClose()
   }
+
+  const buttonLabel = status === 'validating'
+    ? 'Verifying email…'
+    : status === 'saving'
+    ? 'Preparing download…'
+    : 'Download Free Guide'
 
   return (
     <div
@@ -97,7 +171,7 @@ export default function ResourceDownloadGate({ resourceSlug, resourceTitle, divi
       onClick={handleOverlayClick}
       className="fixed inset-0 z-[999] bg-black/60 backdrop-blur-sm flex items-center justify-center px-4"
     >
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden">
 
         {/* Header */}
         <div className="bg-gradient-to-r from-[#162538] to-[#30505b] px-6 py-5 flex items-start justify-between gap-4">
@@ -106,15 +180,17 @@ export default function ResourceDownloadGate({ resourceSlug, resourceTitle, divi
             <h2 className="text-white font-black text-lg leading-snug">{resourceTitle}</h2>
             <span className="inline-block mt-2 bg-white/10 text-white/80 text-xs px-2.5 py-0.5 rounded-full">{division}</span>
           </div>
-          <button
-            onClick={onClose}
-            className="flex-shrink-0 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors mt-0.5"
-            aria-label="Close"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
+          {!busy && (
+            <button
+              onClick={onClose}
+              className="flex-shrink-0 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors mt-0.5"
+              aria-label="Close"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          )}
         </div>
 
         {/* Body */}
@@ -129,12 +205,7 @@ export default function ResourceDownloadGate({ resourceSlug, resourceTitle, divi
               <h3 className="font-black text-[#30505b] text-lg mb-2">Your download has started</h3>
               <p className="text-gray-500 text-sm leading-relaxed mb-5">
                 If the download did not start automatically,{' '}
-                <a
-                  href={fileUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#3e91ce] underline hover:text-[#2d7ab8]"
-                >
+                <a href={fileUrl} target="_blank" rel="noopener noreferrer" className="text-[#3e91ce] underline hover:text-[#2d7ab8]">
                   click here to download
                 </a>.
               </p>
@@ -165,33 +236,38 @@ export default function ResourceDownloadGate({ resourceSlug, resourceTitle, divi
                     onChange={(e) => { setEmail(e.target.value); setErrorMsg('') }}
                     placeholder="you@company.com.au"
                     autoComplete="email"
-                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[#3e91ce] focus:ring-2 focus:ring-[#3e91ce]/20 transition-all"
-                    disabled={status === 'loading'}
+                    disabled={busy}
+                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[#3e91ce] focus:ring-2 focus:ring-[#3e91ce]/20 transition-all disabled:opacity-60"
                   />
                   {errorMsg && (
-                    <p className="text-red-500 text-xs mt-1.5 font-medium">{errorMsg}</p>
+                    <p className="text-red-500 text-xs mt-1.5 font-medium flex items-center gap-1.5">
+                      <svg className="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd"/>
+                      </svg>
+                      {errorMsg}
+                    </p>
                   )}
                 </div>
 
                 <button
                   type="submit"
-                  disabled={status === 'loading' || !email.trim()}
+                  disabled={busy || !email.trim()}
                   className="w-full flex items-center justify-center gap-2 bg-[#3e91ce] hover:bg-[#2d7ab8] disabled:bg-gray-200 disabled:text-gray-400 text-white font-bold py-3 rounded-xl transition-all text-sm shadow-sm shadow-[#3e91ce]/20"
                 >
-                  {status === 'loading' ? (
+                  {busy ? (
                     <>
                       <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 12 5.373 12 0h4z" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                       </svg>
-                      Processing…
+                      {buttonLabel}
                     </>
                   ) : (
                     <>
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                       </svg>
-                      Download Free Guide
+                      {buttonLabel}
                     </>
                   )}
                 </button>
