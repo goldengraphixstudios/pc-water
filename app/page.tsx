@@ -89,7 +89,7 @@ export default function HomePage() {
       {/* ─── ABOUT US ─── */}
       <section className="bg-white py-24">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-16 items-center">
             <AnimatedSection>
               <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ About Us</p>
               <h2 className="text-4xl md:text-5xl font-black text-[#30505b] leading-tight mb-6">
@@ -129,7 +129,7 @@ export default function HomePage() {
             </AnimatedSection>
 
             <AnimatedSection delay={0.2}>
-              <div className="grid grid-cols-2 gap-5">
+              <div className="grid grid-cols-2 gap-3">
                 {[
                   { label: 'Founded', value: '2013', sub: 'Established in Queensland' },
                   { label: 'Coverage', value: 'National', sub: 'Every state & territory' },
@@ -138,29 +138,29 @@ export default function HomePage() {
                 ].map((stat) => (
                   <div
                     key={stat.label}
-                    className="bg-[#F4F6F8] rounded-2xl p-6 border-2 border-transparent hover:border-[#3e91ce]/30 transition-all duration-300"
+                    className="bg-[#F4F6F8] rounded-xl p-4 border-2 border-transparent hover:border-[#3e91ce]/30 transition-all duration-300"
                   >
-                    <p className="text-[#3e91ce] font-black text-2xl mb-1">{stat.value}</p>
-                    <p className="font-bold text-[#30505b] text-sm mb-1">{stat.label}</p>
-                    <p className="text-gray-500 text-xs">{stat.sub}</p>
+                    <p className="text-[#3e91ce] font-black text-xl mb-0.5">{stat.value}</p>
+                    <p className="font-bold text-[#30505b] text-xs mb-0.5">{stat.label}</p>
+                    <p className="text-gray-500 text-[11px]">{stat.sub}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-5 bg-gradient-to-br from-[#162538] to-[#30505b] rounded-2xl p-6 text-white">
-                <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Our Two Divisions</p>
-                <div className="grid grid-cols-1 gap-3">
+              <div className="mt-3 bg-gradient-to-br from-[#162538] to-[#30505b] rounded-xl p-4 text-white">
+                <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-2">/ Our Two Divisions</p>
+                <div className="grid grid-cols-1 gap-2">
                   {[
                     { name: 'PC Water Solutions', role: 'Full-scope delivery — civil, structural, mechanical, process, pipelines, treatment plant integration' },
                     { name: 'PC Tanks', role: 'Engineering, design & supply of high-performance bolted steel water storage systems' },
                   ].map((d) => (
-                    <div key={d.name} className="bg-white/10 rounded-xl p-4">
-                      <p className="font-bold text-white text-sm mb-1">{d.name}</p>
-                      <p className="text-gray-300 text-xs">{d.role}</p>
+                    <div key={d.name} className="bg-white/10 rounded-lg p-3">
+                      <p className="font-bold text-white text-sm mb-0.5">{d.name}</p>
+                      <p className="text-gray-300 text-xs leading-snug">{d.role}</p>
                     </div>
                   ))}
                 </div>
-                <p className="text-gray-400 text-xs mt-4">
+                <p className="text-gray-400 text-xs mt-3">
                   Part of the Pacific Water Group — delivering water infrastructure solutions across Australia since 2013.
                 </p>
               </div>
