@@ -11,12 +11,16 @@ export const metadata: Metadata = {
 }
 
 const gallery = [
-  { src: '/projects/hobart-01.jpg', alt: 'Aerial view of Hobart Nyrstar industrial tanks' },
+  { src: '/projects/hobart-01.jpg', alt: 'Hobart Nyrstar tanks — aerial drone view' },
   { src: '/projects/hobart-02.jpg', alt: 'Hobart Nyrstar tank installation drone view' },
-  { src: '/projects/hobart-03.jpg', alt: 'Nyrstar facility tank aerial photography' },
-  { src: '/projects/hobart-04.jpg', alt: 'Industrial tank construction Hobart' },
-  { src: '/projects/hobart-05.jpg', alt: 'Hobart Nyrstar completed tank installation' },
-  { src: '/projects/hobart-06.jpg', alt: 'Nyrstar industrial tanks aerial view' },
+  { src: '/projects/hobart-03.jpg', alt: 'Nyrstar facility aerial photography' },
+  { src: '/projects/hobart-04.jpg', alt: 'Hobart Nyrstar drone overview' },
+  { src: '/projects/hobart-05.jpg', alt: 'Nyrstar tanks mid-construction aerial' },
+  { src: '/projects/hobart-06.jpg', alt: 'Early construction phase aerial view' },
+  { src: '/projects/hobart-07.jpg', alt: 'Hobart Nyrstar ground-level installation' },
+  { src: '/projects/hobart-08.jpg', alt: 'Tank installation detail Hobart' },
+  { src: '/projects/hobart-09.jpg', alt: 'Nyrstar industrial tank construction' },
+  { src: '/projects/hobart-10.jpg', alt: 'Completed Nyrstar tank installation' },
 ]
 
 export default function HobartNyrstarPage() {

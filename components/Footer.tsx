@@ -152,13 +152,15 @@ export default function Footer() {
         </div>
 
         {/* Indigenous Acknowledgement */}
-        <div className="border-t border-white/10 pt-8 mb-6">
+        <div className="border-t border-white/10 pt-8 mb-6 flex items-start gap-4">
+          <div className="relative w-12 h-8 flex-shrink-0 mt-0.5">
+            <Image src="/aboriginal-flag.png" alt="Aboriginal flag" fill className="object-contain" sizes="48px" />
+          </div>
           <p className="text-gray-500 text-xs leading-relaxed max-w-3xl">
             <span className="text-gray-400 font-medium">Acknowledgement of Country: </span>
             PC Water Infrastructure acknowledges the Traditional Custodians of the land on which we work and live. We pay our respects to Elders past, present and emerging.
           </p>
         </div>
-
 
         {/* Copyright */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">

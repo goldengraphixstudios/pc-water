@@ -11,12 +11,16 @@ export const metadata: Metadata = {
 }
 
 const gallery = [
-  { src: '/projects/doomadgee-01.jpg', alt: 'Doomadgee WTP earthworks site' },
-  { src: '/projects/doomadgee-02.jpg', alt: 'Doomadgee WTP ground preparation' },
-  { src: '/projects/doomadgee-03.jpg', alt: 'Doomadgee 2ML reservoir earthworks' },
-  { src: '/projects/doomadgee-04.jpg', alt: 'Aerial view of Doomadgee WTP tank installation' },
-  { src: '/projects/doomadgee-05.jpg', alt: 'Doomadgee WTP aerial drone view' },
-  { src: '/projects/doomadgee-06.jpg', alt: 'Doomadgee site earthworks progress' },
+  { src: '/projects/doomadgee-01.jpg', alt: 'Doomadgee reservoir earthworks site' },
+  { src: '/projects/doomadgee-02.jpg', alt: 'Doomadgee aerial drone view' },
+  { src: '/projects/doomadgee-03.jpg', alt: 'Doomadgee 2ML reservoir drone shot' },
+  { src: '/projects/doomadgee-04.jpg', alt: 'Aerial view Doomadgee tank installation' },
+  { src: '/projects/doomadgee-05.jpg', alt: 'Doomadgee site aerial progress' },
+  { src: '/projects/doomadgee-06.jpg', alt: 'Doomadgee reservoir drone overview' },
+  { src: '/projects/doomadgee-07.jpg', alt: 'Doomadgee construction progress aerial' },
+  { src: '/projects/doomadgee-08.jpg', alt: 'Doomadgee 2ML reservoir aerial view' },
+  { src: '/projects/doomadgee-09.jpg', alt: 'Doomadgee site late stage aerial' },
+  { src: '/projects/doomadgee-10.jpg', alt: 'Completed Doomadgee reservoir aerial' },
 ]
 
 export default function DoomadgeeWTPPage() {
@@ -52,7 +56,10 @@ export default function DoomadgeeWTPPage() {
 
       {/* Cultural acknowledgement */}
       <section className="bg-[#30505b] py-6">
-        <div className="max-w-4xl mx-auto px-4">
+        <div className="max-w-4xl mx-auto px-4 flex items-center gap-4">
+          <div className="relative w-12 h-8 flex-shrink-0">
+            <Image src="/aboriginal-flag.png" alt="Aboriginal flag" fill className="object-contain" sizes="48px" />
+          </div>
           <p className="text-gray-200 text-sm">
             <span className="font-semibold text-white">Acknowledgement of Country — </span>
             Doomadgee is the traditional homeland of the Gangalidda, Waanyi, Garrawa and Yunjulla peoples. PC Water Infrastructure acknowledges these Traditional Custodians and pays respect to Elders past, present, and emerging. We are proud to have contributed to safe water access for this community.
