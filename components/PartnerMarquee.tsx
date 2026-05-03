@@ -13,7 +13,6 @@ const partners = [
   { src: '/partners/cse.png', alt: 'CSE' },
   { src: '/partners/dekort.png', alt: 'Dekort' },
   { src: '/partners/eehaa.png', alt: 'Eehaa' },
-  { src: '/partners/makwater.png', alt: 'MakWater' },
   { src: '/partners/mfe.png', alt: 'MFE' },
   { src: '/partners/parasyn.png', alt: 'Parasyn' },
   { src: '/partners/waters-marine.png', alt: 'Waters Marine' },

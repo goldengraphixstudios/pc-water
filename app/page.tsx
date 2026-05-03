@@ -19,7 +19,7 @@ const faqs = [
   {
     question: 'What water infrastructure services does PC Water Infrastructure provide?',
     answer:
-      'We deliver end-to-end water infrastructure solutions — including project managed water infrastructure facilities, water treatment and potable water systems, asset installation and commissioning, RPVC lining, fire water compliance, tank inspection, and remote area project delivery. Our two divisions, PC Water Solutions and PC Tanks, operate together to cover every stage of a water infrastructure project.',
+      'We deliver end-to-end water infrastructure solutions — including project managed water infrastructure facilities, water treatment and potable water systems, asset installation and commissioning, RPVC lining, fire water compliance, tank inspection, and remote area project delivery. PC Water Solutions and PC Tanks operate as one team — a single partner and single point of accountability covering every stage of a water infrastructure project, from design and supply through to installation, commissioning, and long-term asset management.',
   },
   {
     question: 'What is PC Water Solutions?',
@@ -29,7 +29,7 @@ const faqs = [
   {
     question: 'What is PC Tanks?',
     answer:
-      'PC Tanks is our tank design and manufacturing division. We engineer and supply bolted steel water storage tanks purpose-built to client specifications — any size, any application, fully compliant with AS2304 and AS4020.',
+      'PC Tanks is our specialist engineering and supply division for high-performance bolted steel water storage systems. We design and manufacture scalable storage solutions across a full range of capacities and configurations, built to Australian Standards (AS2304 and AS4020) for potable, process, fire protection, and critical infrastructure applications. From concept design and detailed engineering through to manufacture and coordinated delivery, PC Tanks provides rapid, reliable supply engineered for durability, corrosion resistance, and long-term asset performance in some of the harshest environments in Australia.',
   },
   {
     question: 'Do you support water treatment plant design and delivery?',
@@ -54,7 +54,7 @@ const faqs = [
   {
     question: 'Who do I contact to discuss a project?',
     answer:
-      'Reach our team via the enquiry form at /contact, by phone on 1300 029 804, or by email at info@pacificwatergroup.com.au. Our specialists respond to all enquiries within one business day.',
+      'Reach our team via the enquiry form at /contact, by phone on 1300 029 804, or by email at info@pcwater.com.au. Our specialists respond to all enquiries within one business day.',
   },
 ]
 
@@ -98,18 +98,16 @@ export default function HomePage() {
                 ONE MISSION.
               </h2>
               <p className="text-gray-600 leading-relaxed mb-5">
-                PC Water Infrastructure is the trading identity of two specialist divisions —{' '}
-                <strong>PC Water Solutions</strong> and <strong>PC Tanks</strong> — operating together as part of the Pacific Water Group.
+                PC Water Infrastructure is a national delivery partner for water storage and treatment infrastructure — providing fully integrated, end-to-end solutions with single-point accountability across design, supply, construction, and asset lifecycle management.
               </p>
               <p className="text-gray-600 leading-relaxed mb-5">
-                <strong>PC Water Solutions</strong> delivers the full project lifecycle — installation, inspection,
-                RPVC lining, maintenance, fire water compliance, and remote area delivery — across every state and
-                territory in Australia.
+                <strong>PC Water Solutions</strong> is our full-scope delivery arm — executing complex water infrastructure and treatment facility works across civil construction, structural works, mechanical and process installation, pipeline and reticulation systems, and full treatment plant integration. From greenfield treatment plants to major upgrades, we deliver with precision in demanding and remote environments.
               </p>
-              <p className="text-gray-600 leading-relaxed mb-8">
-                <strong>PC Tanks</strong> engineers and supplies bolted steel water storage tanks — purpose-built to
-                AS2304 and AS4020 for any capacity, site condition, or application. Together we give clients a single
-                partner that covers design, supply, delivery, and long-term asset management.
+              <p className="text-gray-600 leading-relaxed mb-5">
+                <strong>PC Tanks</strong> is our specialist engineering and supply division — designing and manufacturing high-performance bolted steel water storage systems to Australian Standards for potable, process, fire protection, and critical infrastructure applications. Scalable, durable, engineered for long-term asset performance.
+              </p>
+              <p className="text-sm text-[#30505b] font-semibold border-l-2 border-[#3e91ce] pl-4 mb-8">
+                No fragmentation. No interface risk. No blurred responsibility. One contract. One accountable partner. One standard.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
@@ -153,8 +151,8 @@ export default function HomePage() {
                 <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Our Two Divisions</p>
                 <div className="grid grid-cols-1 gap-3">
                   {[
-                    { name: 'PC Water Solutions', role: 'Project Delivery & Full Lifecycle Asset Management' },
-                    { name: 'PC Tanks', role: 'Tank Design, Engineering & Supply' },
+                    { name: 'PC Water Solutions', role: 'Full-scope delivery — civil, structural, mechanical, process, pipelines, treatment plant integration' },
+                    { name: 'PC Tanks', role: 'Engineering, design & supply of high-performance bolted steel water storage systems' },
                   ].map((d) => (
                     <div key={d.name} className="bg-white/10 rounded-xl p-4">
                       <p className="font-bold text-white text-sm mb-1">{d.name}</p>
@@ -201,27 +199,27 @@ export default function HomePage() {
               },
               {
                 num: '03',
+                title: 'Remote Area Project Delivery',
+                desc: 'Specialist delivery for remote and regional Australia — FIFO teams, Indigenous community project experience, harsh environment material selection, and dedicated remote logistics coordination.',
+                iconPath: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z',
+              },
+              {
+                num: '04',
                 title: 'Asset Installation & Commissioning',
                 desc: 'Certified installation crews with national reach. Site preparation, civil integration, Gantt-based project scheduling, commissioning, and full handover documentation — built for accountability.',
                 iconPath: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z',
               },
               {
-                num: '04',
+                num: '05',
                 title: 'RPVC Lining & Corrosion Protection',
                 desc: 'High-performance RPVC liner systems installed to protect tanks from corrosion, restore potable water compliance, and extend asset service life by 20+ years. AS4020 compliant.',
                 iconPath: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
               },
               {
-                num: '05',
+                num: '06',
                 title: 'Inspection & Compliance Management',
                 desc: 'Advanced ROV and UAV drone inspection for condition assessment without costly dewatering. AS1851 compliance reporting, detailed condition assessments, and targeted maintenance recommendations.',
                 iconPath: 'M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z',
-              },
-              {
-                num: '06',
-                title: 'Remote Area Project Delivery',
-                desc: 'Specialist delivery for remote and regional Australia — FIFO teams, Indigenous community project experience, harsh environment material selection, and dedicated remote logistics coordination.',
-                iconPath: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z',
               },
             ].map((cap) => (
               <StaggerItem key={cap.num}>
@@ -269,7 +267,7 @@ export default function HomePage() {
               <span className="gradient-text">EVERY SECTOR.</span>
             </h2>
             <p className="text-gray-400 mt-5 text-lg max-w-2xl mx-auto">
-              Three distinct sectors. One consistent standard of water infrastructure delivery — the postcode changes, the scale changes, the standard does not.
+              Three distinct sectors. One consistent standard of water infrastructure delivery — the postcode changes, the scale changes, the standard remains.
             </p>
           </AnimatedSection>
 

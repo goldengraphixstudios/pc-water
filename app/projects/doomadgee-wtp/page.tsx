@@ -52,12 +52,10 @@ export default function DoomadgeeWTPPage() {
 
       {/* Cultural acknowledgement */}
       <section className="bg-[#30505b] py-6">
-        <div className="max-w-4xl mx-auto px-4 flex items-center gap-4">
-          <div className="relative w-12 h-8 flex-shrink-0">
-            <Image src="/aboriginal-flag.png" alt="Aboriginal flag" fill className="object-contain" sizes="48px" />
-          </div>
+        <div className="max-w-4xl mx-auto px-4">
           <p className="text-gray-200 text-sm">
-            PC Water Infrastructure acknowledges the Traditional Custodians of the land at Doomadgee and pays respect to Elders past, present, and emerging. We are proud to have contributed to safe water access for this community.
+            <span className="font-semibold text-white">Acknowledgement of Country — </span>
+            Doomadgee is the traditional homeland of the Gangalidda, Waanyi, Garrawa and Yunjulla peoples. PC Water Infrastructure acknowledges these Traditional Custodians and pays respect to Elders past, present, and emerging. We are proud to have contributed to safe water access for this community.
           </p>
         </div>
       </section>
@@ -68,7 +66,7 @@ export default function DoomadgeeWTPPage() {
             <div className="lg:col-span-2">
               <h2 className="text-2xl font-black text-[#30505b] mb-6">Project Overview</h2>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Doomadgee is a remote Indigenous community in Queensland's Gulf Country, located approximately 200 kilometres south of the Gulf of Carpentaria. PC Water Infrastructure was engaged to deliver a 2-megalitre ground-level tank as part of the community's water treatment plant infrastructure — providing the storage capacity needed to ensure reliable, safe water supply to the community.
+                Doomadgee is a remote Indigenous community in Queensland's Gulf Country — the traditional homeland of the Gangalidda, Waanyi, Garrawa and Yunjulla peoples — located approximately 200 kilometres south of the Gulf of Carpentaria. PC Water Infrastructure was engaged to deliver a 2-megalitre ground-level tank as part of the community's water treatment plant infrastructure, providing the storage capacity needed to ensure reliable, safe water supply to the community.
               </p>
               <p className="text-gray-600 leading-relaxed mb-6">
                 This project represents one of the most logistically complex deliveries in PC Water Infrastructure's portfolio — combining extreme remoteness, significant civil earthworks in challenging soil conditions, and the responsibility of delivering infrastructure that would directly impact community health and wellbeing.

@@ -2,14 +2,16 @@ import Link from 'next/link'
 import Image from '@/components/AppImage'
 
 const services = [
+  { label: 'Project Managed Water Infrastructure', href: '/services/project-managed-water-infrastructure' },
+  { label: 'Water Treatment Solutions', href: '/services/water-treatment-solutions' },
+  { label: 'Foundation & Civil Integration', href: '/services/foundation-civil-integration' },
   { label: 'Custom Tank Design & Engineering', href: '/services/custom-tank-design' },
   { label: 'Professional Tank Installation', href: '/services/tank-installation' },
-  { label: 'Foundation & Civil Integration', href: '/services/foundation-civil-integration' },
   { label: 'Fire Water Tank Solutions', href: '/services/fire-water-tanks' },
   { label: 'Remote Area Project Delivery', href: '/services/remote-area-delivery' },
   { label: 'Tank Maintenance & Upgrades', href: '/services/tank-maintenance-upgrades' },
   { label: 'Tank Inspection Technology', href: '/services/tank-inspection-technology' },
-  { label: 'RPVC Liners', href: '/services/rpvc-liner-systems' },
+  { label: 'RPVC Liner Systems', href: '/services/rpvc-liner-systems' },
   { label: 'Tender & Procurement Support', href: '/services/tender-procurement-support' },
   { label: 'Builder & Contractor Partnerships', href: '/services/builder-contractor-partnerships' },
 ]
@@ -46,7 +48,7 @@ export default function Footer() {
               PC WATER INFRASTRUCTURE
             </p>
             <p className="text-gray-400 text-sm max-w-md">
-              Australian-Made Tanks. Global-Standard Performance. Engineered water storage solutions for demanding infrastructure across Australia.
+              Complete Water Infrastructure. Custom tanks. Treatment plant construction. Australian-made. Globally compliant.
             </p>
           </div>
           <div>
@@ -105,7 +107,7 @@ export default function Footer() {
                 <svg className="w-4 h-4 mt-0.5 text-[#3e91ce] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"/>
                 </svg>
-                <span>PO Box 961 Mudgeeraba, QLD 4213</span>
+                <span>Mudgeeraba, QLD 4213</span>
               </li>
               <li className="flex items-center gap-3">
                 <svg className="w-4 h-4 text-[#3e91ce] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -118,7 +120,7 @@ export default function Footer() {
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
                 </svg>
-                <a href="mailto:info@pacificwatergroup.com.au" className="hover:text-white transition-colors">info@pacificwatergroup.com.au</a>
+                <a href="mailto:info@pcwater.com.au" className="hover:text-white transition-colors">info@pcwater.com.au</a>
               </li>
               <li className="flex items-center gap-3">
                 <svg className="w-4 h-4 text-[#3e91ce] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -150,21 +152,13 @@ export default function Footer() {
         </div>
 
         {/* Indigenous Acknowledgement */}
-        <div className="border-t border-white/10 pt-8 mb-6 flex items-start gap-4">
-          <div className="relative w-12 h-8 flex-shrink-0 mt-0.5">
-            <Image
-              src="/aboriginal-flag.png"
-              alt="Aboriginal flag"
-              fill
-              className="object-contain"
-              sizes="48px"
-            />
-          </div>
+        <div className="border-t border-white/10 pt-8 mb-6">
           <p className="text-gray-500 text-xs leading-relaxed max-w-3xl">
             <span className="text-gray-400 font-medium">Acknowledgement of Country: </span>
             PC Water Infrastructure acknowledges the Traditional Custodians of the land on which we work and live. We pay our respects to Elders past, present and emerging.
           </p>
         </div>
+
 
         {/* Copyright */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">

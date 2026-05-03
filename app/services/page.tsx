@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     'PC Water Infrastructure combines PC Tanks (tank design & supply) and PC Water Solutions (project delivery & asset management) for a complete end-to-end water infrastructure service.',
 }
 
-const services = [
+const waterSolutionsServices = [
   {
     title: 'Project Managed Water Infrastructure Facilities',
     description: 'End-to-end project management across the full water infrastructure lifecycle — from initial brief, civil design, and procurement through to commissioning, handover documentation, and ongoing asset support. Single point of accountability.',
@@ -21,19 +21,14 @@ const services = [
     href: '/services/water-treatment-solutions',
   },
   {
-    title: 'Foundation & Civil Integration',
-    description: 'Engineered concrete foundations and civil integration for tanks of all sizes. Geotechnical assessment, civil contractor coordination, and structural compliance documentation.',
-    href: '/services/foundation-civil-integration',
-  },
-  {
-    title: 'Custom Tank Design & Engineering',
-    description: 'Purpose-built tank systems engineered to AS2304 & AS4020 for any capacity, site condition, or application. RPEQ-certified structural engineering, material selection, and modular design.',
-    href: '/services/custom-tank-design',
-  },
-  {
     title: 'Professional Tank Installation',
     description: 'End-to-end installation with certified crews, national reach, JSA/SWMS compliance, and Gantt-based project scheduling. Site preparation through to commissioning.',
     href: '/services/tank-installation',
+  },
+  {
+    title: 'Foundation & Civil Integration',
+    description: 'Engineered concrete foundations and civil integration for tanks of all sizes. Geotechnical assessment, civil contractor coordination, and structural compliance documentation.',
+    href: '/services/foundation-civil-integration',
   },
   {
     title: 'Fire Water Tank Solutions',
@@ -59,6 +54,14 @@ const services = [
     title: 'RPVC Liner Systems',
     description: 'High-performance RPVC liner installation to protect tanks from corrosion, restore potable water compliance, and extend asset life by 20+ years. AS4020 compliant.',
     href: '/services/rpvc-liner-systems',
+  },
+]
+
+const pcTanksServices = [
+  {
+    title: 'Custom Tank Design & Engineering',
+    description: 'Purpose-built tank systems engineered to AS2304 & AS4020 for any capacity, site condition, or application. RPEQ-certified structural engineering, material selection, and modular design.',
+    href: '/services/custom-tank-design',
   },
   {
     title: 'Tender & Procurement Support',
@@ -118,6 +121,7 @@ export default function ServicesPage() {
                   'Water Treatment Solutions',
                   'Professional Installation & Commissioning',
                   'Remote Area Project Delivery',
+                  'RPVC Liner Systems',
                   'Tank Inspection Technology',
                   'Tank Maintenance & Upgrades',
                   'Fire Water Tank Solutions',
@@ -150,9 +154,9 @@ export default function ServicesPage() {
               <ul className="space-y-2">
                 {[
                   'Custom Tank Design & Engineering',
-                  'RPVC Liner Systems',
                   'Custom Tank Supply & Fabrication',
                   'AS2304 & AS4020 Compliance',
+                  'Tender & Procurement Support',
                 ].map(s => (
                   <li key={s} className="flex items-center gap-2 text-sm text-[#30505b]">
                     <span className="w-1.5 h-1.5 bg-[#30505b] rounded-full flex-shrink-0" />
@@ -168,15 +172,39 @@ export default function ServicesPage() {
       {/* Services grid */}
       <section className="bg-[#F4F6F8] py-20">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ All Services</p>
-            <h2 className="text-3xl font-black text-[#30505b]">OUR FULL SERVICE OFFERING</h2>
+
+          {/* PC Water Solutions */}
+          <div className="mb-14">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-2 h-8 bg-[#3e91ce] rounded-full" />
+              <div>
+                <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase">Division One</p>
+                <h2 className="text-2xl font-black text-[#30505b]">PC Water Solutions</h2>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {waterSolutionsServices.map((service, idx) => (
+                <ServiceCard key={service.href} {...service} number={idx + 1} />
+              ))}
+            </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, idx) => (
-              <ServiceCard key={service.href} {...service} number={idx + 1} />
-            ))}
+
+          {/* PC Tanks */}
+          <div>
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-2 h-8 bg-[#30505b] rounded-full" />
+              <div>
+                <p className="text-[#30505b] text-xs font-bold tracking-widest uppercase">Division Two</p>
+                <h2 className="text-2xl font-black text-[#30505b]">PC Tanks</h2>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {pcTanksServices.map((service, idx) => (
+                <ServiceCard key={service.href} {...service} number={idx + 1} />
+              ))}
+            </div>
           </div>
+
         </div>
       </section>
 
