@@ -58,7 +58,7 @@ export default function DoomadgeeWTPPage() {
       <section className="bg-[#30505b] py-6">
         <div className="max-w-4xl mx-auto px-4 flex items-center gap-4">
           <div className="relative w-12 h-8 flex-shrink-0">
-            <Image src="/aboriginal-flag.png" alt="Aboriginal flag" fill className="object-contain" sizes="48px" />
+            <Image src="/aboriginal-flag-doomadgee.png" alt="Aboriginal flag" fill className="object-contain" sizes="48px" />
           </div>
           <p className="text-gray-200 text-sm">
             <span className="font-semibold text-white">Acknowledgement of Country — </span>

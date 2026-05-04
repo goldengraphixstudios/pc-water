@@ -153,8 +153,8 @@ export default function Footer() {
 
         {/* Indigenous Acknowledgement */}
         <div className="border-t border-white/10 pt-8 mb-6 flex items-start gap-4">
-          <div className="relative w-12 h-8 flex-shrink-0 mt-0.5">
-            <Image src="/aboriginal-flag.png" alt="Aboriginal flag" fill className="object-contain" sizes="48px" />
+          <div className="relative w-24 h-12 flex-shrink-0 mt-0.5">
+            <Image src="/aboriginal-flag.png" alt="Aboriginal flag" fill className="object-contain" sizes="96px" />
           </div>
           <p className="text-gray-500 text-xs leading-relaxed max-w-3xl">
             <span className="text-gray-400 font-medium">Acknowledgement of Country: </span>

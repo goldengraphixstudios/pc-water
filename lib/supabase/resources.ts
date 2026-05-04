@@ -38,6 +38,24 @@ export async function submitResourceLead(
   return { ok: true }
 }
 
+/** Delete a single resource lead by ID (CMS — requires authenticated session). */
+export async function deleteResourceLead(id: string): Promise<{ ok: boolean }> {
+  const supabase = createSupabaseBrowserClient()
+  if (!supabase) return { ok: false }
+
+  const { error } = await supabase
+    .from('resource_leads')
+    .delete()
+    .eq('id', id)
+
+  if (error) {
+    console.error('[resource_leads] delete error', error)
+    return { ok: false }
+  }
+
+  return { ok: true }
+}
+
 /** Fetch all resource leads (CMS dashboard — requires authenticated session). */
 export async function fetchResourceLeads(): Promise<ResourceLead[]> {
   const supabase = createSupabaseBrowserClient()

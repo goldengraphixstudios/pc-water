@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { fetchResourceLeads } from '@/lib/supabase/resources'
+import { fetchResourceLeads, deleteResourceLead } from '@/lib/supabase/resources'
 import type { ResourceLead } from '@/lib/supabase/resources'
 
 const DIVISIONS = ['All', 'PC Tanks', 'PC Water Solutions']
@@ -66,6 +66,68 @@ function exportCSV(leads: ResourceLead[]) {
   URL.revokeObjectURL(url)
 }
 
+// ── Delete confirmation modal ─────────────────────────────────────────────────
+function DeleteConfirmModal({
+  lead,
+  onConfirm,
+  onCancel,
+  deleting,
+}: {
+  lead: ResourceLead
+  onConfirm: () => void
+  onCancel: () => void
+  deleting: boolean
+}) {
+  return (
+    <div className="fixed inset-0 z-[999] bg-black/50 backdrop-blur-sm flex items-center justify-center px-4">
+      <div className="w-full max-w-sm bg-white dark:bg-[#13161F] rounded-2xl shadow-2xl border border-slate-200 dark:border-[#1E2235] overflow-hidden">
+        <div className="p-6">
+          <div className="w-10 h-10 rounded-full bg-red-100 dark:bg-red-950/40 flex items-center justify-center mx-auto mb-4">
+            <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+          </div>
+          <h3 className="text-center font-bold text-slate-900 dark:text-slate-100 mb-1">Delete lead?</h3>
+          <p className="text-center text-sm text-slate-500 dark:text-slate-500 mb-4 leading-relaxed">
+            This will permanently remove the lead record for<br />
+            <span className="font-semibold text-slate-700 dark:text-slate-300">{lead.email}</span>
+            {lead.resource_title && (
+              <><br /><span className="text-xs text-slate-400">{lead.resource_title}</span></>
+            )}
+          </p>
+          <p className="text-center text-xs text-red-500 font-medium mb-5">This cannot be undone.</p>
+          <div className="flex gap-2">
+            <button
+              onClick={onCancel}
+              disabled={deleting}
+              className="flex-1 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-[#1E2235] text-sm font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-[#1E2235] transition-colors disabled:opacity-50"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={onConfirm}
+              disabled={deleting}
+              className="flex-1 px-4 py-2.5 rounded-xl bg-red-500 hover:bg-red-600 text-white text-sm font-semibold transition-colors disabled:opacity-60 flex items-center justify-center gap-2"
+            >
+              {deleting ? (
+                <>
+                  <svg className="w-3.5 h-3.5 animate-spin" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                  </svg>
+                  Deleting…
+                </>
+              ) : (
+                'Delete'
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 // ── Main component ────────────────────────────────────────────────────────────
 export default function LeadsDashboardPage() {
   const [leads, setLeads]           = useState<ResourceLead[]>([])
@@ -74,6 +136,8 @@ export default function LeadsDashboardPage() {
   const [search, setSearch]         = useState('')
   const [showSettings, setSettings] = useState(false)
   const [refreshing, setRefreshing] = useState(false)
+  const [toDelete, setToDelete]     = useState<ResourceLead | null>(null)
+  const [deleting, setDeleting]     = useState(false)
 
   async function load() {
     const data = await fetchResourceLeads()
@@ -87,6 +151,17 @@ export default function LeadsDashboardPage() {
   async function handleRefresh() {
     setRefreshing(true)
     await load()
+  }
+
+  async function handleDeleteConfirm() {
+    if (!toDelete) return
+    setDeleting(true)
+    const { ok } = await deleteResourceLead(toDelete.id)
+    if (ok) {
+      setLeads((prev) => prev.filter((l) => l.id !== toDelete.id))
+    }
+    setDeleting(false)
+    setToDelete(null)
   }
 
   // ── Derived stats ─────────────────────────────────────────────────────────
@@ -357,18 +432,30 @@ export default function LeadsDashboardPage() {
                   <th className="px-5 py-2.5 text-[11px] font-semibold text-slate-500 dark:text-slate-500 uppercase tracking-wide">Resource</th>
                   <th className="px-5 py-2.5 text-[11px] font-semibold text-slate-500 dark:text-slate-500 uppercase tracking-wide">Division</th>
                   <th className="px-5 py-2.5 text-[11px] font-semibold text-slate-500 dark:text-slate-500 uppercase tracking-wide">Downloaded</th>
+                  <th className="px-2 py-2.5 w-10" />
                 </tr>
               </thead>
               <tbody>
                 {filtered.map((lead) => (
                   <tr
                     key={lead.id}
-                    className="border-b border-slate-50 dark:border-[#161926] last:border-0 hover:bg-slate-50 dark:hover:bg-[#1A1D2C] transition-colors"
+                    className="border-b border-slate-50 dark:border-[#161926] last:border-0 hover:bg-slate-50 dark:hover:bg-[#1A1D2C] transition-colors group"
                   >
                     <td className="px-5 py-3 text-slate-800 dark:text-slate-200 font-medium">{lead.email}</td>
                     <td className="px-5 py-3 text-slate-600 dark:text-slate-400 text-[13px]">{lead.resource_title ?? lead.resource_slug}</td>
                     <td className="px-5 py-3"><DivisionBadge division={lead.division} /></td>
                     <td className="px-5 py-3 text-slate-400 dark:text-slate-600 text-[12px]">{formatDateTime(lead.downloaded_at)}</td>
+                    <td className="px-2 py-3">
+                      <button
+                        onClick={() => setToDelete(lead)}
+                        title="Delete lead"
+                        className="w-7 h-7 rounded-lg flex items-center justify-center text-slate-300 dark:text-slate-700 opacity-0 group-hover:opacity-100 hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 transition-all"
+                      >
+                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                        </svg>
+                      </button>
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -376,6 +463,16 @@ export default function LeadsDashboardPage() {
           </div>
         )}
       </div>
+
+      {/* ── Delete confirmation modal ── */}
+      {toDelete && (
+        <DeleteConfirmModal
+          lead={toDelete}
+          onConfirm={handleDeleteConfirm}
+          onCancel={() => { if (!deleting) setToDelete(null) }}
+          deleting={deleting}
+        />
+      )}
 
     </div>
   )
