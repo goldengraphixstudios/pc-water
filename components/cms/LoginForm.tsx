@@ -103,7 +103,7 @@ export default function LoginForm() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="field"
-                placeholder="admin@pcwatertanks.com.au"
+                placeholder="admin@pcwater.com.au"
                 autoComplete="email"
                 required
               />

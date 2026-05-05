@@ -161,7 +161,7 @@ export default function HomePage() {
                   ))}
                 </div>
                 <p className="text-gray-400 text-xs mt-3">
-                  Part of the Pacific Water Group — delivering water infrastructure solutions across Australia since 2013.
+                  PC Water Infrastructure — two divisions, one team. PC Water Solutions and PC Tanks delivering water infrastructure across Australia since 2013.
                 </p>
               </div>
             </AnimatedSection>
