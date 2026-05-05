@@ -19,17 +19,17 @@ const faqs = [
   {
     question: 'What water infrastructure services does PC Water Infrastructure provide?',
     answer:
-      'We deliver end-to-end water infrastructure solutions — including project managed water infrastructure facilities, water treatment and potable water systems, asset installation and commissioning, RPVC lining, fire water compliance, tank inspection, and remote area project delivery. PC Water Solutions and PC Tanks operate as one team — a single partner and single point of accountability covering every stage of a water infrastructure project, from design and supply through to installation, commissioning, and long-term asset management.',
+      'PC Water Infrastructure is a one-stop partner for potable water and engineered water solutions across Australia. We deliver project-managed water infrastructure facilities, water treatment systems, remote area project delivery, and asset installation and commissioning — from initial design through to long-term asset management. Two specialist divisions — PC Water Solutions and PC Tanks — operate under one team, providing a single point of accountability at every stage of your project.',
   },
   {
     question: 'What is PC Water Solutions?',
     answer:
-      'PC Water Solutions is our project delivery and asset management division. It delivers the full project lifecycle — installation, inspection, RPVC lining, maintenance, fire water compliance, and remote area delivery — across every state and territory in Australia.',
+      'PC Water Solutions is our project delivery division — handling the full scope of civil construction, structural works, mechanical and process installation, pipeline and reticulation systems, SCADA and electrical, and water treatment plant integration. Whether it\'s a greenfield treatment facility or a major infrastructure upgrade, PC Water Solutions delivers across every state and territory in Australia, including remote and indigenous community projects.',
   },
   {
     question: 'What is PC Tanks?',
     answer:
-      'PC Tanks is our specialist engineering and supply division for high-performance bolted steel water storage systems. We design and manufacture scalable storage solutions across a full range of capacities and configurations, built to Australian Standards (AS2304 and AS4020) for potable, process, fire protection, and critical infrastructure applications. From concept design and detailed engineering through to manufacture and coordinated delivery, PC Tanks provides rapid, reliable supply engineered for durability, corrosion resistance, and long-term asset performance in some of the harshest environments in Australia.',
+      'PC Tanks is our specialist engineering and supply division for high-performance water storage systems. We design and manufacture a full range of bolted steel, GFS, and rectangular tanks — scalable across capacities and configurations, built to Australian Standards (AS2304 and AS4020) for potable, process, fire protection, and critical infrastructure applications. From concept design and detailed engineering through to manufacture and coordinated delivery, PC Tanks provides rapid, reliable supply engineered for durability and long-term asset performance in some of the harshest environments in Australia. Beyond new supply, PC Tanks delivers complete asset lifecycle services — including RPVC lining and corrosion protection systems, reservoir and liner inspections, liner maintenance and refurbishment, and ongoing tank maintenance programs. We also provide fire water tank compliance services to AS2304 and AS1851, covering inspection, certification, and maintenance for fire protection storage assets across all sectors.',
   },
   {
     question: 'Do you support water treatment plant design and delivery?',
