@@ -54,7 +54,7 @@ const faqs = [
   {
     question: 'Who do I contact to discuss a project?',
     answer:
-      'Reach our team via the enquiry form at /contact, by phone on 1300 029 804, or by email at info@pcwater.com.au. Our specialists respond to all enquiries within one business day.',
+      'Reach our team via the enquiry form at /contact, by phone on 1300 029 804, or by email at contact@pcwater.com.au. Our specialists respond to all enquiries within one business day.',
   },
 ]
 
@@ -152,7 +152,7 @@ export default function HomePage() {
                 <div className="grid grid-cols-1 gap-2">
                   {[
                     { name: 'PC Water Solutions', role: 'Full-scope delivery — civil, structural, mechanical, process, pipelines, treatment plant integration' },
-                    { name: 'PC Tanks', role: 'Engineering, design & supply of high-performance bolted steel water storage systems' },
+                    { name: 'PC Tanks', role: 'Engineering, design & supply of high-performance bolted steel water storage systems. We also restore and refurbish existing tanks — delivering RPVC lining systems and advanced corrosion protection technology to extend asset life by 20+ years and return ageing infrastructure to full compliance.' },
                   ].map((d) => (
                     <div key={d.name} className="bg-white/10 rounded-lg p-3">
                       <p className="font-bold text-white text-sm mb-0.5">{d.name}</p>

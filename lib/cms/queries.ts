@@ -241,8 +241,24 @@ export async function getPublicProjectBySlug(slug: string) {
   return mapProject(data as ProjectRow)
 }
 
+const PROJECT_SLUG_ORDER = [
+  'doomadgee-wtp',
+  'hobart-nyrstar',
+  'borumba-hydro',
+  'clarence-road-liner',
+  'albury-reservoir',
+]
+
 export function toProjectGridItems(projects: CmsProject[]): ProjectGridItem[] {
-  return projects.map((project) => ({
+  const sorted = [...projects].sort((a, b) => {
+    const ai = PROJECT_SLUG_ORDER.indexOf(a.slug)
+    const bi = PROJECT_SLUG_ORDER.indexOf(b.slug)
+    if (ai === -1 && bi === -1) return 0
+    if (ai === -1) return 1
+    if (bi === -1) return -1
+    return ai - bi
+  })
+  return sorted.map((project) => ({
     title: project.title,
     sector: project.sector,
     location: project.location,

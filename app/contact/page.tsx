@@ -4,7 +4,7 @@ import ContactForm from '@/components/ContactForm'
 export const metadata: Metadata = {
   title: 'Contact Us',
   description:
-    'Contact PC Water Infrastructure to discuss your water storage project. Phone: 1300 029 804. Email: info@pcwater.com.au. We respond within one business day.',
+    'Contact PC Water Infrastructure to discuss your water storage project. Phone: 1300 029 804. Email: contact@pcwater.com.au. We respond within one business day.',
 }
 
 export default function ContactPage() {
@@ -44,8 +44,8 @@ export default function ContactPage() {
                       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
                     ),
                     label: 'Email',
-                    value: 'info@pcwater.com.au',
-                    href: 'mailto:info@pcwater.com.au',
+                    value: 'contact@pcwater.com.au',
+                    href: 'mailto:contact@pcwater.com.au',
                   },
                   {
                     icon: (

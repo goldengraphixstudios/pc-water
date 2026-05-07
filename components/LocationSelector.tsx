@@ -53,6 +53,23 @@ const LOCATIONS: Record<string, string[]> = {
     'Hermannsburg','Jabiru','Kalkarindji','Larrimah','Maningrida','Mataranka','Milingimbi','Ngukurr',
     'Numbulwar','Papunya','Pine Creek','Ramingining','Ti Tree','Wadeye','Yirrkala','Yuendumu',
   ],
+  NZ: [
+    'Auckland','Wellington','Christchurch','Hamilton','Tauranga','Napier','Hastings','Dunedin',
+    'Palmerston North','Nelson','Rotorua','New Plymouth','Whangarei','Invercargill','Whanganui',
+    'Gisborne','Queenstown','Blenheim','Pukekohe','Timaru','Masterton','Levin','Whakatane',
+    'Tokoroa','Thames','Ashburton','Greymouth','Westport','Hokitika','Kaikoura',
+  ],
+  SP: [
+    'Suva (Fiji)','Nadi (Fiji)','Lautoka (Fiji)','Labasa (Fiji)',
+    'Port Moresby (Papua New Guinea)','Lae (Papua New Guinea)','Mount Hagen (Papua New Guinea)','Madang (Papua New Guinea)',
+    'Port Vila (Vanuatu)','Luganville (Vanuatu)',
+    'Honiara (Solomon Islands)',
+    'Apia (Samoa)','Fagali\'i (Samoa)',
+    'Nuku\'alofa (Tonga)',
+    'Funafuti (Tuvalu)',
+    'South Tarawa (Kiribati)',
+    'Noumea (New Caledonia)',
+  ],
 }
 
 const STATE_LABELS: Record<string, string> = {
@@ -64,6 +81,8 @@ const STATE_LABELS: Record<string, string> = {
   TAS: 'Tasmania',
   ACT: 'Australian Capital Territory',
   NT: 'Northern Territory',
+  NZ: 'New Zealand',
+  SP: 'South Pacific',
 }
 
 const inputCls = 'w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#3e91ce] transition-colors bg-white'
@@ -101,14 +120,14 @@ export default function LocationSelector() {
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
       {/* State selector */}
       <div>
-        <label className={labelCls} htmlFor="loc-state">State / Territory</label>
+        <label className={labelCls} htmlFor="loc-state">State / Territory / Region</label>
         <select
           id="loc-state"
           value={state}
           onChange={handleStateChange}
           className={inputCls}
         >
-          <option value="">Select state / territory...</option>
+          <option value="">Select state / territory / region...</option>
           {Object.keys(STATE_LABELS).map((s) => (
             <option key={s} value={s}>{STATE_LABELS[s]} ({s})</option>
           ))}

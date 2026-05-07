@@ -16,10 +16,10 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto px-4">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ About PC Water Infrastructure</p>
           <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
-            SHAPING THE FUTURE<br />OF WATER STORAGE
+            SHAPING THE FUTURE<br />OF WATER INFRASTRUCTURE
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
-            20+ years of expertise. Australian-owned. Standards-led. Engineering water storage solutions for the projects that matter most.
+            20+ years of expertise. Australian-owned. Standards-led. Engineering water solutions for the projects that matter most.
           </p>
           <Link href="/contact" className="inline-flex items-center gap-2 bg-[#3e91ce] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#2d7ab8] transition-colors">
             Schedule a Free Consultation
@@ -122,51 +122,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Journey / Timeline */}
-      <section className="bg-[#F4F6F8] py-16">
-        <div className="max-w-3xl mx-auto px-4">
-
-          <div className="text-center mb-12">
-            <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Our Journey</p>
-            <h2 className="text-3xl font-black text-[#30505b]">HOW WE GOT HERE</h2>
-          </div>
-
-          {/* Timeline — single shared layout, line on left */}
-          <div className="relative pl-8">
-            {/* Vertical line */}
-            <div className="absolute left-[11px] top-2 bottom-2 w-0.5 bg-gradient-to-b from-[#3e91ce]/20 via-[#3e91ce]/50 to-[#3e91ce]/10" />
-
-            <div className="space-y-0">
-              {([
-                { year: '2013', title: 'Founded', desc: 'Tank design, fabrication & installation. Australian-owned from day one.' },
-                { year: '2016', title: 'Full Lifecycle', desc: 'Added RPVC liners and structured inspection services.' },
-                { year: '2018', title: 'National Reach', desc: 'Formalised remote delivery — FIFO crews, Indigenous community projects.' },
-                { year: '2021', title: 'PC Water Solutions', desc: 'Dedicated project delivery division established.' },
-                { year: '2024', title: 'Advanced Inspection', desc: 'ROV & UAV drone technology — no dewatering required.' },
-                { year: 'Now', title: 'Water Treatment', desc: 'WTP design and delivery launched. Source to supply.', current: true },
-              ] as { year: string; title: string; desc: string; current?: boolean }[]).map((m, i, arr) => (
-                <div key={m.year} className="relative flex gap-6 pb-8 last:pb-0">
-                  {/* Node */}
-                  <div className="absolute -left-8 top-1 z-10">
-                    <div className={`w-[22px] h-[22px] rounded-full border-[3px] border-white shadow-md flex-shrink-0 ${m.current ? 'bg-[#3e91ce]' : 'bg-[#30505b]'}`} />
-                  </div>
-                  {/* Content */}
-                  <div className={`flex-1 rounded-xl px-5 py-4 ${m.current ? 'bg-[#EAF4FF] border border-[#3e91ce]/25' : 'bg-white border border-gray-100'}`}>
-                    <div className="flex items-center gap-3 mb-1">
-                      <span className={`text-xs font-black tracking-wider ${m.current ? 'text-[#3e91ce]' : 'text-[#30505b]/50'}`}>{m.year}</span>
-                      {m.current && <span className="bg-[#3e91ce] text-white text-[9px] font-bold px-2 py-0.5 rounded-full tracking-widest uppercase">Now</span>}
-                    </div>
-                    <h3 className="font-black text-[#30505b] text-[15px] mb-0.5">{m.title}</h3>
-                    <p className="text-gray-500 text-sm">{m.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-        </div>
-      </section>
-
       {/* Leadership */}
       <section className="bg-white py-20">
         <div className="max-w-4xl mx-auto px-4">
@@ -183,7 +138,7 @@ export default function AboutPage() {
                 <h3 className="text-xl font-black text-[#30505b] mb-1">Michael Spiller</h3>
                 <p className="text-[#3e91ce] font-semibold text-sm mb-4">Director | Senior Project Engineer / Water Infrastructure Specialist</p>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  Michael founded PC Water Infrastructure in 2013 and has led every significant project delivery since. As a Senior Project Engineer with deep expertise in water infrastructure, Michael brings a hands-on engineering approach to every client engagement — from initial project consultation through to final commissioning. His commitment to honest advice, technical rigour, and lasting outcomes defines the PC Water Infrastructure culture.
+                  Michael founded PC Water Infrastructure in 2013 as Parthenon Water Management as a water infrastructure contracting firm. He has since led and delivered a broad range of significant projects. As a Senior Project Engineer with deep expertise in water infrastructure, Michael brings a hands-on engineering approach to every client engagement — from initial project consultation through to final commissioning. His commitment to honest advice, technical rigour, and lasting outcomes defines the PC Water Infrastructure culture.
                 </p>
               </div>
             </div>

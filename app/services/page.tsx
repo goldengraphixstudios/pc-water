@@ -21,11 +21,6 @@ const waterSolutionsServices = [
     href: '/services/water-treatment-solutions',
   },
   {
-    title: 'Professional Tank Installation',
-    description: 'End-to-end installation with certified crews, national reach, JSA/SWMS compliance, and Gantt-based project scheduling. Site preparation through to commissioning.',
-    href: '/services/tank-installation',
-  },
-  {
     title: 'Foundation & Civil Integration',
     description: 'Engineered concrete foundations and civil integration for tanks of all sizes. Geotechnical assessment, civil contractor coordination, and structural compliance documentation.',
     href: '/services/foundation-civil-integration',
@@ -41,19 +36,9 @@ const waterSolutionsServices = [
     href: '/services/remote-area-delivery',
   },
   {
-    title: 'Tank Maintenance & Upgrades',
-    description: 'Planned and reactive maintenance, structural upgrades, corrosion treatment, and long-term asset management for steel and concrete water storage infrastructure.',
-    href: '/services/tank-maintenance-upgrades',
-  },
-  {
     title: 'Tank Inspection Technology',
     description: 'Advanced ROV and UAV drone inspection for accurate condition assessment without costly dewatering. Detailed condition reports supporting AS1851 compliance and targeted maintenance.',
     href: '/services/tank-inspection-technology',
-  },
-  {
-    title: 'RPVC Liner Systems',
-    description: 'High-performance RPVC liner installation to protect tanks from corrosion, restore potable water compliance, and extend asset life by 20+ years. AS4020 compliant.',
-    href: '/services/rpvc-liner-systems',
   },
 ]
 
@@ -62,6 +47,21 @@ const pcTanksServices = [
     title: 'Custom Tank Design & Engineering',
     description: 'Purpose-built tank systems engineered to AS2304 & AS4020 for any capacity, site condition, or application. RPEQ-certified structural engineering, material selection, and modular design.',
     href: '/services/custom-tank-design',
+  },
+  {
+    title: 'Professional Tank Installation',
+    description: 'End-to-end installation with certified crews, national reach, JSA/SWMS compliance, and Gantt-based project scheduling. Site preparation through to commissioning.',
+    href: '/services/tank-installation',
+  },
+  {
+    title: 'Tank Maintenance & Upgrades',
+    description: 'Planned and reactive maintenance, structural upgrades, corrosion treatment, and long-term asset management for steel and concrete water storage infrastructure.',
+    href: '/services/tank-maintenance-upgrades',
+  },
+  {
+    title: 'RPVC Liner Systems',
+    description: 'High-performance RPVC liner installation to protect tanks from corrosion, restore potable water compliance, and extend asset life by 20+ years. AS4020 compliant.',
+    href: '/services/rpvc-liner-systems',
   },
   {
     title: 'Tender & Procurement Support',
