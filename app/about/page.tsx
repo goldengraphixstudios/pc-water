@@ -115,9 +115,9 @@ export default function AboutPage() {
       <section className="bg-[#30505b] py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Our Vision</p>
-          <h2 className="text-3xl font-black text-white mb-6">PIONEERING A NEW ERA OF WATER STORAGE ENGINEERING</h2>
+          <h2 className="text-3xl font-black text-white mb-6">PIONEERING A NEW ERA OF WATER INFRASTRUCTURE ENGINEERING</h2>
           <p className="text-gray-300 text-lg leading-relaxed">
-            Our vision is to be Australia's most trusted water storage engineering firm — recognised not for scale, but for the quality of our engineering, the reliability of our delivery, and the lasting impact our infrastructure has on the communities, industries, and environments we serve. Every tank we build, every liner we install, and every inspection we complete brings us closer to that vision.
+            Our vision is to be Australia&apos;s most trusted water infrastructure engineering firm, known for technical rigour, dependable delivery, and infrastructure that performs reliably over the long term. We apply practical engineering to the design, construction, rehabilitation, and maintenance of water storage and treatment assets that support communities, industry, and essential services. Every project we deliver is intended to improve asset performance, operational reliability, and whole-of-life value.
           </p>
         </div>
       </section>
