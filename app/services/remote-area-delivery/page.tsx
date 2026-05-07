@@ -22,7 +22,7 @@ const faqs = [
 export default function RemoteAreaDeliveryPage() {
   return (
     <>
-      <section className="relative pt-40 pb-24 overflow-hidden">
+      <section className="relative overflow-hidden" style={{ minHeight: '75vh' }}>
         <Image
           src="/waterdrop-aboriginal-flag.png"
           alt=""
@@ -32,16 +32,21 @@ export default function RemoteAreaDeliveryPage() {
           priority
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-[#0d1b2a]/78" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Services</p>
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-6">Remote Area Project Delivery</h1>
-          <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
+        {/* lighter overlay so image is clearly visible */}
+        <div className="absolute inset-0 bg-[#0d1b2a]/55" />
+        <div className="relative z-10 flex flex-col justify-center min-h-[75vh] max-w-4xl mx-auto px-4 pt-40 pb-24">
+          <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-5">/ Services</p>
+          <h1 className="text-6xl md:text-7xl font-black text-white mb-8 leading-tight">
+            Remote Area<br />Project Delivery
+          </h1>
+          <p className="text-gray-200 text-xl max-w-2xl leading-relaxed mb-10">
             Specialist water infrastructure delivery for remote and regional Australia — including Indigenous communities, mining operations, and government projects in the most challenging locations.
           </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#3e91ce] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#2d7ab8] transition-colors">
-            Discuss Your Remote Project
-          </Link>
+          <div>
+            <Link href="/contact" className="inline-flex items-center gap-2 bg-[#3e91ce] text-white px-9 py-4 rounded font-semibold text-base hover:bg-[#2d7ab8] transition-colors shadow-lg shadow-[#3e91ce]/25">
+              Discuss Your Remote Project
+            </Link>
+          </div>
         </div>
       </section>
 

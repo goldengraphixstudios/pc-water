@@ -60,8 +60,10 @@ const PROJECT_IMAGES = {
               'clarence-04.jpg','clarence-05.jpg','clarence-06.jpg'],
   },
   'albury-reservoir': {
-    hero:    'albury-01.jpg',
-    gallery: ['albury-01.jpg'],
+    hero:    'albury-06.jpg',
+    gallery: ['albury-06.jpg','albury-01.jpg','albury-02.jpg','albury-03.jpg',
+              'albury-04.jpg','albury-05.jpg','albury-07.jpg','albury-08.jpg',
+              'albury-09.jpg','albury-10.jpg'],
   },
 }
 
