@@ -4,9 +4,44 @@ import Link from 'next/link'
 import AppImage from '@/components/AppImage'
 import CTABanner from '@/components/CTABanner'
 import GalleryLightbox from '@/components/GalleryLightbox'
-import { getPublicProjectBySlug, getPublicProjects, renderContentParagraphs } from '@/lib/cms/queries'
+import { getPublicProjectBySlug, getPublicProjects, renderContentBlocks } from '@/lib/cms/queries'
 
 export const dynamic = 'force-static'
+
+// Per-project Services Delivered — keyed by slug
+const PROJECT_SERVICES: Record<string, { name: string; href: string }[]> = {
+  'hobart-nyrstar': [
+    { name: 'Custom Tank Design & Engineering', href: '/services/custom-tank-design' },
+    { name: 'Professional Tank Installation', href: '/services/tank-installation' },
+    { name: 'Foundation & Civil Integration', href: '/services/foundation-civil-integration' },
+  ],
+  'borumba-hydro': [
+    { name: 'Custom Tank Design & Engineering', href: '/services/custom-tank-design' },
+    { name: 'Remote Area Project Delivery', href: '/services/remote-area-delivery' },
+    { name: 'RPVC Liner Systems', href: '/services/rpvc-liner-systems' },
+    { name: 'Foundation & Civil Integration', href: '/services/foundation-civil-integration' },
+    { name: 'Professional Tank Installation', href: '/services/tank-installation' },
+  ],
+  'doomadgee-wtp': [
+    { name: 'Remote Area Project Delivery', href: '/services/remote-area-delivery' },
+    { name: 'Custom Tank Design & Engineering', href: '/services/custom-tank-design' },
+    { name: 'Foundation & Civil Integration', href: '/services/foundation-civil-integration' },
+    { name: 'Professional Tank Installation', href: '/services/tank-installation' },
+  ],
+  'albury-reservoir': [
+    { name: 'RPVC Liner Systems', href: '/services/rpvc-liner-systems' },
+    { name: 'Tank Inspection Technology', href: '/services/tank-inspection-technology' },
+    { name: 'Tank Maintenance & Upgrades', href: '/services/tank-maintenance-upgrades' },
+  ],
+  'clarence-road-liner': [
+    { name: 'RPVC Liner Systems', href: '/services/rpvc-liner-systems' },
+    { name: 'Tank Inspection Technology', href: '/services/tank-inspection-technology' },
+    { name: 'Tank Maintenance & Upgrades', href: '/services/tank-maintenance-upgrades' },
+  ],
+  'kybrook-nt': [
+    { name: 'Professional Tank Installation', href: '/services/tank-installation' },
+  ],
+}
 
 export async function generateStaticParams() {
   const projects = await getPublicProjects()
@@ -46,7 +81,8 @@ export default async function ManagedProjectPage({
     return null
   }
 
-  const paragraphs = renderContentParagraphs(project.content)
+  const blocks = renderContentBlocks(project.content)
+  const services = PROJECT_SERVICES[slug] ?? []
   const gallery = (project.galleryUrls.length ? project.galleryUrls : project.heroImageUrl ? [project.heroImageUrl] : [])
     .map((src, index) => ({
       src,
@@ -80,11 +116,6 @@ export default async function ManagedProjectPage({
             <span className="bg-[#3e91ce] text-white text-xs font-semibold px-3 py-1 rounded-full">
               {project.sector}
             </span>
-            {project.tags.map((tag) => (
-              <span key={tag.slug} className="bg-white/10 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                {tag.name}
-              </span>
-            ))}
           </div>
           <h1 className="text-4xl md:text-5xl font-black text-white mb-4">{project.title}</h1>
           <p className="text-gray-300 text-lg">{project.location}</p>
@@ -97,12 +128,18 @@ export default async function ManagedProjectPage({
             <div className="lg:col-span-2">
               <h2 className="text-2xl font-black text-[#30505b] mb-6">Project Overview</h2>
               <p className="text-gray-600 leading-relaxed mb-8">{project.summary}</p>
-              <div className="space-y-6">
-                {paragraphs.map((paragraph) => (
-                  <p key={paragraph} className="text-gray-600 leading-relaxed">
-                    {paragraph}
-                  </p>
-                ))}
+              <div>
+                {blocks.map((block, i) =>
+                  block.type === 'heading' ? (
+                    <h3 key={i} className="text-xl font-black text-[#30505b] mt-10 mb-4">
+                      {block.text}
+                    </h3>
+                  ) : (
+                    <p key={i} className="text-gray-600 leading-relaxed mb-6">
+                      {block.text}
+                    </p>
+                  )
+                )}
               </div>
             </div>
 
@@ -124,15 +161,15 @@ export default async function ManagedProjectPage({
                 </dl>
               </div>
 
-              {project.tags.length > 0 && (
+              {services.length > 0 && (
                 <div className="bg-[#30505b] rounded-xl p-6">
                   <h3 className="font-black text-white text-sm tracking-widest uppercase mb-3">Services Delivered</h3>
                   <ul className="space-y-2">
-                    {project.tags.map((tag) => (
-                      <li key={tag.slug} className="flex items-center gap-2 text-sm">
+                    {services.map((service) => (
+                      <li key={service.href} className="flex items-center gap-2 text-sm">
                         <span className="w-1.5 h-1.5 bg-[#3e91ce] rounded-full flex-shrink-0" />
-                        <Link href={`/services/${tag.slug}`} className="text-gray-300 hover:text-[#3e91ce] transition-colors">
-                          {tag.name}
+                        <Link href={service.href} className="text-gray-300 hover:text-[#3e91ce] transition-colors">
+                          {service.name}
                         </Link>
                       </li>
                     ))}
@@ -155,7 +192,7 @@ export default async function ManagedProjectPage({
 
       <CTABanner
         heading="DISCUSS A SIMILAR PROJECT"
-        subheading="Tell us about your asset, site, or delivery challenge and we’ll map the right next step."
+        subheading="Tell us about your asset, site, or delivery challenge and we'll map the right next step."
         primaryCTA={{ label: 'Discuss a Project', href: '/contact' }}
         secondaryCTA={{ label: 'View Resources', href: '/resources' }}
         variant="navy"

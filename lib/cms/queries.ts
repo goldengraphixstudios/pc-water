@@ -277,6 +277,23 @@ export function renderContentParagraphs(content: string) {
     .filter(Boolean)
 }
 
+export type ContentBlock =
+  | { type: 'paragraph'; text: string }
+  | { type: 'heading'; text: string }
+
+export function renderContentBlocks(content: string): ContentBlock[] {
+  return content
+    .split(/\n{2,}/)
+    .map((block) => block.trim())
+    .filter(Boolean)
+    .map((block) => {
+      if (block.startsWith('## ')) {
+        return { type: 'heading' as const, text: block.slice(3).trim() }
+      }
+      return { type: 'paragraph' as const, text: block }
+    })
+}
+
 export function getProjectFilterOptions(projects: CmsProject[]) {
   return {
     classifications: normalizeTagNames(projects.map((project) => project.sector).filter(Boolean)),
