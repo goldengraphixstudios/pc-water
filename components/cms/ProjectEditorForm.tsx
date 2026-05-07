@@ -242,7 +242,7 @@ export default function ProjectEditorForm({ project, availableClassifications = 
       )}
 
       <form ref={formRef} onSubmit={handleSubmit}>
-        <div className="grid gap-5 lg:grid-cols-[1fr_300px]">
+        <div className="grid gap-5 lg:grid-cols-[1fr_320px]">
 
           {/* ── Main Column ── */}
           <div className="space-y-4">
@@ -408,25 +408,27 @@ export default function ProjectEditorForm({ project, availableClassifications = 
               <FeaturedToggle checked={form.featured} onChange={(v) => update('featured', v)} />
             </Section>
 
-            <Section title="Media">
+            {/* Hero image */}
+            <Section title="Hero Image">
               <MediaUploader
                 label="Hero Image"
-                description="Primary project image for cards and project page header."
+                description="Primary image shown in project cards and the project page header."
                 value={form.heroImageUrl ?? ''}
                 onChange={(value) => update('heroImageUrl', Array.isArray(value) ? value[0] ?? '' : value)}
                 folder="projects/hero"
               />
-              <div className="border-t border-slate-100 dark:border-[#1A1D2C] pt-4">
-                <MediaUploader
-                  label="Gallery Images"
-                  description="Additional images for the project photo gallery."
-                  value={form.galleryUrls}
-                  onChange={(value) => update('galleryUrls', Array.isArray(value) ? value : value ? [value] : [])}
-                  folder="projects/gallery"
-                  kind="gallery"
-                  emptyLabel="Drop gallery images here"
-                />
-              </div>
+            </Section>
+
+            {/* Gallery */}
+            <Section title="Gallery Images">
+              <MediaUploader
+                label="Gallery"
+                description="Photo gallery shown on the project detail page."
+                value={form.galleryUrls}
+                onChange={(value) => update('galleryUrls', Array.isArray(value) ? value : value ? [value] : [])}
+                folder="projects/gallery"
+                kind="gallery"
+              />
             </Section>
 
             <Section title="Tags">

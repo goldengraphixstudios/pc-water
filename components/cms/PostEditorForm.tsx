@@ -275,10 +275,11 @@ export default function PostEditorForm({ post }: { post?: CmsPost | null }) {
             <Section title="Cover Image">
               <MediaUploader
                 label="Cover Image"
-                description="Shown in article cards and the article header."
+                description="Shown in article cards and the article page header."
                 value={form.coverImageUrl ?? ''}
                 onChange={(value) => update('coverImageUrl', Array.isArray(value) ? value[0] ?? '' : value)}
                 folder="posts"
+                kind="single"
               />
             </Section>
 
