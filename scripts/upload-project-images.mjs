@@ -46,7 +46,7 @@ const PROJECT_IMAGES = {
   'hobart-nyrstar': {
     hero:    'hobart-01.jpg',
     gallery: ['hobart-01.jpg','hobart-02.jpg','hobart-03.jpg','hobart-04.jpg',
-              'hobart-05.jpg','hobart-06.jpg','hobart-07.jpg','hobart-08.jpg',
+              'hobart-06.jpg','hobart-07.jpg','hobart-08.jpg',
               'hobart-09.jpg','hobart-10.jpg'],
   },
   'borumba-hydro': {

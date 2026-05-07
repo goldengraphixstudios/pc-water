@@ -161,7 +161,6 @@ export const fallbackProjects: CmsProject[] = [
       'https://goldengraphixstudios.github.io/pc-water/projects/hobart-02.jpg',
       'https://goldengraphixstudios.github.io/pc-water/projects/hobart-03.jpg',
       'https://goldengraphixstudios.github.io/pc-water/projects/hobart-04.jpg',
-      'https://goldengraphixstudios.github.io/pc-water/projects/hobart-05.jpg',
       'https://goldengraphixstudios.github.io/pc-water/projects/hobart-06.jpg',
       'https://goldengraphixstudios.github.io/pc-water/projects/hobart-07.jpg',
       'https://goldengraphixstudios.github.io/pc-water/projects/hobart-08.jpg',
