@@ -65,8 +65,10 @@ export default function HomePage() {
       <HeroSection />
 
       {/* ─── STATS ─── */}
-      <section className="bg-[#0d1b2a] py-20 relative overflow-hidden">
-        <div className="dot-pattern absolute inset-0 opacity-30 pointer-events-none" />
+      <section className="relative py-20 overflow-hidden">
+        <Image src="/water/water-17.jpg" alt="" fill className="object-cover object-center" sizes="100vw" aria-hidden />
+        <div className="absolute inset-0 bg-[#0d1b2a]/88" />
+        <div className="dot-pattern absolute inset-0 opacity-20 pointer-events-none" />
         <StaggerContainer className="relative z-10 max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6">
           <StaggerItem>
             <AnimatedCounter value="20+" label="Years Experience" sub="Combined team expertise" />
@@ -257,7 +259,9 @@ export default function HomePage() {
       </section>
 
       {/* ─── WHO WE SERVE ─── */}
-      <section className="bg-gradient-to-b from-[#162538] to-[#1a2f3a] py-24 relative overflow-hidden">
+      <section className="relative py-24 overflow-hidden">
+        <Image src="/water/water-07.jpg" alt="" fill className="object-cover object-center" sizes="100vw" aria-hidden />
+        <div className="absolute inset-0 bg-[#0d1b2a]/85" />
         <div className="dot-pattern absolute inset-0 opacity-20 pointer-events-none" />
         <div className="relative z-10 max-w-6xl mx-auto px-4">
           <AnimatedSection className="text-center mb-16">
@@ -337,9 +341,11 @@ export default function HomePage() {
       <FeaturedProjectsSection />
 
       {/* ─── WHY PC WATER INFRASTRUCTURE ─── */}
-      <section className="bg-[#30505b] py-24 relative overflow-hidden">
+      <section className="relative py-24 overflow-hidden">
+        <Image src="/water/water-11.jpg" alt="" fill className="object-cover object-center" sizes="100vw" aria-hidden />
+        <div className="absolute inset-0 bg-[#30505b]/88" />
         <div className="dot-pattern absolute inset-0 opacity-10 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#162538]/50 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#162538]/40 to-transparent pointer-events-none" />
         <div className="relative z-10 max-w-6xl mx-auto px-4">
           <AnimatedSection className="text-center mb-16">
             <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Our Difference</p>

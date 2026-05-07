@@ -76,8 +76,10 @@ export default function TankMaintenancePage() {
         </div>
       </section>
 
-      <section className="bg-[#30505b] py-20">
-        <div className="max-w-6xl mx-auto px-4">
+      <section className="relative py-20 overflow-hidden">
+        <AppImage src="/water/water-14.jpg" alt="" fill className="object-cover object-center" sizes="100vw" aria-hidden />
+        <div className="absolute inset-0 bg-[#30505b]/87" />
+        <div className="relative z-10 max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-black text-white text-center mb-12">Maintenance vs. Upgrade — What Is Right For Your Asset?</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white/10 border border-white/20 rounded-xl p-8">

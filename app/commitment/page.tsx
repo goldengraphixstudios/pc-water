@@ -35,8 +35,10 @@ export default function CommitmentPage() {
       </section>
 
       {/* Mission */}
-      <section className="bg-[#30505b] py-16">
-        <div className="max-w-3xl mx-auto px-4 text-center">
+      <section className="relative py-16 overflow-hidden">
+        <AppImage src="/water/water-04.jpg" alt="" fill className="object-cover object-center" sizes="100vw" aria-hidden />
+        <div className="absolute inset-0 bg-[#30505b]/87" />
+        <div className="relative z-10 max-w-3xl mx-auto px-4 text-center">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Our Mission</p>
           <h2 className="text-3xl font-black text-white mb-4">SAFE WATER IS NOT A PRIVILEGE. IT IS A RIGHT.</h2>
           <p className="text-gray-300 text-lg leading-relaxed">
@@ -77,8 +79,10 @@ export default function CommitmentPage() {
       </section>
 
       {/* Sector commitment */}
-      <section className="bg-[#0d1b2a] py-20">
-        <div className="max-w-6xl mx-auto px-4">
+      <section className="relative py-20 overflow-hidden">
+        <AppImage src="/water/water-08.jpg" alt="" fill className="object-cover object-center" sizes="100vw" aria-hidden />
+        <div className="absolute inset-0 bg-[#0d1b2a]/90" />
+        <div className="relative z-10 max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-black text-white">SAFE WATER. EVERY SECTOR. NO EXCEPTIONS.</h2>
           </div>

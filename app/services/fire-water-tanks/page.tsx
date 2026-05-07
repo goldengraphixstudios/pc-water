@@ -96,8 +96,10 @@ export default function FireWaterTanksPage() {
         </div>
       </section>
 
-      <section className="bg-[#30505b] py-20">
-        <div className="max-w-6xl mx-auto px-4">
+      <section className="relative py-20 overflow-hidden">
+        <AppImage src="/water/water-12.jpg" alt="" fill className="object-cover object-center" sizes="100vw" aria-hidden />
+        <div className="absolute inset-0 bg-[#30505b]/87" />
+        <div className="relative z-10 max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-black text-white text-center mb-12">Our Fire Water Delivery Process</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[

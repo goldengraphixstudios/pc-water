@@ -122,8 +122,10 @@ export default function AboutPage() {
       </section>
 
       {/* Vision */}
-      <section className="bg-[#30505b] py-20">
-        <div className="max-w-4xl mx-auto px-4 text-center">
+      <section className="relative py-20 overflow-hidden">
+        <AppImage src="/water/water-05.jpg" alt="" fill className="object-cover object-center" sizes="100vw" aria-hidden />
+        <div className="absolute inset-0 bg-[#30505b]/87" />
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Our Vision</p>
           <h2 className="text-3xl font-black text-white mb-6">PIONEERING A NEW ERA OF WATER INFRASTRUCTURE ENGINEERING</h2>
           <p className="text-gray-300 text-lg leading-relaxed">
@@ -157,8 +159,10 @@ export default function AboutPage() {
       </section>
 
       {/* Differentiators */}
-      <section className="bg-[#0d1b2a] py-20">
-        <div className="max-w-6xl mx-auto px-4">
+      <section className="relative py-20 overflow-hidden">
+        <AppImage src="/water/water-09.jpg" alt="" fill className="object-cover object-center" sizes="100vw" aria-hidden />
+        <div className="absolute inset-0 bg-[#0d1b2a]/90" />
+        <div className="relative z-10 max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Why Choose Us</p>
             <h2 className="text-3xl font-black text-white">SEVEN REASONS TO CHOOSE PC WATER INFRASTRUCTURE</h2>
