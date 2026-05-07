@@ -347,7 +347,7 @@ export default function RichTextEditor({ value, onChange, placeholder = 'Write t
     },
     editorProps: {
       attributes: {
-        class: 'outline-none min-h-[480px] p-8 prose max-w-none text-[17px] leading-relaxed',
+        class: 'outline-none min-h-[480px] p-8 article-content',
       },
       handleDrop(view, event, _slice, moved) {
         if (moved) return false

@@ -219,6 +219,9 @@ body {
 
 /* ── ARTICLE CONTENT ── */
 .article-content { max-width: 680px; margin: 0 auto; font-size: 17px; line-height: 1.75; color: #374151; }
+
+/* In the CMS editor the ProseMirror div carries article-content — remove width cap so it fills the editing panel */
+.ProseMirror.article-content { max-width: none; margin: 0; }
 .article-content p { margin-bottom: 22px; }
 .article-content h2 { font-size: 1.5rem; font-weight: 900; color: #30505b; margin: 2.5rem 0 1rem; }
 .article-content h3 { font-size: 1.25rem; font-weight: 800; color: #30505b; margin: 2rem 0 0.75rem; }
@@ -287,3 +290,15 @@ body {
   .article-content .article-photo-grid { grid-template-columns: 1fr; }
   .article-content .article-pull-stat .stat-num { font-size: 40px; }
 }
+
+/* TipTap editor placeholder */
+.ProseMirror.article-content p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: #9ca3af;
+  pointer-events: none;
+  height: 0;
+}
+
+/* TipTap editor — keep images selectable */
+.ProseMirror.article-content img.ProseMirror-selectednode { outline: 3px solid #3e91ce; }
