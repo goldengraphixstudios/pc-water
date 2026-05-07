@@ -195,9 +195,13 @@ function Sep() {
 function Toolbar({
   editor,
   onImageUpload,
+  expanded,
+  onToggleExpand,
 }: {
   editor: Editor
   onImageUpload: (file: File) => Promise<void>
+  expanded: boolean
+  onToggleExpand: () => void
 }) {
   const fileInputRef = useRef<HTMLInputElement>(null)
   const [blockMenuOpen, setBlockMenuOpen] = useState(false)
@@ -239,7 +243,7 @@ function Toolbar({
   }
 
   return (
-    <div className="sticky top-0 z-10 bg-white border-b border-slate-200 px-3 py-1.5 flex flex-wrap items-center gap-0.5">
+    <div className="bg-white border-b border-slate-200 px-3 py-1.5 flex flex-wrap items-center gap-0.5">
       {/* Paragraph / headings */}
       <ToolbarBtn
         onClick={() => editor.chain().focus().setParagraph().run()}
@@ -402,6 +406,24 @@ function Toolbar({
         )}
       </div>
 
+      {/* Expand / collapse — pushed to the right */}
+      <div className="ml-auto">
+        <ToolbarBtn onClick={onToggleExpand} active={false} title={expanded ? 'Collapse editor' : 'Expand editor'}>
+          {expanded ? (
+            /* compress arrows */
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 9L4 4m0 0h5m-5 0v5M15 9l5-5m0 0h-5m5 0v5M9 15l-5 5m0 0h5m-5 0v-5M15 15l5 5m0 0h-5m5 0v-5" />
+            </svg>
+          ) : (
+            /* expand arrows */
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5M20 8V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5M20 16v4m0 0h-4m4 0l-5-5" />
+            </svg>
+          )}
+          {expanded ? 'Collapse' : 'Expand'}
+        </ToolbarBtn>
+      </div>
+
       {/* Link dialog */}
       {linkDialogOpen && (
         <div
@@ -488,7 +510,18 @@ export default function RichTextEditor({
 }: RichTextEditorProps) {
   const [uploading, setUploading] = useState(false)
   const [uploadError, setUploadError] = useState<string | null>(null)
+  const [expanded, setExpanded] = useState(false)
   const isFirstMount = useRef(true)
+
+  // Lock body scroll when editor is expanded
+  useEffect(() => {
+    if (expanded) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [expanded])
 
   const editor = useEditor({
     immediatelyRender: false,
@@ -611,26 +644,44 @@ export default function RichTextEditor({
 
   if (!editor) return null
 
+  // Expanded = fixed full-screen overlay; normal = contained box with internal scroll
+  const outer = expanded
+    ? 'fixed inset-0 z-[9999] flex flex-col bg-white'
+    : 'rounded-xl border border-slate-200 bg-white flex flex-col'
+
   return (
-    <div className="rounded-xl border border-slate-200 bg-white overflow-hidden">
-      <Toolbar editor={editor} onImageUpload={handleImageUpload} />
+    <div className={outer}>
+      {/* ── Toolbar (never scrolls) ── */}
+      <div className="flex-shrink-0">
+        <Toolbar
+          editor={editor}
+          onImageUpload={handleImageUpload}
+          expanded={expanded}
+          onToggleExpand={() => setExpanded((v) => !v)}
+        />
+        {uploading && (
+          <div className="flex items-center gap-2 px-4 py-2 bg-blue-50 border-b border-blue-100 text-[12px] text-blue-600">
+            <svg className="w-3.5 h-3.5 animate-spin" fill="none" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+            </svg>
+            Uploading image…
+          </div>
+        )}
+        {uploadError && (
+          <div className="px-4 py-2 bg-red-50 border-b border-red-100 text-[12px] text-red-600">
+            {uploadError}
+          </div>
+        )}
+      </div>
 
-      {uploading && (
-        <div className="flex items-center gap-2 px-4 py-2 bg-blue-50 border-b border-blue-100 text-[12px] text-blue-600">
-          <svg className="w-3.5 h-3.5 animate-spin" fill="none" viewBox="0 0 24 24">
-            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-          </svg>
-          Uploading image…
-        </div>
-      )}
-      {uploadError && (
-        <div className="px-4 py-2 bg-red-50 border-b border-red-100 text-[12px] text-red-600">
-          {uploadError}
-        </div>
-      )}
-
-      <EditorContent editor={editor} />
+      {/* ── Scrollable content area ── */}
+      <div
+        className="overflow-y-auto flex-1"
+        style={expanded ? undefined : { maxHeight: '540px' }}
+      >
+        <EditorContent editor={editor} />
+      </div>
     </div>
   )
 }
