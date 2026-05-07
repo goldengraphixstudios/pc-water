@@ -329,6 +329,7 @@ export default function RichTextEditor({ value, onChange, placeholder = 'Write t
   const isFirstMount = useRef(true)
 
   const editor = useEditor({
+    immediatelyRender: false,
     extensions: [
       StarterKit.configure({
         // heading levels 1-3
