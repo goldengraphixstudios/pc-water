@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState, useTransition } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 
 import MediaUploader from '@/components/cms/MediaUploader'
 import TagInput from '@/components/cms/TagInput'
@@ -10,10 +11,14 @@ import { browserCreatePost, browserUpdatePost, browserDeletePost } from '@/lib/c
 import type { CmsPost, CmsPostInput } from '@/lib/cms/types'
 import { slugify } from '@/lib/cms/utils'
 
+const RichTextEditor = dynamic(() => import('@/components/cms/RichTextEditor'), { ssr: false })
+
 const SEO_DESC_MAX = 160
 
 function wordCount(text: string) {
-  return text.trim() ? text.trim().split(/\s+/).length : 0
+  // Strip HTML tags for word count
+  const plain = text.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
+  return plain ? plain.split(/\s+/).length : 0
 }
 
 function toFormState(post?: CmsPost | null): CmsPostInput {
@@ -223,7 +228,11 @@ export default function PostEditorForm({ post }: { post?: CmsPost | null }) {
                   </span>
                 }
               >
-                <textarea value={form.content} onChange={(e) => update('content', e.target.value)} className="field min-h-80 resize-y" placeholder="Write the full article here. Separate paragraphs with blank lines." required />
+                <RichTextEditor
+                  value={form.content}
+                  onChange={(html) => update('content', html)}
+                  placeholder="Write the full article here…"
+                />
               </Field>
             </Section>
 

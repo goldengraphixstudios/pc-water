@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import AppImage from '@/components/AppImage'
 import CTABanner from '@/components/CTABanner'
-import { getPublicPostBySlug, getPublicPosts, renderContentParagraphs } from '@/lib/cms/queries'
+import { getPublicPostBySlug, getPublicPosts } from '@/lib/cms/queries'
 import { formatDate } from '@/lib/cms/utils'
 
 export const dynamic = 'force-static'
@@ -45,8 +45,6 @@ export default async function ResourceArticlePage({
   if (!post) {
     return null
   }
-
-  const paragraphs = renderContentParagraphs(post.content)
 
   return (
     <>
@@ -91,11 +89,11 @@ export default async function ResourceArticlePage({
       <section className="bg-white py-20">
         <div className="max-w-3xl mx-auto px-4">
           <p className="text-xl text-gray-600 leading-relaxed mb-10 border-l-4 border-[#3e91ce] pl-6 italic">{post.excerpt}</p>
-          <article className="prose prose-lg max-w-none prose-p:text-gray-600 prose-p:leading-relaxed prose-headings:text-[#30505b] prose-strong:text-gray-800">
-            {paragraphs.map((paragraph, i) => (
-              <p key={i}>{paragraph}</p>
-            ))}
-          </article>
+          {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+          <article
+            className="article-content prose max-w-none"
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
         </div>
       </section>
 
