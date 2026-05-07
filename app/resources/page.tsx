@@ -49,7 +49,22 @@ export default async function ResourcesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {articles.map((article) => (
               <Link key={article.id} href={`/resources/${article.slug}`} className="group bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-shadow block">
-                <div className="h-40 bg-gradient-to-br from-[#162538] via-[#30505b] to-[#3e91ce]" />
+                <div className="relative h-48 bg-gradient-to-br from-[#162538] via-[#30505b] to-[#3e91ce] overflow-hidden">
+                  {article.coverImageUrl ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={article.coverImageUrl}
+                      alt={article.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-end p-4">
+                      <span className="text-white/20 text-5xl font-black leading-none select-none">PC</span>
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d1b2a]/40 to-transparent" />
+                </div>
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
                     <span className="bg-[#3e91ce]/10 text-[#3e91ce] text-xs font-semibold px-3 py-1 rounded-full">
@@ -58,7 +73,7 @@ export default async function ResourcesPage() {
                     <span className="text-gray-400 text-xs">{article.readTime ?? formatDate(article.publishedAt)}</span>
                   </div>
                   <h3 className="font-bold text-[#30505b] text-base mb-3 group-hover:text-[#3e91ce] transition-colors leading-snug">{article.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{article.excerpt}</p>
+                  <p className="text-gray-500 text-sm leading-relaxed line-clamp-3">{article.excerpt}</p>
                 </div>
               </Link>
             ))}
