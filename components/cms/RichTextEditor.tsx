@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useEditor, EditorContent, type Editor } from '@tiptap/react'
+import { Node as TiptapNode } from '@tiptap/core'
 import StarterKit from '@tiptap/starter-kit'
 import Image from '@tiptap/extension-image'
 import Link from '@tiptap/extension-link'
@@ -23,6 +24,101 @@ async function uploadImageToSupabase(file: File): Promise<string | null> {
   if (error || !data) return null
   const { data: urlData } = supabase.storage.from('cms-media').getPublicUrl(data.path)
   return urlData.publicUrl
+}
+
+// ── ArticleBlock node ──────────────────────────────────────────────────────────
+// Captures every special article HTML element (pull-stat, divider, FAQ, CTA,
+// photo-grid, quotable, lead paragraph) and stores the raw outerHTML as an atom
+// node so TipTap never mangles the markup.  The NodeView renders the actual HTML
+// visually (matching the live article page) with a delete button on hover.
+
+const ArticleBlock = TiptapNode.create({
+  name: 'articleBlock',
+  group: 'block',
+  atom: true,
+  priority: 200, // fire parseHTML rules BEFORE Paragraph (100) and Blockquote (100)
+
+  addAttributes() {
+    return { html: { default: '' } }
+  },
+
+  parseHTML() {
+    const grab = (el: HTMLElement) => ({ html: el.outerHTML })
+    return [
+      { tag: 'p.article-lead',              getAttrs: (d: HTMLElement | string) => grab(d as HTMLElement) },
+      { tag: 'div.article-divider',         getAttrs: (d: HTMLElement | string) => grab(d as HTMLElement) },
+      { tag: 'div.article-pull-stat',       getAttrs: (d: HTMLElement | string) => grab(d as HTMLElement) },
+      { tag: 'div.article-photo-grid',      getAttrs: (d: HTMLElement | string) => grab(d as HTMLElement) },
+      { tag: 'div.article-faq-item',        getAttrs: (d: HTMLElement | string) => grab(d as HTMLElement) },
+      { tag: 'div.article-cta',             getAttrs: (d: HTMLElement | string) => grab(d as HTMLElement) },
+      { tag: 'blockquote.article-quotable', getAttrs: (d: HTMLElement | string) => grab(d as HTMLElement) },
+    ]
+  },
+
+  // renderHTML is used by getHTML() — store raw html in a data attr;
+  // getEditorHTML() post-processes these back to real article markup.
+  renderHTML({ node }) {
+    return ['div', { 'data-ab': '', 'data-ab-html': node.attrs.html as string }]
+  },
+
+  addNodeView() {
+    return ({ node, editor, getPos }) => {
+      const wrapper = document.createElement('div')
+      wrapper.className = 'ab-wrapper'
+      wrapper.setAttribute('contenteditable', 'false')
+
+      const preview = document.createElement('div')
+      preview.innerHTML = (node.attrs.html as string) || ''
+      wrapper.appendChild(preview)
+
+      // ×  delete button — appears on hover
+      const btn = document.createElement('button')
+      btn.type = 'button'
+      btn.className = 'ab-delete'
+      btn.title = 'Remove block'
+      btn.innerHTML =
+        '<svg width="10" height="10" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
+        '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>' +
+        '</svg>'
+      btn.addEventListener('mousedown', (e) => {
+        e.preventDefault()
+        if (typeof getPos === 'function') {
+          const pos = getPos()
+          if (pos !== undefined) {
+            editor.chain().deleteRange({ from: pos, to: pos + node.nodeSize }).run()
+          }
+        }
+      })
+      wrapper.appendChild(btn)
+
+      return {
+        dom: wrapper,
+        contentDOM: null,
+        update(updatedNode) {
+          if (updatedNode.type.name !== 'articleBlock') return false
+          preview.innerHTML = (updatedNode.attrs.html as string) || ''
+          return true
+        },
+      }
+    }
+  },
+})
+
+// ── Reconstruct clean article HTML ────────────────────────────────────────────
+// TipTap serialises ArticleBlock nodes as <div data-ab data-ab-html="…">.
+// This function replaces those placeholders with the original markup.
+
+function getEditorHTML(editor: Editor): string {
+  if (typeof document === 'undefined') return editor.getHTML()
+  const div = document.createElement('div')
+  div.innerHTML = editor.getHTML()
+  div.querySelectorAll('[data-ab]').forEach((el) => {
+    const html = (el as HTMLElement).dataset.abHtml || ''
+    const t = document.createElement('template')
+    t.innerHTML = html
+    el.replaceWith(t.content)
+  })
+  return div.innerHTML
 }
 
 // ── Special block templates ────────────────────────────────────────────────────
@@ -90,22 +186,25 @@ function ToolbarBtn({
   )
 }
 
-// ── Toolbar separator ──────────────────────────────────────────────────────────
-
 function Sep() {
   return <div className="w-px h-5 bg-slate-200 mx-0.5 flex-shrink-0" />
 }
 
 // ── Toolbar ────────────────────────────────────────────────────────────────────
 
-function Toolbar({ editor, onImageUpload }: { editor: Editor; onImageUpload: (file: File) => Promise<void> }) {
+function Toolbar({
+  editor,
+  onImageUpload,
+}: {
+  editor: Editor
+  onImageUpload: (file: File) => Promise<void>
+}) {
   const fileInputRef = useRef<HTMLInputElement>(null)
   const [blockMenuOpen, setBlockMenuOpen] = useState(false)
   const [linkDialogOpen, setLinkDialogOpen] = useState(false)
   const [linkUrl, setLinkUrl] = useState('')
   const blockMenuRef = useRef<HTMLDivElement>(null)
 
-  // Close block menu on outside click
   useEffect(() => {
     function handler(e: MouseEvent) {
       if (blockMenuRef.current && !blockMenuRef.current.contains(e.target as Node)) {
@@ -116,8 +215,10 @@ function Toolbar({ editor, onImageUpload }: { editor: Editor; onImageUpload: (fi
     return () => document.removeEventListener('mousedown', handler)
   }, [])
 
+  // Insert a special block directly as an articleBlock node — never goes through
+  // HTML parsing so the markup is preserved exactly.
   function insertSpecialBlock(html: string) {
-    editor.commands.insertContent(html, { parseOptions: { preserveWhitespace: true } })
+    editor.commands.insertContent({ type: 'articleBlock', attrs: { html } })
     setBlockMenuOpen(false)
   }
 
@@ -139,7 +240,7 @@ function Toolbar({ editor, onImageUpload }: { editor: Editor; onImageUpload: (fi
 
   return (
     <div className="sticky top-0 z-10 bg-white border-b border-slate-200 px-3 py-1.5 flex flex-wrap items-center gap-0.5">
-      {/* Heading / paragraph */}
+      {/* Paragraph / headings */}
       <ToolbarBtn
         onClick={() => editor.chain().focus().setParagraph().run()}
         active={editor.isActive('paragraph')}
@@ -193,7 +294,7 @@ function Toolbar({ editor, onImageUpload }: { editor: Editor; onImageUpload: (fi
       <ToolbarBtn
         onClick={() => editor.chain().focus().toggleBulletList().run()}
         active={editor.isActive('bulletList')}
-        title="Unordered list"
+        title="Bullet list"
       >
         <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
@@ -203,7 +304,7 @@ function Toolbar({ editor, onImageUpload }: { editor: Editor; onImageUpload: (fi
       <ToolbarBtn
         onClick={() => editor.chain().focus().toggleOrderedList().run()}
         active={editor.isActive('orderedList')}
-        title="Ordered list"
+        title="Numbered list"
       >
         <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 20h14M7 12h14M7 4h14M3 20v-2m0 2h2m-2 0H1M3 12H1m2 0v-2m0 2h2M3 4H1m2 0V2m0 2h2" />
@@ -234,15 +335,25 @@ function Toolbar({ editor, onImageUpload }: { editor: Editor; onImageUpload: (fi
       {/* Link */}
       <ToolbarBtn onClick={openLinkDialog} active={editor.isActive('link')} title="Link">
         <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
+          />
         </svg>
         Link
       </ToolbarBtn>
 
-      {/* Image */}
+      {/* Image upload */}
       <ToolbarBtn onClick={() => fileInputRef.current?.click()} active={false} title="Insert image">
         <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+          />
         </svg>
         Image
       </ToolbarBtn>
@@ -260,9 +371,13 @@ function Toolbar({ editor, onImageUpload }: { editor: Editor; onImageUpload: (fi
 
       <Sep />
 
-      {/* Special blocks */}
+      {/* Special blocks dropdown */}
       <div className="relative" ref={blockMenuRef}>
-        <ToolbarBtn onClick={() => setBlockMenuOpen((v) => !v)} active={blockMenuOpen} title="Insert special block">
+        <ToolbarBtn
+          onClick={() => setBlockMenuOpen((v) => !v)}
+          active={blockMenuOpen}
+          title="Insert special block"
+        >
           <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
           </svg>
@@ -289,24 +404,67 @@ function Toolbar({ editor, onImageUpload }: { editor: Editor; onImageUpload: (fi
 
       {/* Link dialog */}
       {linkDialogOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30" onMouseDown={() => { setLinkDialogOpen(false); setLinkUrl('') }}>
-          <div className="bg-white rounded-xl border border-slate-200 shadow-xl p-5 w-[380px]" onMouseDown={(e) => e.stopPropagation()}>
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/30"
+          onMouseDown={() => {
+            setLinkDialogOpen(false)
+            setLinkUrl('')
+          }}
+        >
+          <div
+            className="bg-white rounded-xl border border-slate-200 shadow-xl p-5 w-[380px]"
+            onMouseDown={(e) => e.stopPropagation()}
+          >
             <p className="text-sm font-semibold text-slate-700 mb-3">Insert / edit link</p>
             <input
               autoFocus
               type="url"
               value={linkUrl}
               onChange={(e) => setLinkUrl(e.target.value)}
-              onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); handleLinkSubmit() } if (e.key === 'Escape') { setLinkDialogOpen(false); setLinkUrl('') } }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  e.preventDefault()
+                  handleLinkSubmit()
+                }
+                if (e.key === 'Escape') {
+                  setLinkDialogOpen(false)
+                  setLinkUrl('')
+                }
+              }}
               placeholder="https://..."
               className="field mb-3"
             />
             <div className="flex gap-2 justify-end">
-              <button type="button" onClick={() => { setLinkDialogOpen(false); setLinkUrl('') }} className="px-3 py-1.5 rounded-lg text-[13px] text-slate-500 hover:bg-slate-100 transition-colors">Cancel</button>
+              <button
+                type="button"
+                onClick={() => {
+                  setLinkDialogOpen(false)
+                  setLinkUrl('')
+                }}
+                className="px-3 py-1.5 rounded-lg text-[13px] text-slate-500 hover:bg-slate-100 transition-colors"
+              >
+                Cancel
+              </button>
               {editor.isActive('link') && (
-                <button type="button" onClick={() => { editor.chain().focus().unsetLink().run(); setLinkDialogOpen(false); setLinkUrl('') }} className="px-3 py-1.5 rounded-lg text-[13px] text-red-500 hover:bg-red-50 transition-colors">Remove</button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    editor.chain().focus().unsetLink().run()
+                    setLinkDialogOpen(false)
+                    setLinkUrl('')
+                  }}
+                  className="px-3 py-1.5 rounded-lg text-[13px] text-red-500 hover:bg-red-50 transition-colors"
+                >
+                  Remove
+                </button>
               )}
-              <button type="button" onClick={handleLinkSubmit} className="px-3 py-1.5 rounded-lg text-[13px] font-semibold bg-[#3e91ce] text-white hover:bg-[#2d7ab8] transition-colors">Apply</button>
+              <button
+                type="button"
+                onClick={handleLinkSubmit}
+                className="px-3 py-1.5 rounded-lg text-[13px] font-semibold bg-[#3e91ce] text-white hover:bg-[#2d7ab8] transition-colors"
+              >
+                Apply
+              </button>
             </div>
           </div>
         </div>
@@ -323,7 +481,11 @@ interface RichTextEditorProps {
   placeholder?: string
 }
 
-export default function RichTextEditor({ value, onChange, placeholder = 'Write the full article here…' }: RichTextEditorProps) {
+export default function RichTextEditor({
+  value,
+  onChange,
+  placeholder = 'Write the full article here…',
+}: RichTextEditorProps) {
   const [uploading, setUploading] = useState(false)
   const [uploadError, setUploadError] = useState<string | null>(null)
   const isFirstMount = useRef(true)
@@ -331,8 +493,9 @@ export default function RichTextEditor({ value, onChange, placeholder = 'Write t
   const editor = useEditor({
     immediatelyRender: false,
     extensions: [
+      // ArticleBlock must be listed first so its parseHTML rules have highest priority
+      ArticleBlock,
       StarterKit.configure({
-        // heading levels 1-3
         heading: { levels: [1, 2, 3] },
       }),
       Image.configure({ inline: false, allowBase64: false }),
@@ -343,11 +506,12 @@ export default function RichTextEditor({ value, onChange, placeholder = 'Write t
     ],
     content: value,
     onUpdate({ editor }) {
-      onChange(editor.getHTML())
+      onChange(getEditorHTML(editor))
     },
     editorProps: {
       attributes: {
-        class: 'outline-none min-h-[480px] p-8 article-content',
+        // article-content = all article CSS; ProseMirror.article-content overrides max-width
+        class: 'outline-none min-h-[400px] p-5 article-content',
       },
       handleDrop(view, event, _slice, moved) {
         if (moved) return false
@@ -356,14 +520,12 @@ export default function RichTextEditor({ value, onChange, placeholder = 'Write t
         const imageFiles = Array.from(files).filter((f) => f.type.startsWith('image/'))
         if (!imageFiles.length) return false
         event.preventDefault()
-        // Upload each dropped image
         imageFiles.forEach(async (file) => {
           setUploading(true)
           setUploadError(null)
           try {
             const url = await uploadImageToSupabase(file)
             if (url) {
-              view.dispatch(view.state.tr.insertText(''))
               const { schema } = view.state
               const node = schema.nodes.image?.create({ src: url, alt: file.name })
               if (node) {
@@ -415,38 +577,37 @@ export default function RichTextEditor({ value, onChange, placeholder = 'Write t
     },
   })
 
-  // Sync external value changes (e.g. on initial load of existing post)
+  // Sync external value changes (e.g. parent resets content)
   useEffect(() => {
     if (!editor) return
     if (isFirstMount.current) {
       isFirstMount.current = false
       return
     }
-    // Only update if content differs to avoid cursor jump
-    const currentHtml = editor.getHTML()
-    if (currentHtml !== value) {
-      editor.commands.setContent(value, { emitUpdate: false })
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    editor.commands.setContent(value, { emitUpdate: false })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value])
 
-  const handleImageUpload = useCallback(async (file: File) => {
-    if (!editor) return
-    setUploading(true)
-    setUploadError(null)
-    try {
-      const url = await uploadImageToSupabase(file)
-      if (url) {
-        editor.chain().focus().setImage({ src: url, alt: file.name }).run()
-      } else {
+  const handleImageUpload = useCallback(
+    async (file: File) => {
+      if (!editor) return
+      setUploading(true)
+      setUploadError(null)
+      try {
+        const url = await uploadImageToSupabase(file)
+        if (url) {
+          editor.chain().focus().setImage({ src: url, alt: file.name }).run()
+        } else {
+          setUploadError('Image upload failed')
+        }
+      } catch {
         setUploadError('Image upload failed')
+      } finally {
+        setUploading(false)
       }
-    } catch {
-      setUploadError('Image upload failed')
-    } finally {
-      setUploading(false)
-    }
-  }, [editor])
+    },
+    [editor],
+  )
 
   if (!editor) return null
 
@@ -454,7 +615,6 @@ export default function RichTextEditor({ value, onChange, placeholder = 'Write t
     <div className="rounded-xl border border-slate-200 bg-white overflow-hidden">
       <Toolbar editor={editor} onImageUpload={handleImageUpload} />
 
-      {/* Upload indicator */}
       {uploading && (
         <div className="flex items-center gap-2 px-4 py-2 bg-blue-50 border-b border-blue-100 text-[12px] text-blue-600">
           <svg className="w-3.5 h-3.5 animate-spin" fill="none" viewBox="0 0 24 24">

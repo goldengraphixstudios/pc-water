@@ -220,8 +220,64 @@ body {
 /* ── ARTICLE CONTENT ── */
 .article-content { max-width: 680px; margin: 0 auto; font-size: 17px; line-height: 1.75; color: #374151; }
 
-/* In the CMS editor the ProseMirror div carries article-content — remove width cap so it fills the editing panel */
-.ProseMirror.article-content { max-width: none; margin: 0; }
+/* ── CMS EDITOR OVERRIDES ──────────────────────────────────────────────────── */
+/* ProseMirror.article-content = the live article styles applied inside the     */
+/* editor, with compacted spacing so the panel doesn't feel enormous.           */
+
+.ProseMirror.article-content { max-width: none; margin: 0; font-size: 15px; line-height: 1.65; }
+.ProseMirror.article-content p { margin-bottom: 14px; }
+.ProseMirror.article-content h2 { font-size: 1.3rem; margin: 1.5rem 0 0.6rem; }
+.ProseMirror.article-content h3 { font-size: 1.1rem; margin: 1.2rem 0 0.5rem; }
+.ProseMirror.article-content ul,
+.ProseMirror.article-content ol { margin: 0 0 14px 1.4rem; }
+/* Special blocks — tighter margins + slightly smaller padding */
+.ProseMirror.article-content .article-lead { font-size: 17px; margin-bottom: 20px; }
+.ProseMirror.article-content figure { margin: 18px 0; }
+.ProseMirror.article-content .article-photo-grid { margin: 18px 0; }
+.ProseMirror.article-content .article-divider { margin: 18px 0; }
+.ProseMirror.article-content .article-pull-stat { margin: 18px 0; padding: 20px 24px; }
+.ProseMirror.article-content .article-pull-stat .stat-num { font-size: 38px; }
+.ProseMirror.article-content .article-quotable,
+.ProseMirror.article-content blockquote.article-quotable { margin: 18px 0; padding: 18px 24px 18px 36px; }
+.ProseMirror.article-content .article-quotable::before { font-size: 56px; }
+.ProseMirror.article-content .article-faq-item { margin-bottom: 6px; }
+.ProseMirror.article-content .article-cta { margin: 18px 0 0; padding: 20px 24px; }
+.ProseMirror.article-content blockquote:not(.article-quotable) { margin: 16px 0; }
+.ProseMirror.article-content hr { margin: 20px 0; }
+
+/* ArticleBlock node-view wrapper */
+.ab-wrapper {
+  position: relative;
+  cursor: default;
+  border-radius: 8px;
+  transition: box-shadow 0.15s;
+}
+.ab-wrapper:hover { box-shadow: 0 0 0 2px #bfdbfe; }
+.ab-wrapper.ProseMirror-selectednode { box-shadow: 0 0 0 2px #3e91ce; }
+.ab-delete {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  background: rgba(239, 68, 68, 0.88);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.15s, background 0.15s;
+  z-index: 10;
+  padding: 0;
+  line-height: 1;
+}
+.ab-wrapper:hover .ab-delete,
+.ab-wrapper.ProseMirror-selectednode .ab-delete { opacity: 1; }
+.ab-delete:hover { background: #dc2626; }
+
 .article-content p { margin-bottom: 22px; }
 .article-content h2 { font-size: 1.5rem; font-weight: 900; color: #30505b; margin: 2.5rem 0 1rem; }
 .article-content h3 { font-size: 1.25rem; font-weight: 800; color: #30505b; margin: 2rem 0 0.75rem; }
@@ -291,8 +347,9 @@ body {
   .article-content .article-pull-stat .stat-num { font-size: 40px; }
 }
 
-/* TipTap editor placeholder */
-.ProseMirror.article-content p.is-editor-empty:first-child::before {
+/* TipTap editor placeholder (v3 uses .is-empty) */
+.ProseMirror.article-content p.is-editor-empty:first-child::before,
+.ProseMirror.article-content p.is-empty:first-child::before {
   content: attr(data-placeholder);
   float: left;
   color: #9ca3af;
@@ -300,5 +357,5 @@ body {
   height: 0;
 }
 
-/* TipTap editor — keep images selectable */
-.ProseMirror.article-content img.ProseMirror-selectednode { outline: 3px solid #3e91ce; }
+/* Image selected state */
+.ProseMirror.article-content img.ProseMirror-selectednode { outline: 3px solid #3e91ce; border-radius: 4px; }
