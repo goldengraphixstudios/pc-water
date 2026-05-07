@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from 'next'
+import AppImage from '@/components/AppImage'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
 import CTABanner from '@/components/CTABanner'
@@ -27,8 +28,17 @@ export default async function ResourcesPage() {
 
   return (
     <>
-      <section className="bg-gradient-to-br from-[#162538] via-[#30505b] to-[#3e91ce] pt-40 pb-24">
-        <div className="max-w-4xl mx-auto px-4 text-center">
+      <section className="relative pt-40 pb-24 overflow-hidden">
+        <AppImage
+          src="/heroes/resources.jpg"
+          alt=""
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-[#0d1b2a]/75" />
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Resources</p>
           <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
             INSIGHTS IN WATER STORAGE,<br />ENGINEERING, AND SUSTAINABILITY
