@@ -111,7 +111,7 @@ export default function TankInstallationPage() {
         </div>
       </section>
 
-      <SectionProjects heading="Related Projects" limit={2} bgColor="bg-[#F4F6F8]" />
+      <SectionProjects heading="Featured Project" slugs={['borumba-hydro']} bgColor="bg-[#F4F6F8]" />
 
       <FAQBlock faqs={faqs} heading="Tank Installation — FAQs" />
       <CTABanner heading="READY TO DISCUSS YOUR INSTALLATION?" subheading="Contact us to discuss your project scope, timeline, and site requirements." primaryCTA={{ label: 'Discuss a Project', href: '/contact' }} secondaryCTA={{ label: 'Download Capability Statement', href: '#' }} />

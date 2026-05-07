@@ -78,7 +78,7 @@ export default function RPVCLinerPage() {
         </div>
       </section>
 
-      <SectionProjects heading="Related Projects" limit={2} bgColor="bg-[#F4F6F8]" />
+      <SectionProjects heading="Featured Projects" slugs={['albury-reservoir', 'hobart-nyrstar', 'clarence-road-liner']} bgColor="bg-[#F4F6F8]" />
 
       <section className="relative py-20 overflow-hidden">
         <AppImage src="/water/water-02.jpg" alt="" fill className="object-cover object-center" sizes="100vw" aria-hidden />

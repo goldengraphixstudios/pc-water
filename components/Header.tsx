@@ -20,15 +20,15 @@ const IcFactory = () => <svg className="w-4 h-4" fill="none" stroke="currentColo
 const IcHardHat = () => <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 15a8 8 0 0116 0H4z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2 18h20" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18v1.5a1 1 0 001 1h10a1 1 0 001-1V18" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 7V4" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 9.5L7.5 8M15 9.5L16.5 8" /></svg>
 const IcIndustrial = () => <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 10h10v10H7z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 10Q7 6 12 6Q17 6 17 10" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6V3" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 3h4" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 15h3" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 15h2" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 20v2M15 20v2" /></svg>
 
-const services: { label: string; href: string; icon: React.ReactNode; projects?: string[] }[] = [
-  { label: 'Custom Tank Design & Engineering', href: '/services/custom-tank-design', icon: <IcGear />, projects: ['Borumba'] },
-  { label: 'Professional Tank Installation', href: '/services/tank-installation', icon: <IcCrane />, projects: ['Borumba'] },
-  { label: 'Foundation & Civil Integration', href: '/services/foundation-civil-integration', icon: <IcPillars />, projects: ['Doomadgee'] },
-  { label: 'Fire Water Tank Solutions', href: '/services/fire-water-tanks', icon: <IcFlame />, projects: ['Clarence'] },
-  { label: 'Remote Area Project Delivery', href: '/services/remote-area-delivery', icon: <IcPin />, projects: ['Doomadgee'] },
-  { label: 'Tank Maintenance & Upgrades', href: '/services/tank-maintenance-upgrades', icon: <IcWrench />, projects: ['Albury', 'Hobart'] },
+const services: { label: string; href: string; icon: React.ReactNode }[] = [
+  { label: 'Custom Tank Design & Engineering', href: '/services/custom-tank-design', icon: <IcGear /> },
+  { label: 'Professional Tank Installation', href: '/services/tank-installation', icon: <IcCrane /> },
+  { label: 'Foundation & Civil Integration', href: '/services/foundation-civil-integration', icon: <IcPillars /> },
+  { label: 'Fire Water Tank Solutions', href: '/services/fire-water-tanks', icon: <IcFlame /> },
+  { label: 'Remote Area Project Delivery', href: '/services/remote-area-delivery', icon: <IcPin /> },
+  { label: 'Tank Maintenance & Upgrades', href: '/services/tank-maintenance-upgrades', icon: <IcWrench /> },
   { label: 'Tank Inspection Technology', href: '/services/tank-inspection-technology', icon: <IcScan /> },
-  { label: 'RPVC Liners', href: '/services/rpvc-liner-systems', icon: <IcShield />, projects: ['Albury', 'Hobart', 'Clarence'] },
+  { label: 'RPVC Liners', href: '/services/rpvc-liner-systems', icon: <IcShield /> },
   { label: 'Tender & Procurement Support', href: '/services/tender-procurement-support', icon: <IcDoc /> },
   { label: 'Builder & Contractor Partnerships', href: '/services/builder-contractor-partnerships', icon: <IcPeople /> },
 ]
@@ -207,19 +207,7 @@ export default function Header() {
                           className="flex items-center gap-3 px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-all rounded-lg mx-1"
                         >
                           <span className="text-[#3e91ce] flex-shrink-0">{s.icon}</span>
-                          <span className="flex-1 min-w-0">{s.label}</span>
-                          {s.projects && s.projects.length > 0 && (
-                            <span className="flex items-center gap-1 flex-shrink-0">
-                              {s.projects.map((p) => (
-                                <span
-                                  key={p}
-                                  className="text-[9px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded-full bg-[#3e91ce]/15 text-[#5badde] border border-[#3e91ce]/20 leading-none"
-                                >
-                                  {p}
-                                </span>
-                              ))}
-                            </span>
-                          )}
+                          {s.label}
                         </Link>
                       </motion.div>
                     ))}
@@ -432,20 +420,7 @@ export default function Header() {
                             href={s.href}
                             className="flex items-center gap-2 text-sm text-gray-500 hover:text-[#3e91ce] py-1.5 transition-colors"
                           >
-                            <span className="text-[#3e91ce] flex-shrink-0">{s.icon}</span>
-                            <span className="flex-1 min-w-0">{s.label}</span>
-                            {s.projects && s.projects.length > 0 && (
-                              <span className="flex items-center gap-1 flex-shrink-0">
-                                {s.projects.map((p) => (
-                                  <span
-                                    key={p}
-                                    className="text-[9px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded-full bg-[#3e91ce]/15 text-[#5badde] border border-[#3e91ce]/20 leading-none"
-                                  >
-                                    {p}
-                                  </span>
-                                ))}
-                              </span>
-                            )}
+                            <span className="text-[#3e91ce]">{s.icon}</span> {s.label}
                           </Link>
                         ))}
                       </motion.div>

@@ -3,6 +3,7 @@ import AppImage from '@/components/AppImage'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
 import CTABanner from '@/components/CTABanner'
+import SectionProjects from '@/components/SectionProjects'
 
 export const metadata: Metadata = {
   title: 'Tank Maintenance & Upgrades',
@@ -114,6 +115,8 @@ export default function TankMaintenancePage() {
           </div>
         </div>
       </section>
+
+      <SectionProjects heading="Featured Projects" slugs={['albury-reservoir', 'hobart-nyrstar']} bgColor="bg-[#F4F6F8]" />
 
       <FAQBlock faqs={faqs} heading="Maintenance & Upgrades — FAQs" />
       <CTABanner heading="PROTECT YOUR WATER STORAGE ASSETS" subheading="Get an inspection-led maintenance assessment and protect your infrastructure investment." primaryCTA={{ label: 'Discuss Maintenance', href: '/contact' }} secondaryCTA={{ label: 'Download Maintenance Checklist', href: '#' }} />

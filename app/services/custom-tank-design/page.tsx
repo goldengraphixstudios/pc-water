@@ -149,7 +149,7 @@ export default function CustomTankDesignPage() {
         </div>
       </section>
 
-      <SectionProjects heading="Related Projects" limit={2} bgColor="bg-[#F4F6F8]" />
+      <SectionProjects heading="Featured Project" slugs={['borumba-hydro']} bgColor="bg-[#F4F6F8]" />
 
       <FAQBlock faqs={faqs} heading="Custom Tank Design — FAQs" />
       <CTABanner

@@ -84,7 +84,7 @@ export default function RemoteAreaDeliveryPage() {
         </div>
       </section>
 
-      <SectionProjects heading="Related Projects" limit={2} bgColor="bg-[#F4F6F8]" />
+      <SectionProjects heading="Featured Project" slugs={['doomadgee-wtp']} bgColor="bg-[#F4F6F8]" />
 
       <section className="bg-white py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">

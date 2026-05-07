@@ -3,6 +3,7 @@ import AppImage from '@/components/AppImage'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
 import CTABanner from '@/components/CTABanner'
+import SectionProjects from '@/components/SectionProjects'
 
 export const metadata: Metadata = {
   title: 'Fire Water Tank Solutions',
@@ -128,6 +129,8 @@ export default function FireWaterTanksPage() {
           </div>
         </div>
       </section>
+
+      <SectionProjects heading="Featured Project" slugs={['clarence-road-liner']} bgColor="bg-[#F4F6F8]" />
 
       <FAQBlock faqs={faqs} heading="Fire Water Tanks — FAQs" />
       <CTABanner heading="IS YOUR FIRE WATER SYSTEM COMPLIANT?" subheading="Contact us for a compliance review and expert fire water storage consultation." primaryCTA={{ label: 'Request a Compliance Review', href: '/contact' }} secondaryCTA={{ label: 'Download Fire Water Guide', href: '#' }} />

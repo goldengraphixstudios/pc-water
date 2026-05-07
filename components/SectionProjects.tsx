@@ -11,6 +11,8 @@ interface Props {
   limit?: number
   /** Optional keyword matched against project sector (case-insensitive). Falls back to any published projects. */
   sector?: string
+  /** Pin specific projects by slug — shown in the order given */
+  slugs?: string[]
   bgColor?: string
 }
 
@@ -18,6 +20,7 @@ export default function SectionProjects({
   heading = 'Related Projects',
   limit = 2,
   sector,
+  slugs,
   bgColor = 'bg-white',
 }: Props) {
   const [projects, setProjects] = useState<CmsProject[]>([])
@@ -25,17 +28,25 @@ export default function SectionProjects({
 
   useEffect(() => {
     fetchPublishedProjects(20).then((all) => {
-      let filtered = sector
-        ? all.filter(p => p.sector?.toLowerCase().includes(sector.toLowerCase()))
-        : all
+      let filtered: CmsProject[]
 
-      // Fall back to any published projects if the sector filter returns nothing
-      if (!filtered.length) filtered = all
+      if (slugs && slugs.length > 0) {
+        // Show exactly the pinned slugs in the given order
+        filtered = slugs
+          .map(slug => all.find(p => p.slug === slug))
+          .filter((p): p is CmsProject => !!p)
+      } else if (sector) {
+        filtered = all.filter(p => p.sector?.toLowerCase().includes(sector.toLowerCase()))
+        if (!filtered.length) filtered = all
+        filtered = filtered.slice(0, limit)
+      } else {
+        filtered = all.slice(0, limit)
+      }
 
-      setProjects(filtered.slice(0, limit))
+      setProjects(filtered)
       setLoaded(true)
     })
-  }, [limit, sector])
+  }, [limit, sector, slugs])
 
   // Hide the whole section if nothing is published yet
   if (loaded && projects.length === 0) return null
@@ -53,7 +64,7 @@ export default function SectionProjects({
             ))}
           </div>
         ) : (
-          <div className={`grid grid-cols-1 md:grid-cols-${Math.min(limit, 3)} gap-6 ${limit <= 2 ? 'max-w-3xl mx-auto' : ''}`}>
+          <div className={`grid grid-cols-1 md:grid-cols-${Math.min(projects.length, 3)} gap-6 ${projects.length <= 2 ? 'max-w-3xl mx-auto' : ''}`}>
             {projects.map((project) => (
               <ProjectCard
                 key={project.id}

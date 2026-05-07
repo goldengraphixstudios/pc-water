@@ -3,6 +3,7 @@ import AppImage from '@/components/AppImage'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
 import CTABanner from '@/components/CTABanner'
+import SectionProjects from '@/components/SectionProjects'
 
 export const metadata: Metadata = {
   title: 'Foundation & Civil Integration',
@@ -108,6 +109,8 @@ export default function FoundationCivilPage() {
           </div>
         </div>
       </section>
+
+      <SectionProjects heading="Featured Project" slugs={['doomadgee-wtp']} bgColor="bg-[#F4F6F8]" />
 
       <FAQBlock faqs={faqs} heading="Foundation & Civil Integration — FAQs" />
       <CTABanner heading="BUILD ON SOLID FOUNDATIONS" subheading="Contact us to discuss your foundation engineering and civil integration requirements." primaryCTA={{ label: 'Discuss a Project', href: '/contact' }} secondaryCTA={{ label: 'Download Capability Statement', href: '#' }} variant="navy" />
