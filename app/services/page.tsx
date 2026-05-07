@@ -26,19 +26,9 @@ const waterSolutionsServices = [
     href: '/services/foundation-civil-integration',
   },
   {
-    title: 'Fire Water Tank Solutions',
-    description: 'AS2304-compliant fire water storage systems with flow rate calculations, pump system integration, and annual inspection support under AS1851. For commercial, industrial, and mining sites.',
-    href: '/services/fire-water-tanks',
-  },
-  {
     title: 'Remote Area Project Delivery',
     description: 'Specialist delivery for remote and regional Australia — remote logistics, FIFO teams, Indigenous community projects, and harsh environment material selection.',
     href: '/services/remote-area-delivery',
-  },
-  {
-    title: 'Tank Inspection Technology',
-    description: 'Advanced ROV and UAV drone inspection for accurate condition assessment without costly dewatering. Detailed condition reports supporting AS1851 compliance and targeted maintenance.',
-    href: '/services/tank-inspection-technology',
   },
 ]
 
@@ -54,14 +44,24 @@ const pcTanksServices = [
     href: '/services/tank-installation',
   },
   {
+    title: 'RPVC Liner Systems',
+    description: 'High-performance RPVC liner installation to protect tanks from corrosion, restore potable water compliance, and extend asset life by 20+ years. AS4020 compliant.',
+    href: '/services/rpvc-liner-systems',
+  },
+  {
+    title: 'Tank Inspection Technology',
+    description: 'Advanced ROV and UAV drone inspection for accurate condition assessment without costly dewatering. Detailed condition reports supporting AS1851 compliance and targeted maintenance.',
+    href: '/services/tank-inspection-technology',
+  },
+  {
     title: 'Tank Maintenance & Upgrades',
     description: 'Planned and reactive maintenance, structural upgrades, corrosion treatment, and long-term asset management for steel and concrete water storage infrastructure.',
     href: '/services/tank-maintenance-upgrades',
   },
   {
-    title: 'RPVC Liner Systems',
-    description: 'High-performance RPVC liner installation to protect tanks from corrosion, restore potable water compliance, and extend asset life by 20+ years. AS4020 compliant.',
-    href: '/services/rpvc-liner-systems',
+    title: 'Fire Water Tank Solutions',
+    description: 'AS2304-compliant fire water storage systems with flow rate calculations, pump system integration, and annual inspection support under AS1851. For commercial, industrial, and mining sites.',
+    href: '/services/fire-water-tanks',
   },
   {
     title: 'Tender & Procurement Support',
@@ -112,8 +112,14 @@ export default function ServicesPage() {
                   <h3 className="font-black text-[#30505b] text-xl">PC Water Solutions</h3>
                 </div>
               </div>
+              <p className="text-gray-600 text-sm leading-relaxed mb-2">
+                PC Water Solutions is our project delivery division, delivering complex water infrastructure and treatment facility works across Australia.
+              </p>
+              <p className="text-gray-600 text-sm leading-relaxed mb-2">
+                Our scope covers civil construction, structural works, mechanical and process installation, pipeline and reticulation systems, SCADA and electrical integration, and complete water treatment plant delivery.
+              </p>
               <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                Our project delivery and asset management division. PC Water Solutions delivers the full project lifecycle — installation, inspection, RPVC lining, maintenance, fire water compliance, and remote area delivery — across every state and territory in Australia.
+                From greenfield treatment facilities to major infrastructure upgrades, PC Water Solutions delivers with precision in demanding, remote, and regional environments — including projects across every state and territory in Australia.
               </p>
               <ul className="space-y-2">
                 {[
@@ -121,10 +127,6 @@ export default function ServicesPage() {
                   'Water Treatment Solutions',
                   'Professional Installation & Commissioning',
                   'Remote Area Project Delivery',
-                  'RPVC Liner Systems',
-                  'Tank Inspection Technology',
-                  'Tank Maintenance & Upgrades',
-                  'Fire Water Tank Solutions',
                   'Foundation & Civil Integration',
                 ].map(s => (
                   <li key={s} className="flex items-center gap-2 text-sm text-[#30505b]">
@@ -148,14 +150,24 @@ export default function ServicesPage() {
                   <h3 className="font-black text-[#30505b] text-xl">PC Tanks</h3>
                 </div>
               </div>
+              <p className="text-gray-600 text-sm leading-relaxed mb-2">
+                PC Tanks is our specialist engineering and supply division for high-performance water storage systems.
+              </p>
+              <p className="text-gray-600 text-sm leading-relaxed mb-2">
+                We design and manufacture bolted steel, GFS, and rectangular tank systems for potable water, process water, fire protection, and critical infrastructure applications. Every system is engineered for long-term asset performance, durability, and compliance with Australian Standards including AS2304 and AS4020.
+              </p>
               <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                Our tank design and manufacturing division. PC Tanks engineers and supplies bolted steel water storage tanks purpose-built to client specifications — any size, any application, fully compliant with AS2304 and AS4020.
+                Beyond new tank supply, PC Tanks also delivers complete asset lifecycle services including RPVC lining, corrosion protection, reservoir and liner inspections, liner maintenance, refurbishment, and ongoing tank maintenance programs.
               </p>
               <ul className="space-y-2">
                 {[
                   'Custom Tank Design & Engineering',
                   'Custom Tank Supply & Fabrication',
                   'AS2304 & AS4020 Compliance',
+                  'RPVC Liner Systems',
+                  'Tank Inspection Technology',
+                  'Tank Maintenance & Upgrades',
+                  'Fire Water Tank Solutions',
                   'Tender & Procurement Support',
                 ].map(s => (
                   <li key={s} className="flex items-center gap-2 text-sm text-[#30505b]">

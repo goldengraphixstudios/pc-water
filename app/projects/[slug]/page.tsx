@@ -114,7 +114,7 @@ export default async function ManagedProjectPage({
                     { label: 'Sector', value: project.sector },
                     { label: 'Location', value: project.location },
                     { label: 'Scope', value: project.scope },
-                    { label: 'Status', value: project.status },
+                    { label: 'Status', value: 'Completed' },
                   ].map((item) => (
                     <div key={item.label} className="flex justify-between gap-4 py-2 border-b border-gray-200 last:border-0">
                       <dt className="text-gray-500 font-medium">{item.label}</dt>
@@ -124,17 +124,21 @@ export default async function ManagedProjectPage({
                 </dl>
               </div>
 
-              <div className="bg-[#30505b] rounded-xl p-6">
-                <h3 className="font-black text-white text-sm tracking-widest uppercase mb-3">Tag Set</h3>
-                <ul className="space-y-2">
-                  {project.tags.map((tag) => (
-                    <li key={tag.slug} className="flex items-center gap-2 text-sm text-gray-300">
-                      <span className="w-1.5 h-1.5 bg-[#3e91ce] rounded-full flex-shrink-0" />
-                      {tag.name}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              {project.tags.length > 0 && (
+                <div className="bg-[#30505b] rounded-xl p-6">
+                  <h3 className="font-black text-white text-sm tracking-widest uppercase mb-3">Services Delivered</h3>
+                  <ul className="space-y-2">
+                    {project.tags.map((tag) => (
+                      <li key={tag.slug} className="flex items-center gap-2 text-sm">
+                        <span className="w-1.5 h-1.5 bg-[#3e91ce] rounded-full flex-shrink-0" />
+                        <Link href={`/services/${tag.slug}`} className="text-gray-300 hover:text-[#3e91ce] transition-colors">
+                          {tag.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
         </div>
