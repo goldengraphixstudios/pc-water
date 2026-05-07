@@ -181,7 +181,7 @@ export const fallbackProjects: CmsProject[] = [
     sector: 'Hydro Energy / Government',
     location: 'Borumba Dam, Queensland',
     scope: '2 × 521KL tanks — potable water and effluent storage, AS4020 compliant',
-    heroImageUrl: 'https://goldengraphixstudios.github.io/pc-water/projects/borumba-01.jpg',
+    heroImageUrl: 'https://goldengraphixstudios.github.io/pc-water/projects/borumba-hero.jpg',
     galleryUrls: [
       'https://goldengraphixstudios.github.io/pc-water/projects/borumba-01.jpg',
       'https://goldengraphixstudios.github.io/pc-water/projects/borumba-02.jpg',
