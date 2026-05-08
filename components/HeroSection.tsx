@@ -1,6 +1,8 @@
-﻿'use client'
+'use client'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+
+import { withBasePath } from '@/lib/base-path'
 
 const particles = [
   { size: 4, top: '20%', left: '10%', delay: 0 },
@@ -12,6 +14,8 @@ const particles = [
 ]
 
 export default function HeroSection() {
+  const heroVideoSrc = withBasePath('/hero-borumba.mp4')
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background video */}
@@ -22,9 +26,10 @@ export default function HeroSection() {
         loop
         playsInline
         preload="auto"
+        crossOrigin="anonymous"
         aria-hidden
       >
-        <source src="/hero-borumba.mp4" type="video/mp4" />
+        <source src={heroVideoSrc} type="video/mp4" />
       </video>
 
       {/* Overlays */}
@@ -73,8 +78,10 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-none tracking-tight"
         >
-          ADVANCED<br />
-          <span className="gradient-text">WATER ASSET</span><br />
+          ADVANCED
+          <br />
+          <span className="gradient-text">WATER ASSET</span>
+          <br />
           SOLUTIONS
         </motion.h1>
 
