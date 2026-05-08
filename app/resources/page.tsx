@@ -41,10 +41,10 @@ export default async function ResourcesPage() {
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Resources</p>
           <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
-            INSIGHTS IN WATER STORAGE,<br />ENGINEERING, AND SUSTAINABILITY
+            INSIGHTS IN WATER,<br />ENGINEERING, AND SUSTAINABILITY
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
-            Practical guides, articles, and downloadable resources to help you plan, specify, and manage your water storage infrastructure.
+            Practical guides, articles, and downloadable resources to help you plan, specify, and manage your water infrastructure.
           </p>
         </div>
       </section>
