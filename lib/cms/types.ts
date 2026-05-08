@@ -32,6 +32,8 @@ export interface CmsProject {
   sector: string
   location: string
   scope: string
+  projectStatus?: string
+  servicesDelivered?: string[]
   heroImageUrl: string | null
   galleryUrls: string[]
   status: CmsStatus
@@ -66,6 +68,8 @@ export interface CmsProjectInput {
   sector: string
   location: string
   scope: string
+  projectStatus?: string
+  servicesDelivered?: string[]
   heroImageUrl?: string | null
   galleryUrls: string[]
   status: CmsStatus

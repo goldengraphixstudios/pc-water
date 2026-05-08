@@ -52,6 +52,52 @@ function parseFallbackContent(sourcePath) {
   return context.result
 }
 
+const PROJECT_SERVICE_FALLBACKS = {
+  'hobart-nyrstar': [
+    'Custom Tank Design & Engineering',
+    'Professional Tank Installation',
+    'Foundation & Civil Integration',
+  ],
+  'borumba-hydro': [
+    'Custom Tank Design & Engineering',
+    'Remote Area Project Delivery',
+    'RPVC Liner Systems',
+    'Foundation & Civil Integration',
+    'Professional Tank Installation',
+  ],
+  'doomadgee-wtp': [
+    'Remote Area Project Delivery',
+    'Custom Tank Design & Engineering',
+    'Foundation & Civil Integration',
+    'Professional Tank Installation',
+  ],
+  'albury-reservoir': [
+    'RPVC Liner Systems',
+    'Tank Inspection Technology',
+    'Tank Maintenance & Upgrades',
+  ],
+  'clarence-road-liner': [
+    'RPVC Liner Systems',
+    'Tank Inspection Technology',
+    'Tank Maintenance & Upgrades',
+  ],
+  'kybrook-nt': [
+    'Professional Tank Installation',
+  ],
+}
+
+const META_RE = /<!--\s*cms:project-meta\s*([\s\S]*?)\s*-->\s*/i
+
+function serializeProjectContent(project) {
+  const content = (project.content ?? '').replace(META_RE, '').trim()
+  const meta = {
+    projectStatus: project.projectStatus || 'Completed',
+    servicesDelivered: project.servicesDelivered || PROJECT_SERVICE_FALLBACKS[project.slug] || [],
+  }
+
+  return `<!-- cms:project-meta\n${JSON.stringify(meta, null, 2)}\n-->\n\n${content}`
+}
+
 function getArgValue(flag) {
   const index = process.argv.indexOf(flag)
   if (index === -1) {
@@ -144,7 +190,7 @@ function mapProjectPayload(project) {
     title: project.title,
     slug: project.slug,
     summary: project.summary,
-    content: project.content,
+    content: serializeProjectContent(project),
     sector: project.sector,
     location: project.location,
     scope: project.scope,

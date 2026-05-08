@@ -4,6 +4,7 @@
  * No server imports — safe to use in Client Components.
  */
 import type { CmsPostInput, CmsProjectInput } from '@/lib/cms/types'
+import { serializeProjectContent } from '@/lib/cms/project-meta'
 import { normalizeOptionalText, slugify } from '@/lib/cms/utils'
 
 export function defaultPublishedAt(
@@ -36,7 +37,10 @@ export function buildProjectPayload(input: CmsProjectInput) {
     title:           input.title.trim(),
     slug:            slugify(input.slug || input.title),
     summary:         input.summary.trim(),
-    content:         input.content.trim(),
+    content:         serializeProjectContent(input.content, {
+      projectStatus: input.projectStatus,
+      servicesDelivered: input.servicesDelivered,
+    }),
     sector:          input.sector.trim(),
     location:        input.location.trim(),
     scope:           input.scope.trim(),

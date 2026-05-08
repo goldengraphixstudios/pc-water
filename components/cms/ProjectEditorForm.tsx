@@ -16,6 +16,7 @@ import { browserCreateProject, browserUpdateProject, browserDeleteProject } from
 import type { CmsProject, CmsProjectInput } from '@/lib/cms/types'
 import { slugify } from '@/lib/cms/utils'
 import { getProjectPageAppearances, PREDEFINED_SECTORS } from '@/lib/cms/page-mappings'
+import { PROJECT_SERVICE_OPTIONS } from '@/lib/cms/project-services'
 
 function toFormState(project?: CmsProject | null): CmsProjectInput {
   return {
@@ -26,6 +27,8 @@ function toFormState(project?: CmsProject | null): CmsProjectInput {
     sector:         project?.sector         ?? '',
     location:       project?.location       ?? '',
     scope:          project?.scope          ?? '',
+    projectStatus:  project?.projectStatus  ?? 'Completed',
+    servicesDelivered: project?.servicesDelivered ?? [],
     heroImageUrl:   project?.heroImageUrl   ?? '',
     galleryUrls:    project?.galleryUrls    ?? [],
     status:         project?.status         ?? 'draft',
@@ -262,6 +265,9 @@ export default function ProjectEditorForm({ project, availableClassifications = 
                   <input value={form.scope} onChange={(e) => update('scope', e.target.value)} className="field" placeholder="e.g. 2 × 500KL tanks" required />
                 </Field>
               </div>
+              <Field label="Project Snapshot Status" hint="Shown in the public Project Snapshot panel. This is separate from CMS publish status.">
+                <input value={form.projectStatus ?? ''} onChange={(e) => update('projectStatus', e.target.value)} className="field" placeholder="Completed, Incomplete, In Progress" required />
+              </Field>
               <Field label="Summary" hint="Shown in project cards on industry/service pages">
                 <textarea value={form.summary} onChange={(e) => update('summary', e.target.value)} className="field min-h-20 resize-none" placeholder="Short project summary for grid cards and previews." required />
               </Field>
@@ -439,6 +445,17 @@ export default function ProjectEditorForm({ project, availableClassifications = 
                 onChange={(tags) => update('tags', tags)}
                 availableOptions={availableTags}
                 placeholder="Government"
+              />
+            </Section>
+
+            <Section title="Services Delivered">
+              <TagInput
+                label="Service Tags"
+                description="Shown as the Services Delivered links on the public project page."
+                tags={form.servicesDelivered ?? []}
+                onChange={(services) => update('servicesDelivered', services)}
+                availableOptions={PROJECT_SERVICE_OPTIONS.map((service) => service.name)}
+                placeholder="Remote Area Project Delivery"
               />
             </Section>
 

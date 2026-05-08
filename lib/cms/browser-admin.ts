@@ -5,6 +5,7 @@
  */
 import { createSupabaseBrowserClient } from '@/lib/supabase/browser'
 import { buildPostPayload, buildProjectPayload } from '@/lib/cms/payloads'
+import { parseProjectContent } from '@/lib/cms/project-meta'
 import { normalizeTagNames, slugify } from '@/lib/cms/utils'
 import type { CmsPost, CmsProject, CmsPostInput, CmsProjectInput } from '@/lib/cms/types'
 
@@ -64,10 +65,14 @@ function mapPost(row: PostRow): CmsPost {
 }
 
 function mapProject(row: ProjectRow): CmsProject {
+  const parsedContent = parseProjectContent(row.content)
+
   return {
     id: row.id, title: row.title, slug: row.slug,
-    summary: row.summary ?? '', content: row.content ?? '',
+    summary: row.summary ?? '', content: parsedContent.content,
     sector: row.sector ?? '', location: row.location ?? '', scope: row.scope ?? '',
+    projectStatus: parsedContent.meta.projectStatus,
+    servicesDelivered: parsedContent.meta.servicesDelivered,
     heroImageUrl: row.hero_image_url, galleryUrls: row.gallery_urls ?? [],
     status: row.status, featured: Boolean(row.featured),
     seoTitle: row.seo_title, seoDescription: row.seo_description,

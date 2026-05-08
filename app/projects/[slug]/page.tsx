@@ -4,44 +4,10 @@ import Link from 'next/link'
 import AppImage from '@/components/AppImage'
 import CTABanner from '@/components/CTABanner'
 import GalleryLightbox from '@/components/GalleryLightbox'
+import { getProjectServiceOption, PROJECT_SERVICE_FALLBACKS } from '@/lib/cms/project-services'
 import { getPublicProjectBySlug, getPublicProjects, renderContentBlocks } from '@/lib/cms/queries'
 
 export const dynamic = 'force-static'
-
-// Per-project Services Delivered — keyed by slug
-const PROJECT_SERVICES: Record<string, { name: string; href: string }[]> = {
-  'hobart-nyrstar': [
-    { name: 'Custom Tank Design & Engineering', href: '/services/custom-tank-design' },
-    { name: 'Professional Tank Installation', href: '/services/tank-installation' },
-    { name: 'Foundation & Civil Integration', href: '/services/foundation-civil-integration' },
-  ],
-  'borumba-hydro': [
-    { name: 'Custom Tank Design & Engineering', href: '/services/custom-tank-design' },
-    { name: 'Remote Area Project Delivery', href: '/services/remote-area-delivery' },
-    { name: 'RPVC Liner Systems', href: '/services/rpvc-liner-systems' },
-    { name: 'Foundation & Civil Integration', href: '/services/foundation-civil-integration' },
-    { name: 'Professional Tank Installation', href: '/services/tank-installation' },
-  ],
-  'doomadgee-wtp': [
-    { name: 'Remote Area Project Delivery', href: '/services/remote-area-delivery' },
-    { name: 'Custom Tank Design & Engineering', href: '/services/custom-tank-design' },
-    { name: 'Foundation & Civil Integration', href: '/services/foundation-civil-integration' },
-    { name: 'Professional Tank Installation', href: '/services/tank-installation' },
-  ],
-  'albury-reservoir': [
-    { name: 'RPVC Liner Systems', href: '/services/rpvc-liner-systems' },
-    { name: 'Tank Inspection Technology', href: '/services/tank-inspection-technology' },
-    { name: 'Tank Maintenance & Upgrades', href: '/services/tank-maintenance-upgrades' },
-  ],
-  'clarence-road-liner': [
-    { name: 'RPVC Liner Systems', href: '/services/rpvc-liner-systems' },
-    { name: 'Tank Inspection Technology', href: '/services/tank-inspection-technology' },
-    { name: 'Tank Maintenance & Upgrades', href: '/services/tank-maintenance-upgrades' },
-  ],
-  'kybrook-nt': [
-    { name: 'Professional Tank Installation', href: '/services/tank-installation' },
-  ],
-}
 
 export async function generateStaticParams() {
   const projects = await getPublicProjects()
@@ -82,7 +48,10 @@ export default async function ManagedProjectPage({
   }
 
   const blocks = renderContentBlocks(project.content)
-  const services = PROJECT_SERVICES[slug] ?? []
+  const serviceNames = project.servicesDelivered?.length
+    ? project.servicesDelivered
+    : PROJECT_SERVICE_FALLBACKS[slug] ?? []
+  const services = serviceNames.map(getProjectServiceOption)
   const gallery = (project.galleryUrls.length ? project.galleryUrls : project.heroImageUrl ? [project.heroImageUrl] : [])
     .map((src, index) => ({
       src,
@@ -151,7 +120,7 @@ export default async function ManagedProjectPage({
                     { label: 'Sector', value: project.sector },
                     { label: 'Location', value: project.location },
                     { label: 'Scope', value: project.scope },
-                    { label: 'Status', value: 'Completed' },
+                    { label: 'Status', value: project.projectStatus || 'Completed' },
                   ].map((item) => (
                     <div key={item.label} className="flex justify-between gap-4 py-2 border-b border-gray-200 last:border-0">
                       <dt className="text-gray-500 font-medium">{item.label}</dt>

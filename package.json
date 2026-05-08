@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "cms:import": "node scripts/import-cms-content.cjs",
+    "cms:sync-project-meta": "node scripts/sync-project-meta.cjs",
     "cms:upload-media": "node scripts/upload-existing-media.cjs"
   },
   "dependencies": {

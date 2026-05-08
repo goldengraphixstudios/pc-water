@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 
 import { fallbackPosts, fallbackProjects } from '@/lib/cms/static-content'
+import { parseProjectContent } from '@/lib/cms/project-meta'
 import type {
   CmsPost,
   CmsPostInput,
@@ -107,15 +108,19 @@ function mapPost(row: PostRow): CmsPost {
 }
 
 function mapProject(row: ProjectRow): CmsProject {
+  const parsedContent = parseProjectContent(row.content)
+
   return {
     id: row.id,
     title: row.title,
     slug: row.slug,
     summary: row.summary ?? '',
-    content: row.content ?? '',
+    content: parsedContent.content,
     sector: row.sector ?? '',
     location: row.location ?? '',
     scope: row.scope ?? '',
+    projectStatus: parsedContent.meta.projectStatus,
+    servicesDelivered: parsedContent.meta.servicesDelivered,
     heroImageUrl: row.hero_image_url,
     galleryUrls: row.gallery_urls ?? [],
     status: row.status,
@@ -446,6 +451,8 @@ export function createEmptyProject(): CmsProjectInput {
     sector: '',
     location: '',
     scope: '',
+    projectStatus: 'Completed',
+    servicesDelivered: [],
     heroImageUrl: '',
     galleryUrls: [],
     status: 'draft',
