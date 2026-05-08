@@ -141,15 +141,24 @@ export default function AboutPage() {
             <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Leadership</p>
             <h2 className="text-3xl font-black text-[#30505b]">LEADING FROM THE FRONT</h2>
           </div>
-          <div className="max-w-2xl mx-auto bg-[#F4F6F8] rounded-2xl p-8 border border-gray-100">
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-              <div className="w-24 h-24 bg-[#30505b] rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-white font-black text-3xl">MS</span>
+          <div className="max-w-4xl mx-auto overflow-hidden rounded-[28px] border border-gray-100 bg-[#F4F6F8] shadow-[0_24px_70px_rgba(13,27,42,0.08)]">
+            <div className="grid grid-cols-1 md:grid-cols-[minmax(280px,340px)_1fr]">
+              <div className="border-b border-white/60 bg-gradient-to-br from-[#dfe8ee] via-white to-[#eef4f8] md:border-b-0 md:border-r md:border-r-white/70">
+                <div className="relative mx-auto flex h-full min-h-[440px] w-full max-w-[340px] items-end justify-center px-6 pt-8">
+                  <AppImage
+                    src="/leadership/michael-spiller.jpeg"
+                    alt="Michael Spiller on site holding a tablet and hard hat"
+                    fill
+                    className="object-contain object-bottom"
+                    sizes="(max-width: 768px) 100vw, 340px"
+                  />
+                </div>
               </div>
-              <div>
-                <h3 className="text-xl font-black text-[#30505b] mb-1">Michael Spiller</h3>
-                <p className="text-[#3e91ce] font-semibold text-sm mb-4">Director | Senior Project Engineer / Water Infrastructure Specialist</p>
-                <p className="text-gray-600 text-sm leading-relaxed">
+              <div className="flex flex-col justify-center p-8 md:p-10">
+                <p className="mb-3 text-xs font-bold uppercase tracking-[0.3em] text-[#3e91ce]">Founder & Director</p>
+                <h3 className="mb-2 text-2xl font-black text-[#30505b] md:text-3xl">Michael Spiller</h3>
+                <p className="mb-6 text-sm font-semibold text-[#3e91ce] md:text-base">Senior Project Engineer / Water Infrastructure Specialist</p>
+                <p className="text-sm leading-relaxed text-gray-600 md:text-[15px]">
                   Michael founded PC Water Infrastructure in 2013 as Parthenon Water Management as a water infrastructure contracting firm. He has since led and delivered a broad range of significant projects. As a Senior Project Engineer with deep expertise in water infrastructure, Michael brings a hands-on engineering approach to every client engagement — from initial project consultation through to final commissioning. His commitment to honest advice, technical rigour, and lasting outcomes defines the PC Water Infrastructure culture.
                 </p>
               </div>

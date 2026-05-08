@@ -1,7 +1,6 @@
 ﻿'use client'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import Image from '@/components/AppImage'
 
 const particles = [
   { size: 4, top: '20%', left: '10%', delay: 0 },
@@ -15,15 +14,18 @@ const particles = [
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image */}
-      <Image
-        src="/hero.png"
-              alt="PC Water Infrastructure — engineered water storage infrastructure"
-        fill
-        priority
-        className="object-cover object-center"
-        sizes="100vw"
-      />
+      {/* Background video */}
+      <video
+        className="absolute inset-0 h-full w-full object-cover object-center"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        aria-hidden
+      >
+        <source src="/hero-borumba.mp4" type="video/mp4" />
+      </video>
 
       {/* Overlays */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#051422]/90 via-[#0a2535]/82 to-[#0d1b2a]/88" />
