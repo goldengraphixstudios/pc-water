@@ -61,7 +61,7 @@ export default function CmsPostsPage() {
         </div>
         <Link
           href="/cms/posts/new"
-          className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg bg-[#3E91CE] text-white text-[13px] font-semibold hover:bg-[#2D7AB8] transition-colors shadow-sm shadow-[#3E91CE]/20 flex-shrink-0"
+          className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg bg-[#3E91CE] text-white text-[13px] font-semibold hover:bg-[#2D7AB8] transition-colors shadow-md shadow-[#3E91CE]/20 flex-shrink-0"
         >
           <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -81,7 +81,7 @@ export default function CmsPostsPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by title, slug or tag…"
-            className="w-full pl-9 pr-4 h-9 rounded-lg border border-[#DDE2EE] dark:border-[#1D2235] bg-white dark:bg-[#111622] text-[13px] text-[#0E1525] dark:text-[#ECF0F9] placeholder-[#99AABF] dark:placeholder-[#4A5670] focus:outline-none focus:border-[#3E91CE] dark:focus:border-[#3E91CE] transition-colors"
+            className="w-full pl-9 pr-4 h-9 rounded-lg border border-black/[0.08] dark:border-white/[0.07] bg-white/80 dark:bg-[#060A14]/70 backdrop-blur-sm text-[13px] text-[#0E1525] dark:text-[#ECF0F9] placeholder-[#99AABF] dark:placeholder-[#4A5670] focus:outline-none focus:border-[#3E91CE] dark:focus:border-[#3E91CE] transition-colors"
           />
         </div>
         <div className="flex gap-1.5">
@@ -92,7 +92,7 @@ export default function CmsPostsPage() {
               className={`px-3.5 h-9 rounded-lg text-[12px] font-semibold transition-all whitespace-nowrap ${
                 statusFilter === s
                   ? 'bg-[#3E91CE] text-white shadow-sm'
-                  : 'bg-white dark:bg-[#111622] border border-[#DDE2EE] dark:border-[#1D2235] text-[#536070] dark:text-[#8B9CB8] hover:border-[#3E91CE] hover:text-[#3E91CE]'
+                  : 'bg-white/80 dark:bg-[#060A14]/70 backdrop-blur-sm border border-black/[0.08] dark:border-white/[0.07] text-[#536070] dark:text-[#8B9CB8] hover:border-[#3E91CE] hover:text-[#3E91CE]'
               }`}
             >
               {s}
@@ -107,7 +107,7 @@ export default function CmsPostsPage() {
       </div>
 
       {/* Table */}
-      <div className="bg-white dark:bg-[#111622] rounded-xl border border-[#DDE2EE] dark:border-[#1D2235] overflow-hidden">
+      <div className="cms-card">
         {loading ? (
           <div className="flex flex-col items-center gap-3 py-20">
             <svg className="w-5 h-5 animate-spin text-[#3E91CE]" fill="none" viewBox="0 0 24 24">
@@ -118,7 +118,7 @@ export default function CmsPostsPage() {
           </div>
         ) : posts.length === 0 ? (
           <div className="flex flex-col items-center py-20 px-6 text-center">
-            <div className="w-14 h-14 bg-[#EFF2F8] dark:bg-[#1D2235] rounded-2xl flex items-center justify-center mb-4">
+            <div className="w-14 h-14 bg-black/[0.04] dark:bg-white/[0.04] rounded-2xl flex items-center justify-center mb-4">
               <svg className="w-7 h-7 text-[#99AABF] dark:text-[#4A5670]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
@@ -143,7 +143,7 @@ export default function CmsPostsPage() {
           <div className="overflow-x-auto">
             <table className="min-w-full">
               <thead>
-                <tr className="border-b border-[#EFF2F8] dark:border-[#1A1E2E] bg-[#F8FAFC] dark:bg-[#0D1020]">
+                <tr className="border-b border-black/[0.06] dark:border-white/[0.05] bg-black/[0.02] dark:bg-white/[0.02]">
                   <th className="px-5 py-3 text-left text-[10px] font-bold text-[#99AABF] dark:text-[#4A5670] uppercase tracking-[0.12em]">Article</th>
                   <th className="px-5 py-3 text-left text-[10px] font-bold text-[#99AABF] dark:text-[#4A5670] uppercase tracking-[0.12em] w-28">Status</th>
                   <th className="px-5 py-3 text-left text-[10px] font-bold text-[#99AABF] dark:text-[#4A5670] uppercase tracking-[0.12em] hidden md:table-cell">Tags</th>
@@ -156,11 +156,11 @@ export default function CmsPostsPage() {
                   <tr
                     key={post.id}
                     onClick={() => router.push(`/cms/posts/edit?id=${post.id}`)}
-                    className="cursor-pointer border-b border-[#EFF2F8] dark:border-[#1A1E2E] last:border-0 hover:bg-[#F8FAFC] dark:hover:bg-[#131928] transition-colors group"
+                    className="cursor-pointer border-b border-black/[0.05] dark:border-white/[0.04] last:border-0 hover:bg-black/[0.03] dark:hover:bg-white/[0.03] transition-colors group"
                   >
                     <td className="px-5 py-3.5">
                       <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 rounded-lg bg-[#EFF2F8] dark:bg-[#1D2235] overflow-hidden flex-shrink-0">
+                        <div className="w-9 h-9 rounded-lg bg-black/[0.05] dark:bg-white/[0.05] overflow-hidden flex-shrink-0">
                           {post.coverImageUrl
                             // eslint-disable-next-line @next/next/no-img-element
                             ? <img src={post.coverImageUrl} alt="" className="w-full h-full object-cover" loading="lazy" />
@@ -180,11 +180,11 @@ export default function CmsPostsPage() {
                     <td className="px-5 py-3.5"><StatusBadge status={post.status} /></td>
                     <td className="px-5 py-3.5 hidden md:table-cell">
                       {post.tags.length === 0 ? (
-                        <span className="text-[11px] text-[#DDE2EE] dark:text-[#1D2235] italic">—</span>
+                        <span className="text-[11px] text-[#C8D2E0] dark:text-[#2A3550] italic">—</span>
                       ) : (
                         <div className="flex flex-wrap gap-1">
                           {post.tags.slice(0, 3).map((tag) => (
-                            <span key={`${post.id}-${tag.slug}`} className="text-[11px] text-[#536070] dark:text-[#8B9CB8] bg-[#EFF2F8] dark:bg-[#1D2235] px-2 py-0.5 rounded-full">{tag.name}</span>
+                            <span key={`${post.id}-${tag.slug}`} className="text-[11px] text-[#536070] dark:text-[#8B9CB8] bg-black/[0.05] dark:bg-white/[0.06] px-2 py-0.5 rounded-full">{tag.name}</span>
                           ))}
                           {post.tags.length > 3 && <span className="text-[11px] text-[#99AABF] dark:text-[#4A5670]">+{post.tags.length - 3}</span>}
                         </div>
@@ -194,7 +194,7 @@ export default function CmsPostsPage() {
                       <span className="text-[12px] text-[#99AABF] dark:text-[#4A5670] font-mono">{formatDate(post.updatedAt)}</span>
                     </td>
                     <td className="px-4 py-3.5">
-                      <svg className="w-4 h-4 text-[#DDE2EE] dark:text-[#1D2235] group-hover:text-[#3E91CE] dark:group-hover:text-[#60AFDF] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 text-[#C8D2E0] dark:text-[#2A3550] group-hover:text-[#3E91CE] dark:group-hover:text-[#60AFDF] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </td>

@@ -11,8 +11,8 @@ type AdminEmail = {
 
 function Section({ title, subtitle, children }: { title: string; subtitle?: string; children: React.ReactNode }) {
   return (
-    <div className="bg-white dark:bg-[#111622] rounded-xl border border-[#DDE2EE] dark:border-[#1D2235] overflow-hidden">
-      <div className="px-5 py-4 border-b border-[#EFF2F8] dark:border-[#1A1E2E] bg-[#F8FAFC] dark:bg-[#0D1020]">
+    <div className="cms-card">
+      <div className="px-5 py-4 border-b border-black/[0.06] dark:border-white/[0.05] bg-black/[0.02] dark:bg-white/[0.02]">
         <h2 className="text-[13px] font-semibold text-[#0E1525] dark:text-[#ECF0F9]">{title}</h2>
         {subtitle && <p className="text-[12px] text-[#99AABF] dark:text-[#4A5670] mt-0.5">{subtitle}</p>}
       </div>
@@ -135,7 +135,7 @@ export default function CmsSettingsPage() {
               {admins.map((admin) => (
                 <div
                   key={admin.email}
-                  className="flex items-center gap-3 px-3.5 py-2.5 rounded-lg bg-[#F8FAFC] dark:bg-[#0D1020] border border-[#EFF2F8] dark:border-[#1A1E2E]"
+                  className="flex items-center gap-3 px-3.5 py-2.5 rounded-lg bg-black/[0.02] dark:bg-white/[0.02] border border-black/[0.05] dark:border-white/[0.05]"
                 >
                   <div className="w-7 h-7 rounded-full bg-[#EAF4FF] dark:bg-[#0C1D36] text-[#3E91CE] dark:text-[#60AFDF] flex items-center justify-center text-[11px] font-bold flex-shrink-0">
                     {admin.email.charAt(0).toUpperCase()}
@@ -150,7 +150,7 @@ export default function CmsSettingsPage() {
                     onClick={() => handleRemove(admin.email)}
                     disabled={admin.email === currentEmail || removing === admin.email}
                     title={admin.email === currentEmail ? 'Cannot remove your own account' : 'Remove admin'}
-                    className="w-7 h-7 flex items-center justify-center rounded-lg text-[#DDE2EE] dark:text-[#1D2235] hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 transition-all disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:text-[#DDE2EE] dark:disabled:hover:text-[#1D2235] disabled:hover:bg-transparent"
+                    className="w-7 h-7 flex items-center justify-center rounded-lg text-[#C8D2E0] dark:text-[#2A3550] hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 transition-all disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:text-[#C8D2E0] dark:disabled:hover:text-[#2A3550] disabled:hover:bg-transparent"
                   >
                     {removing === admin.email ? (
                       <svg className="w-3.5 h-3.5 animate-spin" fill="none" viewBox="0 0 24 24">
@@ -178,12 +178,12 @@ export default function CmsSettingsPage() {
                 value={newEmail}
                 onChange={(e) => { setNewEmail(e.target.value); setAddError(null) }}
                 placeholder="name@example.com"
-                className="flex-1 px-3.5 h-9 rounded-lg border border-[#DDE2EE] dark:border-[#1D2235] bg-white dark:bg-[#111622] text-[13px] text-[#0E1525] dark:text-[#ECF0F9] placeholder-[#99AABF] dark:placeholder-[#4A5670] focus:outline-none focus:border-[#3E91CE] transition-colors"
+                className="flex-1 px-3.5 h-9 rounded-lg border border-black/[0.08] dark:border-white/[0.07] bg-white/80 dark:bg-[#060A14]/70 backdrop-blur-sm text-[13px] text-[#0E1525] dark:text-[#ECF0F9] placeholder-[#99AABF] dark:placeholder-[#4A5670] focus:outline-none focus:border-[#3E91CE] transition-colors"
               />
               <button
                 type="submit"
                 disabled={adding || !newEmail.trim()}
-                className="px-4 h-9 rounded-lg bg-[#3E91CE] text-white text-[13px] font-semibold hover:bg-[#2D7AB8] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-1.5 whitespace-nowrap"
+                className="px-4 h-9 rounded-lg bg-[#3E91CE] text-white text-[13px] font-semibold hover:bg-[#2D7AB8] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-1.5 whitespace-nowrap shadow-md shadow-[#3E91CE]/20"
               >
                 {adding ? (
                   <svg className="w-3.5 h-3.5 animate-spin" fill="none" viewBox="0 0 24 24">
@@ -218,7 +218,7 @@ export default function CmsSettingsPage() {
             { label: 'Content Tables', value: 'cms_posts, cms_projects, cms_tags' },
             { label: 'Lead Capture',   value: 'resource_leads' },
           ].map((item) => (
-            <div key={item.label} className="bg-[#F8FAFC] dark:bg-[#0D1020] rounded-lg px-4 py-3 border border-[#EFF2F8] dark:border-[#1A1E2E]">
+            <div key={item.label} className="bg-black/[0.02] dark:bg-white/[0.02] rounded-lg px-4 py-3 border border-black/[0.05] dark:border-white/[0.04]">
               <p className="text-[10px] font-bold text-[#99AABF] dark:text-[#4A5670] uppercase tracking-[0.12em] mb-1">{item.label}</p>
               <p className="text-[12px] text-[#0E1525] dark:text-[#ECF0F9] font-mono break-all">{item.value}</p>
             </div>
@@ -242,11 +242,11 @@ export default function CmsSettingsPage() {
               key={layer.label}
               className={`rounded-lg p-3 border ${
                 layer.active
-                  ? 'bg-white dark:bg-[#111622] border-[#DDE2EE] dark:border-[#1D2235]'
-                  : 'bg-[#F8FAFC] dark:bg-[#0D1020] border-[#EFF2F8] dark:border-[#1A1E2E]'
+                  ? 'bg-white/60 dark:bg-white/[0.04] border-black/[0.07] dark:border-white/[0.07]'
+                  : 'bg-black/[0.02] dark:bg-black/[0.20] border-black/[0.04] dark:border-white/[0.03]'
               }`}
             >
-              <div className={`w-4 h-4 rounded-full flex items-center justify-center mb-2 ${layer.active ? 'bg-emerald-500' : 'bg-[#DDE2EE] dark:bg-[#1D2235]'}`}>
+              <div className={`w-4 h-4 rounded-full flex items-center justify-center mb-2 ${layer.active ? 'bg-emerald-500' : 'bg-black/[0.08] dark:bg-white/[0.08]'}`}>
                 {layer.active
                   ? <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7"/></svg>
                   : <svg className="w-2.5 h-2.5 text-[#99AABF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4"/></svg>

@@ -52,27 +52,23 @@ type Metric = {
 
 function MetricCard({ m, loading }: { m: Metric; loading: boolean }) {
   return (
-    <Link
-      href={m.href}
-      className="group bg-white dark:bg-[#111622] rounded-xl border border-[#DDE2EE] dark:border-[#1D2235] overflow-hidden hover:border-[#C5CDD9] dark:hover:border-[#252B3F] hover:shadow-md hover:shadow-black/5 transition-all duration-200"
-    >
-      {/* Left accent */}
+    <Link href={m.href} className="cms-stat-card group block">
+      {/* Top accent bar */}
+      <div className={`h-[3px] ${m.borderColor}`} />
       <div className="flex gap-4 p-5">
         <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${m.iconBg}`}>
           <span className={m.iconColor}>{m.icon}</span>
         </div>
         <div className="flex-1 min-w-0">
-          <p className="text-[11px] font-semibold text-[#99AABF] dark:text-[#4A5670] uppercase tracking-wider mb-1.5">{m.label}</p>
+          <p className="text-[11px] font-bold text-[#99AABF] dark:text-[#4A5670] uppercase tracking-wider mb-1.5">{m.label}</p>
           {loading ? (
-            <div className="h-7 w-12 rounded-md bg-[#EFF2F8] dark:bg-[#1D2235] animate-pulse" />
+            <div className="h-7 w-12 rounded-md bg-black/[0.06] dark:bg-white/[0.06] animate-pulse" />
           ) : (
             <p className={`text-[26px] font-black leading-none tracking-tight ${m.iconColor}`}>{m.value}</p>
           )}
           <p className="text-[11px] text-[#99AABF] dark:text-[#4A5670] mt-1.5 truncate">{m.sub}</p>
         </div>
       </div>
-      {/* Bottom accent bar */}
-      <div className={`h-[2px] ${m.borderColor}`} />
     </Link>
   )
 }
@@ -127,7 +123,7 @@ const QUICK_ACTIONS = [
   {
     href: '/cms/settings',
     label: 'Manage CMS access',
-    bg: 'bg-[#EFF2F8] dark:bg-[#1D2235]',
+    bg: 'bg-black/[0.04] dark:bg-white/[0.05]',
     color: 'text-[#536070] dark:text-[#8B9CB8]',
     icon: (
       <svg className="w-[15px] h-[15px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -260,7 +256,7 @@ export default function CmsDashboardPage() {
         <div className="flex gap-2 flex-shrink-0">
           <Link
             href="/cms/posts/new"
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg border border-[#DDE2EE] dark:border-[#1D2235] bg-white dark:bg-[#111622] text-[12px] font-semibold text-[#536070] dark:text-[#8B9CB8] hover:border-[#3E91CE] hover:text-[#3E91CE] dark:hover:text-[#60AFDF] transition-all shadow-sm"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg border border-black/[0.08] dark:border-white/[0.08] bg-white/80 dark:bg-[#0A1020]/70 backdrop-blur-sm text-[12px] font-semibold text-[#536070] dark:text-[#8B9CB8] hover:border-[#3E91CE] hover:text-[#3E91CE] dark:hover:text-[#60AFDF] transition-all shadow-sm"
           >
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -269,7 +265,7 @@ export default function CmsDashboardPage() {
           </Link>
           <Link
             href="/cms/projects/new"
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#3E91CE] text-white text-[12px] font-semibold hover:bg-[#2D7AB8] transition-colors shadow-sm shadow-[#3E91CE]/20"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#3E91CE] text-white text-[12px] font-semibold hover:bg-[#2D7AB8] transition-colors shadow-md shadow-[#3E91CE]/20"
           >
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -286,7 +282,7 @@ export default function CmsDashboardPage() {
 
       {/* ── Health warning ─────────────────────────────────────────────────── */}
       {!loading && healthIssues.length > 0 && (
-        <div className="flex items-start gap-3.5 bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900/40 rounded-xl px-5 py-4">
+        <div className="flex items-start gap-3.5 bg-amber-50/80 dark:bg-amber-950/15 border border-amber-200/70 dark:border-amber-900/30 rounded-xl px-5 py-4 backdrop-blur-sm">
           <div className="w-7 h-7 rounded-lg bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center flex-shrink-0 mt-0.5">
             <svg className="w-[15px] h-[15px] text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
@@ -310,8 +306,8 @@ export default function CmsDashboardPage() {
       <div className="grid gap-4 xl:grid-cols-[1fr_260px]">
 
         {/* Recent activity */}
-        <div className="bg-white dark:bg-[#111622] rounded-xl border border-[#DDE2EE] dark:border-[#1D2235] overflow-hidden">
-          <div className="flex items-center justify-between px-5 py-3.5 border-b border-[#EFF2F8] dark:border-[#1A1E2E]">
+        <div className="cms-card">
+          <div className="flex items-center justify-between px-5 py-3.5 border-b border-black/[0.06] dark:border-white/[0.05]">
             <h2 className="text-[12px] font-bold text-[#0E1525] dark:text-[#ECF0F9] uppercase tracking-wider">Recent Activity</h2>
             <span className="text-[10px] font-medium text-[#99AABF] dark:text-[#4A5670] uppercase tracking-wider">Latest first</span>
           </div>
@@ -326,7 +322,7 @@ export default function CmsDashboardPage() {
             </div>
           ) : activity.length === 0 ? (
             <div className="flex flex-col items-center py-14">
-              <div className="w-12 h-12 rounded-2xl bg-[#EFF2F8] dark:bg-[#1D2235] flex items-center justify-center mb-3">
+              <div className="w-12 h-12 rounded-2xl bg-black/[0.04] dark:bg-white/[0.04] flex items-center justify-center mb-3">
                 <svg className="w-5 h-5 text-[#99AABF] dark:text-[#4A5670]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                 </svg>
@@ -335,12 +331,12 @@ export default function CmsDashboardPage() {
               <p className="text-[12px] text-[#99AABF] dark:text-[#4A5670]">Create your first article or project</p>
             </div>
           ) : (
-            <div className="divide-y divide-[#EFF2F8] dark:divide-[#1A1E2E]">
+            <div className="divide-y divide-black/[0.05] dark:divide-white/[0.04]">
               {activity.map((item) => (
                 <Link
                   key={`${item.type}-${item.id}`}
                   href={item.href}
-                  className="flex items-center gap-3.5 px-5 py-3.5 hover:bg-[#F8FAFC] dark:hover:bg-[#131928] transition-colors group"
+                  className="flex items-center gap-3.5 px-5 py-3.5 hover:bg-black/[0.03] dark:hover:bg-white/[0.03] transition-colors group"
                 >
                   <div className={`w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 ${typeStyle[item.type].bg}`}>
                     <span className={typeStyle[item.type].text}>
@@ -375,8 +371,8 @@ export default function CmsDashboardPage() {
         <div className="space-y-3">
 
           {/* Quick actions */}
-          <div className="bg-white dark:bg-[#111622] rounded-xl border border-[#DDE2EE] dark:border-[#1D2235] overflow-hidden">
-            <div className="px-4 py-3 border-b border-[#EFF2F8] dark:border-[#1A1E2E]">
+          <div className="cms-card">
+            <div className="px-4 py-3 border-b border-black/[0.06] dark:border-white/[0.05]">
               <h2 className="text-[11px] font-bold text-[#0E1525] dark:text-[#ECF0F9] uppercase tracking-wider">Jump to</h2>
             </div>
             <div className="p-2">
@@ -386,7 +382,7 @@ export default function CmsDashboardPage() {
                   href={a.href}
                   target={a.external ? '_blank' : undefined}
                   rel={a.external ? 'noopener noreferrer' : undefined}
-                  className="group flex items-center gap-3 px-3 py-[9px] rounded-lg hover:bg-[#EFF2F8] dark:hover:bg-[#1D2235] transition-colors"
+                  className="group flex items-center gap-3 px-3 py-[9px] rounded-lg hover:bg-black/[0.04] dark:hover:bg-white/[0.05] transition-colors"
                 >
                   <span className={`w-[28px] h-[28px] rounded-lg flex items-center justify-center flex-shrink-0 ${a.bg} ${a.color}`}>
                     {a.icon}
@@ -394,7 +390,7 @@ export default function CmsDashboardPage() {
                   <span className="flex-1 text-[12px] font-medium text-[#536070] dark:text-[#8B9CB8] group-hover:text-[#0E1525] dark:group-hover:text-[#ECF0F9] transition-colors leading-none">
                     {a.label}
                   </span>
-                  <svg className="w-3 h-3 text-[#DDE2EE] dark:text-[#1D2235] group-hover:text-[#99AABF] dark:group-hover:text-[#4A5670] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-3 h-3 text-[#C8D2E0] dark:text-[#2A3550] group-hover:text-[#99AABF] dark:group-hover:text-[#4A5670] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={a.external ? 'M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14' : 'M9 5l7 7-7 7'} />
                   </svg>
                 </Link>
@@ -404,7 +400,7 @@ export default function CmsDashboardPage() {
 
           {/* Content breakdown */}
           {!loading && (
-            <div className="bg-white dark:bg-[#111622] rounded-xl border border-[#DDE2EE] dark:border-[#1D2235] p-4">
+            <div className="cms-card p-4">
               <h2 className="text-[11px] font-bold text-[#0E1525] dark:text-[#ECF0F9] uppercase tracking-wider mb-4">Breakdown</h2>
               <div className="space-y-3.5">
                 {[
@@ -419,7 +415,7 @@ export default function CmsDashboardPage() {
                         {row.v}<span className="text-[#99AABF] dark:text-[#4A5670] font-normal">/{row.t}</span>
                       </span>
                     </div>
-                    <div className="h-1 rounded-full bg-[#EFF2F8] dark:bg-[#1D2235] overflow-hidden">
+                    <div className="h-1 rounded-full bg-black/[0.06] dark:bg-white/[0.06] overflow-hidden">
                       <div
                         className={`h-full rounded-full ${row.color} transition-all duration-700`}
                         style={{ width: row.t ? `${Math.round((row.v / row.t) * 100)}%` : '0%' }}

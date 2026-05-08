@@ -185,27 +185,32 @@ body {
 
 .field {
   width: 100%;
-  border: 1px solid #DDE2EE;
+  border: 1px solid rgba(0, 0, 0, 0.10);
   border-radius: 0.5rem;
   padding: 0.625rem 0.875rem;
   font-size: 0.8125rem;
   line-height: 1.5;
   color: #0E1525;
-  background: #ffffff;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .field:focus {
   outline: none;
   border-color: #3e91ce;
-  box-shadow: 0 0 0 3px rgba(62, 145, 206, 0.12);
+  box-shadow: 0 0 0 3px rgba(62, 145, 206, 0.14);
+  background: rgba(255, 255, 255, 0.96);
 }
 
 /* Dark mode field overrides */
 .dark .field {
-  background: #111622;
-  border-color: #1D2235;
+  background: rgba(8, 13, 30, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-color: rgba(255, 255, 255, 0.08);
   color: #ECF0F9;
 }
 
@@ -215,13 +220,154 @@ body {
 
 .dark .field:focus {
   border-color: #3e91ce;
-  box-shadow: 0 0 0 3px rgba(62, 145, 206, 0.15);
+  box-shadow: 0 0 0 3px rgba(62, 145, 206, 0.16);
+  background: rgba(8, 13, 30, 0.82);
 }
 
 .dark select.field option {
-  background: #111622;
+  background: #0D1120;
   color: #ECF0F9;
 }
+
+/* ─────────────────────────────────────────────────────────────────────────── */
+/* CMS PREMIUM GLASS DESIGN SYSTEM                                             */
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* Atmospheric app background */
+.cms-app-bg {
+  background:
+    radial-gradient(ellipse 100% 55% at 50% -5%, rgba(62, 145, 206, 0.07) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 45% at 92% 108%, rgba(20, 50, 100, 0.05) 0%, transparent 55%),
+    #EFF2F8;
+}
+.dark .cms-app-bg {
+  background:
+    radial-gradient(ellipse 100% 55% at 50% -5%, rgba(62, 145, 206, 0.10) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 45% at 92% 108%, rgba(20, 50, 100, 0.07) 0%, transparent 55%),
+    #060A14;
+}
+
+/* Primary glass card */
+.cms-card {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 4px 24px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.90);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+.dark .cms-card {
+  background: rgba(10, 16, 35, 0.58);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.065);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.35),
+    0 8px 40px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* Sidebar glass */
+.cms-sidebar-glass {
+  background: rgba(248, 251, 255, 0.96);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  box-shadow: 2px 0 40px rgba(0, 0, 0, 0.07);
+}
+.dark .cms-sidebar-glass {
+  background: rgba(3, 5, 14, 0.96);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  box-shadow: 4px 0 60px rgba(0, 0, 0, 0.70);
+}
+
+/* Mobile topbar glass */
+.cms-topbar-glass {
+  background: rgba(248, 251, 255, 0.92);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+}
+.dark .cms-topbar-glass {
+  background: rgba(4, 6, 16, 0.92);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.50);
+}
+
+/* Floating glass panel — search bars, filter rows, modals */
+.cms-glass-panel {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+}
+.dark .cms-glass-panel {
+  background: rgba(8, 12, 28, 0.68);
+  backdrop-filter: blur(10px) saturate(160%);
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+/* Inner section divider within glass cards */
+.cms-card-divider {
+  border-color: rgba(0, 0, 0, 0.06);
+}
+.dark .cms-card-divider {
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Glass stat card (KPI) */
+.cms-stat-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px) saturate(170%);
+  -webkit-backdrop-filter: blur(16px) saturate(170%);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 4px 20px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.cms-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.06),
+    0 12px 40px rgba(0, 0, 0, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+.dark .cms-stat-card {
+  background: rgba(10, 16, 35, 0.60);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.35),
+    0 8px 32px rgba(0, 0, 0, 0.50),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+.dark .cms-stat-card:hover {
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.50),
+    0 16px 48px rgba(0, 0, 0, 0.60),
+    0 0 0 1px rgba(62, 145, 206, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* CMS scrollbar override */
+.cms-app ::-webkit-scrollbar { width: 5px; height: 5px; }
+.cms-app ::-webkit-scrollbar-track { background: transparent; }
+.cms-app ::-webkit-scrollbar-thumb { background: rgba(153, 170, 191, 0.35); border-radius: 99px; }
+.dark .cms-app ::-webkit-scrollbar-thumb { background: rgba(74, 86, 112, 0.45); }
+.cms-app ::-webkit-scrollbar-thumb:hover { background: rgba(62, 145, 206, 0.55); }
 
 /* ── ARTICLE CONTENT ── */
 .article-content { max-width: 680px; margin: 0 auto; font-size: 17px; line-height: 1.75; color: #374151; }

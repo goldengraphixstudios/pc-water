@@ -26,7 +26,7 @@ function AppearsBadge({ type }: { type: 'industry' | 'service' | 'homepage' }) {
   const styles = {
     homepage: 'bg-violet-50 dark:bg-violet-950/40 text-violet-600 dark:text-violet-400',
     industry: 'bg-[#EAF4FF] dark:bg-[#0C1D36] text-[#3E91CE] dark:text-[#60AFDF]',
-    service:  'bg-[#EFF2F8] dark:bg-[#1D2235] text-[#536070] dark:text-[#8B9CB8]',
+    service:  'bg-black/[0.05] dark:bg-white/[0.06] text-[#536070] dark:text-[#8B9CB8]',
   }
   const labels = { homepage: 'Homepage', industry: 'Industry', service: 'Service' }
   return (
@@ -77,7 +77,7 @@ export default function CmsProjectsPage() {
         </div>
         <Link
           href="/cms/projects/new"
-          className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg bg-[#3E91CE] text-white text-[13px] font-semibold hover:bg-[#2D7AB8] transition-colors shadow-sm shadow-[#3E91CE]/20 flex-shrink-0"
+          className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg bg-[#3E91CE] text-white text-[13px] font-semibold hover:bg-[#2D7AB8] transition-colors shadow-md shadow-[#3E91CE]/20 flex-shrink-0"
         >
           <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -97,7 +97,7 @@ export default function CmsProjectsPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by title, location or sector…"
-            className="w-full pl-9 pr-4 h-9 rounded-lg border border-[#DDE2EE] dark:border-[#1D2235] bg-white dark:bg-[#111622] text-[13px] text-[#0E1525] dark:text-[#ECF0F9] placeholder-[#99AABF] dark:placeholder-[#4A5670] focus:outline-none focus:border-[#3E91CE] transition-colors"
+            className="w-full pl-9 pr-4 h-9 rounded-lg border border-black/[0.08] dark:border-white/[0.07] bg-white/80 dark:bg-[#060A14]/70 backdrop-blur-sm text-[13px] text-[#0E1525] dark:text-[#ECF0F9] placeholder-[#99AABF] dark:placeholder-[#4A5670] focus:outline-none focus:border-[#3E91CE] transition-colors"
           />
         </div>
         <div className="flex gap-1.5">
@@ -108,7 +108,7 @@ export default function CmsProjectsPage() {
               className={`px-3.5 h-9 rounded-lg text-[12px] font-semibold transition-all whitespace-nowrap ${
                 statusFilter === s
                   ? 'bg-[#3E91CE] text-white shadow-sm'
-                  : 'bg-white dark:bg-[#111622] border border-[#DDE2EE] dark:border-[#1D2235] text-[#536070] dark:text-[#8B9CB8] hover:border-[#3E91CE] hover:text-[#3E91CE]'
+                  : 'bg-white/80 dark:bg-[#060A14]/70 backdrop-blur-sm border border-black/[0.08] dark:border-white/[0.07] text-[#536070] dark:text-[#8B9CB8] hover:border-[#3E91CE] hover:text-[#3E91CE]'
               }`}
             >
               {s}
@@ -119,7 +119,7 @@ export default function CmsProjectsPage() {
       </div>
 
       {/* Table */}
-      <div className="bg-white dark:bg-[#111622] rounded-xl border border-[#DDE2EE] dark:border-[#1D2235] overflow-hidden">
+      <div className="cms-card">
         {loading ? (
           <div className="flex flex-col items-center gap-3 py-20">
             <svg className="w-5 h-5 animate-spin text-[#3E91CE]" fill="none" viewBox="0 0 24 24">
@@ -130,7 +130,7 @@ export default function CmsProjectsPage() {
           </div>
         ) : projects.length === 0 ? (
           <div className="flex flex-col items-center py-20 px-6 text-center">
-            <div className="w-14 h-14 bg-[#EFF2F8] dark:bg-[#1D2235] rounded-2xl flex items-center justify-center mb-4">
+            <div className="w-14 h-14 bg-black/[0.04] dark:bg-white/[0.04] rounded-2xl flex items-center justify-center mb-4">
               <svg className="w-7 h-7 text-[#99AABF] dark:text-[#4A5670]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
               </svg>
@@ -155,7 +155,7 @@ export default function CmsProjectsPage() {
           <div className="overflow-x-auto">
             <table className="min-w-full">
               <thead>
-                <tr className="border-b border-[#EFF2F8] dark:border-[#1A1E2E] bg-[#F8FAFC] dark:bg-[#0D1020]">
+                <tr className="border-b border-black/[0.06] dark:border-white/[0.05] bg-black/[0.02] dark:bg-white/[0.02]">
                   <th className="px-5 py-3 text-left text-[10px] font-bold text-[#99AABF] dark:text-[#4A5670] uppercase tracking-[0.12em]">Project</th>
                   <th className="px-5 py-3 text-left text-[10px] font-bold text-[#99AABF] dark:text-[#4A5670] uppercase tracking-[0.12em] w-28">Status</th>
                   <th className="px-5 py-3 text-left text-[10px] font-bold text-[#99AABF] dark:text-[#4A5670] uppercase tracking-[0.12em] hidden md:table-cell">Appears On</th>
@@ -170,11 +170,11 @@ export default function CmsProjectsPage() {
                     <tr
                       key={project.id}
                       onClick={() => router.push(`/cms/projects/edit?id=${project.id}`)}
-                      className="cursor-pointer border-b border-[#EFF2F8] dark:border-[#1A1E2E] last:border-0 hover:bg-[#F8FAFC] dark:hover:bg-[#131928] transition-colors group"
+                      className="cursor-pointer border-b border-black/[0.05] dark:border-white/[0.04] last:border-0 hover:bg-black/[0.03] dark:hover:bg-white/[0.03] transition-colors group"
                     >
                       <td className="px-5 py-3.5">
                         <div className="flex items-center gap-3">
-                          <div className="w-9 h-9 rounded-lg bg-[#EFF2F8] dark:bg-[#1D2235] overflow-hidden flex-shrink-0">
+                          <div className="w-9 h-9 rounded-lg bg-black/[0.05] dark:bg-white/[0.05] overflow-hidden flex-shrink-0">
                             {project.heroImageUrl
                               // eslint-disable-next-line @next/next/no-img-element
                               ? <img src={project.heroImageUrl} alt="" className="w-full h-full object-cover" loading="lazy" />
@@ -194,7 +194,7 @@ export default function CmsProjectsPage() {
                       <td className="px-5 py-3.5"><StatusBadge status={project.status} /></td>
                       <td className="px-5 py-3.5 hidden md:table-cell">
                         {appearances.length === 0 ? (
-                          <span className="text-[11px] text-[#DDE2EE] dark:text-[#1D2235] italic">—</span>
+                          <span className="text-[11px] text-[#C8D2E0] dark:text-[#2A3550] italic">—</span>
                         ) : (
                           <div className="flex flex-wrap gap-1">
                             {appearances.slice(0, 3).map((a) => <AppearsBadge key={a.path} type={a.type} />)}
@@ -206,7 +206,7 @@ export default function CmsProjectsPage() {
                         <span className="text-[12px] text-[#99AABF] dark:text-[#4A5670] font-mono">{formatDate(project.updatedAt)}</span>
                       </td>
                       <td className="px-4 py-3.5">
-                        <svg className="w-4 h-4 text-[#DDE2EE] dark:text-[#1D2235] group-hover:text-[#3E91CE] dark:group-hover:text-[#60AFDF] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-4 h-4 text-[#C8D2E0] dark:text-[#2A3550] group-hover:text-[#3E91CE] dark:group-hover:text-[#60AFDF] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                       </td>

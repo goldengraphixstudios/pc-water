@@ -43,7 +43,7 @@ function CopyButton({ url }: { url: string }) {
       className={`w-7 h-7 flex items-center justify-center rounded-lg transition-all ${
         copied
           ? 'bg-emerald-500 text-white'
-          : 'bg-[#EFF2F8] dark:bg-[#1D2235] text-[#99AABF] dark:text-[#4A5670] hover:bg-[#3E91CE] hover:text-white'
+          : 'bg-black/[0.06] dark:bg-white/[0.06] text-[#99AABF] dark:text-[#4A5670] hover:bg-[#3E91CE] hover:text-white'
       }`}
     >
       {copied ? (
@@ -163,7 +163,7 @@ export default function CmsMediaPage() {
         <button
           onClick={() => inputRef.current?.click()}
           disabled={uploading}
-          className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg bg-[#3E91CE] text-white text-[13px] font-semibold hover:bg-[#2D7AB8] disabled:opacity-60 transition-colors shadow-sm shadow-[#3E91CE]/20 flex-shrink-0"
+          className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg bg-[#3E91CE] text-white text-[13px] font-semibold hover:bg-[#2D7AB8] disabled:opacity-60 transition-colors shadow-md shadow-[#3E91CE]/20 flex-shrink-0"
         >
           {uploading ? (
             <>
@@ -187,7 +187,7 @@ export default function CmsMediaPage() {
 
       {/* Upload feedback */}
       {uploadError && (
-        <div className="flex gap-2.5 rounded-xl bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/40 px-4 py-3">
+        <div className="flex gap-2.5 rounded-xl bg-red-50/80 dark:bg-red-950/20 border border-red-200/70 dark:border-red-900/30 px-4 py-3 backdrop-blur-sm">
           <svg className="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
@@ -195,7 +195,7 @@ export default function CmsMediaPage() {
         </div>
       )}
       {uploadSuccess && (
-        <div className="flex gap-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/40 px-4 py-3">
+        <div className="flex gap-2.5 rounded-xl bg-emerald-50/80 dark:bg-emerald-950/20 border border-emerald-200/70 dark:border-emerald-900/30 px-4 py-3 backdrop-blur-sm">
           <svg className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
@@ -214,7 +214,7 @@ export default function CmsMediaPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search files…"
-            className="w-full pl-9 pr-4 h-9 rounded-lg border border-[#DDE2EE] dark:border-[#1D2235] bg-white dark:bg-[#111622] text-[13px] text-[#0E1525] dark:text-[#ECF0F9] placeholder-[#99AABF] dark:placeholder-[#4A5670] focus:outline-none focus:border-[#3E91CE] transition-colors"
+            className="w-full pl-9 pr-4 h-9 rounded-lg border border-black/[0.08] dark:border-white/[0.07] bg-white/80 dark:bg-[#060A14]/70 backdrop-blur-sm text-[13px] text-[#0E1525] dark:text-[#ECF0F9] placeholder-[#99AABF] dark:placeholder-[#4A5670] focus:outline-none focus:border-[#3E91CE] transition-colors"
           />
         </div>
         <div className="flex gap-1.5 flex-wrap">
@@ -225,7 +225,7 @@ export default function CmsMediaPage() {
               className={`px-3.5 h-9 rounded-lg text-[12px] font-semibold transition-all whitespace-nowrap ${
                 folder === f.key
                   ? 'bg-[#3E91CE] text-white shadow-sm'
-                  : 'bg-white dark:bg-[#111622] border border-[#DDE2EE] dark:border-[#1D2235] text-[#536070] dark:text-[#8B9CB8] hover:border-[#3E91CE] hover:text-[#3E91CE]'
+                  : 'bg-white/80 dark:bg-[#060A14]/70 backdrop-blur-sm border border-black/[0.08] dark:border-white/[0.07] text-[#536070] dark:text-[#8B9CB8] hover:border-[#3E91CE] hover:text-[#3E91CE]'
               }`}
             >
               {f.label}
@@ -244,8 +244,8 @@ export default function CmsMediaPage() {
           <p className="text-[13px] text-[#99AABF] dark:text-[#4A5670]">Loading media files…</p>
         </div>
       ) : filtered.length === 0 ? (
-        <div className="flex flex-col items-center py-20 text-center bg-white dark:bg-[#111622] rounded-xl border border-[#DDE2EE] dark:border-[#1D2235]">
-          <div className="w-14 h-14 bg-[#EFF2F8] dark:bg-[#1D2235] rounded-2xl flex items-center justify-center mb-4">
+        <div className="cms-card flex flex-col items-center py-20 text-center">
+          <div className="w-14 h-14 bg-black/[0.04] dark:bg-white/[0.04] rounded-2xl flex items-center justify-center mb-4">
             <svg className="w-7 h-7 text-[#99AABF] dark:text-[#4A5670]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
@@ -260,10 +260,10 @@ export default function CmsMediaPage() {
           {filtered.map((file) => (
             <div
               key={file.id}
-              className="bg-white dark:bg-[#111622] rounded-xl border border-[#DDE2EE] dark:border-[#1D2235] overflow-hidden hover:shadow-md hover:border-[#3E91CE]/40 dark:hover:border-[#3E91CE]/30 transition-all group"
+              className="cms-card hover:shadow-lg hover:shadow-black/10 dark:hover:shadow-black/40 hover:-translate-y-0.5 transition-all duration-200 group"
             >
               {/* Thumbnail */}
-              <div className="aspect-square bg-[#EFF2F8] dark:bg-[#1D2235] overflow-hidden relative">
+              <div className="aspect-square bg-black/[0.04] dark:bg-white/[0.04] overflow-hidden relative">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={file.publicUrl}
