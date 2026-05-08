@@ -15,10 +15,10 @@ type StorageFile = {
 }
 
 const FOLDERS = [
-  { key: '',                  label: 'All Files'      },
-  { key: 'projects/hero',     label: 'Project Heroes' },
-  { key: 'projects/gallery',  label: 'Gallery'        },
-  { key: 'posts',             label: 'Article Covers' },
+  { key: '',                 label: 'All Files'      },
+  { key: 'projects/hero',   label: 'Project Heroes' },
+  { key: 'projects/gallery', label: 'Gallery'       },
+  { key: 'posts',           label: 'Article Covers' },
 ]
 
 function formatBytes(bytes: number) {
@@ -43,7 +43,7 @@ function CopyButton({ url }: { url: string }) {
       className={`w-7 h-7 flex items-center justify-center rounded-lg transition-all ${
         copied
           ? 'bg-emerald-500 text-white'
-          : 'bg-slate-100 dark:bg-[#1E2235] text-slate-500 dark:text-slate-400 hover:bg-[#3e91ce] hover:text-white'
+          : 'bg-[#EFF2F8] dark:bg-[#1D2235] text-[#99AABF] dark:text-[#4A5670] hover:bg-[#3E91CE] hover:text-white'
       }`}
     >
       {copied ? (
@@ -60,12 +60,12 @@ function CopyButton({ url }: { url: string }) {
 }
 
 export default function CmsMediaPage() {
-  const [files, setFiles]         = useState<StorageFile[]>([])
-  const [loading, setLoading]     = useState(true)
-  const [folder, setFolder]       = useState('')
-  const [search, setSearch]       = useState('')
-  const [uploading, setUploading] = useState(false)
-  const [uploadError, setUploadError] = useState<string | null>(null)
+  const [files, setFiles]               = useState<StorageFile[]>([])
+  const [loading, setLoading]           = useState(true)
+  const [folder, setFolder]             = useState('')
+  const [search, setSearch]             = useState('')
+  const [uploading, setUploading]       = useState(false)
+  const [uploadError, setUploadError]   = useState<string | null>(null)
   const [uploadSuccess, setUploadSuccess] = useState<string | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -85,8 +85,8 @@ export default function CmsMediaPage() {
       if (!data) continue
 
       for (const item of data) {
-        if (item.id === null) continue // skip folders
-        const filePath  = prefix ? `${prefix}/${item.name}` : item.name
+        if (item.id === null) continue
+        const filePath = prefix ? `${prefix}/${item.name}` : item.name
         const { data: urlData } = supabase.storage.from(BUCKET).getPublicUrl(filePath)
         allFiles.push({
           name:      item.name,
@@ -149,20 +149,21 @@ export default function CmsMediaPage() {
   })
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
 
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
         <div>
-          <h1 className="text-xl font-bold text-slate-900 dark:text-slate-100">Media Library</h1>
-          <p className="text-sm text-slate-500 dark:text-slate-500 mt-0.5">
+          <p className="text-[10px] font-bold text-[#99AABF] dark:text-[#4A5670] uppercase tracking-[0.16em] mb-1">Assets</p>
+          <h1 className="text-[22px] font-black text-[#0E1525] dark:text-[#ECF0F9] tracking-tight leading-tight">Media Library</h1>
+          <p className="text-[12px] text-[#536070] dark:text-[#8B9CB8] mt-1">
             {loading ? 'Loading…' : `${filtered.length} file${filtered.length !== 1 ? 's' : ''} in storage`}
           </p>
         </div>
         <button
           onClick={() => inputRef.current?.click()}
           disabled={uploading}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#3e91ce] text-white text-[13px] font-medium hover:bg-[#2d7ab8] disabled:opacity-60 transition-colors shadow-sm shadow-[#3e91ce]/20"
+          className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg bg-[#3E91CE] text-white text-[13px] font-semibold hover:bg-[#2D7AB8] disabled:opacity-60 transition-colors shadow-sm shadow-[#3E91CE]/20 flex-shrink-0"
         >
           {uploading ? (
             <>
@@ -174,7 +175,7 @@ export default function CmsMediaPage() {
             </>
           ) : (
             <>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
               </svg>
               Upload Images
@@ -186,26 +187,26 @@ export default function CmsMediaPage() {
 
       {/* Upload feedback */}
       {uploadError && (
-        <div className="flex gap-2 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/50 px-4 py-3 text-sm text-red-600 dark:text-red-400">
-          <svg className="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="flex gap-2.5 rounded-xl bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/40 px-4 py-3">
+          <svg className="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
-          {uploadError}
+          <p className="text-[12px] text-red-600 dark:text-red-400 leading-relaxed">{uploadError}</p>
         </div>
       )}
       {uploadSuccess && (
-        <div className="flex gap-2 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900/50 px-4 py-3 text-sm text-emerald-700 dark:text-emerald-400">
-          <svg className="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="flex gap-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/40 px-4 py-3">
+          <svg className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
-          {uploadSuccess}
+          <p className="text-[12px] text-emerald-700 dark:text-emerald-400 leading-relaxed">{uploadSuccess}</p>
         </div>
       )}
 
       {/* Filters */}
-      <div className="flex flex-col sm:flex-row gap-3">
+      <div className="flex flex-col sm:flex-row gap-2">
         <div className="relative flex-1">
-          <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#99AABF] dark:text-[#4A5670] pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
           <input
@@ -213,7 +214,7 @@ export default function CmsMediaPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search files…"
-            className="w-full pl-9 pr-4 py-2 rounded-lg border border-slate-200 dark:border-[#1E2235] bg-white dark:bg-[#13161F] text-sm text-slate-800 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:border-[#3e91ce] transition-colors"
+            className="w-full pl-9 pr-4 h-9 rounded-lg border border-[#DDE2EE] dark:border-[#1D2235] bg-white dark:bg-[#111622] text-[13px] text-[#0E1525] dark:text-[#ECF0F9] placeholder-[#99AABF] dark:placeholder-[#4A5670] focus:outline-none focus:border-[#3E91CE] transition-colors"
           />
         </div>
         <div className="flex gap-1.5 flex-wrap">
@@ -221,10 +222,10 @@ export default function CmsMediaPage() {
             <button
               key={f.key}
               onClick={() => setFolder(f.key)}
-              className={`px-3 py-2 rounded-lg text-xs font-semibold transition-all whitespace-nowrap ${
+              className={`px-3.5 h-9 rounded-lg text-[12px] font-semibold transition-all whitespace-nowrap ${
                 folder === f.key
-                  ? 'bg-[#3e91ce] text-white shadow-sm'
-                  : 'bg-white dark:bg-[#13161F] border border-slate-200 dark:border-[#1E2235] text-slate-600 dark:text-slate-400 hover:border-[#3e91ce] hover:text-[#3e91ce]'
+                  ? 'bg-[#3E91CE] text-white shadow-sm'
+                  : 'bg-white dark:bg-[#111622] border border-[#DDE2EE] dark:border-[#1D2235] text-[#536070] dark:text-[#8B9CB8] hover:border-[#3E91CE] hover:text-[#3E91CE]'
               }`}
             >
               {f.label}
@@ -235,23 +236,23 @@ export default function CmsMediaPage() {
 
       {/* Grid */}
       {loading ? (
-        <div className="flex flex-col items-center py-20 text-center">
-          <svg className="w-5 h-5 animate-spin text-[#3e91ce] mb-3" fill="none" viewBox="0 0 24 24">
+        <div className="flex flex-col items-center py-20 gap-3">
+          <svg className="w-5 h-5 animate-spin text-[#3E91CE]" fill="none" viewBox="0 0 24 24">
             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
           </svg>
-          <p className="text-sm text-slate-400 dark:text-slate-600">Loading media files…</p>
+          <p className="text-[13px] text-[#99AABF] dark:text-[#4A5670]">Loading media files…</p>
         </div>
       ) : filtered.length === 0 ? (
-        <div className="flex flex-col items-center py-20 text-center bg-white dark:bg-[#13161F] rounded-xl border border-slate-200 dark:border-[#1E2235]">
-          <div className="w-14 h-14 bg-slate-100 dark:bg-[#1A1D2C] rounded-2xl flex items-center justify-center mb-4">
-            <svg className="w-7 h-7 text-slate-400 dark:text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="flex flex-col items-center py-20 text-center bg-white dark:bg-[#111622] rounded-xl border border-[#DDE2EE] dark:border-[#1D2235]">
+          <div className="w-14 h-14 bg-[#EFF2F8] dark:bg-[#1D2235] rounded-2xl flex items-center justify-center mb-4">
+            <svg className="w-7 h-7 text-[#99AABF] dark:text-[#4A5670]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
           </div>
-          <p className="font-semibold text-slate-800 dark:text-slate-200 mb-1">No files found</p>
-          <p className="text-sm text-slate-400 dark:text-slate-600">
-            {search ? 'Try a different search.' : 'Upload images using the button above.'}
+          <p className="text-[14px] font-bold text-[#0E1525] dark:text-[#ECF0F9] mb-1">No files found</p>
+          <p className="text-[13px] text-[#99AABF] dark:text-[#4A5670]">
+            {search ? 'Try a different search term.' : 'Upload images using the button above.'}
           </p>
         </div>
       ) : (
@@ -259,10 +260,10 @@ export default function CmsMediaPage() {
           {filtered.map((file) => (
             <div
               key={file.id}
-              className="bg-white dark:bg-[#13161F] rounded-xl border border-slate-200 dark:border-[#1E2235] overflow-hidden shadow-sm hover:shadow-md hover:border-slate-300 dark:hover:border-[#252A3D] transition-all group"
+              className="bg-white dark:bg-[#111622] rounded-xl border border-[#DDE2EE] dark:border-[#1D2235] overflow-hidden hover:shadow-md hover:border-[#3E91CE]/40 dark:hover:border-[#3E91CE]/30 transition-all group"
             >
               {/* Thumbnail */}
-              <div className="aspect-square bg-slate-100 dark:bg-[#1A1D2C] overflow-hidden relative">
+              <div className="aspect-square bg-[#EFF2F8] dark:bg-[#1D2235] overflow-hidden relative">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={file.publicUrl}
@@ -274,15 +275,15 @@ export default function CmsMediaPage() {
 
               {/* Info + actions */}
               <div className="p-2.5">
-                <p className="text-[11px] text-slate-700 dark:text-slate-300 font-medium truncate leading-snug" title={file.name}>
+                <p className="text-[11px] text-[#0E1525] dark:text-[#ECF0F9] font-medium truncate leading-snug" title={file.name}>
                   {file.name}
                 </p>
                 <div className="flex items-center justify-between mt-2 gap-1">
                   <div className="min-w-0 flex-1">
                     {file.size && (
-                      <p className="text-[10px] text-slate-400 dark:text-slate-600">{formatBytes(file.size)}</p>
+                      <p className="text-[10px] text-[#99AABF] dark:text-[#4A5670] font-mono">{formatBytes(file.size)}</p>
                     )}
-                    <p className="text-[10px] text-slate-400 dark:text-slate-600 truncate">{file.folder}</p>
+                    <p className="text-[10px] text-[#99AABF] dark:text-[#4A5670] truncate">{file.folder}</p>
                   </div>
                   <CopyButton url={file.publicUrl} />
                 </div>
@@ -294,11 +295,10 @@ export default function CmsMediaPage() {
 
       {/* Usage tip */}
       {!loading && filtered.length > 0 && (
-        <p className="text-xs text-slate-400 dark:text-slate-600 text-center">
+        <p className="text-[11px] text-[#99AABF] dark:text-[#4A5670] text-center">
           Click the copy icon on any image to copy its URL — paste it directly into the hero or gallery field in any project or article editor.
         </p>
       )}
-
     </div>
   )
 }

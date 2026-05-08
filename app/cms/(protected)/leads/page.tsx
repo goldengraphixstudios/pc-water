@@ -19,24 +19,24 @@ function formatDateShort(iso: string) {
 function DivisionBadge({ division }: { division: string | null }) {
   const isSolutions = division === 'PC Water Solutions'
   return (
-    <span className={`inline-flex items-center text-[11px] font-semibold px-2 py-0.5 rounded-full ${
+    <span className={`inline-flex items-center text-[11px] font-semibold px-2.5 py-0.5 rounded-full whitespace-nowrap ${
       isSolutions
-        ? 'bg-[#EAF4FF] dark:bg-[#162338] text-[#3e91ce] dark:text-[#60AFDF]'
-        : 'bg-slate-100 dark:bg-[#1E2235] text-slate-600 dark:text-slate-400'
+        ? 'bg-[#EAF4FF] dark:bg-[#0C1D36] text-[#3E91CE] dark:text-[#60AFDF]'
+        : 'bg-[#EFF2F8] dark:bg-[#1D2235] text-[#536070] dark:text-[#8B9CB8]'
     }`}>
       {division ?? '—'}
     </span>
   )
 }
 
-function StatCard({ label, value, sub, accent }: { label: string; value: string | number; sub: string; accent: string }) {
+function StatCard({ label, value, sub, accentClass }: { label: string; value: string | number; sub: string; accentClass: string }) {
   return (
-    <div className="bg-white dark:bg-[#13161F] rounded-xl border border-slate-200 dark:border-[#1E2235] shadow-sm overflow-hidden">
-      <div className={`h-[3px] ${accent}`} />
-      <div className="p-4">
-        <p className="text-2xl font-black text-slate-900 dark:text-slate-100 leading-none mb-1">{value}</p>
-        <p className="text-xs font-semibold text-slate-700 dark:text-slate-300">{label}</p>
-        <p className="text-[11px] text-slate-400 dark:text-slate-600 mt-0.5">{sub}</p>
+    <div className="bg-white dark:bg-[#111622] rounded-xl border border-[#DDE2EE] dark:border-[#1D2235] overflow-hidden">
+      <div className={`h-[3px] ${accentClass}`} />
+      <div className="p-4 pt-3.5">
+        <p className="text-[26px] font-black text-[#0E1525] dark:text-[#ECF0F9] leading-none mb-1 tracking-tight">{value}</p>
+        <p className="text-[12px] font-semibold text-[#0E1525] dark:text-[#ECF0F9]">{label}</p>
+        <p className="text-[11px] text-[#99AABF] dark:text-[#4A5670] mt-0.5 truncate">{sub}</p>
       </div>
     </div>
   )
@@ -80,34 +80,34 @@ function DeleteConfirmModal({
 }) {
   return (
     <div className="fixed inset-0 z-[999] bg-black/50 backdrop-blur-sm flex items-center justify-center px-4">
-      <div className="w-full max-w-sm bg-white dark:bg-[#13161F] rounded-2xl shadow-2xl border border-slate-200 dark:border-[#1E2235] overflow-hidden">
+      <div className="w-full max-w-sm bg-white dark:bg-[#111622] rounded-2xl shadow-2xl border border-[#DDE2EE] dark:border-[#1D2235] overflow-hidden">
         <div className="p-6">
           <div className="w-10 h-10 rounded-full bg-red-100 dark:bg-red-950/40 flex items-center justify-center mx-auto mb-4">
             <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
             </svg>
           </div>
-          <h3 className="text-center font-bold text-slate-900 dark:text-slate-100 mb-1">Delete lead?</h3>
-          <p className="text-center text-sm text-slate-500 dark:text-slate-500 mb-4 leading-relaxed">
-            This will permanently remove the lead record for<br />
-            <span className="font-semibold text-slate-700 dark:text-slate-300">{lead.email}</span>
-            {lead.resource_title && (
-              <><br /><span className="text-xs text-slate-400">{lead.resource_title}</span></>
-            )}
+          <h3 className="text-center text-[15px] font-bold text-[#0E1525] dark:text-[#ECF0F9] mb-1">Delete lead?</h3>
+          <p className="text-center text-[13px] text-[#536070] dark:text-[#8B9CB8] mb-1 leading-relaxed">
+            This will permanently remove the lead record for
           </p>
-          <p className="text-center text-xs text-red-500 font-medium mb-5">This cannot be undone.</p>
+          <p className="text-center text-[13px] font-semibold text-[#0E1525] dark:text-[#ECF0F9] mb-1">{lead.email}</p>
+          {lead.resource_title && (
+            <p className="text-center text-[11px] text-[#99AABF] dark:text-[#4A5670] mb-4">{lead.resource_title}</p>
+          )}
+          <p className="text-center text-[11px] text-red-500 font-semibold mb-5">This cannot be undone.</p>
           <div className="flex gap-2">
             <button
               onClick={onCancel}
               disabled={deleting}
-              className="flex-1 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-[#1E2235] text-sm font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-[#1E2235] transition-colors disabled:opacity-50"
+              className="flex-1 px-4 py-2.5 rounded-lg border border-[#DDE2EE] dark:border-[#1D2235] text-[13px] font-semibold text-[#536070] dark:text-[#8B9CB8] hover:bg-[#EFF2F8] dark:hover:bg-[#1D2235] transition-colors disabled:opacity-50"
             >
               Cancel
             </button>
             <button
               onClick={onConfirm}
               disabled={deleting}
-              className="flex-1 px-4 py-2.5 rounded-xl bg-red-500 hover:bg-red-600 text-white text-sm font-semibold transition-colors disabled:opacity-60 flex items-center justify-center gap-2"
+              className="flex-1 px-4 py-2.5 rounded-lg bg-red-500 hover:bg-red-600 text-white text-[13px] font-semibold transition-colors disabled:opacity-60 flex items-center justify-center gap-2"
             >
               {deleting ? (
                 <>
@@ -117,9 +117,7 @@ function DeleteConfirmModal({
                   </svg>
                   Deleting…
                 </>
-              ) : (
-                'Delete'
-              )}
+              ) : 'Delete'}
             </button>
           </div>
         </div>
@@ -165,10 +163,9 @@ export default function LeadsDashboardPage() {
   }
 
   // ── Derived stats ─────────────────────────────────────────────────────────
-  const uniqueEmails = new Set(leads.map((l) => l.email.toLowerCase())).size
-
-  const oneWeekAgo   = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
-  const thisWeekCount = leads.filter((l) => new Date(l.downloaded_at) >= oneWeekAgo).length
+  const uniqueEmails   = new Set(leads.map((l) => l.email.toLowerCase())).size
+  const oneWeekAgo     = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
+  const thisWeekCount  = leads.filter((l) => new Date(l.downloaded_at) >= oneWeekAgo).length
 
   const countsByResource = leads.reduce<Record<string, number>>((acc, l) => {
     const key = l.resource_title ?? l.resource_slug
@@ -188,26 +185,26 @@ export default function LeadsDashboardPage() {
     return matchDiv && matchSearch
   })
 
-  // ── Verification status ───────────────────────────────────────────────────
   const abstractConfigured = Boolean(process.env.NEXT_PUBLIC_ABSTRACT_EMAIL_API_KEY)
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
 
-      {/* ── Header ── */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
         <div>
-          <h1 className="text-xl font-bold text-slate-900 dark:text-slate-100">Resource Leads</h1>
-          <p className="text-sm text-slate-500 dark:text-slate-500 mt-0.5">
+          <p className="text-[10px] font-bold text-[#99AABF] dark:text-[#4A5670] uppercase tracking-[0.16em] mb-1">Analytics</p>
+          <h1 className="text-[22px] font-black text-[#0E1525] dark:text-[#ECF0F9] tracking-tight leading-tight">Resource Leads</h1>
+          <p className="text-[12px] text-[#536070] dark:text-[#8B9CB8] mt-1">
             Emails captured through the free guide download gate.
           </p>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-shrink-0">
           <button
             onClick={handleRefresh}
             disabled={refreshing}
             title="Refresh"
-            className="w-8 h-8 flex items-center justify-center rounded-lg border border-slate-200 dark:border-[#1E2235] bg-white dark:bg-[#13161F] text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:border-slate-300 dark:hover:border-[#252A3D] transition-colors disabled:opacity-50"
+            className="w-9 h-9 flex items-center justify-center rounded-lg border border-[#DDE2EE] dark:border-[#1D2235] bg-white dark:bg-[#111622] text-[#99AABF] dark:text-[#4A5670] hover:text-[#3E91CE] hover:border-[#3E91CE] transition-colors disabled:opacity-50"
           >
             <svg className={`w-3.5 h-3.5 ${refreshing ? 'animate-spin' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -216,7 +213,7 @@ export default function LeadsDashboardPage() {
           <button
             onClick={() => exportCSV(filtered)}
             disabled={filtered.length === 0}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-[#1E2235] bg-white dark:bg-[#13161F] text-[13px] font-medium text-slate-600 dark:text-slate-300 hover:border-emerald-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors disabled:opacity-40"
+            className="flex items-center gap-1.5 px-3.5 h-9 rounded-lg border border-[#DDE2EE] dark:border-[#1D2235] bg-white dark:bg-[#111622] text-[12px] font-semibold text-[#536070] dark:text-[#8B9CB8] hover:border-emerald-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors disabled:opacity-40 whitespace-nowrap"
           >
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
@@ -225,10 +222,10 @@ export default function LeadsDashboardPage() {
           </button>
           <button
             onClick={() => setSettings((v) => !v)}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-[13px] font-medium transition-colors ${
+            className={`flex items-center gap-1.5 px-3.5 h-9 rounded-lg border text-[12px] font-semibold transition-colors whitespace-nowrap ${
               showSettings
-                ? 'border-[#3e91ce] bg-[#EAF4FF] dark:bg-[#162338] text-[#3e91ce] dark:text-[#60AFDF]'
-                : 'border-slate-200 dark:border-[#1E2235] bg-white dark:bg-[#13161F] text-slate-600 dark:text-slate-300 hover:border-slate-300'
+                ? 'border-[#3E91CE] bg-[#EAF4FF] dark:bg-[#0C1D36] text-[#3E91CE] dark:text-[#60AFDF]'
+                : 'border-[#DDE2EE] dark:border-[#1D2235] bg-white dark:bg-[#111622] text-[#536070] dark:text-[#8B9CB8] hover:border-[#3E91CE] hover:text-[#3E91CE]'
             }`}
           >
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -240,33 +237,33 @@ export default function LeadsDashboardPage() {
         </div>
       </div>
 
-      {/* ── Stats row ── */}
+      {/* Stats row */}
       <div className="grid grid-cols-2 xl:grid-cols-4 gap-3">
-        <StatCard label="Total Leads"     value={loading ? '—' : leads.length}      sub="all time"             accent="bg-[#3e91ce]" />
-        <StatCard label="Unique Emails"   value={loading ? '—' : uniqueEmails}      sub="distinct addresses"   accent="bg-violet-500" />
-        <StatCard label="This Week"       value={loading ? '—' : thisWeekCount}      sub="last 7 days"          accent="bg-emerald-500" />
-        <StatCard label="Top Resource"    value={loading ? '—' : sortedResources[0]?.[1] ?? 0} sub={topResource} accent="bg-orange-400" />
+        <StatCard label="Total Leads"   value={loading ? '—' : leads.length}                        sub="all time"           accentClass="bg-[#3E91CE]" />
+        <StatCard label="Unique Emails" value={loading ? '—' : uniqueEmails}                        sub="distinct addresses" accentClass="bg-violet-500" />
+        <StatCard label="This Week"     value={loading ? '—' : thisWeekCount}                       sub="last 7 days"        accentClass="bg-emerald-500" />
+        <StatCard label="Top Resource"  value={loading ? '—' : sortedResources[0]?.[1] ?? 0}        sub={topResource}        accentClass="bg-orange-400" />
       </div>
 
-      {/* ── Settings panel ── */}
+      {/* Settings panel */}
       {showSettings && (
-        <div className="bg-white dark:bg-[#13161F] rounded-xl border border-slate-200 dark:border-[#1E2235] shadow-sm overflow-hidden">
-          <div className="px-5 py-3.5 border-b border-slate-100 dark:border-[#1A1D2C]">
-            <h2 className="text-[13px] font-semibold text-slate-800 dark:text-slate-200">Settings</h2>
+        <div className="bg-white dark:bg-[#111622] rounded-xl border border-[#DDE2EE] dark:border-[#1D2235] overflow-hidden">
+          <div className="px-5 py-3.5 border-b border-[#EFF2F8] dark:border-[#1A1E2E]">
+            <h2 className="text-[13px] font-semibold text-[#0E1525] dark:text-[#ECF0F9]">Settings</h2>
           </div>
-          <div className="p-5 grid gap-5 sm:grid-cols-2">
+          <div className="p-5 grid gap-4 sm:grid-cols-2">
 
             {/* CSV Export */}
-            <div className="bg-slate-50 dark:bg-[#0C0E16] rounded-xl p-4 border border-slate-100 dark:border-[#1E2235]">
+            <div className="bg-[#F8FAFC] dark:bg-[#0D1020] rounded-xl p-4 border border-[#EFF2F8] dark:border-[#1A1E2E]">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-6 h-6 rounded-lg bg-emerald-100 dark:bg-emerald-950/40 flex items-center justify-center">
                   <svg className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                   </svg>
                 </div>
-                <p className="text-[13px] font-semibold text-slate-800 dark:text-slate-200">Export Leads</p>
+                <p className="text-[13px] font-semibold text-[#0E1525] dark:text-[#ECF0F9]">Export Leads</p>
               </div>
-              <p className="text-[12px] text-slate-500 dark:text-slate-500 mb-3 leading-relaxed">
+              <p className="text-[12px] text-[#536070] dark:text-[#8B9CB8] mb-3 leading-relaxed">
                 Download all currently visible leads as a CSV file. Filters and search are applied before export.
               </p>
               <button
@@ -282,35 +279,35 @@ export default function LeadsDashboardPage() {
             </div>
 
             {/* Email Verification Status */}
-            <div className="bg-slate-50 dark:bg-[#0C0E16] rounded-xl p-4 border border-slate-100 dark:border-[#1E2235]">
+            <div className="bg-[#F8FAFC] dark:bg-[#0D1020] rounded-xl p-4 border border-[#EFF2F8] dark:border-[#1A1E2E]">
               <div className="flex items-center gap-2 mb-2">
                 <div className={`w-6 h-6 rounded-lg flex items-center justify-center ${abstractConfigured ? 'bg-emerald-100 dark:bg-emerald-950/40' : 'bg-amber-100 dark:bg-amber-950/40'}`}>
                   <svg className={`w-3.5 h-3.5 ${abstractConfigured ? 'text-emerald-600 dark:text-emerald-400' : 'text-amber-600 dark:text-amber-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                   </svg>
                 </div>
-                <p className="text-[13px] font-semibold text-slate-800 dark:text-slate-200">Email Verification</p>
+                <p className="text-[13px] font-semibold text-[#0E1525] dark:text-[#ECF0F9]">Email Verification</p>
                 <span className={`ml-auto text-[10px] font-bold px-2 py-0.5 rounded-full ${abstractConfigured ? 'bg-emerald-100 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400' : 'bg-amber-100 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400'}`}>
                   {abstractConfigured ? 'Active' : 'Basic only'}
                 </span>
               </div>
               {abstractConfigured ? (
-                <p className="text-[12px] text-slate-500 dark:text-slate-500 leading-relaxed">
-                  Abstract API is configured. MX record checks, disposable detection, and deliverability scoring are active on the download gate.
+                <p className="text-[12px] text-[#536070] dark:text-[#8B9CB8] leading-relaxed">
+                  Abstract API is configured. MX record checks, disposable detection, and deliverability scoring are active.
                 </p>
               ) : (
                 <>
-                  <p className="text-[12px] text-slate-500 dark:text-slate-500 mb-2 leading-relaxed">
-                    Currently using format validation + disposable domain blocklist only. Enable Abstract API for MX checks and real deliverability scoring.
+                  <p className="text-[12px] text-[#536070] dark:text-[#8B9CB8] mb-2 leading-relaxed">
+                    Currently using format validation + disposable domain blocklist only. Enable Abstract API for MX checks.
                   </p>
-                  <p className="text-[11px] text-slate-400 dark:text-slate-600 font-mono bg-white dark:bg-[#13161F] border border-slate-200 dark:border-[#1E2235] rounded px-2 py-1.5 leading-relaxed">
+                  <p className="text-[11px] text-[#99AABF] dark:text-[#4A5670] font-mono bg-white dark:bg-[#111622] border border-[#DDE2EE] dark:border-[#1D2235] rounded px-2 py-1.5 leading-relaxed">
                     NEXT_PUBLIC_ABSTRACT_EMAIL_API_KEY=your_key
                   </p>
                   <a
                     href="https://www.abstractapi.com/api/email-verification-validation-api"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-[11px] text-[#3e91ce] dark:text-[#60AFDF] hover:underline mt-2"
+                    className="inline-flex items-center gap-1 text-[11px] text-[#3E91CE] dark:text-[#60AFDF] hover:underline mt-2"
                   >
                     Get a free API key at abstractapi.com
                     <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -321,75 +318,86 @@ export default function LeadsDashboardPage() {
               )}
             </div>
 
-            {/* Validation layers summary */}
-            <div className="sm:col-span-2 bg-slate-50 dark:bg-[#0C0E16] rounded-xl p-4 border border-slate-100 dark:border-[#1E2235]">
-              <p className="text-[13px] font-semibold text-slate-800 dark:text-slate-200 mb-3">Active Validation Layers</p>
+            {/* Validation layers */}
+            <div className="sm:col-span-2 bg-[#F8FAFC] dark:bg-[#0D1020] rounded-xl p-4 border border-[#EFF2F8] dark:border-[#1A1E2E]">
+              <p className="text-[13px] font-semibold text-[#0E1525] dark:text-[#ECF0F9] mb-3">Active Validation Layers</p>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {[
-                  { label: 'Format check',           active: true,              note: 'Regex pattern' },
-                  { label: 'Disposable block',       active: true,              note: '30+ known domains' },
-                  { label: 'Role address block',     active: true,              note: 'noreply, postmaster…' },
-                  { label: 'MX + deliverability',    active: abstractConfigured, note: 'Abstract API' },
+                  { label: 'Format check',        active: true,              note: 'Regex pattern' },
+                  { label: 'Disposable block',    active: true,              note: '30+ known domains' },
+                  { label: 'Role address block',  active: true,              note: 'noreply, postmaster…' },
+                  { label: 'MX + deliverability', active: abstractConfigured, note: 'Abstract API' },
                 ].map((layer) => (
-                  <div key={layer.label} className={`rounded-lg p-3 border ${layer.active ? 'bg-white dark:bg-[#13161F] border-slate-200 dark:border-[#1E2235]' : 'bg-slate-100/50 dark:bg-[#13161F]/50 border-slate-100 dark:border-[#1E2235]/50'}`}>
-                    <div className={`w-4 h-4 rounded-full flex items-center justify-center mb-1.5 ${layer.active ? 'bg-emerald-500' : 'bg-slate-200 dark:bg-slate-700'}`}>
+                  <div
+                    key={layer.label}
+                    className={`rounded-lg p-3 border ${
+                      layer.active
+                        ? 'bg-white dark:bg-[#111622] border-[#DDE2EE] dark:border-[#1D2235]'
+                        : 'bg-[#EFF2F8]/50 dark:bg-[#111622]/50 border-[#EFF2F8] dark:border-[#1D2235]/50'
+                    }`}
+                  >
+                    <div className={`w-4 h-4 rounded-full flex items-center justify-center mb-1.5 ${layer.active ? 'bg-emerald-500' : 'bg-[#DDE2EE] dark:bg-[#1D2235]'}`}>
                       {layer.active
                         ? <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7"/></svg>
-                        : <svg className="w-2.5 h-2.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4"/></svg>
+                        : <svg className="w-2.5 h-2.5 text-[#99AABF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4"/></svg>
                       }
                     </div>
-                    <p className={`text-[11px] font-semibold leading-tight ${layer.active ? 'text-slate-700 dark:text-slate-300' : 'text-slate-400 dark:text-slate-600'}`}>{layer.label}</p>
-                    <p className="text-[10px] text-slate-400 dark:text-slate-600 mt-0.5">{layer.note}</p>
+                    <p className={`text-[11px] font-semibold leading-tight ${layer.active ? 'text-[#0E1525] dark:text-[#ECF0F9]' : 'text-[#99AABF] dark:text-[#4A5670]'}`}>{layer.label}</p>
+                    <p className="text-[10px] text-[#99AABF] dark:text-[#4A5670] mt-0.5">{layer.note}</p>
                   </div>
                 ))}
               </div>
             </div>
-
           </div>
         </div>
       )}
 
-      {/* ── Resource breakdown ── */}
+      {/* Resource breakdown */}
       {!loading && sortedResources.length > 0 && (
-        <div className="bg-white dark:bg-[#13161F] rounded-xl border border-slate-200 dark:border-[#1E2235] shadow-sm overflow-hidden">
-          <div className="px-5 py-3.5 border-b border-slate-100 dark:border-[#1A1D2C]">
-            <h2 className="text-[13px] font-semibold text-slate-800 dark:text-slate-200">Downloads by Resource</h2>
+        <div className="bg-white dark:bg-[#111622] rounded-xl border border-[#DDE2EE] dark:border-[#1D2235] overflow-hidden">
+          <div className="px-5 py-3.5 border-b border-[#EFF2F8] dark:border-[#1A1E2E]">
+            <h2 className="text-[13px] font-semibold text-[#0E1525] dark:text-[#ECF0F9]">Downloads by Resource</h2>
           </div>
           <div className="p-4 space-y-3">
             {sortedResources.map(([title, count]) => (
               <div key={title} className="flex items-center gap-3">
-                <p className="text-[12px] text-slate-600 dark:text-slate-400 truncate w-52 flex-shrink-0">{title}</p>
-                <div className="flex-1 h-1.5 rounded-full bg-slate-100 dark:bg-[#1E2235] overflow-hidden">
+                <p className="text-[12px] text-[#536070] dark:text-[#8B9CB8] truncate w-52 flex-shrink-0">{title}</p>
+                <div className="flex-1 h-1.5 rounded-full bg-[#EFF2F8] dark:bg-[#1D2235] overflow-hidden">
                   <div
-                    className="h-full rounded-full bg-[#3e91ce] transition-all duration-500"
+                    className="h-full rounded-full bg-[#3E91CE] transition-all duration-500"
                     style={{ width: `${Math.round((count / maxCount) * 100)}%` }}
                   />
                 </div>
-                <span className="text-[12px] font-bold text-slate-700 dark:text-slate-300 w-6 text-right flex-shrink-0">{count}</span>
+                <span className="text-[12px] font-bold text-[#0E1525] dark:text-[#ECF0F9] w-6 text-right flex-shrink-0">{count}</span>
               </div>
             ))}
           </div>
         </div>
       )}
 
-      {/* ── Filters ── */}
-      <div className="flex flex-col sm:flex-row gap-3">
-        <input
-          type="text"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search email or resource…"
-          className="flex-1 px-4 py-2 rounded-lg border border-slate-200 dark:border-[#1E2235] bg-white dark:bg-[#13161F] text-sm text-slate-800 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:border-[#3e91ce] transition-colors"
-        />
+      {/* Filters */}
+      <div className="flex flex-col sm:flex-row gap-2">
+        <div className="relative flex-1">
+          <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#99AABF] dark:text-[#4A5670] pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search email or resource…"
+            className="w-full pl-9 pr-4 h-9 rounded-lg border border-[#DDE2EE] dark:border-[#1D2235] bg-white dark:bg-[#111622] text-[13px] text-[#0E1525] dark:text-[#ECF0F9] placeholder-[#99AABF] dark:placeholder-[#4A5670] focus:outline-none focus:border-[#3E91CE] transition-colors"
+          />
+        </div>
         <div className="flex gap-1.5 flex-wrap">
           {DIVISIONS.map((d) => (
             <button
               key={d}
               onClick={() => setDivision(d)}
-              className={`px-3 py-2 rounded-lg text-xs font-semibold transition-all whitespace-nowrap ${
+              className={`px-3.5 h-9 rounded-lg text-[12px] font-semibold transition-all whitespace-nowrap ${
                 division === d
-                  ? 'bg-[#3e91ce] text-white shadow-sm'
-                  : 'bg-white dark:bg-[#13161F] border border-slate-200 dark:border-[#1E2235] text-slate-600 dark:text-slate-400 hover:border-[#3e91ce] hover:text-[#3e91ce]'
+                  ? 'bg-[#3E91CE] text-white shadow-sm'
+                  : 'bg-white dark:bg-[#111622] border border-[#DDE2EE] dark:border-[#1D2235] text-[#536070] dark:text-[#8B9CB8] hover:border-[#3E91CE] hover:text-[#3E91CE]'
               }`}
             >
               {d}
@@ -398,26 +406,26 @@ export default function LeadsDashboardPage() {
         </div>
       </div>
 
-      {/* ── Table ── */}
-      <div className="bg-white dark:bg-[#13161F] rounded-xl border border-slate-200 dark:border-[#1E2235] shadow-sm overflow-hidden">
-        <div className="px-5 py-3.5 border-b border-slate-100 dark:border-[#1A1D2C] flex items-center justify-between">
-          <h2 className="text-[13px] font-semibold text-slate-800 dark:text-slate-200">All Leads</h2>
-          <span className="text-[11px] text-slate-400 dark:text-slate-600">
+      {/* Table */}
+      <div className="bg-white dark:bg-[#111622] rounded-xl border border-[#DDE2EE] dark:border-[#1D2235] overflow-hidden">
+        <div className="px-5 py-3.5 border-b border-[#EFF2F8] dark:border-[#1A1E2E] flex items-center justify-between bg-[#F8FAFC] dark:bg-[#0D1020]">
+          <h2 className="text-[13px] font-semibold text-[#0E1525] dark:text-[#ECF0F9]">All Leads</h2>
+          <span className="text-[11px] text-[#99AABF] dark:text-[#4A5670] font-mono">
             {loading ? '…' : `${filtered.length} shown`}
           </span>
         </div>
 
         {loading ? (
-          <div className="px-5 py-14 text-center">
-            <svg className="w-5 h-5 animate-spin text-[#3e91ce] mx-auto mb-3" fill="none" viewBox="0 0 24 24">
+          <div className="flex flex-col items-center gap-3 py-20">
+            <svg className="w-5 h-5 animate-spin text-[#3E91CE]" fill="none" viewBox="0 0 24 24">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
             </svg>
-            <p className="text-sm text-slate-400 dark:text-slate-600">Loading leads…</p>
+            <p className="text-[13px] text-[#99AABF] dark:text-[#4A5670]">Loading leads…</p>
           </div>
         ) : filtered.length === 0 ? (
-          <div className="px-5 py-14 text-center">
-            <p className="text-sm text-slate-400 dark:text-slate-600">
+          <div className="px-5 py-16 text-center">
+            <p className="text-[13px] text-[#99AABF] dark:text-[#4A5670]">
               {leads.length === 0
                 ? 'No leads yet — downloads will appear here as they come in.'
                 : 'No results match your current filter.'}
@@ -425,31 +433,33 @@ export default function LeadsDashboardPage() {
           </div>
         ) : (
           <div className="overflow-x-auto">
-            <table className="w-full text-sm min-w-[600px]">
+            <table className="min-w-full">
               <thead>
-                <tr className="text-left border-b border-slate-100 dark:border-[#1A1D2C]">
-                  <th className="px-5 py-2.5 text-[11px] font-semibold text-slate-500 dark:text-slate-500 uppercase tracking-wide">Email</th>
-                  <th className="px-5 py-2.5 text-[11px] font-semibold text-slate-500 dark:text-slate-500 uppercase tracking-wide">Resource</th>
-                  <th className="px-5 py-2.5 text-[11px] font-semibold text-slate-500 dark:text-slate-500 uppercase tracking-wide">Division</th>
-                  <th className="px-5 py-2.5 text-[11px] font-semibold text-slate-500 dark:text-slate-500 uppercase tracking-wide">Downloaded</th>
-                  <th className="px-2 py-2.5 w-10" />
+                <tr className="border-b border-[#EFF2F8] dark:border-[#1A1E2E]">
+                  <th className="px-5 py-3 text-left text-[10px] font-bold text-[#99AABF] dark:text-[#4A5670] uppercase tracking-[0.12em]">Email</th>
+                  <th className="px-5 py-3 text-left text-[10px] font-bold text-[#99AABF] dark:text-[#4A5670] uppercase tracking-[0.12em]">Resource</th>
+                  <th className="px-5 py-3 text-left text-[10px] font-bold text-[#99AABF] dark:text-[#4A5670] uppercase tracking-[0.12em] hidden sm:table-cell">Division</th>
+                  <th className="px-5 py-3 text-left text-[10px] font-bold text-[#99AABF] dark:text-[#4A5670] uppercase tracking-[0.12em] hidden lg:table-cell">Downloaded</th>
+                  <th className="px-2 py-3 w-10" />
                 </tr>
               </thead>
               <tbody>
                 {filtered.map((lead) => (
                   <tr
                     key={lead.id}
-                    className="border-b border-slate-50 dark:border-[#161926] last:border-0 hover:bg-slate-50 dark:hover:bg-[#1A1D2C] transition-colors group"
+                    className="border-b border-[#EFF2F8] dark:border-[#1A1E2E] last:border-0 hover:bg-[#F8FAFC] dark:hover:bg-[#131928] transition-colors group"
                   >
-                    <td className="px-5 py-3 text-slate-800 dark:text-slate-200 font-medium">{lead.email}</td>
-                    <td className="px-5 py-3 text-slate-600 dark:text-slate-400 text-[13px]">{lead.resource_title ?? lead.resource_slug}</td>
-                    <td className="px-5 py-3"><DivisionBadge division={lead.division} /></td>
-                    <td className="px-5 py-3 text-slate-400 dark:text-slate-600 text-[12px]">{formatDateTime(lead.downloaded_at)}</td>
-                    <td className="px-2 py-3">
+                    <td className="px-5 py-3.5 text-[13px] font-semibold text-[#0E1525] dark:text-[#ECF0F9]">{lead.email}</td>
+                    <td className="px-5 py-3.5 text-[12px] text-[#536070] dark:text-[#8B9CB8]">{lead.resource_title ?? lead.resource_slug}</td>
+                    <td className="px-5 py-3.5 hidden sm:table-cell"><DivisionBadge division={lead.division} /></td>
+                    <td className="px-5 py-3.5 hidden lg:table-cell">
+                      <span className="text-[12px] text-[#99AABF] dark:text-[#4A5670] font-mono">{formatDateTime(lead.downloaded_at)}</span>
+                    </td>
+                    <td className="px-2 py-3.5">
                       <button
                         onClick={() => setToDelete(lead)}
                         title="Delete lead"
-                        className="w-7 h-7 rounded-lg flex items-center justify-center text-slate-300 dark:text-slate-700 opacity-0 group-hover:opacity-100 hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 transition-all"
+                        className="w-7 h-7 rounded-lg flex items-center justify-center text-[#DDE2EE] dark:text-[#1D2235] opacity-0 group-hover:opacity-100 hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 transition-all"
                       >
                         <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -464,7 +474,13 @@ export default function LeadsDashboardPage() {
         )}
       </div>
 
-      {/* ── Delete confirmation modal ── */}
+      {!loading && filtered.length > 0 && (
+        <p className="text-[11px] text-[#99AABF] dark:text-[#4A5670] text-center">
+          Showing {filtered.length} of {leads.length} lead{leads.length !== 1 ? 's' : ''}
+        </p>
+      )}
+
+      {/* Delete confirmation modal */}
       {toDelete && (
         <DeleteConfirmModal
           lead={toDelete}
@@ -473,7 +489,6 @@ export default function LeadsDashboardPage() {
           deleting={deleting}
         />
       )}
-
     </div>
   )
 }
