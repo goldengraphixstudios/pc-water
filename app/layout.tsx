@@ -10,6 +10,15 @@ export const metadata: Metadata = {
     default: 'PC Water Infrastructure - Engineered Water Solutions',
     template: '%s | PC Water Infrastructure',
   },
+  icons: {
+    icon: [
+      { url: '/logo-pacific-water-group.png', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/logo-pacific-water-group.png', type: 'image/png' },
+    ],
+    shortcut: '/logo-pacific-water-group.png',
+  },
   description:
     'PC Water Infrastructure delivers engineered water storage solutions across Australia. Custom design, installation, RPVC liners, fire water tanks, and remote project delivery.',
   keywords: [
