@@ -1,0 +1,106 @@
+1:"$Sreact.fragment"
+2:I[42364,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js"],"default"]
+3:I[39756,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js"],"default"]
+4:I[37457,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js"],"default"]
+5:I[94290,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js"],"default"]
+a:I[68027,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js"],"default",1]
+:HL["/pc-water/_next/static/chunks/0y17jpsqdzpem.css","style"]
+0:{"P":null,"c":["","resources","why-your-fire-tank-might-fail-compliance-and-how-to-fix-it-fast",""],"q":"","i":false,"f":[[["",{"children":["resources",{"children":[["slug","why-your-fire-tank-might-fail-compliance-and-how-to-fix-it-fast","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/pc-water/_next/static/chunks/0y17jpsqdzpem.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/pc-water/_next/static/chunks/039wpwc~3w72l.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/pc-water/_next/static/chunks/02b9ee.gvwtps.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/pc-water/_next/static/chunks/0mpz.9_kneaab.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","async":true,"nonce":"$undefined"}],["$","script","script-4",{"src":"/pc-water/_next/static/chunks/0.~xo5rx03lsy.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en-AU","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"try{var t=localStorage.getItem('cms-theme');if(t==='dark'||(t===null&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"PC Water Infrastructure\",\"url\":\"https://www.pctanks.com.au\",\"logo\":\"https://goldengraphixstudios.github.io/pc-water/logo-pacific-water-group.png\",\"description\":\"PC Water Infrastructure delivers engineered water storage solutions across Australia. Founded 2013.\",\"foundingDate\":\"2013\",\"telephone\":\"1300029804\",\"email\":\"contact@pcwater.com.au\",\"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"Mudgeeraba\",\"addressRegion\":\"QLD\",\"postalCode\":\"4213\",\"addressCountry\":\"AU\"},\"contactPoint\":{\"@type\":\"ContactPoint\",\"telephone\":\"1300-029-804\",\"contactType\":\"customer service\",\"availableLanguage\":\"English\",\"hoursAvailable\":{\"@type\":\"OpeningHoursSpecification\",\"dayOfWeek\":[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\",\"Sunday\"],\"opens\":\"08:30\",\"closes\":\"17:00\"}},\"sameAs\":[\"https://www.facebook.com/pacificwatertanks\",\"https://www.instagram.com/pacificwatertanks\",\"https://www.linkedin.com/company/pacificwatertanks\"]}"}}]]}],["$","body",null,{"className":"min-h-screen flex flex-col","children":[["$","$L2",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L5",null,{}]]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["$L6",{"children":["$L7",{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],"$L9",false]],"m":"$undefined","G":["$a",["$Lb"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"z8SLon3tAWj_T3755e1ve"}
+d:I[97367,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+11:I[97367,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js"],"ViewportBoundary"]
+13:I[97367,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js"],"MetadataBoundary"]
+6:["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+7:["$","$1","c",{"children":["$Lc",[["$","script","script-0",{"src":"/pc-water/_next/static/chunks/10904lj5fvb-f.js","async":true,"nonce":"$undefined"}]],["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}]
+10:[]
+8:"$W10"
+9:["$","$1","h",{"children":[null,["$","$L11",null,{"children":"$L12"}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$e",null,{"name":"Next.Metadata","children":"$L14"}]}]}],null]}]
+b:["$","link","0",{"rel":"stylesheet","href":"/pc-water/_next/static/chunks/0y17jpsqdzpem.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+15:I[85437,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js","/pc-water/_next/static/chunks/10904lj5fvb-f.js"],"Image"]
+16:I[22016,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js","/pc-water/_next/static/chunks/10904lj5fvb-f.js"],""]
+19:I[27201,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js"],"IconMark"]
+17:T1beb,<p class="article-lead">
+  When it comes to fire safety, cutting corners is not an option. Yet across Australia, countless facilities are running fire protection systems that don't meet compliance standards — often without realising it.
+</p>
+
+<p>Two standards govern fire water storage tanks in Australia. <strong>AS 2304</strong> covers the design, fabrication, and installation of water storage tanks specifically for fire protection — including capacity, materials, fittings, and access. <strong>AS 1851</strong> governs the routine service of fixed fire protection systems, mandating inspection intervals, testing requirements, and documented maintenance records. Together, these two standards define what a compliant fire tank looks like at installation, and what keeping it compliant requires throughout its operational life.</p>
+
+<figure>
+  <img src="https://mhggidgfivmdgkjerejn.supabase.co/storage/v1/object/public/cms-media/posts/fire-tank-hero.png" alt="Fire water storage tank exterior at industrial facility"/>
+  <figcaption><strong>Fire water storage tank.</strong> External condition, access provisions, and fitting integrity are all assessed against AS 2304 requirements during a compliance inspection.</figcaption>
+</figure>
+
+<div class="article-divider"><span>Why fire tanks fail compliance</span></div>
+
+<p>Fire tanks fail compliance for a consistent set of reasons. Tank capacity is insufficient for the calculated demand — particularly common where hazard classifications have changed since original installation. Fittings, pipework, and valves are degraded, corroded, or incompatible with current standards. Internal coatings and liners have deteriorated beyond the acceptable condition threshold for AS 2304 materials. Inspection and service records are incomplete, missing mandatory test results, or have lapsed beyond the required intervals under AS 1851.</p>
+
+<div class="article-photo-grid">
+  <figure>
+    <img src="https://mhggidgfivmdgkjerejn.supabase.co/storage/v1/object/public/cms-media/posts/fire-tank-internal-inspection.png" alt="Internal inspection of fire water storage tank showing coating condition"/>
+    <figcaption>Internal inspection — coating condition and sediment accumulation are key compliance indicators</figcaption>
+  </figure>
+  <figure>
+    <img src="https://mhggidgfivmdgkjerejn.supabase.co/storage/v1/object/public/cms-media/posts/fire-tank-access-hatch.png" alt="Fire tank access hatch showing seal condition"/>
+    <figcaption>Access hatch integrity — a common failure point under AS 2304 inspection criteria</figcaption>
+  </figure>
+</div>
+
+<p>Physical failure modes include corrosion of inlet and outlet pipework, blocked strainers, seized valves, and damaged access hatches that compromise the integrity of stored water. In tanks that have been out of routine service for several cycles, sediment accumulation and biofilm growth add contamination risk to the structural concerns.</p>
+
+<div class="article-pull-stat">
+  <span class="stat-num">3–5×</span>
+  <span class="stat-label">Cost multiplier between timely maintenance and emergency remediation or full replacement</span>
+</div>
+
+<blockquote class="article-quotable">
+  <p>The cost of non-compliance extends beyond regulatory penalties. Insurance claims may be denied where fire protection systems are found non-compliant at the time of a loss event. Principal contractor liability under building and fire codes can attach where compliance documentation is absent.</p>
+</blockquote>
+
+<div class="article-divider"><span>The path back to compliance</span></div>
+
+<p>The fastest path back to compliance starts with an independent inspection and a documented deficiency register. Once the gaps are identified, the decision becomes commercial rather than speculative: repair, reline, upgrade, or replace. For tanks where the structure remains sound, internal relining under AS 2304-compliant materials is consistently the most cost-effective remediation pathway.</p>
+
+<div class="article-photo-grid">
+  <figure>
+    <img src="https://mhggidgfivmdgkjerejn.supabase.co/storage/v1/object/public/cms-media/posts/fire-tank-corroded-internal.png" alt="Corroded fire tank internal — common failure mode requiring remediation"/>
+    <figcaption>Internal corrosion — a structural and water quality concern requiring documented remediation</figcaption>
+  </figure>
+  <figure>
+    <img src="https://mhggidgfivmdgkjerejn.supabase.co/storage/v1/object/public/cms-media/posts/fire-tank-rpvc-liner.png" alt="RPVC liner installation inside a fire water storage tank"/>
+    <figcaption>RPVC liner installation restores compliance and eliminates ongoing corrosion</figcaption>
+  </figure>
+</div>
+
+<p>Prevention is simpler than remediation. A compliant maintenance program under AS 1851 — with documented inspection records, test results, and deficiency tracking — keeps fire tanks in the window where issues are addressable at routine maintenance cost, not emergency remediation cost.</p>
+
+<div class="article-divider"><span>Frequently asked questions</span></div>
+
+<div class="article-faq-item">
+  <p class="faq-q">What is AS 2304 and who does it apply to?</p>
+  <p class="faq-a">AS 2304 is the Australian Standard governing the design, construction, and installation of water tanks used for fire protection systems. It applies to any facility with a dedicated fire water tank — including commercial, industrial, mining, healthcare, and government sites.</p>
+</div>
+
+<div class="article-faq-item">
+  <p class="faq-q">How often does a fire tank need to be inspected under AS 1851?</p>
+  <p class="faq-a">AS 1851 requires monthly visual checks, annual internal inspections, and five-year structural integrity assessments. Independent specialist inspections should occur every 1–4 years depending on the tank's condition, operating environment, and risk profile. All inspections must be formally documented and records retained.</p>
+</div>
+
+<div class="article-faq-item">
+  <p class="faq-q">Can an existing non-compliant fire tank be upgraded, or does it need to be replaced?</p>
+  <p class="faq-a">Many non-compliant tanks can be brought up to standard through targeted retrofits — adding compliant access hatches, installing an RPVC liner, replacing corroded fittings, and upgrading outlet configurations. Full replacement is usually a last resort.</p>
+</div>
+
+<div class="article-faq-item">
+  <p class="faq-q">What documentation is required to prove fire tank compliance?</p>
+  <p class="faq-a">You need documented records of every inspection, test, and maintenance activity as required by AS 1851. This includes monthly visual check logs, annual internal inspection reports, five-year structural assessment reports, and records of any modifications or remedial works.</p>
+</div>
+
+<div class="article-cta">
+  <p>PC Water Infrastructure provides inspection, condition assessment, and remediation for fire water storage tanks across Australia — including RPVC relining, pipework replacement, valve servicing, and full compliance documentation.</p>
+  <a href="/contact" class="cta-btn">Arrange a compliance inspection</a>
+</div>c:[["$","section",null,{"className":"relative pt-40 pb-24 overflow-hidden min-h-[480px] flex items-end","children":[["$","$L15",null,{"src":"https://mhggidgfivmdgkjerejn.supabase.co/storage/v1/object/public/cms-media/posts/fire-tank-hero.jpg","alt":"Why Your Fire Tank Might Fail Compliance — And How To Fix It Fast","fill":true,"priority":true,"className":"object-cover object-center","sizes":"100vw"}],["$","div",null,{"className":"absolute inset-0 bg-[#0d1b2a]/70"}],["$","div",null,{"className":"relative z-10 max-w-4xl mx-auto px-4 w-full","children":[["$","$L16",null,{"href":"/resources","className":"inline-flex items-center gap-2 text-[#7fc2f0] text-sm mb-6 hover:gap-3 transition-all","children":[["$","svg",null,{"className":"w-4 h-4 rotate-180","fill":"none","stroke":"currentColor","viewBox":"0 0 24 24","children":["$","path",null,{"strokeLinecap":"round","strokeLinejoin":"round","strokeWidth":2,"d":"M9 5l7 7-7 7"}]}],"Back to Resources"]}],["$","div",null,{"className":"flex flex-wrap gap-3 mb-6","children":[["$","span","fire-compliance",{"className":"bg-[#3e91ce] text-white text-xs font-semibold px-3 py-1 rounded-full","children":"Fire Compliance"}]]}],["$","h1",null,{"className":"text-4xl md:text-5xl font-black text-white mb-4 leading-tight","children":"Why Your Fire Tank Might Fail Compliance — And How To Fix It Fast"}],["$","div",null,{"className":"flex items-center gap-4 text-gray-400 text-sm","children":[["$","span",null,{"className":"bg-white/10 px-3 py-1 rounded-full text-white/70","children":"6 min read"}],["$","span",null,{"children":"03 Apr 2026"}]]}]]}]]}],["$","section",null,{"className":"bg-white py-20","children":["$","div",null,{"className":"max-w-3xl mx-auto px-4","children":[["$","p",null,{"className":"text-xl text-gray-600 leading-relaxed mb-10 border-l-4 border-[#3e91ce] pl-6 italic","children":"Many Australian fire tanks fail AS 2304 and AS 1851 compliance without owners realising. Understand the common causes, real costs, and how to get back to compliance fast."}],["$","article",null,{"className":"article-content prose max-w-none","dangerouslySetInnerHTML":{"__html":"$17"}}]]}]}],"$L18"]
+f:null
+14:[["$","title","0",{"children":"Why Your Fire Tank Might Fail Compliance — And How To Fix It Fast | PC Water Infrastructure"}],["$","meta","1",{"name":"description","content":"Many Australian fire tanks fail AS 2304 and AS 1851 compliance without owners realising. Understand the common causes and how to fix issues fast."}],["$","meta","2",{"name":"keywords","content":"water tanks,water storage,fire water tanks,RPVC liners,tank inspection,remote project delivery,Australia,AS2304,AS4020"}],["$","meta","3",{"property":"og:title","content":"Why Your Fire Tank Might Fail Compliance — And How To Fix It Fast | PC Water Infrastructure"}],["$","meta","4",{"property":"og:description","content":"Many Australian fire tanks fail AS 2304 and AS 1851 compliance without owners realising. Understand the common causes and how to fix issues fast."}],["$","meta","5",{"property":"og:site_name","content":"PC Water Infrastructure"}],["$","meta","6",{"property":"og:locale","content":"en_AU"}],["$","meta","7",{"property":"og:type","content":"website"}],["$","meta","8",{"name":"twitter:card","content":"summary"}],["$","meta","9",{"name":"twitter:title","content":"Why Your Fire Tank Might Fail Compliance — And How To Fix It Fast | PC Water Infrastructure"}],["$","meta","10",{"name":"twitter:description","content":"Many Australian fire tanks fail AS 2304 and AS 1851 compliance without owners realising. Understand the common causes and how to fix issues fast."}],["$","link","11",{"rel":"icon","href":"/pc-water/favicon.ico?favicon.0x3dzn~oxb6tn.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L19","12",{}]]
+1a:I[99347,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js","/pc-water/_next/static/chunks/10904lj5fvb-f.js"],"default"]
+18:["$","$L1a",null,{"heading":"NEED HELP WITH A SIMILAR ISSUE?","subheading":"Speak to the PC Water team about your site, storage asset, or compliance challenge.","primaryCTA":{"label":"Discuss a Project","href":"/contact"},"secondaryCTA":{"label":"View Projects","href":"/projects"},"variant":"navy"}]

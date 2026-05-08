@@ -1,0 +1,93 @@
+1:"$Sreact.fragment"
+2:I[85437,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js","/pc-water/_next/static/chunks/10904lj5fvb-f.js"],"Image"]
+3:I[22016,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js","/pc-water/_next/static/chunks/10904lj5fvb-f.js"],""]
+8:I[99347,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js","/pc-water/_next/static/chunks/10904lj5fvb-f.js"],"default"]
+9:I[97367,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T1f4e,<p class="article-lead">
+  When most people think about water tanks, they picture something simple. But in mining zones, remote communities, and harsh climates across Australia and the Pacific, water storage is one of the most technically demanding infrastructure challenges a project can face.
+</p>
+
+<p>The environment exposes every weak specification decision quickly — and the cost of failure is measured not just in dollars, but in operational shutdowns and community water security.</p>
+
+<figure>
+  <img src="https://mhggidgfivmdgkjerejn.supabase.co/storage/v1/object/public/cms-media/posts/harsh-env-hero.jpg" alt="Remote water storage tank in harsh Australian environment"/>
+  <figcaption><strong>Remote water storage infrastructure.</strong> In remote locations, there is no local trade supplier, no quick callout, and no redundancy if the primary storage fails.</figcaption>
+</figure>
+
+<div class="article-divider"><span>What harsh environments reveal</span></div>
+
+<p>Harsh environments expose weaknesses that controlled conditions would never reveal. UV degradation on polyethylene tanks in Australian climates significantly reduces service life compared to manufacturer expectations derived from temperate environment testing. High-dust conditions in mining zones cause turbine ventilation units to seize, leaving tanks fully open to vermin and contamination. Temperature cycling in remote outback environments — where ambient temperatures swing 40 degrees between day and night — stresses liner seams, joint sealants, and base fittings at rates that standard design cycles do not account for.</p>
+
+<div class="article-photo-grid">
+  <figure>
+    <img src="https://mhggidgfivmdgkjerejn.supabase.co/storage/v1/object/public/cms-media/posts/harsh-env-corrosion.png" alt="Internal corrosion in a water storage tank exposed to harsh conditions"/>
+    <figcaption>Internal corrosion accelerated by coastal chloride exposure and aggressive water chemistry</figcaption>
+  </figure>
+  <figure>
+    <img src="https://mhggidgfivmdgkjerejn.supabase.co/storage/v1/object/public/cms-media/posts/harsh-env-drone.png" alt="Drone conducting external inspection of remote water storage tank"/>
+    <figcaption>Drone inspection of external tank condition — reducing access risk in remote locations</figcaption>
+  </figure>
+</div>
+
+<p>Coastal and island environments introduce salt-laden air and elevated chloride exposure. In these conditions, standard galvanised components corrode within seasons. Dissimilar metal connections corrode at accelerated rates. Roof fixings and access ladder brackets that would last decades in a temperate environment become replacement items within years. Material specification in these environments must account for the actual exposure profile, not the generic Australian standard.</p>
+
+<div class="article-pull-stat">
+  <span class="stat-num">40°C</span>
+  <span class="stat-label">Day-to-night temperature swing in remote outback environments — stressing liner seams and fittings beyond standard design assumptions</span>
+</div>
+
+<div class="article-divider"><span>Inspection without full dewatering</span></div>
+
+<p>Inspection in remote environments presents its own challenge. Full dewatering is not always operationally viable — the tank cannot be taken out of service for the duration required by a conventional inspection approach. PC Water Infrastructure deploys ROV and UAV inspection technology capable of assessing tank internal and external condition without dewatering, providing the same condition data that a drained inspection would deliver, without the operational disruption.</p>
+
+<div class="article-photo-grid">
+  <figure>
+    <img src="https://mhggidgfivmdgkjerejn.supabase.co/storage/v1/object/public/cms-media/posts/harsh-env-rov.png" alt="ROV conducting underwater internal inspection of water storage tank"/>
+    <figcaption>ROV internal inspection — wall thickness readings and coating condition mapping without dewatering</figcaption>
+  </figure>
+  <figure>
+    <img src="https://mhggidgfivmdgkjerejn.supabase.co/storage/v1/object/public/cms-media/posts/harsh-env-modular.png" alt="Aerial view of modular water storage installation at remote site"/>
+    <figcaption>Remote site installation — logistics planning and community-aware delivery scheduling are critical to project success</figcaption>
+  </figure>
+</div>
+
+<blockquote class="article-quotable">
+  <p>The Northern Peninsula Area Regional Council reservoir relining program — six town water reservoirs across a remote Far North Queensland region — demonstrates how a structured, multi-asset mobilisation approach delivers better outcomes than individual reactive responses. Assessing all six assets under a single inspection program, then executing relining under a single mobilised trade team, achieved cost efficiencies and quality consistency that individual site responses could not have matched.</p>
+</blockquote>
+
+<div class="article-divider"><span>Design principles for harsh conditions</span></div>
+
+<p>The design principles that separate tanks that perform in harsh conditions from those that fail early are consistent:</p>
+<ul>
+  <li>Material selection matched to the actual exposure profile</li>
+  <li>Coating and liner systems rated for the temperature range and water chemistry of the specific site</li>
+  <li>Structural design accounting for the access and maintenance constraints of the location</li>
+  <li>Commissioning that includes a documented baseline condition assessment — so the first inspection has a reference point to compare against</li>
+</ul>
+
+<p>For new installations in remote or harsh environments, the procurement decision is as important as the engineering. A tank specified correctly for the environment and installed with the right materials and quality controls will cost more at procurement than a standard specification. The difference is recovered many times over in extended service life, reduced maintenance frequency, and avoided emergency remediation costs — especially in remote locations where every mobilisation carries a significant logistics cost.</p>
+
+<div class="article-faq-item">
+  <p class="faq-q">What makes coastal and island environments particularly challenging for water tanks?</p>
+  <p class="faq-a">Salt-laden air and elevated chloride exposure accelerate corrosion of standard galvanised components, dissimilar metal connections, and roof fixings at rates that would not occur in temperate environments. Material specification must account for the actual exposure profile — stainless steel or HDPE alternatives are often required where galvanised components would be standard elsewhere.</p>
+</div>
+
+<div class="article-faq-item">
+  <p class="faq-q">Can a tank be inspected without taking it offline in a remote location?</p>
+  <p class="faq-a">Yes. PC Water Infrastructure deploys ROV (remotely operated vehicle) and UAV drone inspection technology capable of assessing tank internal and external condition without dewatering. This provides wall thickness readings, coating condition mapping, and penetration seal assessment without the operational disruption of full dewatering.</p>
+</div>
+
+<div class="article-faq-item">
+  <p class="faq-q">What tank materials perform best in high-UV Australian outback environments?</p>
+  <p class="faq-a">Steel tanks with RPVC liners or high-performance epoxy coatings outperform polyethylene in sustained high-UV environments, where UV degradation significantly reduces polyethylene service life below manufacturer expectations. Stainless steel and fibreglass tanks eliminate most corrosion risk at source and perform well in high-UV, high-temperature environments.</p>
+</div>
+
+<div class="article-cta">
+  <p>PC Water Infrastructure has delivered water storage infrastructure in remote Far North Queensland, island communities, mining operations, and harsh outback environments across Australia.</p>
+  <a href="/contact" class="cta-btn">Discuss your remote project</a>
+</div>0:{"rsc":["$","$1","c",{"children":[[["$","section",null,{"className":"relative pt-40 pb-24 overflow-hidden min-h-[480px] flex items-end","children":[["$","$L2",null,{"src":"https://mhggidgfivmdgkjerejn.supabase.co/storage/v1/object/public/cms-media/posts/harsh-env-hero.jpg","alt":"Water Storage In Harsh Environments: What You Need To Know","fill":true,"priority":true,"className":"object-cover object-center","sizes":"100vw"}],["$","div",null,{"className":"absolute inset-0 bg-[#0d1b2a]/70"}],["$","div",null,{"className":"relative z-10 max-w-4xl mx-auto px-4 w-full","children":[["$","$L3",null,{"href":"/resources","className":"inline-flex items-center gap-2 text-[#7fc2f0] text-sm mb-6 hover:gap-3 transition-all","children":[["$","svg",null,{"className":"w-4 h-4 rotate-180","fill":"none","stroke":"currentColor","viewBox":"0 0 24 24","children":["$","path",null,{"strokeLinecap":"round","strokeLinejoin":"round","strokeWidth":2,"d":"M9 5l7 7-7 7"}]}],"Back to Resources"]}],["$","div",null,{"className":"flex flex-wrap gap-3 mb-6","children":[["$","span","remote-projects",{"className":"bg-[#3e91ce] text-white text-xs font-semibold px-3 py-1 rounded-full","children":"Remote Projects"}]]}],["$","h1",null,{"className":"text-4xl md:text-5xl font-black text-white mb-4 leading-tight","children":"Water Storage In Harsh Environments: What You Need To Know"}],["$","div",null,{"className":"flex items-center gap-4 text-gray-400 text-sm","children":[["$","span",null,{"className":"bg-white/10 px-3 py-1 rounded-full text-white/70","children":"6 min read"}],["$","span",null,{"children":"11 Apr 2026"}]]}]]}]]}],["$","section",null,{"className":"bg-white py-20","children":["$","div",null,{"className":"max-w-3xl mx-auto px-4","children":[["$","p",null,{"className":"text-xl text-gray-600 leading-relaxed mb-10 border-l-4 border-[#3e91ce] pl-6 italic","children":"Mining zones, island communities, remote outback. Water storage in harsh Australian environments demands more than standard design. Here is what actually works in the field."}],["$","article",null,{"className":"article-content prose max-w-none","dangerouslySetInnerHTML":{"__html":"$4"}}]]}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"z8SLon3tAWj_T3755e1ve"}
+5:["$","$L8",null,{"heading":"NEED HELP WITH A SIMILAR ISSUE?","subheading":"Speak to the PC Water team about your site, storage asset, or compliance challenge.","primaryCTA":{"label":"Discuss a Project","href":"/contact"},"secondaryCTA":{"label":"View Projects","href":"/projects"},"variant":"navy"}]
+6:["$","script","script-0",{"src":"/pc-water/_next/static/chunks/10904lj5fvb-f.js","async":true}]
+7:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

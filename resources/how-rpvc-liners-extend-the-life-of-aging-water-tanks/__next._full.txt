@@ -1,0 +1,108 @@
+1:"$Sreact.fragment"
+2:I[42364,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js"],"default"]
+3:I[39756,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js"],"default"]
+4:I[37457,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js"],"default"]
+5:I[94290,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js"],"default"]
+a:I[68027,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js"],"default",1]
+:HL["/pc-water/_next/static/chunks/0y17jpsqdzpem.css","style"]
+0:{"P":null,"c":["","resources","how-rpvc-liners-extend-the-life-of-aging-water-tanks",""],"q":"","i":false,"f":[[["",{"children":["resources",{"children":[["slug","how-rpvc-liners-extend-the-life-of-aging-water-tanks","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/pc-water/_next/static/chunks/0y17jpsqdzpem.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/pc-water/_next/static/chunks/039wpwc~3w72l.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/pc-water/_next/static/chunks/02b9ee.gvwtps.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/pc-water/_next/static/chunks/0mpz.9_kneaab.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","async":true,"nonce":"$undefined"}],["$","script","script-4",{"src":"/pc-water/_next/static/chunks/0.~xo5rx03lsy.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en-AU","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"try{var t=localStorage.getItem('cms-theme');if(t==='dark'||(t===null&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"PC Water Infrastructure\",\"url\":\"https://www.pctanks.com.au\",\"logo\":\"https://goldengraphixstudios.github.io/pc-water/logo-pacific-water-group.png\",\"description\":\"PC Water Infrastructure delivers engineered water storage solutions across Australia. Founded 2013.\",\"foundingDate\":\"2013\",\"telephone\":\"1300029804\",\"email\":\"contact@pcwater.com.au\",\"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"Mudgeeraba\",\"addressRegion\":\"QLD\",\"postalCode\":\"4213\",\"addressCountry\":\"AU\"},\"contactPoint\":{\"@type\":\"ContactPoint\",\"telephone\":\"1300-029-804\",\"contactType\":\"customer service\",\"availableLanguage\":\"English\",\"hoursAvailable\":{\"@type\":\"OpeningHoursSpecification\",\"dayOfWeek\":[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\",\"Sunday\"],\"opens\":\"08:30\",\"closes\":\"17:00\"}},\"sameAs\":[\"https://www.facebook.com/pacificwatertanks\",\"https://www.instagram.com/pacificwatertanks\",\"https://www.linkedin.com/company/pacificwatertanks\"]}"}}]]}],["$","body",null,{"className":"min-h-screen flex flex-col","children":[["$","$L2",null,{"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","$L5",null,{}]]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["$L6",{"children":["$L7",{},null,false,null]},null,false,"$@8"]},null,false,"$@8"]},null,false,null],"$L9",false]],"m":"$undefined","G":["$a",["$Lb"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"z8SLon3tAWj_T3755e1ve"}
+d:I[97367,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+11:I[97367,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js"],"ViewportBoundary"]
+13:I[97367,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js"],"MetadataBoundary"]
+6:["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+7:["$","$1","c",{"children":["$Lc",[["$","script","script-0",{"src":"/pc-water/_next/static/chunks/10904lj5fvb-f.js","async":true,"nonce":"$undefined"}]],["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}]
+10:[]
+8:"$W10"
+9:["$","$1","h",{"children":[null,["$","$L11",null,{"children":"$L12"}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$e",null,{"name":"Next.Metadata","children":"$L14"}]}]}],null]}]
+b:["$","link","0",{"rel":"stylesheet","href":"/pc-water/_next/static/chunks/0y17jpsqdzpem.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+15:I[85437,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js","/pc-water/_next/static/chunks/10904lj5fvb-f.js"],"Image"]
+16:I[22016,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js","/pc-water/_next/static/chunks/10904lj5fvb-f.js"],""]
+19:I[27201,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js"],"IconMark"]
+17:T1cce,<p class="article-lead">
+  Aging water storage tanks are reaching the end of their service life across Australia. RPVC liners offer a proven third path — extending service life by 10 to 20 years at a fraction of replacement cost, while restoring compliance with AS2304, AS1851, and AS4020 requirements.
+</p>
+
+<p>For asset owners managing concrete and steel tanks approaching the end of viable internal coating cycles, RPVC lining is the decision worth understanding in detail.</p>
+
+<figure>
+  <img src="https://mhggidgfivmdgkjerejn.supabase.co/storage/v1/object/public/cms-media/posts/rpvc-hero.jpg" alt="Interior of aging reservoir during RPVC liner installation"/>
+  <figcaption><strong>RPVC liner installation in progress.</strong> The liner creates a complete physical barrier between stored water and the tank substrate, eliminating direct contact and halting internal corrosion.</figcaption>
+</figure>
+
+<div class="article-divider"><span>The case for RPVC lining</span></div>
+
+<p>Mining operations, remote communities, and municipal utilities all face the same pattern: internal corrosion progressing unchecked, AS1851 inspection cycles revealing escalating deficiency counts, and a growing gap between the tank's current condition and what compliance requires. The choice appears to be full replacement at high cost, or ongoing reactive repair that never addresses the root cause. RPVC lining is a third option that asset owners frequently underutilise.</p>
+
+<p>An RPVC liner is a rigid polyvinyl chloride membrane installed inside an existing tank, bonded to the internal wall surface and sealed at all penetrations. It creates a complete physical barrier between the stored water and the tank substrate — ending direct contact between water and the corroding surface. Unlike internal coatings, which require blast-clean, application, and reapplication cycles, a correctly installed RPVC liner is a one-time installation with a design life that typically exceeds 20 years.</p>
+
+<div class="article-pull-stat">
+  <span class="stat-num">30–50%</span>
+  <span class="stat-label">Cost of RPVC relining compared to full tank replacement, with significantly lower operational disruption</span>
+</div>
+
+<div class="article-divider"><span>Why RPVC stops the core problem</span></div>
+
+<p>Corrosion is not just a structural problem — it is a water quality problem. Internal corrosion in steel tanks introduces iron, zinc, and other metal compounds into stored water. In potable water tanks governed by AS4020, these contamination pathways create direct compliance failures. In fire water tanks under AS2304, corrosion reduces the structural integrity of the vessel and the reliability of the system under demand. RPVC lining eliminates both pathways simultaneously.</p>
+
+<p>The case for RPVC liners rests on four factors:</p>
+<ul>
+  <li><strong>Cost:</strong> relining consistently costs 30–50% of full tank replacement, with significantly lower disruption to site operations</li>
+  <li><strong>Compliance:</strong> RPVC materials used in potable water applications are AS4020 certified, restoring the tank's compliance status without a new asset</li>
+  <li><strong>Service life:</strong> design life of 20+ years from installation, with no recoating cycles</li>
+  <li><strong>Speed:</strong> a typically sized water tank can be lined within 2–5 days of dewatering and internal preparation, versus weeks for replacement</li>
+</ul>
+
+<figure>
+  <img src="https://mhggidgfivmdgkjerejn.supabase.co/storage/v1/object/public/cms-media/posts/rpvc-completed-liner.png" alt="Completed RPVC liner installation inside a large concrete reservoir"/>
+  <figcaption><strong>Completed RPVC liner installation.</strong> A correctly executed installation leaves no unsupported liner sections, no voids behind the membrane, and no unsealed penetration points.</figcaption>
+</figure>
+
+<blockquote class="article-quotable">
+  <p>PC Water Infrastructure completed RPVC liner installations for six town reservoirs for the Northern Peninsula Area Regional Council in Far North Queensland — a remote, high-humidity environment with aggressive water chemistry. The alternative — replacement — would have required significantly longer lead times and substantially higher capital expenditure.</p>
+</blockquote>
+
+<div class="article-divider"><span>When RPVC makes the most difference</span></div>
+
+<p>RPVC liners make the most difference in three scenarios:</p>
+<ul>
+  <li>Steel tanks where the structural shell remains sound but internal coatings have failed beyond economic reapplication</li>
+  <li>Concrete tanks where joint sealant failures and surface carbonation have created contamination pathways</li>
+  <li>Older bolted steel panel tanks where individual panel replacements are no longer cost-effective but the bolt pattern structure remains intact</li>
+</ul>
+
+<p>In each case, the liner works with the existing structure rather than replacing it.</p>
+
+<div class="article-divider"><span>The installation process</span></div>
+
+<p>The installation process follows a consistent sequence: dewatering and confined space preparation to AS2865; surface blast-cleaning to Sa2.5 standard; primer application to the prepared substrate; RPVC sheet installation and bonding; sealing of all penetrations including inlet, outlet, overflow, and scour connections; final inspection and pressure testing.</p>
+
+<div class="article-faq-item">
+  <p class="faq-q">How long does an RPVC liner last?</p>
+  <p class="faq-a">A correctly installed RPVC liner has a design life that typically exceeds 20 years. Unlike epoxy internal coatings — which require reapplication cycles every 10–15 years — an RPVC liner is a one-time installation that eliminates ongoing recoating costs.</p>
+</div>
+
+<div class="article-faq-item">
+  <p class="faq-q">Does RPVC lining meet AS4020 for potable water?</p>
+  <p class="faq-a">Yes. RPVC materials used in potable water applications are AS4020 certified, restoring the tank's compliance status for drinking water storage without requiring a new asset. This makes RPVC the preferred solution for aging potable water tanks approaching end of coating life.</p>
+</div>
+
+<div class="article-faq-item">
+  <p class="faq-q">What condition does a tank need to be in for RPVC relining?</p>
+  <p class="faq-a">The structural shell must remain sound enough to support a liner installation. An independent condition inspection determines whether the shell is suitable, identifies the penetration configuration, and provides the deficiency register that informs the relining scope. Tanks with significant structural pitting may require targeted steel repair before lining.</p>
+</div>
+
+<div class="article-faq-item">
+  <p class="faq-q">How does RPVC relining compare to full tank replacement?</p>
+  <p class="faq-a">Relining consistently costs 30–50% of full tank replacement, with significantly lower operational disruption. A typically sized water tank can be lined within 2–5 days of dewatering and internal preparation, versus weeks for replacement and the associated civil and connection works.</p>
+</div>
+
+<div class="article-cta">
+  <p>For an accurate assessment of whether your tank is a candidate for RPVC relining, the starting point is always an independent condition inspection.</p>
+  <a href="/contact" class="cta-btn">Request a relining assessment</a>
+</div>c:[["$","section",null,{"className":"relative pt-40 pb-24 overflow-hidden min-h-[480px] flex items-end","children":[["$","$L15",null,{"src":"https://mhggidgfivmdgkjerejn.supabase.co/storage/v1/object/public/cms-media/posts/rpvc-hero.jpg","alt":"How RPVC Liners Extend The Life Of Aging Water Tanks","fill":true,"priority":true,"className":"object-cover object-center","sizes":"100vw"}],["$","div",null,{"className":"absolute inset-0 bg-[#0d1b2a]/70"}],["$","div",null,{"className":"relative z-10 max-w-4xl mx-auto px-4 w-full","children":[["$","$L16",null,{"href":"/resources","className":"inline-flex items-center gap-2 text-[#7fc2f0] text-sm mb-6 hover:gap-3 transition-all","children":[["$","svg",null,{"className":"w-4 h-4 rotate-180","fill":"none","stroke":"currentColor","viewBox":"0 0 24 24","children":["$","path",null,{"strokeLinecap":"round","strokeLinejoin":"round","strokeWidth":2,"d":"M9 5l7 7-7 7"}]}],"Back to Resources"]}],["$","div",null,{"className":"flex flex-wrap gap-3 mb-6","children":[["$","span","rpvc-liners",{"className":"bg-[#3e91ce] text-white text-xs font-semibold px-3 py-1 rounded-full","children":"RPVC Liners"}]]}],["$","h1",null,{"className":"text-4xl md:text-5xl font-black text-white mb-4 leading-tight","children":"How RPVC Liners Extend The Life Of Aging Water Tanks"}],["$","div",null,{"className":"flex items-center gap-4 text-gray-400 text-sm","children":[["$","span",null,{"className":"bg-white/10 px-3 py-1 rounded-full text-white/70","children":"5 min read"}],["$","span",null,{"children":"09 Apr 2026"}]]}]]}]]}],["$","section",null,{"className":"bg-white py-20","children":["$","div",null,{"className":"max-w-3xl mx-auto px-4","children":[["$","p",null,{"className":"text-xl text-gray-600 leading-relaxed mb-10 border-l-4 border-[#3e91ce] pl-6 italic","children":"Aging water storage tanks do not always need replacing. RPVC liners extend tank service life by 10-20 years at a fraction of replacement cost while meeting AS2304 and AS1851 compliance requirements."}],["$","article",null,{"className":"article-content prose max-w-none","dangerouslySetInnerHTML":{"__html":"$17"}}]]}]}],"$L18"]
+f:null
+14:[["$","title","0",{"children":"How RPVC Liners Extend The Life Of Aging Water Tanks | PC Water Infrastructure"}],["$","meta","1",{"name":"description","content":"Aging water storage tanks do not always need replacing. RPVC liners extend tank service life by 10-20 years at a fraction of replacement cost."}],["$","meta","2",{"name":"keywords","content":"water tanks,water storage,fire water tanks,RPVC liners,tank inspection,remote project delivery,Australia,AS2304,AS4020"}],["$","meta","3",{"property":"og:title","content":"How RPVC Liners Extend The Life Of Aging Water Tanks | PC Water Infrastructure"}],["$","meta","4",{"property":"og:description","content":"Aging water storage tanks do not always need replacing. RPVC liners extend tank service life by 10-20 years at a fraction of replacement cost."}],["$","meta","5",{"property":"og:site_name","content":"PC Water Infrastructure"}],["$","meta","6",{"property":"og:locale","content":"en_AU"}],["$","meta","7",{"property":"og:type","content":"website"}],["$","meta","8",{"name":"twitter:card","content":"summary"}],["$","meta","9",{"name":"twitter:title","content":"How RPVC Liners Extend The Life Of Aging Water Tanks | PC Water Infrastructure"}],["$","meta","10",{"name":"twitter:description","content":"Aging water storage tanks do not always need replacing. RPVC liners extend tank service life by 10-20 years at a fraction of replacement cost."}],["$","link","11",{"rel":"icon","href":"/pc-water/favicon.ico?favicon.0x3dzn~oxb6tn.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L19","12",{}]]
+1a:I[99347,["/pc-water/_next/static/chunks/039wpwc~3w72l.js","/pc-water/_next/static/chunks/02b9ee.gvwtps.js","/pc-water/_next/static/chunks/0mpz.9_kneaab.js","/pc-water/_next/static/chunks/0s-yjt5nn0kmz.js","/pc-water/_next/static/chunks/0.~xo5rx03lsy.js","/pc-water/_next/static/chunks/10904lj5fvb-f.js"],"default"]
+18:["$","$L1a",null,{"heading":"NEED HELP WITH A SIMILAR ISSUE?","subheading":"Speak to the PC Water team about your site, storage asset, or compliance challenge.","primaryCTA":{"label":"Discuss a Project","href":"/contact"},"secondaryCTA":{"label":"View Projects","href":"/projects"},"variant":"navy"}]
