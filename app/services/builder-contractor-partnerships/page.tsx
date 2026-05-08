@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 }
 
 const faqs = [
-  { question: 'How do builder partnerships typically work?', answer: 'We typically work as a specialist subcontractor to builders and civil contractors, providing the water storage scope on projects where the head contractor does not have in-house tank capability. We provide our own JSA/SWMS, coordinate our own crew, and deliver our scope to agreed milestones within the head contractor\'s program.' },
+  { question: 'How do builder partnerships typically work?', answer: 'We typically work as a specialist subcontractor to builders and civil contractors, providing the water infrastructure scope on projects where the head contractor does not have in-house tank capability. We provide our own JSA/SWMS, coordinate our own crew, and deliver our scope to agreed milestones within the head contractor\'s program.' },
   { question: 'Can you work within an existing construction program?', answer: 'Yes. We are experienced at integrating our installation scope into existing construction programs, coordinating with head contractors on site access, sequencing, and inspection hold points.' },
   { question: 'Do you provide all compliance documentation for subcontract work?', answer: 'Yes. We provide full compliance documentation including SWMS, RPEQ engineering certificates, compliance testing results, and AS2304/AS4020 compliance records as required for each project.' },
   { question: 'What is your national reach as a subcontractor?', answer: 'We have completed subcontract projects across Queensland, New South Wales, Victoria, Tasmania, and Western Australia. Remote site capability extends our reach to locations most metropolitan contractors cannot reach.' },
@@ -47,12 +47,15 @@ export default function BuilderContractorPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ The Subcontract Model</p>
-              <h2 className="text-3xl font-black text-[#30505b] mb-6">Your Specialist Water Storage Partner</h2>
-              <p className="text-gray-600 leading-relaxed mb-6">
-            When your project requires specialist water storage capability — custom tank design, RPVC lining, fire water compliance, or remote installation — PC Water Infrastructure delivers as a reliable, professional subcontractor. We slot into your program, deliver our scope to your timeline, and provide all required compliance documentation.
+              <h2 className="text-3xl font-black text-[#30505b] mb-6">Your Specialist Water Storage & WTP Infrastructure Partner</h2>
+              <p className="text-gray-600 leading-relaxed mb-5">
+                When your project requires specialist water infrastructure capability — custom tank design, RPVC lining, fire water compliance, potable reservoir works, process tanks, or WTP upgrade support — PC Water Infrastructure delivers as a reliable subcontract partner.
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-5">
+                We integrate into your program, coordinate our scope with your site team, and deliver to the required timeline with the QA, safety, engineering, and compliance documentation expected on civil, municipal, industrial, and remote infrastructure projects.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Our contractor partnerships are built on reliability, clear communication, and technical competence. We understand that your reputation depends on your subcontractors performing — which is why we make accountability our standard.
+                Our partnerships are built on reliability, clear communication, and technical competence. Whether the scope is a water storage asset, a treatment plant tank package, or a remote refurbishment project, we understand that your reputation depends on your subcontractors performing — which is why we make accountability our standard.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
