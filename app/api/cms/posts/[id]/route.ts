@@ -3,6 +3,9 @@ import { NextResponse } from 'next/server'
 import { deletePost, updatePost } from '@/lib/cms/admin'
 import type { CmsPostInput } from '@/lib/cms/types'
 
+// Static export: no paths pre-rendered (server-only endpoint)
+export function generateStaticParams() { return [] }
+
 export async function PATCH(
   request: Request,
   { params }: { params: Promise<{ id: string }> },

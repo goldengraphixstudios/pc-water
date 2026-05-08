@@ -3,6 +3,8 @@ import './globals.css'
 import SiteChrome from '@/components/SiteChrome'
 import TawkChat from '@/components/TawkChat'
 
+const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
+
 export const metadata: Metadata = {
   title: {
     default: 'PC Water Infrastructure - Engineered Water Solutions',
@@ -32,13 +34,13 @@ const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'PC Water Infrastructure',
-  url: 'https://www.pctanks.com.au',
-  logo: 'https://goldengraphixstudios.github.io/pc-water/logo-pacific-water-group.png',
+  url: siteUrl,
+  logo: `${siteUrl}/logo-pacific-water-group.png`,
   description:
     'PC Water Infrastructure delivers engineered water storage solutions across Australia. Founded 2013.',
   foundingDate: '2013',
   telephone: '1300029804',
-  email: 'contact@pcwater.com.au',
+  email: 'info@pacificwatergroup.com.au',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Mudgeeraba',

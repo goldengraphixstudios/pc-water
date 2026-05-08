@@ -3,7 +3,7 @@ import { getPublicPosts, getPublicProjects } from '@/lib/cms/queries'
 
 export const dynamic = 'force-static'
 
-const BASE_URL = process.env.SITE_URL || 'https://goldengraphixstudios.github.io/pc-water'
+const BASE_URL = process.env.SITE_URL || 'https://pcwater.com.au'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const lastModified = new Date('2026-04-21T00:00:00.000Z')
