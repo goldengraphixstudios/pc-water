@@ -8,11 +8,11 @@ import ThemeToggle from '@/components/cms/ThemeToggle'
 export default function LoginForm() {
   const router       = useRouter()
   const searchParams = useSearchParams()
-  const [email,       setEmail]       = useState('')
-  const [password,    setPassword]    = useState('')
-  const [showPwd,     setShowPwd]     = useState(false)
-  const [error,       setError]       = useState<string | null>(null)
-  const [loading,     setLoading]     = useState(false)
+  const [email,    setEmail]    = useState('')
+  const [password, setPassword] = useState('')
+  const [showPwd,  setShowPwd]  = useState(false)
+  const [error,    setError]    = useState<string | null>(null)
+  const [loading,  setLoading]  = useState(false)
 
   const configured  = useMemo(() => Boolean(createSupabaseBrowserClient()), [])
   const accessError = searchParams.get('error') === 'access-denied'
@@ -50,36 +50,48 @@ export default function LoginForm() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F0F3F9] dark:bg-[#0C0E16] flex items-center justify-center p-4 relative">
+    <div className="min-h-screen bg-[#F0F3F9] dark:bg-[#0C0E16] flex items-center justify-center p-4 relative overflow-hidden">
+
+      {/* Subtle ambient background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#3e91ce]/5 dark:bg-[#3e91ce]/[0.04] rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[300px] bg-violet-500/5 dark:bg-violet-500/[0.03] rounded-full blur-3xl" />
+      </div>
 
       {/* Theme toggle — top right */}
-      <div className="absolute top-4 right-4">
+      <div className="absolute top-4 right-4 z-10">
         <ThemeToggle />
       </div>
 
-      <div className="w-full max-w-[380px]">
+      <div className="relative w-full max-w-[380px]">
 
-        {/* Logo */}
+        {/* Logo mark */}
         <div className="flex flex-col items-center mb-8">
-          <div className="w-12 h-12 rounded-2xl bg-[#3e91ce] flex items-center justify-center mb-4 shadow-lg shadow-[#3e91ce]/25">
-            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="w-14 h-14 rounded-2xl bg-[#3e91ce] flex items-center justify-center mb-4 shadow-xl shadow-[#3e91ce]/20 ring-1 ring-[#3e91ce]/30">
+            <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
             </svg>
           </div>
-          <h1 className="text-xl font-bold text-slate-900 dark:text-slate-100">PC Water Studio</h1>
-          <p className="text-sm text-slate-500 dark:text-slate-500 mt-1">Sign in to manage your content</p>
+          <h1 className="text-[22px] font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">
+            PC Water Studio
+          </h1>
+          <p className="text-sm text-slate-500 dark:text-slate-500 mt-1.5">
+            Sign in to manage your content
+          </p>
         </div>
 
         {/* Card */}
-        <div className="bg-white dark:bg-[#13161F] rounded-2xl border border-slate-200 dark:border-[#1E2235] shadow-sm dark:shadow-none p-7">
+        <div className="bg-white dark:bg-[#13161F] rounded-2xl border border-slate-200 dark:border-[#1E2235] shadow-lg shadow-slate-200/60 dark:shadow-none p-7">
 
           {/* Alerts */}
           {!configured && (
             <div className="flex gap-2.5 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900/50 px-3.5 py-3 mb-5">
               <svg className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-2.694-.833-3.464 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
               </svg>
-              <p className="text-amber-800 dark:text-amber-400 text-xs leading-relaxed">Supabase is not configured. Add the required environment variables.</p>
+              <p className="text-amber-800 dark:text-amber-400 text-xs leading-relaxed">
+                Supabase is not configured. Add the required environment variables.
+              </p>
             </div>
           )}
 
@@ -88,7 +100,9 @@ export default function LoginForm() {
               <svg className="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <p className="text-red-600 dark:text-red-400 text-xs leading-relaxed">{error ?? 'Your account is not approved for CMS access.'}</p>
+              <p className="text-red-600 dark:text-red-400 text-xs leading-relaxed">
+                {error ?? 'Your account is not approved for CMS access.'}
+              </p>
             </div>
           )}
 
@@ -129,6 +143,7 @@ export default function LoginForm() {
                   onClick={() => setShowPwd(!showPwd)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
                   tabIndex={-1}
+                  aria-label={showPwd ? 'Hide password' : 'Show password'}
                 >
                   {showPwd ? (
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -147,7 +162,7 @@ export default function LoginForm() {
             <button
               type="submit"
               disabled={!configured || loading}
-              className="w-full mt-1 bg-[#3e91ce] text-white px-4 py-2.5 rounded-xl text-sm font-semibold hover:bg-[#2d7ab8] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2 shadow-sm shadow-[#3e91ce]/20"
+              className="w-full mt-1 bg-[#3e91ce] text-white px-4 py-2.5 rounded-xl text-sm font-semibold hover:bg-[#2d7ab8] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2 shadow-md shadow-[#3e91ce]/20"
             >
               {loading ? (
                 <>
@@ -155,14 +170,29 @@ export default function LoginForm() {
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                   </svg>
-                  Signing in...
+                  Signing in…
                 </>
-              ) : 'Sign in'}
+              ) : (
+                <>
+                  Sign in
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </>
+              )}
             </button>
           </form>
+
+          {/* Secure access note */}
+          <div className="flex items-center justify-center gap-1.5 mt-5 pt-5 border-t border-slate-100 dark:border-[#1A1D2C]">
+            <svg className="w-3 h-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+            <p className="text-[11px] text-slate-400 dark:text-slate-600">Secured access — approved accounts only</p>
+          </div>
         </div>
 
-        <p className="text-center text-xs text-slate-400 dark:text-slate-600 mt-5">
+        <p className="text-center text-[11px] text-slate-400 dark:text-slate-600 mt-5">
           PC Water Infrastructure · Content Management System
         </p>
       </div>

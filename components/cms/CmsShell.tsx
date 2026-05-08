@@ -26,7 +26,7 @@ export default function CmsShell({
       {/* Mobile overlay backdrop */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 z-40 bg-black/40 backdrop-blur-[1px] lg:hidden"
+          className="fixed inset-0 z-40 bg-black/40 backdrop-blur-[2px] lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />
       )}
@@ -35,7 +35,7 @@ export default function CmsShell({
       <div className="lg:pl-[220px] flex flex-col min-h-screen">
 
         {/* Mobile topbar */}
-        <div className="lg:hidden sticky top-0 z-30 bg-white dark:bg-[#13161F] border-b border-slate-200 dark:border-[#1E2235] h-14 flex items-center px-4 gap-3 shadow-sm">
+        <div className="lg:hidden sticky top-0 z-30 bg-white/95 dark:bg-[#13161F]/95 backdrop-blur-md border-b border-slate-200 dark:border-[#1E2235] h-14 flex items-center px-4 gap-3 shadow-sm">
           <button
             onClick={() => setSidebarOpen(true)}
             aria-label="Open navigation"
@@ -45,9 +45,10 @@ export default function CmsShell({
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
+
           <Link href="/cms/dashboard" className="flex items-center gap-2 flex-1 min-w-0">
-            <div className="w-6 h-6 rounded-md bg-[#3e91ce] flex items-center justify-center flex-shrink-0">
-              <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-7 h-7 rounded-lg bg-[#3e91ce] flex items-center justify-center flex-shrink-0 shadow-sm shadow-[#3e91ce]/30">
+              <svg className="w-[15px] h-[15px] text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
               </svg>
             </div>
