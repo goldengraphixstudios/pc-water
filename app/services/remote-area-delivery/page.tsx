@@ -24,7 +24,7 @@ export default function RemoteAreaDeliveryPage() {
     <>
       <section className="relative overflow-hidden" style={{ minHeight: '75vh' }}>
         <Image
-          src="/waterdrop-aboriginal-flag.png"
+          src="/heroes/remote-area-delivery.jpg"
           alt=""
           fill
           className="object-cover object-center"

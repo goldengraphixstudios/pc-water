@@ -8,7 +8,7 @@ const MARQUEE_DURATION = 32000
 
 const partners = [
   { src: '/partners/austek.png', alt: 'Austek' },
-  { src: '/partners/centurion.png', alt: 'Centurion' },
+  { src: '/partners/centurion.jpg', alt: 'Centurion' },
   { src: '/partners/coz-reg.png', alt: 'Coz Reg' },
   { src: '/partners/cse.png', alt: 'CSE' },
   { src: '/partners/dekort.png', alt: 'Dekort' },
