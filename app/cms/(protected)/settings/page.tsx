@@ -29,6 +29,7 @@ export default function CmsSettingsPage() {
   const [addError, setAddError]     = useState<string | null>(null)
   const [removing, setRemoving]     = useState<string | null>(null)
   const [currentEmail, setCurrent]  = useState('')
+  const [abstractConfigured, setAbstractConfigured] = useState(false)
 
   useEffect(() => {
     async function load() {
@@ -47,6 +48,20 @@ export default function CmsSettingsPage() {
       setLoading(false)
     }
     load()
+  }, [])
+
+  useEffect(() => {
+    async function loadSystemStatus() {
+      try {
+        const response = await fetch('/api/system-status', { cache: 'no-store' })
+        const data = await response.json().catch(() => null)
+        setAbstractConfigured(Boolean(data?.abstractConfigured))
+      } catch {
+        setAbstractConfigured(false)
+      }
+    }
+
+    loadSystemStatus()
   }, [])
 
   async function handleAdd(e: React.FormEvent) {
@@ -236,7 +251,7 @@ export default function CmsSettingsPage() {
             { label: 'Format check',        active: true,                                                          note: 'Regex pattern' },
             { label: 'Disposable block',    active: true,                                                          note: '30+ known domains' },
             { label: 'Role address block',  active: true,                                                          note: 'noreply, postmaster…' },
-            { label: 'MX + deliverability', active: Boolean(process.env.NEXT_PUBLIC_ABSTRACT_EMAIL_API_KEY),       note: 'Abstract API (optional)' },
+            { label: 'MX + deliverability', active: abstractConfigured,                                             note: 'Abstract API' },
           ].map((layer) => (
             <div
               key={layer.label}

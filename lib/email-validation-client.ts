@@ -17,8 +17,9 @@ export async function validateEmailWithServer(email: string): Promise<{ ok: bool
 
     return { ok: Boolean(data?.ok), reason: data?.reason }
   } catch {
-    // If the validation service is temporarily unavailable, do not hard-block
-    // the user after local checks have already passed.
-    return { ok: true }
+    return {
+      ok: false,
+      reason: 'We could not verify that this email can receive mail. Please try again shortly.',
+    }
   }
 }

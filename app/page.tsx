@@ -8,6 +8,7 @@ import FeaturedProjectsSection from '@/components/FeaturedProjectsSection'
 import FAQBlock from '@/components/FAQBlock'
 import PartnerMarquee from '@/components/PartnerMarquee'
 import HeroSection from '@/components/HeroSection'
+import GatedDownloadLink from '@/components/GatedDownloadLink'
 
 export const metadata: Metadata = {
   title: 'PC Water Infrastructure - Engineered Water Solutions',
@@ -478,13 +479,12 @@ export default function HomePage() {
             >
               Discuss a Project
             </Link>
-            <a
-              href="/downloads/pc-tanks-capability-statement-2026.pdf"
-              download
+            <GatedDownloadLink
+              resourceKey="capabilityStatement"
               className="border-2 border-white/30 text-white px-10 py-5 rounded-full font-bold hover:bg-white/10 transition-all duration-300 hover:scale-105 text-base tracking-wide"
             >
               Download Capability Statement
-            </a>
+            </GatedDownloadLink>
           </div>
         </AnimatedSection>
       </section>

@@ -2,6 +2,8 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import AnimatedSection from './AnimatedSection'
+import GatedDownloadLink from '@/components/GatedDownloadLink'
+import { getResourceByFileUrl } from '@/lib/resource-catalog'
 
 interface CTABannerProps {
   heading: string
@@ -19,7 +21,7 @@ export default function CTABanner({
   variant = 'dark',
 }: CTABannerProps) {
   const bg = variant === 'navy' ? 'bg-[#0d1b2a]' : 'bg-[#30505b]'
-  const secondaryIsFile = secondaryCTA?.href.endsWith('.pdf')
+  const secondaryDownloadResource = secondaryCTA ? getResourceByFileUrl(secondaryCTA.href) : null
 
   return (
     <section className={`${bg} py-20 relative overflow-hidden`}>
@@ -50,14 +52,13 @@ export default function CTABanner({
           </motion.div>
           {secondaryCTA && (
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-              {secondaryIsFile ? (
-                <a
-                  href={secondaryCTA.href}
-                  download
+              {secondaryDownloadResource ? (
+                <GatedDownloadLink
+                  resourceKey={secondaryDownloadResource.key}
                   className="inline-block border border-white/30 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition-colors text-sm tracking-wide"
                 >
                   {secondaryCTA.label}
-                </a>
+                </GatedDownloadLink>
               ) : (
                 <Link
                   href={secondaryCTA.href}

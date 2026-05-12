@@ -84,7 +84,7 @@ export default function ResourceDownloadGate({ resourceSlug, resourceTitle, divi
     ? 'Verifying email…'
     : status === 'saving'
     ? 'Preparing download…'
-    : 'Download Free Guide'
+    : 'Unlock Download'
 
   return (
     <div
@@ -140,8 +140,8 @@ export default function ResourceDownloadGate({ resourceSlug, resourceTitle, divi
           ) : (
             <>
               <p className="text-gray-600 text-sm leading-relaxed mb-5">
-                Enter your email address to access this free resource. We may occasionally send you relevant
-                water infrastructure updates — unsubscribe any time.
+                Enter your email address to access this free resource. We verify that the address can
+                receive email before unlocking the download.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-3">

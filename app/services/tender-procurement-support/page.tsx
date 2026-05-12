@@ -3,6 +3,7 @@ import AppImage from '@/components/AppImage'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
 import CTABanner from '@/components/CTABanner'
+import GatedDownloadLink from '@/components/GatedDownloadLink'
 
 export const metadata: Metadata = {
   title: 'Tender & Procurement Support',
@@ -40,9 +41,9 @@ export default function TenderProcurementPage() {
             <Link href="/contact" className="inline-flex items-center gap-2 bg-[#3e91ce] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#2d7ab8] transition-colors">
               Discuss Procurement
             </Link>
-            <a href="/downloads/pc-tanks-capability-statement-2026.pdf" download className="inline-flex items-center gap-2 border border-white text-white px-8 py-3.5 rounded font-semibold hover:bg-white hover:text-[#30505b] transition-colors">
+            <GatedDownloadLink resourceKey="capabilityStatement" className="inline-flex items-center gap-2 border border-white text-white px-8 py-3.5 rounded font-semibold hover:bg-white hover:text-[#30505b] transition-colors">
               Download Capability Statement
-            </a>
+            </GatedDownloadLink>
           </div>
         </div>
       </section>

@@ -136,6 +136,7 @@ export default function LeadsDashboardPage() {
   const [refreshing, setRefreshing] = useState(false)
   const [toDelete, setToDelete]     = useState<ResourceLead | null>(null)
   const [deleting, setDeleting]     = useState(false)
+  const [abstractConfigured, setAbstractConfigured] = useState(false)
 
   async function load() {
     const data = await fetchResourceLeads()
@@ -145,6 +146,20 @@ export default function LeadsDashboardPage() {
   }
 
   useEffect(() => { load() }, [])
+
+  useEffect(() => {
+    async function loadSystemStatus() {
+      try {
+        const response = await fetch('/api/system-status', { cache: 'no-store' })
+        const data = await response.json().catch(() => null)
+        setAbstractConfigured(Boolean(data?.abstractConfigured))
+      } catch {
+        setAbstractConfigured(false)
+      }
+    }
+
+    loadSystemStatus()
+  }, [])
 
   async function handleRefresh() {
     setRefreshing(true)
@@ -184,8 +199,6 @@ export default function LeadsDashboardPage() {
       (l.resource_title ?? '').toLowerCase().includes(search.toLowerCase())
     return matchDiv && matchSearch
   })
-
-  const abstractConfigured = Boolean(process.env.NEXT_PUBLIC_ABSTRACT_EMAIL_API_KEY)
 
   return (
     <div className="space-y-5">
@@ -298,10 +311,10 @@ export default function LeadsDashboardPage() {
               ) : (
                 <>
                   <p className="text-[12px] text-[#536070] dark:text-[#8B9CB8] mb-2 leading-relaxed">
-                    Currently using format validation + disposable domain blocklist only. Enable Abstract API for MX checks.
+                    Currently using basic validation only. Enable Abstract API for real deliverability checks.
                   </p>
                   <p className="text-[11px] text-[#99AABF] dark:text-[#4A5670] font-mono bg-black/[0.03] dark:bg-white/[0.03] border border-black/[0.06] dark:border-white/[0.06] rounded px-2 py-1.5 leading-relaxed">
-                    NEXT_PUBLIC_ABSTRACT_EMAIL_API_KEY=your_key
+                    ABSTRACT_EMAIL_API_KEY=your_key
                   </p>
                   <a
                     href="https://www.abstractapi.com/api/email-verification-validation-api"
