@@ -50,7 +50,7 @@ const organizationSchema = {
     'PC Water Infrastructure delivers engineered water storage solutions across Australia. Founded 2013.',
   foundingDate: '2013',
   telephone: '1300029804',
-  email: 'info@pacificwatergroup.com.au',
+  email: 'contact@pcwater.com.au',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Mudgeeraba',

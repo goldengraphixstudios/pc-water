@@ -263,7 +263,7 @@ export default function ServicesPage() {
         heading="READY TO DISCUSS YOUR PROJECT?"
         subheading="Tell us about your water storage challenge and we will respond within one business day."
         primaryCTA={{ label: 'Discuss a Project', href: '/contact' }}
-        secondaryCTA={{ label: 'Download Capability Statement', href: '/resources' }}
+        secondaryCTA={{ label: 'Download Capability Statement', href: '/downloads/pc-tanks-capability-statement-2026.pdf' }}
         variant="navy"
       />
     </>

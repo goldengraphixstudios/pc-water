@@ -82,7 +82,7 @@ export default function IndustriesPage() {
         heading="FIND YOUR SECTOR SOLUTION"
         subheading="Tell us your industry and project requirements — we will respond with relevant experience and a path forward."
         primaryCTA={{ label: 'Discuss Your Project', href: '/contact' }}
-        secondaryCTA={{ label: 'Download Capability Statement', href: '/resources' }}
+        secondaryCTA={{ label: 'Download Capability Statement', href: '/downloads/pc-tanks-capability-statement-2026.pdf' }}
         variant="navy"
       />
     </>

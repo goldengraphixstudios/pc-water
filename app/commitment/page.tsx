@@ -247,7 +247,7 @@ export default function CommitmentPage() {
         heading="OUR COMMITMENT IN ACTION"
         subheading="Discuss your project with a team that puts safety, quality, and community at the centre of everything we do."
         primaryCTA={{ label: 'Discuss Your Project', href: '/contact' }}
-        secondaryCTA={{ label: 'Download Capability Statement', href: '/resources' }}
+        secondaryCTA={{ label: 'Download Capability Statement', href: '/downloads/pc-tanks-capability-statement-2026.pdf' }}
         variant="navy"
       />
     </>

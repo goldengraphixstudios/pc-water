@@ -114,7 +114,7 @@ export default function RPVCLinerPage() {
       </section>
 
       <FAQBlock faqs={faqs} heading="RPVC Liner Systems — FAQs" />
-      <CTABanner heading="RESTORE YOUR TANK. EXTEND ITS LIFE." subheading="Get an RPVC liner assessment and find out if relining is right for your asset." primaryCTA={{ label: 'Request an Assessment', href: '/contact' }} secondaryCTA={{ label: 'Download Tank Upgrade Guide', href: '/resources' }} />
+      <CTABanner heading="RESTORE YOUR TANK. EXTEND ITS LIFE." subheading="Get an RPVC liner assessment and find out if relining is right for your asset." primaryCTA={{ label: 'Request an Assessment', href: '/contact' }} secondaryCTA={{ label: 'Download Tank Upgrade Guide', href: '/downloads/tank-upgrade-decision-guide.pdf' }} />
     </>
   )
 }

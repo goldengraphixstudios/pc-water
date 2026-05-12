@@ -94,7 +94,7 @@ export default function GovernmentCouncilsPage() {
       <SectionProjects heading="Government Projects" limit={2} sector="Government" bgColor="bg-white" />
 
       <FAQBlock faqs={faqs} heading="Government & Councils — FAQs" />
-      <CTABanner heading="READY TO DISCUSS YOUR GOVERNMENT PROJECT?" subheading="Download our capability statement or contact us directly to discuss your project requirements." primaryCTA={{ label: 'Discuss Your Project', href: '/contact' }} secondaryCTA={{ label: 'Download Capability Statement', href: '/resources' }} />
+      <CTABanner heading="READY TO DISCUSS YOUR GOVERNMENT PROJECT?" subheading="Download our capability statement or contact us directly to discuss your project requirements." primaryCTA={{ label: 'Discuss Your Project', href: '/contact' }} secondaryCTA={{ label: 'Download Capability Statement', href: '/downloads/pc-tanks-capability-statement-2026.pdf' }} />
     </>
   )
 }

@@ -322,8 +322,9 @@ export default function Header() {
             >
               Discuss a Project
             </Link>
-            <Link
-              href="/resources"
+            <a
+              href="/downloads/pc-tanks-capability-statement-2026.pdf"
+              download
               className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105 border ${
                 scrolled
                   ? 'border-white/20 text-white hover:bg-white/10'
@@ -331,7 +332,7 @@ export default function Header() {
               }`}
             >
               Capability Statement
-            </Link>
+            </a>
           </div>
 
           {/* Mobile hamburger */}

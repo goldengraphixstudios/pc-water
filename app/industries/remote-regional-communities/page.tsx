@@ -92,7 +92,7 @@ export default function RemoteRegionalCommunitiesPage() {
       <SectionProjects heading="Community Projects" limit={2} sector="Remote" bgColor="bg-[#F4F6F8]" />
 
       <FAQBlock faqs={faqs} heading="Remote Communities — FAQs" />
-      <CTABanner heading="DELIVERING SAFE WATER WHERE IT MATTERS MOST" subheading="Contact us to discuss your remote community water storage project." primaryCTA={{ label: 'Discuss Your Project', href: '/contact' }} secondaryCTA={{ label: 'Download Remote Project Guide', href: '/resources' }} />
+      <CTABanner heading="DELIVERING SAFE WATER WHERE IT MATTERS MOST" subheading="Contact us to discuss your remote community water storage project." primaryCTA={{ label: 'Discuss Your Project', href: '/contact' }} secondaryCTA={{ label: 'Download Remote Project Guide', href: '/downloads/remote-wtp-construction-commissioning.pdf' }} />
     </>
   )
 }

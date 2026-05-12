@@ -1,6 +1,8 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { validateEmailLocally } from '@/lib/email-validation'
+import { validateEmailWithServer } from '@/lib/email-validation-client'
 import { submitResourceLead } from '@/lib/supabase/resources'
 
 interface Props {
@@ -9,80 +11,6 @@ interface Props {
   division: string
   fileUrl: string
   onClose: () => void
-}
-
-// ─── Static disposable domain blocklist ──────────────────────────────────────
-const DISPOSABLE_DOMAINS = new Set([
-  'mailinator.com', 'guerrillamail.com', 'guerrillamail.info', 'guerrillamailblock.com',
-  'tempmail.com', 'throwaway.email', 'sharklasers.com', 'grr.la',
-  'yopmail.com', 'spam4.me', 'trashmail.com', 'dispostable.com',
-  'maildrop.cc', 'fakeinbox.com', 'getairmail.com', 'mailnull.com',
-  'spamgourmet.com', 'getnada.com', 'burnermail.io', 'mailtemp.net',
-  'tempinbox.com', 'spamgmail.com', 'filzmail.com', 'throwam.com',
-  'mailsac.com', 'boun.cr', 'spam.la', 'spaml.com', 'tempr.email',
-  'discard.email', 'trashmail.at', 'trashmail.io', 'trashmail.me',
-  'mailnesia.com', 'tempomail.fr', 'jetable.fr', '10minutemail.com',
-  'tempmail.net', 'tempmail.org', 'emailondeck.com', 'dropmail.me',
-  'guerrillamail.de', 'guerrillamail.net', 'guerrillamail.org',
-])
-
-// ─── Role-based prefixes that suggest non-personal emails ────────────────────
-const ROLE_PREFIXES = ['noreply', 'no-reply', 'donotreply', 'postmaster', 'bounce', 'mailer-daemon']
-
-function isValidFormat(email: string): boolean {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim())
-}
-
-function isDisposable(email: string): boolean {
-  const domain = email.trim().toLowerCase().split('@')[1] ?? ''
-  return DISPOSABLE_DOMAINS.has(domain)
-}
-
-function isRoleBased(email: string): boolean {
-  const prefix = email.trim().toLowerCase().split('@')[0] ?? ''
-  return ROLE_PREFIXES.includes(prefix)
-}
-
-// ─── Abstract API validation (requires NEXT_PUBLIC_ABSTRACT_EMAIL_API_KEY) ───
-interface AbstractResult {
-  deliverability: 'DELIVERABLE' | 'UNDELIVERABLE' | 'RISKY' | 'UNKNOWN'
-  is_valid_format: { value: boolean }
-  is_disposable_email: { value: boolean }
-  is_mx_found: { value: boolean }
-  is_smtp_valid: { value: boolean }
-  is_role: { value: boolean }
-}
-
-async function checkAbstractAPI(email: string): Promise<{ ok: boolean; reason?: string }> {
-  const apiKey = process.env.NEXT_PUBLIC_ABSTRACT_EMAIL_API_KEY
-  if (!apiKey) return { ok: true } // not configured — skip
-
-  try {
-    const res = await fetch(
-      `https://emailvalidation.abstractapi.com/v1/?api_key=${apiKey}&email=${encodeURIComponent(email)}`,
-      { signal: AbortSignal.timeout(6000) }
-    )
-    if (!res.ok) return { ok: true } // API error — don't block
-
-    const data: AbstractResult = await res.json()
-
-    if (data.is_disposable_email?.value === true) {
-      return { ok: false, reason: 'Disposable email addresses are not accepted. Please use your work or personal email.' }
-    }
-    if (!data.is_mx_found?.value) {
-      return { ok: false, reason: 'This email domain does not appear to accept mail. Please check your address.' }
-    }
-    if (data.deliverability === 'UNDELIVERABLE') {
-      return { ok: false, reason: 'This email address appears to be invalid or unreachable.' }
-    }
-    if (data.is_role?.value === true) {
-      return { ok: false, reason: 'Please use a personal or work email address rather than a shared mailbox.' }
-    }
-
-    return { ok: true }
-  } catch {
-    return { ok: true } // timeout or network error — don't block the user
-  }
 }
 
 // ─── Component ────────────────────────────────────────────────────────────────
@@ -115,25 +43,18 @@ export default function ResourceDownloadGate({ resourceSlug, resourceTitle, divi
     e.preventDefault()
     setErrorMsg('')
 
-    const trimmed = email.trim().toLowerCase()
+    const localValidation = validateEmailLocally(email)
 
     // Local checks (instant)
-    if (!isValidFormat(trimmed)) {
-      setErrorMsg('Please enter a valid email address.')
+    if (!localValidation.ok) {
+      setErrorMsg(localValidation.reason)
       return
     }
-    if (isDisposable(trimmed)) {
-      setErrorMsg('Disposable email addresses are not accepted. Please use your work or personal email.')
-      return
-    }
-    if (isRoleBased(trimmed)) {
-      setErrorMsg('Please use a personal or work email address rather than a shared mailbox.')
-      return
-    }
+    const trimmed = localValidation.email
 
-    // Abstract API check (if key is configured)
+    // Server-side validation for MX / deliverability layers
     setStatus('validating')
-    const { ok, reason } = await checkAbstractAPI(trimmed)
+    const { ok, reason } = await validateEmailWithServer(trimmed)
     if (!ok) {
       setErrorMsg(reason ?? 'Please enter a valid email address.')
       setStatus('idle')

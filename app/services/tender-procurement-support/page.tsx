@@ -40,7 +40,7 @@ export default function TenderProcurementPage() {
             <Link href="/contact" className="inline-flex items-center gap-2 bg-[#3e91ce] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#2d7ab8] transition-colors">
               Discuss Procurement
             </Link>
-            <a href="/resources" className="inline-flex items-center gap-2 border border-white text-white px-8 py-3.5 rounded font-semibold hover:bg-white hover:text-[#30505b] transition-colors">
+            <a href="/downloads/pc-tanks-capability-statement-2026.pdf" download className="inline-flex items-center gap-2 border border-white text-white px-8 py-3.5 rounded font-semibold hover:bg-white hover:text-[#30505b] transition-colors">
               Download Capability Statement
             </a>
           </div>
@@ -112,7 +112,7 @@ export default function TenderProcurementPage() {
       </section>
 
       <FAQBlock faqs={faqs} heading="Tender & Procurement — FAQs" />
-      <CTABanner heading="NEED PROCUREMENT SUPPORT?" subheading="Contact us to discuss your tender requirements and download our capability statement." primaryCTA={{ label: 'Discuss Your Procurement', href: '/contact' }} secondaryCTA={{ label: 'Download Capability Statement', href: '/resources' }} variant="navy" />
+      <CTABanner heading="NEED PROCUREMENT SUPPORT?" subheading="Contact us to discuss your tender requirements and download our capability statement." primaryCTA={{ label: 'Discuss Your Procurement', href: '/contact' }} secondaryCTA={{ label: 'Download Capability Statement', href: '/downloads/pc-tanks-capability-statement-2026.pdf' }} variant="navy" />
     </>
   )
 }

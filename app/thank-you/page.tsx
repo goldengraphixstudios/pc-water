@@ -28,7 +28,7 @@ export default function ThankYouPage() {
           <h2 className="font-black text-[#30505b] mb-6 text-center">WHAT HAPPENS NEXT</h2>
           <div className="space-y-5">
             {[
-              { step: '01', title: 'Enquiry Review', desc: 'We review your project details and any attached documentation to understand your requirements.' },
+              { step: '01', title: 'Enquiry Review', desc: 'We review your project details to understand your requirements and the best next step.' },
               { step: '02', title: 'Specialist Contact', desc: 'One of our specialists will contact you by phone or email to discuss your needs in detail.' },
               { step: '03', title: 'Tailored Proposal', desc: 'We provide a tailored project proposal, capability overview, or recommendation — depending on your project stage and requirements.' },
             ].map((step) => (

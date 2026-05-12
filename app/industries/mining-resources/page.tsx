@@ -93,7 +93,7 @@ export default function MiningResourcesPage() {
       <SectionProjects heading="Mining & Industrial Projects" limit={2} sector="Mining" bgColor="bg-white" />
 
       <FAQBlock faqs={faqs} heading="Mining & Resources — FAQs" />
-      <CTABanner heading="GOT A MINE SITE WATER STORAGE CHALLENGE?" subheading="Contact us to discuss your project requirements — remote, harsh environment, and compliance-critical." primaryCTA={{ label: 'Discuss Your Project', href: '/contact' }} secondaryCTA={{ label: 'Download Capability Statement', href: '/resources' }} variant="navy" />
+      <CTABanner heading="GOT A MINE SITE WATER STORAGE CHALLENGE?" subheading="Contact us to discuss your project requirements — remote, harsh environment, and compliance-critical." primaryCTA={{ label: 'Discuss Your Project', href: '/contact' }} secondaryCTA={{ label: 'Download Capability Statement', href: '/downloads/pc-tanks-capability-statement-2026.pdf' }} variant="navy" />
     </>
   )
 }

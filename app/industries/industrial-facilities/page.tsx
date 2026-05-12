@@ -93,7 +93,7 @@ export default function IndustrialFacilitiesPage() {
       <SectionProjects heading="Industrial Projects" limit={2} sector="Industrial" bgColor="bg-white" />
 
       <FAQBlock faqs={faqs} heading="Industrial Facilities — FAQs" />
-      <CTABanner heading="INDUSTRIAL WATER STORAGE THAT PERFORMS" subheading="Contact us to discuss your process water or fire suppression requirements." primaryCTA={{ label: 'Discuss Your Project', href: '/contact' }} secondaryCTA={{ label: 'Download Capability Statement', href: '/resources' }} />
+      <CTABanner heading="INDUSTRIAL WATER STORAGE THAT PERFORMS" subheading="Contact us to discuss your process water or fire suppression requirements." primaryCTA={{ label: 'Discuss Your Project', href: '/contact' }} secondaryCTA={{ label: 'Download Capability Statement', href: '/downloads/pc-tanks-capability-statement-2026.pdf' }} />
     </>
   )
 }

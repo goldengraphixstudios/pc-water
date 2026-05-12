@@ -1,14 +1,44 @@
 'use client'
 import LocationSelector from '@/components/LocationSelector'
+import { useState } from 'react'
+import { validateEmailLocally } from '@/lib/email-validation'
+import { validateEmailWithServer } from '@/lib/email-validation-client'
 
 const inputCls = 'w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#3e91ce] transition-colors'
 const labelCls = 'block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1.5'
 
 export default function ContactForm() {
+  const [email, setEmail] = useState('')
+  const [emailError, setEmailError] = useState('')
+  const [verifying, setVerifying] = useState(false)
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setEmailError('')
+
+    const validation = validateEmailLocally(email)
+    if (!validation.ok) {
+      setEmailError(validation.reason)
+      return
+    }
+
+    setVerifying(true)
+    const result = await validateEmailWithServer(validation.email)
+    setVerifying(false)
+
+    if (!result.ok) {
+      setEmailError(result.reason ?? 'Please enter a valid email address.')
+      return
+    }
+
+    e.currentTarget.submit()
+  }
+
   return (
     <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
       <h2 className="text-xl font-black text-[#30505b] mb-6">PROJECT ENQUIRY FORM</h2>
-      <form method="POST" action="/thank-you" className="space-y-5">
+      <form method="POST" action="/thank-you" className="space-y-5" onSubmit={handleSubmit}>
+        <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" />
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div>
             <label className={labelCls} htmlFor="firstName">First Name *</label>
@@ -28,7 +58,18 @@ export default function ContactForm() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div>
             <label className={labelCls} htmlFor="email">Email Address *</label>
-            <input id="email" name="email" type="email" required className={inputCls} />
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              value={email}
+              onChange={(e) => { setEmail(e.target.value); setEmailError('') }}
+              className={inputCls}
+            />
+            {emailError && (
+              <p className="text-red-500 text-xs mt-1.5 font-medium">{emailError}</p>
+            )}
           </div>
           <div>
             <label className={labelCls} htmlFor="phone">Phone Number</label>
@@ -115,23 +156,20 @@ export default function ContactForm() {
           />
         </div>
 
-        <div>
-          <label className={labelCls} htmlFor="file">File Upload (optional)</label>
-          <input
-            id="file"
-            name="file"
-            type="file"
-            className={`${inputCls} file:mr-4 file:py-1 file:px-3 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-[#3e91ce] file:text-white`}
-            accept=".pdf,.doc,.docx,.jpg,.png"
-          />
-          <p className="text-xs text-gray-400 mt-1">Accepted: PDF, DOC, DOCX, JPG, PNG (max 10MB)</p>
+        <div className="rounded-lg border border-blue-100 bg-blue-50 px-4 py-3">
+          <p className="text-xs font-bold text-[#30505b] uppercase tracking-wide mb-1">Supporting documents</p>
+          <p className="text-sm text-gray-600 leading-relaxed">
+            Share the key project details in the message field. If drawings, photos, or specifications are needed,
+            the team will request them after the initial review.
+          </p>
         </div>
 
         <button
           type="submit"
+          disabled={verifying}
           className="w-full bg-[#3e91ce] text-white py-4 rounded-lg font-bold hover:bg-[#2d7ab8] transition-colors text-sm tracking-wide"
         >
-          Submit Enquiry — We Reply Within 1 Business Day
+          {verifying ? 'Verifying Email…' : 'Submit Enquiry — We Reply Within 1 Business Day'}
         </button>
 
         <p className="text-xs text-gray-400 text-center">

@@ -199,7 +199,7 @@ export default function AboutPage() {
         heading="LET'S WORK TOGETHER"
         subheading="Schedule a free project consultation with our specialist engineering team."
         primaryCTA={{ label: 'Schedule a Free Consultation', href: '/contact' }}
-        secondaryCTA={{ label: 'Download Capability Statement', href: '/resources' }}
+        secondaryCTA={{ label: 'Download Capability Statement', href: '/downloads/pc-tanks-capability-statement-2026.pdf' }}
       />
     </>
   )

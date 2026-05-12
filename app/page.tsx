@@ -478,12 +478,13 @@ export default function HomePage() {
             >
               Discuss a Project
             </Link>
-            <Link
-              href="/resources"
+            <a
+              href="/downloads/pc-tanks-capability-statement-2026.pdf"
+              download
               className="border-2 border-white/30 text-white px-10 py-5 rounded-full font-bold hover:bg-white/10 transition-all duration-300 hover:scale-105 text-base tracking-wide"
             >
               Download Capability Statement
-            </Link>
+            </a>
           </div>
         </AnimatedSection>
       </section>

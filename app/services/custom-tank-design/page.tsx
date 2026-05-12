@@ -156,7 +156,7 @@ export default function CustomTankDesignPage() {
         heading="READY TO ENGINEER YOUR WATER STORAGE SOLUTION?"
         subheading="Contact our team to discuss your project requirements and receive a tailored design proposal."
         primaryCTA={{ label: 'Discuss a Project', href: '/contact' }}
-        secondaryCTA={{ label: 'Download Capability Statement', href: '/resources' }}
+        secondaryCTA={{ label: 'Download Capability Statement', href: '/downloads/pc-tanks-capability-statement-2026.pdf' }}
       />
     </>
   )

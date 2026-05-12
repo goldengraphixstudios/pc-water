@@ -2,9 +2,7 @@
 
 import { useState } from 'react'
 import ResourceDownloadGate from '@/components/ResourceDownloadGate'
-
-const SUPABASE_RESOURCES_BASE =
-  'https://mhggidgfivmdgkjerejn.supabase.co/storage/v1/object/public/cms-media/resources/'
+import { DOWNLOADS } from '@/lib/downloadables'
 
 interface Resource {
   slug: string
@@ -12,7 +10,7 @@ interface Resource {
   desc: string
   tag: string
   division: string
-  file: string
+  fileUrl: string
 }
 
 const pcTanksResources: Resource[] = [
@@ -22,7 +20,7 @@ const pcTanksResources: Resource[] = [
     desc: 'Practical asset owner checklist for assessing tank condition and prioritising maintenance needs.',
     tag: 'Maintenance',
     division: 'PC Tanks',
-    file: 'tank-maintenance-checklist.pdf',
+    fileUrl: DOWNLOADS.maintenanceChecklist,
   },
   {
     slug: 'tank-upgrade-decision-guide',
@@ -30,7 +28,7 @@ const pcTanksResources: Resource[] = [
     desc: 'When to reline, repair, or replace — practical guidance for asset managers navigating the options.',
     tag: 'Asset Management',
     division: 'PC Tanks',
-    file: 'tank-upgrade-decision-guide.pdf',
+    fileUrl: DOWNLOADS.tankUpgradeGuide,
   },
   {
     slug: 'fire-water-compliance-guide',
@@ -38,7 +36,7 @@ const pcTanksResources: Resource[] = [
     desc: 'Understanding AS2304 and AS1851 requirements for fire water storage — what engineers and operators need to know.',
     tag: 'Compliance',
     division: 'PC Tanks',
-    file: 'fire-water-compliance-guide.pdf',
+    fileUrl: DOWNLOADS.fireWaterGuide,
   },
 ]
 
@@ -49,7 +47,7 @@ const pcWaterSolutionsResources: Resource[] = [
     desc: 'A structured guide to monitoring and documenting compliance across water treatment plant operations.',
     tag: 'Water Treatment',
     division: 'PC Water Solutions',
-    file: 'wtp-compliance-monitoring-guide.pdf',
+    fileUrl: DOWNLOADS.wtpComplianceMonitoringGuide,
   },
   {
     slug: 'wtp-operator-checklist',
@@ -57,7 +55,7 @@ const pcWaterSolutionsResources: Resource[] = [
     desc: 'Day-to-day operational checklist for water treatment plant operators — inspection, monitoring, and recordkeeping.',
     tag: 'Operations',
     division: 'PC Water Solutions',
-    file: 'wtp-operator-checklist.pdf',
+    fileUrl: DOWNLOADS.wtpOperatorChecklist,
   },
   {
     slug: 'wtp-disinfection-compliance-primer',
@@ -65,7 +63,7 @@ const pcWaterSolutionsResources: Resource[] = [
     desc: 'Core principles and compliance requirements for disinfection in Australian water treatment systems.',
     tag: 'Compliance',
     division: 'PC Water Solutions',
-    file: 'wtp-disinfection-compliance-primer.pdf',
+    fileUrl: DOWNLOADS.wtpDisinfectionCompliancePrimer,
   },
   {
     slug: 'remote-wtp-construction-commissioning',
@@ -73,7 +71,7 @@ const pcWaterSolutionsResources: Resource[] = [
     desc: 'What it takes to deliver and commission a water treatment plant in remote Australia — logistics, constraints, and solutions.',
     tag: 'Remote Projects',
     division: 'PC Water Solutions',
-    file: 'remote-wtp-construction-commissioning.pdf',
+    fileUrl: DOWNLOADS.remoteProjectGuide,
   },
 ]
 
@@ -145,7 +143,7 @@ export default function ResourcesDownloadSection() {
           resourceSlug={active.slug}
           resourceTitle={active.title}
           division={active.division}
-          fileUrl={SUPABASE_RESOURCES_BASE + active.file}
+          fileUrl={active.fileUrl}
           onClose={() => setActive(null)}
         />
       )}
