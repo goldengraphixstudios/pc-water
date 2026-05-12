@@ -24,7 +24,7 @@ export default function RemoteAreaDeliveryPage() {
     <>
       <section className="relative overflow-hidden" style={{ minHeight: '75vh' }}>
         <Image
-          src="/heroes/remote-area-delivery.jpg"
+          src="/waterdrop-aboriginal-flag.png"
           alt=""
           fill
           className="object-cover object-center"
@@ -34,17 +34,7 @@ export default function RemoteAreaDeliveryPage() {
         />
         {/* lighter overlay so image is clearly visible */}
         <div className="absolute inset-0 bg-[#0d1b2a]/55" />
-        <div className="absolute inset-y-0 right-0 z-10 hidden w-[40vw] min-w-[320px] max-w-[720px] pointer-events-none lg:block">
-          <Image
-            src="/waterdrop-aboriginal-flag.png"
-            alt=""
-            fill
-            className="object-contain object-right opacity-90"
-            sizes="40vw"
-            aria-hidden="true"
-          />
-        </div>
-        <div className="relative z-20 flex flex-col justify-center min-h-[75vh] max-w-4xl mx-auto px-4 pt-40 pb-24">
+        <div className="relative z-10 flex flex-col justify-center min-h-[75vh] max-w-4xl mx-auto px-4 pt-40 pb-24">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-5">/ Services</p>
           <h1 className="text-6xl md:text-7xl font-black text-white mb-8 leading-tight">
             Remote Area<br />Project Delivery
