@@ -82,7 +82,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en-AU" suppressHydrationWarning>
       <head>
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-9E560M7DYR"
+          src="https://www.googletagmanager.com/gtag/js?id=G-Y04Q1N06DC"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -90,7 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-9E560M7DYR');
+            gtag('config', 'G-Y04Q1N06DC');
           `}
         </Script>
         {/* Dark mode FOUC prevention — must run before paint */}
