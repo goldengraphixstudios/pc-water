@@ -55,6 +55,8 @@ export default function ContactForm() {
             <select id="service" name="service" className={`${inputCls} bg-white`}>
               <option value="">Select service...</option>
               {[
+                'Project Managed Water Infrastructure',
+                'Water Treatment Solutions',
                 'Custom Tank Design & Engineering',
                 'Professional Tank Installation',
                 'Foundation & Civil Integration',

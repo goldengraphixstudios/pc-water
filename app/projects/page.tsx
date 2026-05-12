@@ -44,7 +44,7 @@ export default async function ProjectsPage() {
         heading="DISCUSS A SIMILAR PROJECT"
         subheading="Tell us about your water storage challenge. Our team will respond within one business day."
         primaryCTA={{ label: 'Discuss a Project', href: '/contact' }}
-        secondaryCTA={{ label: 'Download Capability Statement', href: '#' }}
+        secondaryCTA={{ label: 'Download Capability Statement', href: '/resources' }}
         variant="navy"
       />
     </>

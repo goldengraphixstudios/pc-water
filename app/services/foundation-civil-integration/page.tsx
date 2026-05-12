@@ -113,7 +113,7 @@ export default function FoundationCivilPage() {
       <SectionProjects heading="Featured Project" slugs={['doomadgee-wtp']} bgColor="bg-[#F4F6F8]" />
 
       <FAQBlock faqs={faqs} heading="Foundation & Civil Integration — FAQs" />
-      <CTABanner heading="BUILD ON SOLID FOUNDATIONS" subheading="Contact us to discuss your foundation engineering and civil integration requirements." primaryCTA={{ label: 'Discuss a Project', href: '/contact' }} secondaryCTA={{ label: 'Download Capability Statement', href: '#' }} variant="navy" />
+      <CTABanner heading="BUILD ON SOLID FOUNDATIONS" subheading="Contact us to discuss your foundation engineering and civil integration requirements." primaryCTA={{ label: 'Discuss a Project', href: '/contact' }} secondaryCTA={{ label: 'Download Capability Statement', href: '/resources' }} variant="navy" />
     </>
   )
 }

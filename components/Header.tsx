@@ -21,6 +21,8 @@ const IcHardHat = () => <svg className="w-4 h-4" fill="none" stroke="currentColo
 const IcIndustrial = () => <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 10h10v10H7z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 10Q7 6 12 6Q17 6 17 10" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6V3" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 3h4" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 15h3" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 15h2" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 20v2M15 20v2" /></svg>
 
 const services: { label: string; href: string; icon: React.ReactNode }[] = [
+  { label: 'Project Managed Water Infrastructure', href: '/services/project-managed-water-infrastructure', icon: <IcDoc /> },
+  { label: 'Water Treatment Solutions', href: '/services/water-treatment-solutions', icon: <IcFactory /> },
   { label: 'Custom Tank Design & Engineering', href: '/services/custom-tank-design', icon: <IcGear /> },
   { label: 'Professional Tank Installation', href: '/services/tank-installation', icon: <IcCrane /> },
   { label: 'Foundation & Civil Integration', href: '/services/foundation-civil-integration', icon: <IcPillars /> },

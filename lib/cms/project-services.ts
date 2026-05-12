@@ -4,8 +4,9 @@ export type ProjectServiceOption = {
 }
 
 export const PROJECT_SERVICE_OPTIONS: ProjectServiceOption[] = [
-  { name: 'Project Managed Water Infrastructure Facilities', href: '/services' },
-  { name: 'Water Treatment Solutions', href: '/services' },
+  { name: 'Project Managed Water Infrastructure Facilities', href: '/services/project-managed-water-infrastructure' },
+  { name: 'Project Managed Water Infrastructure', href: '/services/project-managed-water-infrastructure' },
+  { name: 'Water Treatment Solutions', href: '/services/water-treatment-solutions' },
   { name: 'Custom Tank Design & Engineering', href: '/services/custom-tank-design' },
   { name: 'Professional Tank Installation', href: '/services/tank-installation' },
   { name: 'Foundation & Civil Integration', href: '/services/foundation-civil-integration' },

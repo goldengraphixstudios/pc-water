@@ -133,7 +133,7 @@ export default function FireWaterTanksPage() {
       <SectionProjects heading="Featured Project" slugs={['clarence-road-liner']} bgColor="bg-[#F4F6F8]" />
 
       <FAQBlock faqs={faqs} heading="Fire Water Tanks — FAQs" />
-      <CTABanner heading="IS YOUR FIRE WATER SYSTEM COMPLIANT?" subheading="Contact us for a compliance review and expert fire water storage consultation." primaryCTA={{ label: 'Request a Compliance Review', href: '/contact' }} secondaryCTA={{ label: 'Download Fire Water Guide', href: '#' }} />
+      <CTABanner heading="IS YOUR FIRE WATER SYSTEM COMPLIANT?" subheading="Contact us for a compliance review and expert fire water storage consultation." primaryCTA={{ label: 'Request a Compliance Review', href: '/contact' }} secondaryCTA={{ label: 'Download Fire Water Guide', href: '/resources' }} />
     </>
   )
 }

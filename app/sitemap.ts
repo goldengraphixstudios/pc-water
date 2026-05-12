@@ -19,6 +19,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // Services
     { url: `${BASE_URL}/services`, lastModified, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${BASE_URL}/services/project-managed-water-infrastructure`, lastModified, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/services/water-treatment-solutions`, lastModified, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/services/custom-tank-design`, lastModified, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/services/tank-installation`, lastModified, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/services/foundation-civil-integration`, lastModified, changeFrequency: 'monthly', priority: 0.8 },

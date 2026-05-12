@@ -86,7 +86,7 @@ export default function CommercialFireCompliancePage() {
       </section>
 
       <FAQBlock faqs={faqs} heading="Commercial Fire Compliance — FAQs" />
-      <CTABanner heading="IS YOUR FIRE WATER SYSTEM COMPLIANT?" subheading="Get a compliance review from PC Water Infrastructure and protect your property, people, and insurance." primaryCTA={{ label: 'Request a Compliance Review', href: '/contact' }} secondaryCTA={{ label: 'Download Fire Water Guide', href: '#' }} variant="navy" />
+      <CTABanner heading="IS YOUR FIRE WATER SYSTEM COMPLIANT?" subheading="Get a compliance review from PC Water Infrastructure and protect your property, people, and insurance." primaryCTA={{ label: 'Request a Compliance Review', href: '/contact' }} secondaryCTA={{ label: 'Download Fire Water Guide', href: '/resources' }} variant="navy" />
     </>
   )
 }

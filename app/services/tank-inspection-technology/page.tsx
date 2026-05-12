@@ -117,7 +117,7 @@ export default function TankInspectionPage() {
       </section>
 
       <FAQBlock faqs={faqs} heading="Tank Inspection — FAQs" />
-      <CTABanner heading="KNOW THE CONDITION OF YOUR ASSETS" subheading="Schedule an ROV or drone inspection and get the data you need to make confident asset decisions." primaryCTA={{ label: 'Request an Inspection', href: '/contact' }} secondaryCTA={{ label: 'Download Capability Statement', href: '#' }} variant="navy" />
+      <CTABanner heading="KNOW THE CONDITION OF YOUR ASSETS" subheading="Schedule an ROV or drone inspection and get the data you need to make confident asset decisions." primaryCTA={{ label: 'Request an Inspection', href: '/contact' }} secondaryCTA={{ label: 'Download Capability Statement', href: '/resources' }} variant="navy" />
     </>
   )
 }

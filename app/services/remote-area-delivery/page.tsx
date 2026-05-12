@@ -98,7 +98,7 @@ export default function RemoteAreaDeliveryPage() {
       </section>
 
       <FAQBlock faqs={faqs} heading="Remote Delivery — FAQs" />
-      <CTABanner heading="GOT A REMOTE PROJECT IN MIND?" subheading="Tell us your location, scope, and timeline. We have been there before." primaryCTA={{ label: 'Discuss Your Remote Project', href: '/contact' }} secondaryCTA={{ label: 'Download Remote Project Guide', href: '#' }} variant="navy" />
+      <CTABanner heading="GOT A REMOTE PROJECT IN MIND?" subheading="Tell us your location, scope, and timeline. We have been there before." primaryCTA={{ label: 'Discuss Your Remote Project', href: '/contact' }} secondaryCTA={{ label: 'Download Remote Project Guide', href: '/resources' }} variant="navy" />
     </>
   )
 }

@@ -52,20 +52,24 @@ export default function Footer() {
             </p>
           </div>
           <div>
-            <p className="text-sm font-semibold mb-3 text-gray-300">Stay Informed — Subscribe to Our Newsletter</p>
-            <form className="flex gap-2" action="#">
-              <input
-                type="email"
-                placeholder="Enter your email address"
-                className="flex-1 px-4 py-2.5 rounded bg-white/10 border border-white/20 text-white placeholder-gray-400 text-sm focus:outline-none focus:border-[#3e91ce] transition-colors"
-              />
-              <button
-                type="submit"
-                className="bg-[#3e91ce] hover:bg-[#2d7ab8] text-white px-5 py-2.5 rounded text-sm font-semibold transition-colors"
+            <p className="text-sm font-semibold mb-3 text-gray-300">Explore Resources & Updates</p>
+            <p className="text-sm text-gray-400 max-w-md mb-4">
+              Access practical guides, articles, and capability information without hitting a dead sign-up form.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-2">
+              <Link
+                href="/resources"
+                className="inline-flex items-center justify-center bg-[#3e91ce] hover:bg-[#2d7ab8] text-white px-5 py-2.5 rounded text-sm font-semibold transition-colors"
               >
-                Subscribe
-              </button>
-            </form>
+                View Resources
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center border border-white/20 text-gray-200 hover:text-white hover:border-white/40 px-5 py-2.5 rounded text-sm font-semibold transition-colors"
+              >
+                Contact the Team
+              </Link>
+            </div>
           </div>
         </div>
 

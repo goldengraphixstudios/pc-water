@@ -112,7 +112,7 @@ export default function BuilderContractorPage() {
       </section>
 
       <FAQBlock faqs={faqs} heading="Builder Partnerships — FAQs" />
-      <CTABanner heading="LET'S BUILD SOMETHING TOGETHER" subheading="Contact us to register as a preferred subcontractor partner or discuss an upcoming project." primaryCTA={{ label: 'Discuss a Partnership', href: '/contact' }} secondaryCTA={{ label: 'Download Capability Statement', href: '#' }} />
+      <CTABanner heading="LET'S BUILD SOMETHING TOGETHER" subheading="Contact us to register as a preferred subcontractor partner or discuss an upcoming project." primaryCTA={{ label: 'Discuss a Partnership', href: '/contact' }} secondaryCTA={{ label: 'Download Capability Statement', href: '/resources' }} />
     </>
   )
 }
