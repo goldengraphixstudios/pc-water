@@ -38,7 +38,8 @@ const NAV = [
   {
     group: 'Data',
     items: [
-      { href: '/cms/leads', label: 'Leads',         icon: icons.leads },
+      { href: '/cms/enquiries', label: 'Project Enquiries', icon: icons.leads },
+      { href: '/cms/leads', label: 'Resource Leads', icon: icons.leads },
       { href: '/cms/media', label: 'Media Library', icon: icons.media },
     ],
   },

@@ -1,6 +1,7 @@
 'use client'
 import LocationSelector from '@/components/LocationSelector'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { validateEmailLocally } from '@/lib/email-validation'
 import { validateEmailWithServer } from '@/lib/email-validation-client'
 
@@ -8,13 +9,16 @@ const inputCls = 'w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm f
 const labelCls = 'block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1.5'
 
 export default function ContactForm() {
+  const router = useRouter()
   const [email, setEmail] = useState('')
   const [emailError, setEmailError] = useState('')
   const [verifying, setVerifying] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setEmailError('')
+    setSubmitError('')
 
     const validation = validateEmailLocally(email)
     if (!validation.ok) {
@@ -31,7 +35,47 @@ export default function ContactForm() {
       return
     }
 
-    e.currentTarget.submit()
+    const form = e.currentTarget
+    const formData = new FormData(form)
+
+    const payload = {
+      website: String(formData.get('website') ?? ''),
+      firstName: String(formData.get('firstName') ?? ''),
+      lastName: String(formData.get('lastName') ?? ''),
+      company: String(formData.get('company') ?? ''),
+      email: validation.email,
+      phone: String(formData.get('phone') ?? ''),
+      state: String(formData.get('state') ?? ''),
+      suburbTown: String(formData.get('suburbTown') ?? ''),
+      industry: String(formData.get('industry') ?? ''),
+      service: String(formData.get('service') ?? ''),
+      projectStage: String(formData.get('stage') ?? ''),
+      timeline: String(formData.get('timeline') ?? ''),
+      budget: String(formData.get('budget') ?? ''),
+      tankType: String(formData.get('tankType') ?? ''),
+      message: String(formData.get('message') ?? ''),
+    }
+
+    setVerifying(true)
+    try {
+      const response = await fetch('/api/project-enquiries', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+
+      const data = await response.json().catch(() => null)
+      if (!response.ok || !data?.ok) {
+        setSubmitError(data?.reason ?? 'We could not submit your enquiry. Please try again.')
+        setVerifying(false)
+        return
+      }
+
+      router.push('/thank-you')
+    } catch {
+      setSubmitError('We could not submit your enquiry. Please try again.')
+      setVerifying(false)
+    }
   }
 
   return (
@@ -169,8 +213,12 @@ export default function ContactForm() {
           disabled={verifying}
           className="w-full bg-[#3e91ce] text-white py-4 rounded-lg font-bold hover:bg-[#2d7ab8] transition-colors text-sm tracking-wide"
         >
-          {verifying ? 'Verifying Email…' : 'Submit Enquiry — We Reply Within 1 Business Day'}
+          {verifying ? 'Submitting Enquiry…' : 'Submit Enquiry — We Reply Within 1 Business Day'}
         </button>
+
+        {submitError && (
+          <p className="text-red-500 text-sm font-medium text-center">{submitError}</p>
+        )}
 
         <p className="text-xs text-gray-400 text-center">
           Your information is kept strictly confidential and will only be used to respond to your enquiry.

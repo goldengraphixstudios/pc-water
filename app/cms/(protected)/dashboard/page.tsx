@@ -3,8 +3,10 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { fetchAdminPosts, fetchAdminProjects } from '@/lib/cms/browser-admin'
+import { fetchProjectEnquiries } from '@/lib/supabase/project-enquiries'
 import { fetchResourceLeads } from '@/lib/supabase/resources'
 import type { CmsPost, CmsProject } from '@/lib/cms/types'
+import type { ProjectEnquiry } from '@/lib/project-enquiries'
 import type { ResourceLead } from '@/lib/supabase/resources'
 import { formatDate } from '@/lib/cms/utils'
 
@@ -110,6 +112,17 @@ const QUICK_ACTIONS = [
     ),
   },
   {
+    href: '/cms/enquiries',
+    label: 'View project enquiries',
+    bg: 'bg-emerald-50 dark:bg-emerald-950/30',
+    color: 'text-emerald-600 dark:text-emerald-400',
+    icon: (
+      <svg className="w-[15px] h-[15px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      </svg>
+    ),
+  },
+  {
     href: '/cms/leads',
     label: 'View resource leads',
     bg: 'bg-orange-50 dark:bg-orange-950/30',
@@ -149,7 +162,7 @@ const QUICK_ACTIONS = [
 
 type ActivityItem = {
   id: string
-  type: 'post' | 'project' | 'lead'
+  type: 'post' | 'project' | 'lead' | 'enquiry'
   title: string
   sub: string
   href: string
@@ -162,17 +175,25 @@ type ActivityItem = {
 export default function CmsDashboardPage() {
   const [posts, setPosts]       = useState<CmsPost[]>([])
   const [projects, setProjects] = useState<CmsProject[]>([])
+  const [enquiries, setEnquiries] = useState<ProjectEnquiry[]>([])
   const [leads, setLeads]       = useState<ResourceLead[]>([])
   const [loading, setLoading]   = useState(true)
 
   useEffect(() => {
-    Promise.all([fetchAdminPosts(), fetchAdminProjects(), fetchResourceLeads()])
-      .then(([p, proj, l]) => { setPosts(p); setProjects(proj); setLeads(l); setLoading(false) })
+    Promise.all([fetchAdminPosts(), fetchAdminProjects(), fetchProjectEnquiries(), fetchResourceLeads()])
+      .then(([p, proj, enquiriesData, l]) => {
+        setPosts(p)
+        setProjects(proj)
+        setEnquiries(enquiriesData)
+        setLeads(l)
+        setLoading(false)
+      })
   }, [])
 
   const publishedPosts    = posts.filter(p => p.status === 'published').length
   const publishedProjects = projects.filter(p => p.status === 'published').length
   const featuredProjects  = projects.filter(p => p.featured).length
+  const enquiriesThisWeek = enquiries.filter(e => new Date(e.submittedAt) >= new Date(Date.now() - 7 * 86400000)).length
   const thisWeek          = leads.filter(l => new Date(l.downloaded_at) >= new Date(Date.now() - 7 * 86400000)).length
 
   const metrics: Metric[] = [
@@ -187,6 +208,12 @@ export default function CmsDashboardPage() {
       borderColor: 'bg-violet-500', iconBg: 'bg-violet-50 dark:bg-violet-950/30', iconColor: 'text-violet-600 dark:text-violet-400',
       href: '/cms/projects',
       icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" /></svg>,
+    },
+    {
+      label: 'Project Enquiries', value: enquiries.length, sub: `${enquiriesThisWeek} this week`,
+      borderColor: 'bg-emerald-500', iconBg: 'bg-emerald-50 dark:bg-emerald-950/30', iconColor: 'text-emerald-600 dark:text-emerald-400',
+      href: '/cms/enquiries',
+      icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>,
     },
     {
       label: 'Resource Leads', value: leads.length, sub: `${thisWeek} this week`,
@@ -214,6 +241,11 @@ export default function CmsDashboardPage() {
       sub: p.location,
       href: `/cms/projects/edit?id=${p.id}`, status: p.status, date: p.updatedAt,
     })),
+    ...enquiries.slice(0, 4).map((e): ActivityItem => ({
+      id: e.id, type: 'enquiry', title: `${e.firstName} ${e.lastName}`,
+      sub: e.service || e.email,
+      href: '/cms/enquiries', date: e.submittedAt,
+    })),
     ...leads.slice(0, 4).map((l): ActivityItem => ({
       id: l.id, type: 'lead', title: l.email,
       sub: l.resource_title ?? l.resource_slug,
@@ -234,6 +266,7 @@ export default function CmsDashboardPage() {
   const typeStyle = {
     post:    { bg: 'bg-[#EAF4FF] dark:bg-[#0C1D36]', text: 'text-[#3E91CE] dark:text-[#60AFDF]' },
     project: { bg: 'bg-violet-50 dark:bg-violet-950/30', text: 'text-violet-600 dark:text-violet-400' },
+    enquiry: { bg: 'bg-emerald-50 dark:bg-emerald-950/30', text: 'text-emerald-600 dark:text-emerald-400' },
     lead:    { bg: 'bg-emerald-50 dark:bg-emerald-950/30', text: 'text-emerald-600 dark:text-emerald-400' },
   }
 
@@ -344,6 +377,8 @@ export default function CmsDashboardPage() {
                         <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                       ) : item.type === 'project' ? (
                         <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" /></svg>
+                      ) : item.type === 'enquiry' ? (
+                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                       ) : (
                         <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                       )}
@@ -406,6 +441,7 @@ export default function CmsDashboardPage() {
                 {[
                   { label: 'Articles published',  v: publishedPosts,    t: posts.length,    color: 'bg-[#3E91CE]' },
                   { label: 'Projects published',  v: publishedProjects, t: projects.length, color: 'bg-violet-500' },
+                  { label: 'Project enquiries',   v: enquiriesThisWeek,  t: enquiries.length, color: 'bg-emerald-500' },
                   { label: 'Leads this week',     v: thisWeek,          t: leads.length,    color: 'bg-emerald-500' },
                 ].map((row) => (
                   <div key={row.label}>

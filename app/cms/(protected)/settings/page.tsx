@@ -30,6 +30,9 @@ export default function CmsSettingsPage() {
   const [removing, setRemoving]     = useState<string | null>(null)
   const [currentEmail, setCurrent]  = useState('')
   const [abstractConfigured, setAbstractConfigured] = useState(false)
+  const [supabaseAdminConfigured, setSupabaseAdminConfigured] = useState(false)
+  const [resendConfigured, setResendConfigured] = useState(false)
+  const [projectEnquiryNotifyConfigured, setProjectEnquiryNotifyConfigured] = useState(false)
 
   useEffect(() => {
     async function load() {
@@ -56,8 +59,14 @@ export default function CmsSettingsPage() {
         const response = await fetch('/api/system-status', { cache: 'no-store' })
         const data = await response.json().catch(() => null)
         setAbstractConfigured(Boolean(data?.abstractConfigured))
+        setSupabaseAdminConfigured(Boolean(data?.supabaseAdminConfigured))
+        setResendConfigured(Boolean(data?.resendConfigured))
+        setProjectEnquiryNotifyConfigured(Boolean(data?.projectEnquiryNotifyConfigured))
       } catch {
         setAbstractConfigured(false)
+        setSupabaseAdminConfigured(false)
+        setResendConfigured(false)
+        setProjectEnquiryNotifyConfigured(false)
       }
     }
 
@@ -231,13 +240,62 @@ export default function CmsSettingsPage() {
             { label: 'Supabase URL',    value: 'mhggidgfivmdgkjerejn.supabase.co' },
             { label: 'Storage Bucket', value: 'cms-media (public)' },
             { label: 'Content Tables', value: 'cms_posts, cms_projects, cms_tags' },
-            { label: 'Lead Capture',   value: 'resource_leads' },
+            { label: 'Lead Capture',   value: 'resource_leads, project_enquiries' },
           ].map((item) => (
             <div key={item.label} className="bg-black/[0.02] dark:bg-white/[0.02] rounded-lg px-4 py-3 border border-black/[0.05] dark:border-white/[0.04]">
               <p className="text-[10px] font-bold text-[#99AABF] dark:text-[#4A5670] uppercase tracking-[0.12em] mb-1">{item.label}</p>
               <p className="text-[12px] text-[#0E1525] dark:text-[#ECF0F9] font-mono break-all">{item.value}</p>
             </div>
           ))}
+        </div>
+      </Section>
+
+      <Section
+        title="Project Enquiry Pipeline"
+        subtitle="Submission storage and email handling for the public contact form."
+      >
+        <div className="grid sm:grid-cols-3 gap-2">
+          {[
+            {
+              label: 'Storage table',
+              active: supabaseAdminConfigured,
+              note: supabaseAdminConfigured ? 'Supabase secret storage backend' : 'Add SUPABASE_SECRET_KEY',
+            },
+            {
+              label: 'Confirmation email',
+              active: resendConfigured,
+              note: resendConfigured ? 'Resend API configured' : 'Add RESEND_API_KEY + RESEND_FROM_EMAIL',
+            },
+            {
+              label: 'Internal notification',
+              active: projectEnquiryNotifyConfigured,
+              note: projectEnquiryNotifyConfigured ? 'PROJECT_ENQUIRY_NOTIFY_TO set' : 'Falls back to contact@pcwater.com.au',
+            },
+          ].map((item) => (
+            <div
+              key={item.label}
+              className={`rounded-lg p-3 border ${
+                item.active
+                  ? 'bg-white/60 dark:bg-white/[0.04] border-black/[0.07] dark:border-white/[0.07]'
+                  : 'bg-black/[0.02] dark:bg-black/[0.20] border-black/[0.04] dark:border-white/[0.03]'
+              }`}
+            >
+              <div className={`w-4 h-4 rounded-full flex items-center justify-center mb-2 ${item.active ? 'bg-emerald-500' : 'bg-black/[0.08] dark:bg-white/[0.08]'}`}>
+                {item.active
+                  ? <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7"/></svg>
+                  : <svg className="w-2.5 h-2.5 text-[#99AABF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4"/></svg>
+                }
+              </div>
+              <p className={`text-[11px] font-semibold ${item.active ? 'text-[#0E1525] dark:text-[#ECF0F9]' : 'text-[#99AABF] dark:text-[#4A5670]'}`}>{item.label}</p>
+              <p className="text-[10px] text-[#99AABF] dark:text-[#4A5670] mt-0.5">{item.note}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-4 rounded-lg border border-[#3E91CE]/20 bg-[#EAF4FF] dark:bg-[#0C1D36]/50 px-4 py-3">
+          <p className="text-[11px] font-semibold text-[#0E1525] dark:text-[#ECF0F9] mb-1">Supabase setup step</p>
+          <p className="text-[11px] text-[#536070] dark:text-[#8B9CB8] leading-relaxed">
+            Project enquiries are stored in a private Supabase storage bucket using the server-side secret key. The SQL file remains available if you want to migrate enquiries into a database table later.
+          </p>
         </div>
       </Section>
 
