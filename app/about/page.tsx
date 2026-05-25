@@ -4,9 +4,19 @@ import Link from 'next/link'
 import CTABanner from '@/components/CTABanner'
 
 export const metadata: Metadata = {
-  title: 'About Us',
+  title: 'About PC Water Infrastructure',
   description:
     'PC Water Infrastructure — Australian-owned water storage engineering specialists since 2013. 20+ years combined expertise, zero injury record, nationwide coverage.',
+  keywords: [
+    'pc water infrastructure',
+    'water infrastructure company australia',
+    'australian water infrastructure contractor',
+    'water tank engineering company',
+    'remote water project delivery company',
+  ],
+  alternates: {
+    canonical: '/about',
+  },
 }
 
 export default function AboutPage() {

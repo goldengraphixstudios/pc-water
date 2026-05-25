@@ -2,10 +2,13 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import AppImage from '@/components/AppImage'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import CTABanner from '@/components/CTABanner'
 import GalleryLightbox from '@/components/GalleryLightbox'
 import { getProjectServiceOption, PROJECT_SERVICE_FALLBACKS } from '@/lib/cms/project-services'
 import { getPublicProjectBySlug, getPublicProjects, renderContentBlocks } from '@/lib/cms/queries'
+
+const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
 export const dynamic = 'force-static'
 
@@ -32,6 +35,9 @@ export async function generateMetadata({
   return {
     title: project.seoTitle || `${project.title} | Projects`,
     description: project.seoDescription || project.summary,
+    alternates: {
+      canonical: `/projects/${slug}`,
+    },
   }
 }
 
@@ -58,8 +64,17 @@ export default async function ManagedProjectPage({
       alt: `${project.title} image ${index + 1}`,
     }))
 
+  const projectUrl = `${siteUrl}/projects/${slug}`
+
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: siteUrl },
+          { name: 'Projects', url: `${siteUrl}/projects` },
+          { name: project.title, url: projectUrl },
+        ]}
+      />
       <section className="relative pt-40 pb-24 overflow-hidden min-h-[480px] flex items-end">
         {project.heroImageUrl ? (
           <AppImage

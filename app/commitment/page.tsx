@@ -4,9 +4,19 @@ import Link from 'next/link'
 import CTABanner from '@/components/CTABanner'
 
 export const metadata: Metadata = {
-  title: 'Our Commitment',
+  title: 'Safety, Quality & Compliance Commitment',
   description:
     'PC Water Infrastructure commitment to safety, quality, sustainability, and community — including our SQE policies, engineering standards, and Indigenous engagement principles.',
+  keywords: [
+    'water infrastructure safety and compliance',
+    'zero injury water infrastructure',
+    'water tank compliance standards australia',
+    'AS2304 AS4020 AS1851 compliance',
+    'water infrastructure quality management',
+  ],
+  alternates: {
+    canonical: '/commitment',
+  },
 }
 
 export default function CommitmentPage() {

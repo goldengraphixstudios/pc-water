@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { validateEmailLocally } from '@/lib/email-validation'
 import { validateEmailWithServer } from '@/lib/email-validation-client'
-import { submitResourceLead } from '@/lib/supabase/resources'
 
 interface Props {
   resourceSlug: string
@@ -63,7 +62,16 @@ export default function ResourceDownloadGate({ resourceSlug, resourceTitle, divi
 
     // Store lead
     setStatus('saving')
-    await submitResourceLead(trimmed, resourceSlug, resourceTitle, division)
+    await fetch('/api/resource-leads', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: trimmed,
+        resourceSlug,
+        resourceTitle,
+        division,
+      }),
+    }).catch(() => null)
     setStatus('done')
 
     // Trigger download

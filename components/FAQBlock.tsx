@@ -10,9 +10,25 @@ interface FAQ {
 
 export default function FAQBlock({ faqs, heading = 'FREQUENTLY ASKED QUESTIONS' }: { faqs: FAQ[]; heading?: string }) {
   const [open, setOpen] = useState<number | null>(null)
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  }
 
   return (
     <section className="bg-white py-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="max-w-4xl mx-auto px-4">
         <AnimatedSection className="text-center mb-14">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ FAQs</p>

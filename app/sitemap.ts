@@ -6,7 +6,7 @@ export const dynamic = 'force-static'
 const BASE_URL = process.env.SITE_URL || 'https://pcwater.com.au'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const lastModified = new Date('2026-04-21T00:00:00.000Z')
+  const lastModified = new Date('2026-05-25T00:00:00.000Z')
   const [posts, projects] = await Promise.all([getPublicPosts(), getPublicProjects()])
 
   const routes: MetadataRoute.Sitemap = [

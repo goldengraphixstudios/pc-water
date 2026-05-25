@@ -2,6 +2,7 @@
 import AppImage from '@/components/AppImage'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import CTABanner from '@/components/CTABanner'
 import SectionProjects from '@/components/SectionProjects'
 
@@ -9,7 +10,19 @@ export const metadata: Metadata = {
   title: 'Water Storage Solutions for Government & Councils',
   description:
     'Compliant, accountable water storage for government and council assets. Tender-ready documentation, AS2304/AS1851 compliance, remote delivery, and procurement support.',
+  keywords: [
+    'government council water infrastructure',
+    'council water tank solutions',
+    'municipal water storage infrastructure',
+    'government water treatment contractor',
+    'public sector water infrastructure australia',
+  ],
+  alternates: {
+    canonical: '/industries/government-councils',
+  },
 }
+
+const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
 const faqs = [
   { question: 'Do you have experience with local government procurement?', answer: 'Yes. We have delivered projects for local and state government clients and understand the documentation requirements, compliance expectations, and procurement processes involved. We provide full capability statements, RPEQ certification, and compliance documentation to support tender evaluation.' },
@@ -21,6 +34,13 @@ const faqs = [
 export default function GovernmentCouncilsPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: siteUrl },
+          { name: 'Industries', url: `${siteUrl}/industries` },
+          { name: 'Water Storage Solutions for Government & Councils', url: `${siteUrl}/industries/government-councils` },
+        ]}
+      />
       <section className="relative pt-40 pb-24 overflow-hidden">
         <AppImage src="/heroes/government-councils.jpg" alt="" fill priority className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#0d1b2a]/75" />

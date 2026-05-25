@@ -14,5 +14,8 @@ export async function GET() {
     projectEnquiryNotifyConfigured: Boolean(
       process.env.PROJECT_ENQUIRY_NOTIFY_TO,
     ),
+    pipedriveConfigured: Boolean(
+      process.env.PIPEDRIVE_API_TOKEN,
+    ),
   })
 }

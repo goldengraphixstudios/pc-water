@@ -4,9 +4,17 @@ import IndustryCard from '@/components/IndustryCard'
 import CTABanner from '@/components/CTABanner'
 
 export const metadata: Metadata = {
-  title: 'Industries We Serve',
+  title: 'Water Infrastructure Industries We Serve',
   description:
     'PC Water Infrastructure delivers water storage solutions to government, mining, industrial, commercial, and remote community sectors across Australia.',
+  keywords: [
+    'water infrastructure industries',
+    'water tank solutions by industry',
+    'sector specific water infrastructure australia',
+  ],
+  alternates: {
+    canonical: '/industries',
+  },
 }
 
 const industries = [

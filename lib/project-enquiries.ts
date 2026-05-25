@@ -23,6 +23,11 @@ export interface ProjectEnquiry extends ProjectEnquiryInput {
   emailDeliveryError: string | null
   submittedAt: string
   reviewedAt: string | null
+  pipedrivePersonId?: number | null
+  pipedriveOrganizationId?: number | null
+  pipedriveLeadId?: string | null
+  pipedriveSyncedAt?: string | null
+  pipedriveSyncError?: string | null
 }
 
 export function normalizeProjectEnquiryInput(input: ProjectEnquiryInput): ProjectEnquiryInput {

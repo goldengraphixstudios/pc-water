@@ -1,15 +1,29 @@
 ﻿import type { Metadata } from 'next'
 import AppImage from '@/components/AppImage'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
 import CTABanner from '@/components/CTABanner'
 import SectionProjects from '@/components/SectionProjects'
 
 export const metadata: Metadata = {
-  title: 'RPVC Liner Systems',
+  title: 'RPVC Liner Systems Australia',
   description:
-    'High-performance RPVC liner installation to protect tanks from corrosion, extend asset life by 20+ years, and meet potable water standards (AS4020). Expert RPVC welding specialists.',
+    'RPVC liner systems for aging water tanks across Australia. Extend asset life, restore potable water compliance, reduce corrosion risk, and avoid full tank replacement.',
+  keywords: [
+    'RPVC liner systems australia',
+    'water tank relining australia',
+    'AS4020 potable water liner',
+    'aging water tank relining',
+    'tank corrosion prevention',
+    'RPVC liner installation',
+  ],
+  alternates: {
+    canonical: '/services/rpvc-liner-systems',
+  },
 }
+
+const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
 const faqs = [
   { question: 'What is an RPVC liner?', answer: 'RPVC (Rigid PVC) liner is a thick, welded PVC membrane installed inside a water storage tank to protect the structural shell from corrosion and to meet potable water compliance requirements under AS4020. It is welded in place by specialist welders and provides a fully sealed internal surface.' },
@@ -22,6 +36,13 @@ const faqs = [
 export default function RPVCLinerPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: siteUrl },
+          { name: 'Services', url: `${siteUrl}/services` },
+          { name: 'RPVC Liner Systems', url: `${siteUrl}/services/rpvc-liner-systems` },
+        ]}
+      />
       <section className="relative pt-40 pb-24 overflow-hidden">
         <AppImage
           src="/heroes/rpvc-liner-systems.jpg"
@@ -110,6 +131,34 @@ export default function RPVCLinerPage() {
               <span key={ind} className="bg-[#F4F6F8] border border-gray-200 text-[#30505b] px-5 py-2.5 rounded-full text-sm font-semibold">{ind}</span>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-[#F4F6F8] py-16">
+        <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            {
+              title: 'Why RPVC relining works',
+              description: 'Read the resource explaining how RPVC liners extend the life of aging water tanks.',
+              href: '/resources/how-rpvc-liners-extend-the-life-of-aging-water-tanks',
+            },
+            {
+              title: 'Corrosion risk guidance',
+              description: 'Understand how corrosion escalates and when relining is a better decision than replacement.',
+              href: '/resources/corrosion-is-killing-your-storage-tanks-and-heres-how-to-stop-it',
+            },
+            {
+              title: 'Albury reline project',
+              description: 'See a real reservoir refurbishment where RPVC relining restored AS4020 compliance.',
+              href: '/projects/albury-reservoir',
+            },
+          ].map((item) => (
+            <Link key={item.href} href={item.href} className="rounded-2xl bg-white border border-gray-100 p-6 shadow-sm hover:border-[#3e91ce] transition-colors">
+              <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Related</p>
+              <h2 className="text-xl font-black text-[#30505b] mb-3">{item.title}</h2>
+              <p className="text-gray-600 leading-relaxed">{item.description}</p>
+            </Link>
+          ))}
         </div>
       </section>
 

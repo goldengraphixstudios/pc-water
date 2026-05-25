@@ -7,18 +7,20 @@ import TawkChat from '@/components/TawkChat'
 const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: 'PC Water Infrastructure - Engineered Water Solutions',
     template: '%s | PC Water Infrastructure',
   },
   icons: {
     icon: [
-      { url: '/logo-pacific-water-group.png', type: 'image/png' },
+      { url: '/favicon.ico', type: 'image/x-icon' },
+      { url: '/icon.png', type: 'image/png' },
     ],
     apple: [
-      { url: '/logo-pacific-water-group.png', type: 'image/png' },
+      { url: '/icon.png', type: 'image/png' },
     ],
-    shortcut: '/logo-pacific-water-group.png',
+    shortcut: '/favicon.ico',
   },
   description:
     'PC Water Infrastructure delivers engineered water storage solutions across Australia. Custom design, installation, RPVC liners, fire water tanks, and remote project delivery.',
@@ -51,6 +53,18 @@ const organizationSchema = {
   foundingDate: '2013',
   telephone: '1300029804',
   email: 'contact@pcwater.com.au',
+  knowsAbout: [
+    'Water storage tanks',
+    'Fire water tank compliance',
+    'RPVC liner systems',
+    'Tank inspection technology',
+    'Water treatment infrastructure',
+    'Remote water infrastructure delivery',
+  ],
+  areaServed: {
+    '@type': 'Country',
+    name: 'Australia',
+  },
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Mudgeeraba',

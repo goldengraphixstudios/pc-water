@@ -52,6 +52,179 @@ function EmailStatusBadge({ status }: { status: ProjectEnquiry['emailDeliverySta
   return <span className={`inline-flex items-center text-[11px] font-semibold px-2.5 py-0.5 rounded-full whitespace-nowrap ${classes}`}>{status}</span>
 }
 
+function PipedriveStatusBadge({ enquiry }: { enquiry: ProjectEnquiry }) {
+  const synced = Boolean(enquiry.pipedriveLeadId)
+  const classes = synced
+    ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400'
+    : enquiry.pipedriveSyncError
+    ? 'bg-red-50 dark:bg-red-950/40 text-red-700 dark:text-red-400'
+    : 'bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400'
+
+  return (
+    <span className={`inline-flex items-center text-[11px] font-semibold px-2.5 py-0.5 rounded-full whitespace-nowrap ${classes}`}>
+      {synced ? 'pipedrive synced' : enquiry.pipedriveSyncError ? 'pipedrive failed' : 'not synced'}
+    </span>
+  )
+}
+
+function DetailRow({ label, value }: { label: string; value: string | null | undefined }) {
+  return (
+    <div className="rounded-xl bg-white dark:bg-[#0B1220] border border-[#D8E1ED] dark:border-[#24324A] px-4 py-3.5 shadow-[0_1px_0_rgba(14,21,37,0.03)]">
+      <p className="text-[10px] font-bold text-[#6B7A90] dark:text-[#8FA2BF] uppercase tracking-[0.14em] mb-1.5">{label}</p>
+      <p className="text-[12px] leading-relaxed text-[#0E1525] dark:text-[#F3F6FB] whitespace-pre-wrap break-words">{value?.trim() || '—'}</p>
+    </div>
+  )
+}
+
+function DetailSection({
+  title,
+  subtitle,
+  children,
+}: {
+  title: string
+  subtitle?: string
+  children: React.ReactNode
+}) {
+  return (
+    <section className="rounded-2xl border border-[#D9E3EE] dark:border-[#1D2A40] bg-[#F7FAFD] dark:bg-[#07101D] overflow-hidden">
+      <div className="px-5 py-4 border-b border-[#E2EAF2] dark:border-[#18243A] bg-white/80 dark:bg-[#0B1526]/80">
+        <h3 className="text-[13px] font-bold tracking-tight text-[#0E1525] dark:text-[#F3F6FB]">{title}</h3>
+        {subtitle && (
+          <p className="text-[11px] mt-1 text-[#5E6C81] dark:text-[#91A4C0]">{subtitle}</p>
+        )}
+      </div>
+      <div className="p-4">{children}</div>
+    </section>
+  )
+}
+
+function EnquiryDetailModal({
+  enquiry,
+  onClose,
+}: {
+  enquiry: ProjectEnquiry
+  onClose: () => void
+}) {
+  useEffect(() => {
+    function handleEscape(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        onClose()
+      }
+    }
+
+    window.addEventListener('keydown', handleEscape)
+    return () => window.removeEventListener('keydown', handleEscape)
+  }, [onClose])
+
+  return (
+    <div
+      className="fixed inset-0 z-[999] bg-[#08111D]/72 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
+      onClick={onClose}
+    >
+      <div
+        className="w-full max-w-5xl max-h-[92vh] overflow-hidden rounded-[24px] border border-[#D8E2ED] dark:border-[#22314A] bg-[#F4F8FC] dark:bg-[#06101C] shadow-[0_24px_80px_rgba(5,13,24,0.38)]"
+        onClick={(event) => event.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="enquiry-detail-title"
+      >
+        <div className="px-5 py-4 sm:px-6 sm:py-5 border-b border-[#DCE6F0] dark:border-[#18253A] bg-white/92 dark:bg-[#0A1524]/92 flex items-start justify-between gap-4">
+          <div>
+            <p className="text-[10px] font-bold text-[#6D7D94] dark:text-[#8EA1BE] uppercase tracking-[0.16em] mb-1.5">Enquiry Detail</p>
+            <h2 id="enquiry-detail-title" className="text-[22px] font-black text-[#0E1525] dark:text-[#F3F6FB] tracking-tight">{enquiry.firstName} {enquiry.lastName}</h2>
+            <p className="text-[12px] text-[#4E5D73] dark:text-[#9DB0CB] mt-1.5">{formatDateTime(enquiry.submittedAt)}</p>
+          </div>
+          <button
+            onClick={onClose}
+            className="inline-flex items-center justify-center gap-2 min-w-10 h-10 px-3 rounded-xl border border-[#D6E1EC] dark:border-[#23324B] bg-white dark:bg-[#0E192A] text-[#52627B] dark:text-[#A6B7D0] hover:text-[#0E1525] dark:hover:text-[#F3F6FB] hover:border-[#AFC4DA] dark:hover:border-[#38506F] hover:bg-[#F7FBFF] dark:hover:bg-[#132238] transition-colors"
+            aria-label="Close enquiry"
+          >
+            <svg className="w-4 h-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            <span className="hidden sm:inline text-[12px] font-semibold">Close</span>
+          </button>
+        </div>
+
+        <div className="overflow-y-auto max-h-[calc(92vh-88px)] p-5 sm:p-6 space-y-5">
+          <div className="flex flex-wrap gap-2">
+            <StatusBadge status={enquiry.submissionStatus} />
+            <EmailStatusBadge status={enquiry.emailDeliveryStatus} />
+            <PipedriveStatusBadge enquiry={enquiry} />
+          </div>
+
+          <DetailSection
+            title="Contact Snapshot"
+            subtitle="Primary lead details captured from the website form."
+          >
+            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-3">
+              <DetailRow label="First name" value={enquiry.firstName} />
+              <DetailRow label="Last name" value={enquiry.lastName} />
+              <DetailRow label="Email" value={enquiry.email} />
+              <DetailRow label="Phone" value={enquiry.phone} />
+              <DetailRow label="Company" value={enquiry.company} />
+              <DetailRow label="State" value={enquiry.state} />
+              <DetailRow label="Suburb / Town" value={enquiry.suburbTown} />
+              <DetailRow label="Industry" value={enquiry.industry} />
+              <DetailRow label="Source" value={enquiry.source} />
+            </div>
+          </DetailSection>
+
+          <DetailSection
+            title="Project Context"
+            subtitle="Commercial details used to qualify the opportunity."
+          >
+            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-3">
+              <DetailRow label="Service" value={enquiry.service} />
+              <DetailRow label="Project stage" value={enquiry.projectStage} />
+              <DetailRow label="Timeline" value={enquiry.timeline} />
+              <DetailRow label="Budget" value={enquiry.budget} />
+              <DetailRow label="Tank type" value={enquiry.tankType} />
+              <DetailRow label="Reviewed at" value={enquiry.reviewedAt ? formatDateTime(enquiry.reviewedAt) : '—'} />
+            </div>
+          </DetailSection>
+
+          <DetailSection
+            title="Project Description"
+            subtitle="Full message submitted by the lead."
+          >
+            <div className="rounded-2xl border border-[#D8E3EE] dark:border-[#23324B] bg-white dark:bg-[#0B1220] p-4 sm:p-5">
+              <p className="text-[13px] leading-7 text-[#122033] dark:text-[#EFF4FB] whitespace-pre-wrap break-words">
+                {enquiry.message?.trim() || '—'}
+              </p>
+            </div>
+          </DetailSection>
+
+          <DetailSection
+            title="Delivery And CRM"
+            subtitle="Email confirmation and Pipedrive sync metadata."
+          >
+            <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-3">
+              <DetailRow label="Submitted" value={formatDateTime(enquiry.submittedAt)} />
+              <DetailRow label="Pipedrive person ID" value={enquiry.pipedrivePersonId ? String(enquiry.pipedrivePersonId) : '—'} />
+              <DetailRow label="Pipedrive organization ID" value={enquiry.pipedriveOrganizationId ? String(enquiry.pipedriveOrganizationId) : '—'} />
+              <DetailRow label="Pipedrive lead ID" value={enquiry.pipedriveLeadId} />
+              <DetailRow label="Pipedrive synced at" value={enquiry.pipedriveSyncedAt ? formatDateTime(enquiry.pipedriveSyncedAt) : '—'} />
+            </div>
+
+            {(enquiry.emailDeliveryError || enquiry.pipedriveSyncError) && (
+              <div className="mt-4 grid gap-3">
+                {enquiry.emailDeliveryError && (
+                  <DetailRow label="Email delivery error" value={enquiry.emailDeliveryError} />
+                )}
+
+                {enquiry.pipedriveSyncError && (
+                  <DetailRow label="Pipedrive sync error" value={enquiry.pipedriveSyncError} />
+                )}
+              </div>
+            )}
+          </DetailSection>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function exportCSV(rows: ProjectEnquiry[]) {
   const headers = ['Submitted', 'First Name', 'Last Name', 'Company', 'Email', 'Phone', 'State', 'Suburb/Town', 'Industry', 'Service', 'Project Stage', 'Timeline', 'Budget', 'Tank Type', 'Status', 'Email Status', 'Message']
   const data = rows.map((row) => [
@@ -137,6 +310,7 @@ export default function ProjectEnquiriesPage() {
   const [statusFilter, setStatusFilter] = useState<(typeof STATUSES)[number]>('All')
   const [toDelete, setToDelete] = useState<ProjectEnquiry | null>(null)
   const [deleting, setDeleting] = useState(false)
+  const [selectedEnquiry, setSelectedEnquiry] = useState<ProjectEnquiry | null>(null)
 
   async function load() {
     const data = await fetchProjectEnquiries()
@@ -164,6 +338,7 @@ export default function ProjectEnquiriesPage() {
   const oneWeekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
   const thisWeekCount = enquiries.filter((item) => new Date(item.submittedAt) >= oneWeekAgo).length
   const sentCount = enquiries.filter((item) => item.emailDeliveryStatus === 'sent').length
+  const syncedCount = enquiries.filter((item) => Boolean(item.pipedriveLeadId)).length
 
   const filtered = enquiries.filter((item) => {
     const matchStatus = statusFilter === 'All' || item.submissionStatus === statusFilter
@@ -215,6 +390,7 @@ export default function ProjectEnquiriesPage() {
         <StatCard label="Unique Emails" value={loading ? '—' : uniqueEmails} sub="distinct contacts" accentClass="bg-violet-500" />
         <StatCard label="This Week" value={loading ? '—' : thisWeekCount} sub="last 7 days" accentClass="bg-emerald-500" />
         <StatCard label="Email Sent" value={loading ? '—' : sentCount} sub="confirmation delivery" accentClass="bg-orange-400" />
+        <StatCard label="CRM Synced" value={loading ? '—' : syncedCount} sub="pipedrive leads" accentClass="bg-sky-500" />
       </div>
 
       <div className="flex flex-col sm:flex-row gap-2">
@@ -289,14 +465,20 @@ export default function ProjectEnquiriesPage() {
                     className="border-b border-black/[0.05] dark:border-white/[0.04] last:border-0 hover:bg-black/[0.03] dark:hover:bg-white/[0.03] transition-colors group"
                   >
                     <td className="px-5 py-3.5">
-                      <p className="text-[13px] font-semibold text-[#0E1525] dark:text-[#ECF0F9]">{enquiry.firstName} {enquiry.lastName}</p>
+                      <button
+                        onClick={() => setSelectedEnquiry(enquiry)}
+                        className="text-left"
+                      >
+                        <p className="text-[13px] font-semibold text-[#0E1525] dark:text-[#ECF0F9] hover:text-[#3E91CE] transition-colors">{enquiry.firstName} {enquiry.lastName}</p>
+                      </button>
                       <p className="text-[11px] text-[#99AABF] dark:text-[#4A5670] mt-0.5">{enquiry.company || enquiry.email}</p>
                     </td>
                     <td className="px-5 py-3.5 text-[12px] text-[#536070] dark:text-[#8B9CB8]">{enquiry.service || '—'}</td>
                     <td className="px-5 py-3.5 hidden md:table-cell">
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 flex-wrap">
                         <StatusBadge status={enquiry.submissionStatus} />
                         <EmailStatusBadge status={enquiry.emailDeliveryStatus} />
+                        <PipedriveStatusBadge enquiry={enquiry} />
                       </div>
                     </td>
                     <td className="px-5 py-3.5 hidden lg:table-cell text-[12px] text-[#536070] dark:text-[#8B9CB8]">{enquiry.email}</td>
@@ -304,15 +486,27 @@ export default function ProjectEnquiriesPage() {
                       <span className="text-[12px] text-[#99AABF] dark:text-[#4A5670] font-mono">{formatDateTime(enquiry.submittedAt)}</span>
                     </td>
                     <td className="px-2 py-3.5">
-                      <button
-                        onClick={() => setToDelete(enquiry)}
-                        title="Delete enquiry"
-                        className="w-7 h-7 rounded-lg flex items-center justify-center text-[#C8D2E0] dark:text-[#2A3550] opacity-0 group-hover:opacity-100 hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 transition-all"
-                      >
-                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                        </svg>
-                      </button>
+                      <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <button
+                          onClick={() => setSelectedEnquiry(enquiry)}
+                          title="Open enquiry"
+                          className="w-7 h-7 rounded-lg flex items-center justify-center text-[#C8D2E0] dark:text-[#2A3550] hover:text-[#3E91CE] hover:bg-[#EAF4FF] dark:hover:bg-[#0C1D36] transition-all"
+                        >
+                          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                          </svg>
+                        </button>
+                        <button
+                          onClick={() => setToDelete(enquiry)}
+                          title="Delete enquiry"
+                          className="w-7 h-7 rounded-lg flex items-center justify-center text-[#C8D2E0] dark:text-[#2A3550] hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 transition-all"
+                        >
+                          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                          </svg>
+                        </button>
+                      </div>
                     </td>
                   </tr>
                 ))}
@@ -337,6 +531,10 @@ export default function ProjectEnquiriesPage() {
           }}
           onConfirm={handleDeleteConfirm}
         />
+      )}
+
+      {selectedEnquiry && (
+        <EnquiryDetailModal enquiry={selectedEnquiry} onClose={() => setSelectedEnquiry(null)} />
       )}
     </div>
   )

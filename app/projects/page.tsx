@@ -5,9 +5,17 @@ import CTABanner from '@/components/CTABanner'
 import { getPublicProjects, toProjectGridItems } from '@/lib/cms/queries'
 
 export const metadata: Metadata = {
-  title: 'Projects',
+  title: 'Water Infrastructure Projects',
   description:
     'PC Water Infrastructure project portfolio — water storage infrastructure delivered across government, mining, industrial, commercial, and remote community sectors across Australia.',
+  keywords: [
+    'water infrastructure projects australia',
+    'water tank project portfolio',
+    'engineered water storage projects',
+  ],
+  alternates: {
+    canonical: '/projects',
+  },
 }
 
 export const dynamic = 'force-static'

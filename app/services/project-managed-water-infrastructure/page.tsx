@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import AppImage from '@/components/AppImage'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import FAQBlock from '@/components/FAQBlock'
 import CTABanner from '@/components/CTABanner'
 import SectionProjects from '@/components/SectionProjects'
@@ -9,7 +10,19 @@ export const metadata: Metadata = {
   title: 'Project Managed Water Infrastructure',
   description:
     'End-to-end project managed water infrastructure delivery across design, procurement, civil integration, commissioning, and handover documentation.',
+  keywords: [
+    'project managed water infrastructure',
+    'water infrastructure project management',
+    'end to end water infrastructure delivery',
+    'water infrastructure contractor australia',
+    'turnkey water infrastructure',
+  ],
+  alternates: {
+    canonical: '/services/project-managed-water-infrastructure',
+  },
 }
+
+const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
 const faqs = [
   {
@@ -37,6 +50,13 @@ const faqs = [
 export default function ProjectManagedWaterInfrastructurePage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: siteUrl },
+          { name: 'Services', url: `${siteUrl}/services` },
+          { name: 'Project Managed Water Infrastructure', url: `${siteUrl}/services/project-managed-water-infrastructure` },
+        ]}
+      />
       <section className="relative pt-40 pb-24 overflow-hidden">
         <AppImage
           src="/water/water-15.jpg"

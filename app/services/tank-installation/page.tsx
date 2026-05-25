@@ -2,14 +2,28 @@
 import AppImage from '@/components/AppImage'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import CTABanner from '@/components/CTABanner'
 import SectionProjects from '@/components/SectionProjects'
 
 export const metadata: Metadata = {
-  title: 'Professional Tank Installation',
+  title: 'Water Tank Installation Australia',
   description:
     'End-to-end tank installation with certified crews, national reach, and rigorous safety standards. Site preparation, structural erection, commissioning, JSA/SWMS compliance.',
+  keywords: [
+    'water tank installation australia',
+    'professional tank installation',
+    'steel water tank installation',
+    'potable water tank installation',
+    'fire water tank installation',
+    'tank erection contractor',
+  ],
+  alternates: {
+    canonical: '/services/tank-installation',
+  },
 }
+
+const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
 const faqs = [
   { question: 'Do you manage the full installation process?', answer: 'Yes. PC Water Infrastructure manages everything from site preparation and foundation work through to structural erection, commissioning, and handover — providing a single point of accountability for your project.' },
@@ -22,6 +36,13 @@ const faqs = [
 export default function TankInstallationPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: siteUrl },
+          { name: 'Services', url: `${siteUrl}/services` },
+          { name: 'Water Tank Installation', url: `${siteUrl}/services/tank-installation` },
+        ]}
+      />
       <section className="relative pt-40 pb-24 overflow-hidden">
         <AppImage
           src="/heroes/tank-installation.jpg"

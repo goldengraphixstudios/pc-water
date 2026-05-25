@@ -9,7 +9,8 @@
     "lint": "eslint",
     "cms:import": "node scripts/import-cms-content.cjs",
     "cms:sync-project-meta": "node scripts/sync-project-meta.cjs",
-    "cms:upload-media": "node scripts/upload-existing-media.cjs"
+    "cms:upload-media": "node scripts/upload-existing-media.cjs",
+    "crm:backfill-pipedrive": "node scripts/backfill-pipedrive.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.10.2",

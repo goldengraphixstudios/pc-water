@@ -1,15 +1,29 @@
 ﻿import type { Metadata } from 'next'
 import AppImage from '@/components/AppImage'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
 import CTABanner from '@/components/CTABanner'
 import SectionProjects from '@/components/SectionProjects'
 
 export const metadata: Metadata = {
-  title: 'Fire Water Tank Solutions',
+  title: 'Fire Water Tank Solutions Australia',
   description:
-    'AS2304-compliant fire water storage systems for commercial, industrial, and mining. Flow rate calculations, pump integration, annual AS1851 inspection support.',
+    'AS2304-compliant fire water tank solutions across Australia including design, installation, pump integration, inspection support, and AS1851 compliance guidance.',
+  keywords: [
+    'fire water tank compliance australia',
+    'AS2304 fire water tanks',
+    'AS1851 fire tank inspection',
+    'commercial fire water tank',
+    'industrial fire water storage tank',
+    'fire water tank solutions',
+  ],
+  alternates: {
+    canonical: '/services/fire-water-tanks',
+  },
 }
+
+const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
 const faqs = [
   { question: 'What standard applies to fire water tanks in Australia?', answer: 'Fire water storage tanks in Australia must be designed and installed to AS2304 (Water Storage Tanks for Fire Protection Systems). Annual maintenance and inspection must comply with AS1851 (Maintenance of Fire Protection Systems and Equipment).' },
@@ -22,6 +36,13 @@ const faqs = [
 export default function FireWaterTanksPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: siteUrl },
+          { name: 'Services', url: `${siteUrl}/services` },
+          { name: 'Fire Water Tank Solutions', url: `${siteUrl}/services/fire-water-tanks` },
+        ]}
+      />
       <section className="relative pt-40 pb-24 overflow-hidden">
         <AppImage
           src="/heroes/fire-water-tanks.jpg"
@@ -127,6 +148,34 @@ export default function FireWaterTanksPage() {
               <span key={ind} className="bg-[#F4F6F8] border border-gray-200 text-[#30505b] px-5 py-2.5 rounded-full text-sm font-semibold">{ind}</span>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-[#F4F6F8] py-16">
+        <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            {
+              title: 'Fire tank compliance article',
+              description: 'See the common AS2304 and AS1851 failure points asset owners miss until inspection time.',
+              href: '/resources/why-your-fire-tank-might-fail-compliance-and-how-to-fix-it-fast',
+            },
+            {
+              title: 'Inspection capability',
+              description: 'Use ROV and UAV inspection methods to assess tank condition with less disruption.',
+              href: '/services/tank-inspection-technology',
+            },
+            {
+              title: 'Featured compliance project',
+              description: 'Review a live project example showing how compliance-led delivery is executed in practice.',
+              href: '/projects/clarence-road-liner',
+            },
+          ].map((item) => (
+            <Link key={item.href} href={item.href} className="rounded-2xl bg-white border border-gray-100 p-6 shadow-sm hover:border-[#3e91ce] transition-colors">
+              <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Next Step</p>
+              <h2 className="text-xl font-black text-[#30505b] mb-3">{item.title}</h2>
+              <p className="text-gray-600 leading-relaxed">{item.description}</p>
+            </Link>
+          ))}
         </div>
       </section>
 

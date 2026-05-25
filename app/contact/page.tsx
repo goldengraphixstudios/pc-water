@@ -3,9 +3,19 @@ import AppImage from '@/components/AppImage'
 import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
-  title: 'Contact Us',
+  title: 'Contact PC Water Infrastructure',
   description:
     'Contact PC Water Infrastructure to discuss your water storage project. Phone: 1300 029 804. Email: contact@pcwater.com.au. We respond within one business day.',
+  keywords: [
+    'contact pc water infrastructure',
+    'water infrastructure quote australia',
+    'discuss water tank project',
+    'request tank inspection quote',
+    'water storage enquiry australia',
+  ],
+  alternates: {
+    canonical: '/contact',
+  },
 }
 
 export default function ContactPage() {

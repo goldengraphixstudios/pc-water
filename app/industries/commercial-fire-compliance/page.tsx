@@ -2,13 +2,26 @@
 import AppImage from '@/components/AppImage'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import CTABanner from '@/components/CTABanner'
 
 export const metadata: Metadata = {
   title: 'Fire Water Tank Solutions for Commercial Properties',
   description:
     'AS2304 fire water storage and AS1851 annual inspection compliance for commercial properties. Pump system integration, compliance documentation, and ongoing maintenance.',
+  keywords: [
+    'commercial fire water compliance',
+    'fire tank compliance commercial buildings',
+    'AS1851 fire tank inspection',
+    'fire water tank services commercial',
+    'commercial fire water storage australia',
+  ],
+  alternates: {
+    canonical: '/industries/commercial-fire-compliance',
+  },
 }
+
+const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
 const faqs = [
   { question: 'Does my commercial building need a fire water tank?', answer: 'The requirement for a fire water storage tank is determined by the fire engineer\'s report for your building, the applicable BCA/NCC fire system design, and local authority requirements. If your building has or requires a fire sprinkler system, suppression system, or hydrant system, a compliant water storage tank is typically required.' },
@@ -20,6 +33,13 @@ const faqs = [
 export default function CommercialFireCompliancePage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: siteUrl },
+          { name: 'Industries', url: `${siteUrl}/industries` },
+          { name: 'Fire Water Tank Solutions for Commercial Properties', url: `${siteUrl}/industries/commercial-fire-compliance` },
+        ]}
+      />
       <section className="relative pt-40 pb-24 overflow-hidden">
         <AppImage src="/heroes/commercial-fire-compliance.jpg" alt="" fill priority className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#0d1b2a]/75" />

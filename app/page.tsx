@@ -11,9 +11,22 @@ import HeroSection from '@/components/HeroSection'
 import GatedDownloadLink from '@/components/GatedDownloadLink'
 
 export const metadata: Metadata = {
-  title: 'PC Water Infrastructure - Engineered Water Solutions',
+  title: 'Water Infrastructure Australia | PC Water Infrastructure',
   description:
-    'PC Water Infrastructure delivers complete water infrastructure and water treatment solutions across Australia — project managed facilities, asset installation, RPVC lining, fire water compliance, and remote project delivery since 2013.',
+    'PC Water Infrastructure delivers engineered water storage and water treatment solutions across Australia — project managed facilities, RPVC liners, fire water compliance, tank inspection, and remote project delivery since 2013.',
+  keywords: [
+    'water infrastructure australia',
+    'engineered water solutions australia',
+    'water storage solutions australia',
+    'water treatment infrastructure australia',
+    'remote water infrastructure australia',
+    'fire water tanks australia',
+    'RPVC liner systems',
+    'tank inspection technology',
+  ],
+  alternates: {
+    canonical: '/',
+  },
 }
 
 const faqs = [

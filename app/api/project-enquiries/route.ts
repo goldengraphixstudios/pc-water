@@ -4,6 +4,7 @@ import { requireCmsAdmin } from '@/lib/cms/admin'
 import { verifyEmailDeliverability } from '@/lib/email-deliverability'
 import { validateEmailLocally } from '@/lib/email-validation'
 import { sendProjectEnquiryEmails } from '@/lib/email/project-enquiry-emails'
+import { syncProjectEnquiryToPipedrive } from '@/lib/pipedrive'
 import { normalizeProjectEnquiryInput, type ProjectEnquiryInput } from '@/lib/project-enquiries'
 import {
   deleteProjectEnquiryRecord,
@@ -126,6 +127,11 @@ export async function POST(request: Request) {
     emailDeliveryError: null as string | null,
     submittedAt: new Date().toISOString(),
     reviewedAt: null as string | null,
+    pipedrivePersonId: null as number | null,
+    pipedriveOrganizationId: null as number | null,
+    pipedriveLeadId: null as string | null,
+    pipedriveSyncedAt: null as string | null,
+    pipedriveSyncError: null as string | null,
   }
 
   const saveResult = await saveProjectEnquiryRecord({
@@ -150,6 +156,11 @@ export async function POST(request: Request) {
     emailDeliveryError: record.emailDeliveryError,
     submittedAt: record.submittedAt,
     reviewedAt: record.reviewedAt,
+    pipedrivePersonId: record.pipedrivePersonId,
+    pipedriveOrganizationId: record.pipedriveOrganizationId,
+    pipedriveLeadId: record.pipedriveLeadId,
+    pipedriveSyncedAt: record.pipedriveSyncedAt,
+    pipedriveSyncError: record.pipedriveSyncError,
   })
 
   if (!saveResult.ok) {
@@ -166,6 +177,25 @@ export async function POST(request: Request) {
   } satisfies ProjectEnquiryInput)
 
   const emailDeliveryStatus = emailResult.confirmationSent ? 'sent' : emailResult.error ? 'failed' : 'skipped'
+
+  const pipedriveResult = await syncProjectEnquiryToPipedrive({
+    sourceId: record.id,
+    firstName: record.first_name,
+    lastName: record.last_name,
+    company: record.company,
+    email: record.email,
+    phone: record.phone,
+    state: record.state,
+    suburbTown: record.suburbTown,
+    industry: record.industry,
+    service: record.service,
+    projectStage: record.projectStage,
+    timeline: record.timeline,
+    budget: record.budget,
+    tankType: record.tankType,
+    message: record.message,
+    submittedAt: record.submittedAt,
+  })
 
   await saveProjectEnquiryRecord({
     id: record.id,
@@ -189,12 +219,22 @@ export async function POST(request: Request) {
     emailDeliveryError: emailResult.error ?? null,
     submittedAt: record.submittedAt,
     reviewedAt: record.reviewedAt,
+    pipedrivePersonId: pipedriveResult.personId ?? null,
+    pipedriveOrganizationId: pipedriveResult.organizationId ?? null,
+    pipedriveLeadId: pipedriveResult.leadId ?? null,
+    pipedriveSyncedAt: pipedriveResult.ok ? new Date().toISOString() : null,
+    pipedriveSyncError: pipedriveResult.ok ? null : pipedriveResult.error ?? 'Pipedrive sync failed.',
   })
+
+  if (!pipedriveResult.ok) {
+    console.error('[pipedrive] project enquiry sync error', pipedriveResult.error)
+  }
 
   return NextResponse.json({
     ok: true,
     id: record.id,
     emailSent: emailResult.confirmationSent,
     notificationSent: emailResult.notificationSent,
+    pipedriveSynced: pipedriveResult.ok,
   })
 }

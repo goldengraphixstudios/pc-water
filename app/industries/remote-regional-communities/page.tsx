@@ -2,6 +2,7 @@
 import AppImage from '@/components/AppImage'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import CTABanner from '@/components/CTABanner'
 import SectionProjects from '@/components/SectionProjects'
 
@@ -9,7 +10,19 @@ export const metadata: Metadata = {
   title: 'Water Storage for Remote & Regional Communities',
   description:
     'Safe water access for remote and Indigenous communities. Specialist logistics, FIFO delivery, cultural sensitivity, and community engagement for remote water infrastructure.',
+  keywords: [
+    'remote regional community water infrastructure',
+    'indigenous community water infrastructure australia',
+    'remote australia water storage',
+    'off grid community water systems',
+    'remote area water infrastructure contractor',
+  ],
+  alternates: {
+    canonical: '/industries/remote-regional-communities',
+  },
 }
+
+const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
 const faqs = [
   { question: 'Do you have experience delivering to Indigenous communities?', answer: 'Yes. The Doomadgee 2ML Reservoir is one example of our work delivering critical water infrastructure to a remote Indigenous community. We approach these projects with cultural sensitivity, genuine community engagement, and a commitment to outcomes that serve the community well beyond project completion.' },
@@ -21,6 +34,13 @@ const faqs = [
 export default function RemoteRegionalCommunitiesPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: siteUrl },
+          { name: 'Industries', url: `${siteUrl}/industries` },
+          { name: 'Water Storage for Remote & Regional Communities', url: `${siteUrl}/industries/remote-regional-communities` },
+        ]}
+      />
       <section className="relative pt-40 pb-24 overflow-hidden">
         <AppImage src="/heroes/remote-regional-communities.jpg" alt="" fill priority className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#0d1b2a]/75" />

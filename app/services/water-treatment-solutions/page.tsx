@@ -1,42 +1,68 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import AppImage from '@/components/AppImage'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import FAQBlock from '@/components/FAQBlock'
 import CTABanner from '@/components/CTABanner'
 import SectionProjects from '@/components/SectionProjects'
 
 export const metadata: Metadata = {
-  title: 'Water Treatment Solutions',
+  title: 'Water Treatment Solutions Australia',
   description:
-    'Potable and treatment-related water infrastructure covering intake, conditioning, filtration, disinfection, automation, and compliance-led delivery.',
+    'Water treatment solutions across Australia covering potable water infrastructure, intake, filtration, disinfection, automation, and compliance-led project delivery.',
+  keywords: [
+    'water treatment solutions australia',
+    'potable water infrastructure',
+    'remote water treatment projects',
+    'drinking water treatment systems',
+    'treatment plant infrastructure',
+    'water treatment compliance',
+  ],
+  alternates: {
+    canonical: '/services/water-treatment-solutions',
+  },
 }
+
+const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
 const faqs = [
   {
-    question: 'What does water treatment solutions include?',
+    question: 'What does water treatment infrastructure delivery include?',
     answer:
-      'This service covers treatment-related infrastructure including intake, conditioning, filtration, UV and chlorine disinfection, automation, and supporting civil or mechanical interfaces required for reliable operation.',
+      'Our water treatment scope covers the full treatment chain — raw water intake, chemical conditioning, coagulation and filtration, UV and chlorine disinfection, SCADA and automation integration, and the civil and mechanical interfaces needed for reliable day-to-day operation. We coordinate all components from design through to commissioning and handover.',
   },
   {
-    question: 'Do you only work on full treatment plants?',
+    question: 'Do you work on partial upgrades or only new treatment plants?',
     answer:
-      'No. The service can apply to full treatment facilities, modular upgrades, treatment-related process infrastructure, or supporting works tied to broader water asset delivery.',
+      'Both. We deliver new treatment facilities and modular upgrades to existing plants. If only part of your treatment train needs replacing or expanding — for example, adding UV disinfection to an existing chlorine system, or upgrading SCADA controls — we can scope and deliver that component independently.',
   },
   {
-    question: 'Is this relevant for remote and regional communities?',
+    question: 'Is water treatment delivery suitable for remote and regional communities?',
     answer:
-      'Yes. Treatment reliability is especially critical in remote and regional contexts, so the service is positioned strongly for councils, community infrastructure, and difficult-access projects.',
+      'Yes, and it is one of our strongest areas. Remote communities often have the most acute treatment needs and the fewest local contractors capable of delivering to standard. We deploy FIFO crews, manage remote logistics, and bring the same engineering rigour to difficult-access sites as we do to urban projects.',
   },
   {
-    question: 'Do you work to Australian drinking water requirements?',
+    question: 'What standards apply to potable water treatment systems?',
     answer:
-      'The site positions this service around standards-led delivery and references the Australian Drinking Water Guidelines. Project-specific compliance still needs proper engineering and operational review.',
+      'Potable water treatment must conform to the Australian Drinking Water Guidelines (ADWG) administered by the National Health and Medical Research Council (NHMRC). Project-specific compliance is also shaped by state regulations, asset owner requirements, and operating context. Our engineers design and document to meet these obligations at every stage.',
+  },
+  {
+    question: 'Can you handle the full project scope or just the treatment components?',
+    answer:
+      'We can manage the full scope or integrate as the treatment-specific subcontractor within a larger civil or infrastructure program. We hold RPEQ engineering certification and provide all required documentation — design certificates, as-built drawings, commissioning records, and operational handover packs.',
   },
 ]
 
 export default function WaterTreatmentSolutionsPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: siteUrl },
+          { name: 'Services', url: `${siteUrl}/services` },
+          { name: 'Water Treatment Solutions', url: `${siteUrl}/services/water-treatment-solutions` },
+        ]}
+      />
       <section className="relative pt-40 pb-24 overflow-hidden">
         <AppImage
           src="/water/water-16.jpg"
@@ -135,6 +161,34 @@ export default function WaterTreatmentSolutionsPage() {
               </span>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-[#F4F6F8] py-16">
+        <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            {
+              title: 'Potable water risk article',
+              description: 'Read why storage condition matters as much as treatment quality for drinking water outcomes.',
+              href: '/resources/water-is-food-your-tank-is-the-crockery',
+            },
+            {
+              title: 'Tank inspection support',
+              description: 'Condition assessment and inspection data often inform treatment-related upgrade planning.',
+              href: '/services/tank-inspection-technology',
+            },
+            {
+              title: 'Doomadgee treatment project',
+              description: 'See a live remote community water treatment storage project with real delivery complexity.',
+              href: '/projects/doomadgee-wtp',
+            },
+          ].map((item) => (
+            <Link key={item.href} href={item.href} className="rounded-2xl bg-white border border-gray-100 p-6 shadow-sm hover:border-[#3e91ce] transition-colors">
+              <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Related</p>
+              <h2 className="text-xl font-black text-[#30505b] mb-3">{item.title}</h2>
+              <p className="text-gray-600 leading-relaxed">{item.description}</p>
+            </Link>
+          ))}
         </div>
       </section>
 

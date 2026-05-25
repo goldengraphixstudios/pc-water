@@ -2,14 +2,28 @@
 import Link from 'next/link'
 import Image from '@/components/AppImage'
 import FAQBlock from '@/components/FAQBlock'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import CTABanner from '@/components/CTABanner'
 import SectionProjects from '@/components/SectionProjects'
 
 export const metadata: Metadata = {
-  title: 'Remote Area Project Delivery',
+  title: 'Remote Area Water Infrastructure Delivery',
   description:
     'Specialist water infrastructure delivery for remote and regional Australia. FIFO crews, Indigenous community engagement, harsh environment materials, and remote logistics expertise.',
+  keywords: [
+    'remote area project delivery water infrastructure',
+    'remote water infrastructure australia',
+    'remote water tank delivery',
+    'indigenous community water infrastructure',
+    'harsh environment water infrastructure',
+    'FIFO water infrastructure crew',
+  ],
+  alternates: {
+    canonical: '/services/remote-area-delivery',
+  },
 }
+
+const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
 const faqs = [
   { question: 'How far into remote areas can you deliver?', answer: 'We have delivered to some of Australia\'s most isolated locations — including Doomadgee in remote Queensland and other sites requiring fly-in/fly-out crews and chartered freight. If there is a road or an airstrip, we can deliver.' },
@@ -22,6 +36,13 @@ const faqs = [
 export default function RemoteAreaDeliveryPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: siteUrl },
+          { name: 'Services', url: `${siteUrl}/services` },
+          { name: 'Remote Area Water Infrastructure Delivery', url: `${siteUrl}/services/remote-area-delivery` },
+        ]}
+      />
       <section className="relative overflow-hidden" style={{ minHeight: '75vh' }}>
         <Image
           src="/waterdrop-aboriginal-flag.png"

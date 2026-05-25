@@ -2,13 +2,26 @@
 import AppImage from '@/components/AppImage'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import CTABanner from '@/components/CTABanner'
 
 export const metadata: Metadata = {
-  title: 'Builder & Contractor Partnerships',
+  title: 'Builder & Contractor Water Infrastructure Partnerships',
   description:
     'Reliable water storage subcontract partnerships for builders, civil contractors, and project managers. National reach, compliance documentation, and flexible scope delivery.',
+  keywords: [
+    'builder contractor water infrastructure partnerships',
+    'water tank subcontractor australia',
+    'water infrastructure delivery partner',
+    'tank contractor partnership australia',
+    'specialist water subcontractor',
+  ],
+  alternates: {
+    canonical: '/services/builder-contractor-partnerships',
+  },
 }
+
+const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
 const faqs = [
   { question: 'How do builder partnerships typically work?', answer: 'We typically work as a specialist subcontractor to builders and civil contractors, providing the water infrastructure scope on projects where the head contractor does not have in-house tank capability. We provide our own JSA/SWMS, coordinate our own crew, and deliver our scope to agreed milestones within the head contractor\'s program.' },
@@ -20,6 +33,13 @@ const faqs = [
 export default function BuilderContractorPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: siteUrl },
+          { name: 'Services', url: `${siteUrl}/services` },
+          { name: 'Builder & Contractor Partnerships', url: `${siteUrl}/services/builder-contractor-partnerships` },
+        ]}
+      />
       <section className="relative pt-40 pb-24 overflow-hidden">
         <AppImage
           src="/heroes/builder-contractor-partnerships.jpg"

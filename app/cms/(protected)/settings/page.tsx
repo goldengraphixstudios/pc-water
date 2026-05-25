@@ -33,6 +33,7 @@ export default function CmsSettingsPage() {
   const [supabaseAdminConfigured, setSupabaseAdminConfigured] = useState(false)
   const [resendConfigured, setResendConfigured] = useState(false)
   const [projectEnquiryNotifyConfigured, setProjectEnquiryNotifyConfigured] = useState(false)
+  const [pipedriveConfigured, setPipedriveConfigured] = useState(false)
 
   useEffect(() => {
     async function load() {
@@ -62,11 +63,13 @@ export default function CmsSettingsPage() {
         setSupabaseAdminConfigured(Boolean(data?.supabaseAdminConfigured))
         setResendConfigured(Boolean(data?.resendConfigured))
         setProjectEnquiryNotifyConfigured(Boolean(data?.projectEnquiryNotifyConfigured))
+        setPipedriveConfigured(Boolean(data?.pipedriveConfigured))
       } catch {
         setAbstractConfigured(false)
         setSupabaseAdminConfigured(false)
         setResendConfigured(false)
         setProjectEnquiryNotifyConfigured(false)
+        setPipedriveConfigured(false)
       }
     }
 
@@ -241,6 +244,7 @@ export default function CmsSettingsPage() {
             { label: 'Storage Bucket', value: 'cms-media (public)' },
             { label: 'Content Tables', value: 'cms_posts, cms_projects, cms_tags' },
             { label: 'Lead Capture',   value: 'resource_leads, project_enquiries' },
+            { label: 'CRM Sync',       value: 'Pipedrive lead + note sync' },
           ].map((item) => (
             <div key={item.label} className="bg-black/[0.02] dark:bg-white/[0.02] rounded-lg px-4 py-3 border border-black/[0.05] dark:border-white/[0.04]">
               <p className="text-[10px] font-bold text-[#99AABF] dark:text-[#4A5670] uppercase tracking-[0.12em] mb-1">{item.label}</p>
@@ -270,6 +274,11 @@ export default function CmsSettingsPage() {
               label: 'Internal notification',
               active: projectEnquiryNotifyConfigured,
               note: projectEnquiryNotifyConfigured ? 'PROJECT_ENQUIRY_NOTIFY_TO set' : 'Falls back to contact@pcwater.com.au',
+            },
+            {
+              label: 'Pipedrive sync',
+              active: pipedriveConfigured,
+              note: pipedriveConfigured ? 'API token configured' : 'Add PIPEDRIVE_API_TOKEN',
             },
           ].map((item) => (
             <div

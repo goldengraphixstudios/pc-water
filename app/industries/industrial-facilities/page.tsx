@@ -2,6 +2,7 @@
 import AppImage from '@/components/AppImage'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import CTABanner from '@/components/CTABanner'
 import SectionProjects from '@/components/SectionProjects'
 
@@ -9,7 +10,19 @@ export const metadata: Metadata = {
   title: 'Industrial Water Storage Solutions',
   description:
     'Process water reliability and fire suppression compliance for industrial facilities. Tank design, inspection, RPVC liners, and maintenance for industrial water storage assets.',
+  keywords: [
+    'industrial water storage infrastructure',
+    'industrial water tanks australia',
+    'process water tank solutions',
+    'industrial tank inspection and maintenance',
+    'industrial fire water storage',
+  ],
+  alternates: {
+    canonical: '/industries/industrial-facilities',
+  },
 }
+
+const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
 const faqs = [
   { question: 'What industrial water storage applications do you cover?', answer: 'We deliver water storage for a wide range of industrial applications including process water supply, cooling water storage, fire suppression systems, effluent holding, and chemical-compatible storage tanks engineered for specific industrial fluids.' },
@@ -21,6 +34,13 @@ const faqs = [
 export default function IndustrialFacilitiesPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: siteUrl },
+          { name: 'Industries', url: `${siteUrl}/industries` },
+          { name: 'Industrial Water Storage Solutions', url: `${siteUrl}/industries/industrial-facilities` },
+        ]}
+      />
       <section className="relative pt-40 pb-24 overflow-hidden">
         <AppImage src="/heroes/industrial-facilities.jpg" alt="" fill priority className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#0d1b2a]/75" />

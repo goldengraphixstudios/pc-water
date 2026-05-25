@@ -11,6 +11,18 @@ export const metadata: Metadata = {
   title: 'Resources & Insights',
   description:
     'Insights, guides, and resources on water storage engineering, tank maintenance, fire water compliance, RPVC liners, and remote project delivery across Australia.',
+  keywords: [
+    'water infrastructure resources',
+    'water tank maintenance australia',
+    'fire water tank compliance australia',
+    'RPVC liner systems',
+    'tank inspection technology',
+    'water treatment insights',
+    'remote water infrastructure',
+  ],
+  alternates: {
+    canonical: '/resources',
+  },
 }
 
 

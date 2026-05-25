@@ -2,14 +2,28 @@
 import AppImage from '@/components/AppImage'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import CTABanner from '@/components/CTABanner'
 import SectionProjects from '@/components/SectionProjects'
 
 export const metadata: Metadata = {
-  title: 'Tank Maintenance & Upgrades',
+  title: 'Water Tank Maintenance & Upgrades Australia',
   description:
     'Planned and reactive maintenance, structural upgrades, corrosion treatment, and lifecycle extension for steel and concrete water storage assets across Australia.',
+  keywords: [
+    'water tank maintenance upgrades',
+    'tank refurbishment australia',
+    'water tank asset life extension',
+    'storage tank rehabilitation',
+    'tank maintenance contractor australia',
+    'corroded tank repair australia',
+  ],
+  alternates: {
+    canonical: '/services/tank-maintenance-upgrades',
+  },
 }
+
+const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
 const faqs = [
   { question: 'How often should a water tank be maintained?', answer: 'At minimum, water tanks should be inspected annually and maintained on a schedule that reflects the inspection findings, operating environment, and age of the asset. In corrosive environments or with older assets, more frequent inspection and maintenance is warranted.' },
@@ -21,6 +35,13 @@ const faqs = [
 export default function TankMaintenancePage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: siteUrl },
+          { name: 'Services', url: `${siteUrl}/services` },
+          { name: 'Water Tank Maintenance & Upgrades', url: `${siteUrl}/services/tank-maintenance-upgrades` },
+        ]}
+      />
       <section className="relative pt-40 pb-24 overflow-hidden">
         <AppImage
           src="/heroes/tank-maintenance-upgrades.jpg"

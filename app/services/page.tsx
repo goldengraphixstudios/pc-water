@@ -5,9 +5,19 @@ import ServiceCard from '@/components/ServiceCard'
 import CTABanner from '@/components/CTABanner'
 
 export const metadata: Metadata = {
-  title: 'Services',
+  title: 'Water Infrastructure Services Australia',
   description:
     'PC Water Infrastructure combines PC Tanks (tank design & supply) and PC Water Solutions (project delivery & asset management) for a complete end-to-end water infrastructure service.',
+  keywords: [
+    'water infrastructure services australia',
+    'engineered water solutions',
+    'water tank services australia',
+    'water treatment services australia',
+    'remote water infrastructure services',
+  ],
+  alternates: {
+    canonical: '/services',
+  },
 }
 
 const waterSolutionsServices = [

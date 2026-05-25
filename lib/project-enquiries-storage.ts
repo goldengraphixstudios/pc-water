@@ -48,6 +48,11 @@ function normalizeStoredRecord(value: unknown): ProjectEnquiry | null {
     emailDeliveryError: typeof row.emailDeliveryError === 'string' ? row.emailDeliveryError : null,
     submittedAt: row.submittedAt,
     reviewedAt: typeof row.reviewedAt === 'string' ? row.reviewedAt : null,
+    pipedrivePersonId: typeof row.pipedrivePersonId === 'number' ? row.pipedrivePersonId : null,
+    pipedriveOrganizationId: typeof row.pipedriveOrganizationId === 'number' ? row.pipedriveOrganizationId : null,
+    pipedriveLeadId: typeof row.pipedriveLeadId === 'string' ? row.pipedriveLeadId : null,
+    pipedriveSyncedAt: typeof row.pipedriveSyncedAt === 'string' ? row.pipedriveSyncedAt : null,
+    pipedriveSyncError: typeof row.pipedriveSyncError === 'string' ? row.pipedriveSyncError : null,
   }
 }
 

@@ -2,14 +2,27 @@
 import AppImage from '@/components/AppImage'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import CTABanner from '@/components/CTABanner'
 import GatedDownloadLink from '@/components/GatedDownloadLink'
 
 export const metadata: Metadata = {
-  title: 'Tender & Procurement Support',
+  title: 'Water Infrastructure Tender & Procurement Support',
   description:
     'Specialist procurement and tendering support for councils, government agencies, and major contractors. Capability statements, specification support, tender response assistance.',
+  keywords: [
+    'water infrastructure tender procurement support',
+    'tank procurement support australia',
+    'infrastructure tender support',
+    'water project tender documentation',
+    'council water tender support',
+  ],
+  alternates: {
+    canonical: '/services/tender-procurement-support',
+  },
 }
+
+const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
 const faqs = [
   { question: 'What procurement support do you provide?', answer: 'We support clients through the full procurement process — from specification development and tender preparation through to compliance documentation and ongoing panel supply. Our goal is to make PC Water Infrastructure the easiest, most credible choice in any tender evaluation.' },
@@ -21,6 +34,13 @@ const faqs = [
 export default function TenderProcurementPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: siteUrl },
+          { name: 'Services', url: `${siteUrl}/services` },
+          { name: 'Water Infrastructure Tender & Procurement Support', url: `${siteUrl}/services/tender-procurement-support` },
+        ]}
+      />
       <section className="relative pt-40 pb-24 overflow-hidden">
         <AppImage
           src="/heroes/tender-procurement-support.jpg"

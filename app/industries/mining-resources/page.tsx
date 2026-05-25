@@ -2,6 +2,7 @@
 import AppImage from '@/components/AppImage'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import CTABanner from '@/components/CTABanner'
 import SectionProjects from '@/components/SectionProjects'
 
@@ -9,7 +10,19 @@ export const metadata: Metadata = {
   title: 'Water Storage for Mining & Resources',
   description:
     'Robust water storage for remote mining operations. Harsh environment engineering, AS2304 fire water compliance, RPVC liners, ROV inspection, and FIFO crew deployment.',
+  keywords: [
+    'mining water infrastructure',
+    'mining camp water storage',
+    'resources sector water tanks australia',
+    'harsh environment tank systems',
+    'remote mining water storage',
+  ],
+  alternates: {
+    canonical: '/industries/mining-resources',
+  },
 }
+
+const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
 const faqs = [
   { question: 'Can you deliver to active mine sites?', answer: 'Yes. We are experienced with the access, induction, and safety requirements of active mine sites. All crews hold relevant mining site inductions and our SWMS are developed to mine site WHS standards.' },
@@ -21,6 +34,13 @@ const faqs = [
 export default function MiningResourcesPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: siteUrl },
+          { name: 'Industries', url: `${siteUrl}/industries` },
+          { name: 'Water Storage for Mining & Resources', url: `${siteUrl}/industries/mining-resources` },
+        ]}
+      />
       <section className="relative pt-40 pb-24 overflow-hidden">
         <AppImage src="/heroes/mining-resources.jpg" alt="" fill priority className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#0d1b2a]/75" />

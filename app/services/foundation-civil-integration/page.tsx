@@ -2,14 +2,27 @@
 import AppImage from '@/components/AppImage'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import CTABanner from '@/components/CTABanner'
 import SectionProjects from '@/components/SectionProjects'
 
 export const metadata: Metadata = {
-  title: 'Foundation & Civil Integration',
+  title: 'Tank Foundation & Civil Integration',
   description:
     'Engineered concrete foundations and civil integration for tanks of all sizes. Geotechnical assessment, civil contractor coordination, and structural compliance for any site.',
+  keywords: [
+    'tank foundation civil integration',
+    'water tank civil works',
+    'tank slab and foundation works',
+    'civil integration water infrastructure',
+    'engineered tank foundations australia',
+  ],
+  alternates: {
+    canonical: '/services/foundation-civil-integration',
+  },
 }
+
+const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
 const faqs = [
   { question: 'Why is an engineered foundation so important?', answer: 'Tank foundations must be designed to handle the full static load of a filled tank — which can run to hundreds of tonnes. An under-engineered foundation leads to differential settlement, structural cracking, and in extreme cases, catastrophic failure. All PC Water Infrastructure foundations are engineered to site-specific geotechnical conditions.' },
@@ -21,6 +34,13 @@ const faqs = [
 export default function FoundationCivilPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: siteUrl },
+          { name: 'Services', url: `${siteUrl}/services` },
+          { name: 'Tank Foundation & Civil Integration', url: `${siteUrl}/services/foundation-civil-integration` },
+        ]}
+      />
       <section className="relative pt-40 pb-24 overflow-hidden">
         <AppImage
           src="/heroes/foundation-civil-integration.jpg"

@@ -2,6 +2,7 @@
 import AppImage from '@/components/AppImage'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import CTABanner from '@/components/CTABanner'
 import SectionProjects from '@/components/SectionProjects'
 
@@ -9,7 +10,20 @@ export const metadata: Metadata = {
   title: 'Custom Tank Design & Engineering',
   description:
     'Purpose-built water storage tanks engineered to AS2304 & AS4020 for any capacity, site condition, or application. RPEQ-certified engineers, structural engineering, civil integration.',
+  keywords: [
+    'custom tank design engineering',
+    'water tank design australia',
+    'engineered water tank design',
+    'custom steel tank design',
+    'AS2304 tank design',
+    'bespoke water storage tanks',
+  ],
+  alternates: {
+    canonical: '/services/custom-tank-design',
+  },
 }
+
+const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
 const faqs = [
   { question: 'What tank sizes can you design?', answer: 'We design tanks from 10KL up to multi-megalitre capacity. Every tank is engineered to the specific site conditions, capacity requirements, and compliance standards for the application.' },

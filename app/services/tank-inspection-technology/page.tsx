@@ -1,14 +1,28 @@
 ﻿import type { Metadata } from 'next'
 import AppImage from '@/components/AppImage'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
 import CTABanner from '@/components/CTABanner'
 
 export const metadata: Metadata = {
-  title: 'Tank Inspection Technology',
+  title: 'Tank Inspection Technology Australia',
   description:
-    'ROV and UAV drone-assisted tank inspection for accurate condition assessment without costly dewatering. AS1851 compliance support, minimal downtime.',
+    'ROV and UAV tank inspection technology for water storage assets across Australia. Assess condition without costly dewatering and support compliance, maintenance, and refurbishment planning.',
+  keywords: [
+    'ROV tank inspection australia',
+    'UAV tank inspection',
+    'water tank condition assessment',
+    'tank inspection without dewatering',
+    'AS1851 tank inspection support',
+    'water storage asset inspection',
+  ],
+  alternates: {
+    canonical: '/services/tank-inspection-technology',
+  },
 }
+
+const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
 const faqs = [
   { question: 'What is an ROV inspection?', answer: 'ROV (Remotely Operated Vehicle) inspection uses an underwater drone to inspect the interior of a water tank without needing to dewater it. The ROV provides video and photographic documentation of internal conditions — including the floor, walls, roof, and fittings — while the tank remains in service.' },
@@ -21,6 +35,13 @@ const faqs = [
 export default function TankInspectionPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: siteUrl },
+          { name: 'Services', url: `${siteUrl}/services` },
+          { name: 'Tank Inspection Technology', url: `${siteUrl}/services/tank-inspection-technology` },
+        ]}
+      />
       <section className="relative pt-40 pb-24 overflow-hidden">
         <AppImage
           src="/heroes/tank-inspection-technology.jpg"
@@ -113,6 +134,34 @@ export default function TankInspectionPage() {
               <span key={ind} className="bg-[#F4F6F8] border border-gray-200 text-[#30505b] px-5 py-2.5 rounded-full text-sm font-semibold">{ind}</span>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-[#F4F6F8] py-16">
+        <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            {
+              title: 'Signs a tank is failing',
+              description: 'Use this article to identify the common failure indicators before they become emergency issues.',
+              href: '/resources/is-your-water-tank-a-ticking-time-bomb-5-signs-your-tank-is-failing',
+            },
+            {
+              title: 'Sector maintenance risks',
+              description: 'See how inspection scope changes across mining, councils, hospitals, and industrial sites.',
+              href: '/resources/from-mines-to-hospitals-what-every-sector-gets-wrong-about-tank-maintenance',
+            },
+            {
+              title: 'RPVC liner follow-up',
+              description: 'Condition assessment often leads directly into relining decisions for still-sound assets.',
+              href: '/services/rpvc-liner-systems',
+            },
+          ].map((item) => (
+            <Link key={item.href} href={item.href} className="rounded-2xl bg-white border border-gray-100 p-6 shadow-sm hover:border-[#3e91ce] transition-colors">
+              <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Related</p>
+              <h2 className="text-xl font-black text-[#30505b] mb-3">{item.title}</h2>
+              <p className="text-gray-600 leading-relaxed">{item.description}</p>
+            </Link>
+          ))}
         </div>
       </section>
 
