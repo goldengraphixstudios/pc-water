@@ -26,10 +26,7 @@ export async function verifyEmailDeliverability(email: string): Promise<EmailDel
   const apiKey = process.env.ABSTRACT_EMAIL_API_KEY || process.env.NEXT_PUBLIC_ABSTRACT_EMAIL_API_KEY || ''
 
   if (!apiKey) {
-    return {
-      ok: false,
-      reason: 'Email verification is temporarily unavailable. Please try again shortly.',
-    }
+    return { ok: true }
   }
 
   try {
@@ -42,39 +39,27 @@ export async function verifyEmailDeliverability(email: string): Promise<EmailDel
     )
 
     if (response.status === 429) {
-      return {
-        ok: false,
-        reason: 'Email verification is temporarily rate-limited. Please try again in a moment.',
-      }
+      return { ok: true }
     }
 
     if (!response.ok) {
-      return {
-        ok: false,
-        reason: 'We could not verify that this email can receive mail. Please try again shortly.',
-      }
+      return { ok: true }
     }
 
     const data = (await response.json()) as AbstractEmailReputationResult
 
     if (data.error?.code) {
-      return {
-        ok: false,
-        reason: 'We could not verify that this email can receive mail. Please try again shortly.',
-      }
+      return { ok: true }
     }
 
+    // Only block clearly invalid addresses — disposable/temp emails and domains
+    // with no MX record at all. Other checks (is_role, is_catchall, is_smtp_valid,
+    // status) are too aggressive for Australian corporate/government domains,
+    // which frequently block SMTP probe queries and get flagged as undeliverable.
     if (data.email_quality?.is_disposable) {
       return {
         ok: false,
         reason: 'Disposable email addresses are not accepted. Please use your work or personal email.',
-      }
-    }
-
-    if (data.email_quality?.is_role) {
-      return {
-        ok: false,
-        reason: 'Please use a personal or work email address rather than a shared mailbox.',
       }
     }
 
@@ -85,32 +70,8 @@ export async function verifyEmailDeliverability(email: string): Promise<EmailDel
       }
     }
 
-    if (data.email_deliverability?.is_smtp_valid === false) {
-      return {
-        ok: false,
-        reason: 'This email address could not be verified as able to receive mail.',
-      }
-    }
-
-    if (data.email_quality?.is_catchall) {
-      return {
-        ok: false,
-        reason: 'Please use a directly reachable email address rather than a catch-all inbox.',
-      }
-    }
-
-    if (data.email_deliverability?.status !== 'deliverable') {
-      return {
-        ok: false,
-        reason: 'This email address appears to be invalid or unreachable.',
-      }
-    }
-
     return { ok: true }
   } catch {
-    return {
-      ok: false,
-      reason: 'We could not verify that this email can receive mail. Please try again shortly.',
-    }
+    return { ok: true }
   }
 }
