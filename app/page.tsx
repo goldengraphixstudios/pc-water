@@ -9,6 +9,7 @@ import FAQBlock from '@/components/FAQBlock'
 import PartnerMarquee from '@/components/PartnerMarquee'
 import HeroSection from '@/components/HeroSection'
 import GatedDownloadLink from '@/components/GatedDownloadLink'
+import ToolPromo from '@/components/ToolPromo'
 
 export const metadata: Metadata = {
   title: 'Water Infrastructure Australia | PC Water Infrastructure',
@@ -353,6 +354,14 @@ export default function HomePage() {
 
       {/* ─── PROJECTS (dynamic — driven by CMS featured flag) ─── */}
       <FeaturedProjectsSection />
+
+      {/* ─── FREE TOOLS ─── */}
+      <ToolPromo
+        heading="Free tools: check your tank in under a minute"
+        description="Not sure if your tank is compliant, or whether to repair, reline, or replace it? Get an instant, plain-language read with our free assessment tools — then talk to us about next steps."
+        href="/tools"
+        ctaLabel="Explore the Tools"
+      />
 
       {/* ─── WHY PC WATER INFRASTRUCTURE ─── */}
       <section className="relative py-24 overflow-hidden">

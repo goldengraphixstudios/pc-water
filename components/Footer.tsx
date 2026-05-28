@@ -22,6 +22,7 @@ const menuLinks = [
   { label: 'Industries', href: '/industries' },
   { label: 'Projects', href: '/projects' },
   { label: 'Resources', href: '/resources' },
+  { label: 'Free Tools', href: '/tools' },
   { label: 'About', href: '/about' },
   { label: 'Our Commitment', href: '/commitment' },
   { label: 'Contact', href: '/contact' },

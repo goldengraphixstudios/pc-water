@@ -5,6 +5,7 @@ import FAQBlock from '@/components/FAQBlock'
 import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import CTABanner from '@/components/CTABanner'
 import SectionProjects from '@/components/SectionProjects'
+import ToolPromo from '@/components/ToolPromo'
 
 export const metadata: Metadata = {
   title: 'Water Tank Maintenance & Upgrades Australia',
@@ -138,6 +139,13 @@ export default function TankMaintenancePage() {
       </section>
 
       <SectionProjects heading="Featured Projects" slugs={['albury-reservoir', 'hobart-nyrstar']} bgColor="bg-[#F4F6F8]" />
+
+      <ToolPromo
+        heading="Repair, reline, or replace? Find your path."
+        description="Use our free decision tool to see whether your aging tank is a targeted-repair, RPVC relining, or replacement candidate — with the right next step for your asset."
+        href="/tools/repair-reline-replace"
+        ctaLabel="Get My Result"
+      />
 
       <FAQBlock faqs={faqs} heading="Maintenance & Upgrades — FAQs" />
       <CTABanner heading="PROTECT YOUR WATER STORAGE ASSETS" subheading="Get an inspection-led maintenance assessment and protect your infrastructure investment." primaryCTA={{ label: 'Discuss Maintenance', href: '/contact' }} secondaryCTA={{ label: 'Download Maintenance Checklist', href: '/downloads/tank-maintenance-checklist.pdf' }} />

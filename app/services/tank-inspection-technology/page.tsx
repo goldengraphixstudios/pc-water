@@ -4,6 +4,7 @@ import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
 import CTABanner from '@/components/CTABanner'
+import ToolPromo from '@/components/ToolPromo'
 
 export const metadata: Metadata = {
   title: 'Tank Inspection Technology Australia',
@@ -164,6 +165,13 @@ export default function TankInspectionPage() {
           ))}
         </div>
       </section>
+
+      <ToolPromo
+        heading="Should you inspect, repair, reline, or replace?"
+        description="If your tank is aging, our free decision tool gives you a practical path in under a minute — and shows where an inspection adds the most value before you commit to works."
+        href="/tools/repair-reline-replace"
+        ctaLabel="Use the Decision Tool"
+      />
 
       <FAQBlock faqs={faqs} heading="Tank Inspection — FAQs" />
       <CTABanner heading="KNOW THE CONDITION OF YOUR ASSETS" subheading="Schedule an ROV or drone inspection and get the data you need to make confident asset decisions." primaryCTA={{ label: 'Request an Inspection', href: '/contact' }} secondaryCTA={{ label: 'Download Capability Statement', href: '/downloads/pc-tanks-capability-statement-2026.pdf' }} variant="navy" />

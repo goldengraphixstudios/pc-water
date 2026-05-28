@@ -313,6 +313,23 @@ export default function Header() {
                 />
               )}
             </Link>
+
+            {/* Tools — free lead-gen assessments */}
+            <Link
+              href="/tools"
+              className={`relative px-4 py-2 text-sm font-medium transition-colors animated-underline ${
+                scrolled ? 'text-gray-300 hover:text-white' : 'text-[#30505b] hover:text-[#3e91ce]'
+              } ${pathname.startsWith('/tools') ? 'text-[#3e91ce]' : ''}`}
+            >
+              Tools
+              {pathname.startsWith('/tools') && (
+                <motion.div
+                  layoutId="nav-indicator"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#3e91ce]"
+                  transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                />
+              )}
+            </Link>
           </nav>
 
           {/* CTA buttons */}
@@ -483,6 +500,19 @@ export default function Header() {
                     className="block text-gray-300 hover:text-white font-medium py-2.5 border-b border-white/5 transition-colors"
                   >
                     Resources
+                  </Link>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  <Link
+                    href="/tools"
+                    className="block text-gray-300 hover:text-white font-medium py-2.5 border-b border-white/5 transition-colors"
+                  >
+                    Tools
                   </Link>
                 </motion.div>
 

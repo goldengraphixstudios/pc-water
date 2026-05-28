@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from 'next'
+import Link from 'next/link'
 import AppImage from '@/components/AppImage'
 import ContactForm from '@/components/ContactForm'
 
@@ -114,6 +115,43 @@ export default function ContactPage() {
                       <p className="text-gray-600 text-sm">{step.desc}</p>
                     </div>
                   ))}
+                </div>
+              </div>
+
+              {/* Help us respond faster */}
+              <div className="mt-8">
+                <h3 className="font-black text-[#30505b] mb-4">HELP US RESPOND FASTER</h3>
+                <p className="text-gray-600 text-sm mb-3">
+                  The more detail you can share up front, the more useful our first response will be:
+                </p>
+                <ul className="space-y-2">
+                  {[
+                    'Tank type and use (potable, fire, industrial)',
+                    'Approximate age, size, and material',
+                    'The problem or outcome you’re working toward',
+                    'Site location and any access or downtime constraints',
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 bg-[#3e91ce] rounded-full flex-shrink-0 mt-2" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Tools nudge */}
+              <div className="mt-8 rounded-xl border border-gray-200 bg-white p-5">
+                <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-2">/ Not ready to call?</p>
+                <p className="text-gray-600 text-sm mb-3">
+                  Get an instant read on your tank with our free tools before you reach out.
+                </p>
+                <div className="flex flex-col gap-2">
+                  <Link href="/tools/tank-compliance-checker" className="text-sm font-semibold text-[#30505b] hover:text-[#3e91ce] transition-colors">
+                    → Check compliance risk
+                  </Link>
+                  <Link href="/tools/repair-reline-replace" className="text-sm font-semibold text-[#30505b] hover:text-[#3e91ce] transition-colors">
+                    → Repair, reline or replace?
+                  </Link>
                 </div>
               </div>
             </div>

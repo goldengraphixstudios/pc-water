@@ -5,6 +5,7 @@ import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
 import CTABanner from '@/components/CTABanner'
 import SectionProjects from '@/components/SectionProjects'
+import ToolPromo from '@/components/ToolPromo'
 
 export const metadata: Metadata = {
   title: 'RPVC Liner Systems Australia',
@@ -98,6 +99,13 @@ export default function RPVCLinerPage() {
           </div>
         </div>
       </section>
+
+      <ToolPromo
+        heading="Not sure whether to repair, reline, or replace?"
+        description="Answer a few questions about your tank's age, structure, and condition and get a practical guidance path in under a minute — including whether RPVC relining is the right call."
+        href="/tools/repair-reline-replace"
+        ctaLabel="Use the Decision Tool"
+      />
 
       <SectionProjects heading="Featured Projects" slugs={['albury-reservoir', 'hobart-nyrstar', 'clarence-road-liner']} bgColor="bg-[#F4F6F8]" />
 

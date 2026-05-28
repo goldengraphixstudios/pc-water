@@ -45,6 +45,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // Resource hub
     { url: `${BASE_URL}/resources`, lastModified, changeFrequency: 'weekly', priority: 0.7 },
+
+    // Lead-generation tools
+    { url: `${BASE_URL}/tools`, lastModified, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/tools/tank-compliance-checker`, lastModified, changeFrequency: 'monthly', priority: 0.85 },
+    { url: `${BASE_URL}/tools/repair-reline-replace`, lastModified, changeFrequency: 'monthly', priority: 0.85 },
   ]
 
   const projectRoutes = projects

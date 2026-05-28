@@ -289,6 +289,61 @@ export async function syncProjectEnquiryToPipedrive(params: {
   }
 }
 
+export async function syncToolLeadToPipedrive(params: {
+  email: string
+  toolSlug: string
+  toolTitle: string
+  division: string
+  resultLevel?: string
+  answers?: Record<string, unknown>
+  submittedAt?: string
+}) : Promise<PipedriveSyncResult> {
+  if (!hasPipedriveEnv()) {
+    return { ok: false, error: 'Pipedrive token is not configured.' }
+  }
+
+  try {
+    const inferredName = params.email.split('@')[0]?.replace(/[._-]+/g, ' ').trim() || params.email
+    const personId = await ensurePerson({
+      name: inferredName,
+      email: params.email,
+    })
+
+    const title = `Tool Lead · ${params.toolTitle}${params.resultLevel ? ` · ${params.resultLevel}` : ''}`
+    let leadId = await findLeadByTitle(title, personId)
+    if (!leadId) {
+      leadId = await createLead({ title, personId })
+    }
+
+    const answerLines = params.answers
+      ? Object.entries(params.answers).map(([key, value]) =>
+          paragraph(key, value == null ? '' : String(value)),
+        )
+      : []
+
+    const noteId = await addLeadNote({
+      leadId,
+      personId,
+      content: [
+        '<p><strong>PC Water Website Tool Lead</strong></p>',
+        paragraph('Email', params.email),
+        paragraph('Tool', params.toolTitle),
+        paragraph('Division', params.division),
+        paragraph('Result', params.resultLevel),
+        paragraph('Submitted at', params.submittedAt ?? new Date().toISOString()),
+        ...(answerLines.length ? ['<p><strong>Answers</strong></p>', ...answerLines] : []),
+      ].join(''),
+    })
+
+    return { ok: true, personId, organizationId: null, leadId, noteId }
+  } catch (error) {
+    return {
+      ok: false,
+      error: error instanceof Error ? error.message : 'Pipedrive sync failed.',
+    }
+  }
+}
+
 export async function syncResourceLeadToPipedrive(params: {
   email: string
   resourceSlug: string

@@ -5,6 +5,7 @@ import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
 import CTABanner from '@/components/CTABanner'
 import SectionProjects from '@/components/SectionProjects'
+import ToolPromo from '@/components/ToolPromo'
 
 export const metadata: Metadata = {
   title: 'Fire Water Tank Solutions Australia',
@@ -178,6 +179,13 @@ export default function FireWaterTanksPage() {
           ))}
         </div>
       </section>
+
+      <ToolPromo
+        heading="Is your fire water tank compliant?"
+        description="Check your likely AS2304 / AS1851 compliance risk in about a minute. Answer a few questions and get a clear indication plus your recommended next step."
+        href="/tools/tank-compliance-checker"
+        ctaLabel="Check Compliance Risk"
+      />
 
       <SectionProjects heading="Featured Project" slugs={['clarence-road-liner']} bgColor="bg-[#F4F6F8]" />
 
