@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server'
 
 import { requireCmsAdmin } from '@/lib/cms/admin'
-import { verifyEmailDeliverability } from '@/lib/email-deliverability'
 import { validateEmailLocally } from '@/lib/email-validation'
 import { sendProjectEnquiryEmails } from '@/lib/email/project-enquiry-emails'
 import { syncProjectEnquiryToPipedrive } from '@/lib/pipedrive'
@@ -92,14 +91,6 @@ export async function POST(request: Request) {
   if (!localValidation.ok) {
     return NextResponse.json(
       { ok: false, reason: localValidation.reason },
-      { status: 400 },
-    )
-  }
-
-  const deliverability = await verifyEmailDeliverability(localValidation.email)
-  if (!deliverability.ok) {
-    return NextResponse.json(
-      { ok: false, reason: deliverability.reason },
       { status: 400 },
     )
   }

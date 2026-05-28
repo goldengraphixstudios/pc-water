@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server'
 
-import { verifyEmailDeliverability } from '@/lib/email-deliverability'
 import { normalizeEmail, validateEmailLocally } from '@/lib/email-validation'
 
 export async function POST(request: Request) {
@@ -17,14 +16,6 @@ export async function POST(request: Request) {
   if (!localValidation.ok) {
     return NextResponse.json(
       { ok: false, reason: localValidation.reason, code: localValidation.code },
-      { status: 400 },
-    )
-  }
-
-  const deliverability = await verifyEmailDeliverability(email)
-  if (!deliverability.ok) {
-    return NextResponse.json(
-      { ok: false, reason: deliverability.reason, code: 'deliverability' },
       { status: 400 },
     )
   }

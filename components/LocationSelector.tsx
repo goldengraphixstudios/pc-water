@@ -169,7 +169,7 @@ export default function LocationSelector() {
           </select>
         )}
         {/* Hidden input for form submission */}
-        <input type="hidden" name="location" value={finalLocation} />
+        <input type="hidden" name="suburbTown" value={finalLocation} />
       </div>
     </div>
   )

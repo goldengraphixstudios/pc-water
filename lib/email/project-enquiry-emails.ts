@@ -6,6 +6,13 @@ type EmailSendResult = {
   error?: string
 }
 
+const PROJECT_ENQUIRY_NOTIFY_TO = [
+  'goldengraphixstudios@gmail.com',
+  'james@pctanks.com.au',
+  'mike@pctanks.com.au',
+  'ricci@pctanks.com.au',
+]
+
 function escapeHtml(value: string) {
   return value
     .replace(/&/g, '&amp;')
@@ -172,10 +179,7 @@ async function sendResendEmail({
 }
 
 export async function sendProjectEnquiryEmails(input: ProjectEnquiryInput): Promise<EmailSendResult> {
-  const notifyTo = (process.env.PROJECT_ENQUIRY_NOTIFY_TO || 'contact@pcwater.com.au')
-    .split(',')
-    .map((value) => value.trim())
-    .filter(Boolean)
+  const notifyTo = PROJECT_ENQUIRY_NOTIFY_TO
 
   const confirmation = await sendResendEmail({
     to: input.email,

@@ -14,13 +14,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.ico', type: 'image/x-icon' },
-      { url: '/icon.png', type: 'image/png' },
+      { url: '/favicon-pcwater-v2.ico', type: 'image/x-icon' },
+      { url: '/icon-pcwater-v2.png', type: 'image/png' },
     ],
     apple: [
-      { url: '/icon.png', type: 'image/png' },
+      { url: '/icon-pcwater-v2.png', type: 'image/png' },
     ],
-    shortcut: '/favicon.ico',
+    shortcut: '/favicon-pcwater-v2.ico',
   },
   description:
     'PC Water Infrastructure delivers engineered water storage solutions across Australia. Custom design, installation, RPVC liners, fire water tanks, and remote project delivery.',

@@ -3,7 +3,6 @@ import LocationSelector from '@/components/LocationSelector'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { validateEmailLocally } from '@/lib/email-validation'
-import { validateEmailWithServer } from '@/lib/email-validation-client'
 
 const inputCls = 'w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#3e91ce] transition-colors'
 const labelCls = 'block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1.5'
@@ -23,15 +22,6 @@ export default function ContactForm() {
     const validation = validateEmailLocally(email)
     if (!validation.ok) {
       setEmailError(validation.reason)
-      return
-    }
-
-    setVerifying(true)
-    const result = await validateEmailWithServer(validation.email)
-    setVerifying(false)
-
-    if (!result.ok) {
-      setEmailError(result.reason ?? 'Please enter a valid email address.')
       return
     }
 
