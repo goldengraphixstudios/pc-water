@@ -17,6 +17,13 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  async redirects() {
+    return [
+      // Old /about-us URL that Google crawled — redirect permanently to /about
+      { source: '/about-us', destination: '/about', permanent: true },
+      { source: '/about-us/', destination: '/about', permanent: true },
+    ]
+  },
 }
 
 export default nextConfig
