@@ -9,7 +9,7 @@ import GatedDownloadLink from '@/components/GatedDownloadLink'
 export const metadata: Metadata = {
   title: 'Water Infrastructure Tender & Procurement Support',
   description:
-    'Specialist procurement and tendering support for councils, government agencies, and major contractors. Capability statements, specification support, tender response assistance.',
+    'Tender and procurement support for councils, government agencies, and major contractors. Capability statements, specification support, and bid management.',
   keywords: [
     'water infrastructure tender procurement support',
     'tank procurement support australia',
@@ -20,6 +20,24 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/services/tender-procurement-support',
   },
+
+  openGraph: {
+    type: 'website',
+    locale: 'en_AU',
+    siteName: 'PC Water Infrastructure',
+    title: 'Water Infrastructure Tender & Procurement Support',
+    description: 'Tender and procurement support for councils, government agencies, and major contractors. Capability statements, specification support, and bid management.',
+    url: 'https://pcwater.com.au/services/tender-procurement-support',
+    images: [
+      {
+        url: '/hero.png',
+        width: 1200,
+        height: 630,
+        alt: 'PC Water Infrastructure — Engineered Water Asset Solutions',
+      },
+    ],
+  },
+  twitter: { card: 'summary_large_image' as const, images: ['/hero.png'] },
 }
 
 const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
@@ -44,7 +62,7 @@ export default function TenderProcurementPage() {
       <section className="relative pt-40 pb-24 overflow-hidden">
         <AppImage
           src="/heroes/tender-procurement-support.jpg"
-          alt=""
+          alt="Water infrastructure tender and procurement support for government and major contractors"
           fill
           priority
           className="object-cover object-center"
@@ -58,7 +76,7 @@ export default function TenderProcurementPage() {
             Specialist procurement and tendering support for councils, government agencies, and major contractors — making PC Water Infrastructure easy to engage and easy to trust.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link href="/contact" className="inline-flex items-center gap-2 bg-[#3e91ce] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#2d7ab8] transition-colors">
+            <Link href="/contact" className="inline-flex items-center gap-2 bg-[#2a72ad] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#246397] transition-colors">
               Discuss Procurement
             </Link>
             <GatedDownloadLink resourceKey="capabilityStatement" className="inline-flex items-center gap-2 border border-white text-white px-8 py-3.5 rounded font-semibold hover:bg-white hover:text-[#30505b] transition-colors">
@@ -125,9 +143,39 @@ export default function TenderProcurementPage() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-black text-[#30505b] mb-8">Industries We Serve</h2>
           <div className="flex flex-wrap justify-center gap-3">
-            {['Government & Councils', 'Mining & Resources', 'Industrial Facilities'].map((ind) => (
-              <span key={ind} className="bg-[#F4F6F8] border border-gray-200 text-[#30505b] px-5 py-2.5 rounded-full text-sm font-semibold">{ind}</span>
-            ))}
+            {['Government & Councils', 'Mining & Resources', 'Industrial Facilities'].map((ind) => {
+
+              const hrefMap: Record<string, string> = {
+
+                'Mining & Resources': '/industries/mining-resources',
+
+                'Government & Councils': '/industries/government-councils',
+
+                'Industrial Facilities': '/industries/industrial-facilities',
+
+                'Commercial & Fire Compliance': '/industries/commercial-fire-compliance',
+
+                'Commercial Fire Compliance': '/industries/commercial-fire-compliance',
+
+                'Remote & Regional Communities': '/industries/remote-regional-communities',
+
+                'Remote Communities': '/industries/remote-regional-communities',
+
+              }
+
+              const href = hrefMap[ind]
+
+              return href ? (
+
+                <Link key={ind} href={href} className="bg-[#F4F6F8] border border-gray-200 text-[#30505b] px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#3e91ce]/10 hover:border-[#3e91ce]/40 transition-colors">{ind}</Link>
+
+              ) : (
+
+                <span key={ind} className="bg-[#F4F6F8] border border-gray-200 text-[#30505b] px-5 py-2.5 rounded-full text-sm font-semibold">{ind}</span>
+
+              )
+
+            })}
           </div>
         </div>
       </section>

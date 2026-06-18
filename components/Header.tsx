@@ -62,8 +62,10 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
   const [industriesOpen, setIndustriesOpen] = useState(false)
+  const [resourcesOpen, setResourcesOpen] = useState(false)
   const [mobileServices, setMobileServices] = useState(false)
   const [mobileIndustries, setMobileIndustries] = useState(false)
+  const [mobileResources, setMobileResources] = useState(false)
   const pathname = usePathname()
 
   useEffect(() => {
@@ -297,22 +299,87 @@ export default function Header() {
               </AnimatePresence>
             </div>
 
-            {/* Resources — right of Industries */}
-            <Link
-              href="/resources"
-              className={`relative px-4 py-2 text-sm font-medium transition-colors animated-underline ${
-                scrolled ? 'text-gray-300 hover:text-white' : 'text-[#30505b] hover:text-[#3e91ce]'
-              } ${pathname === '/resources' ? 'text-[#3e91ce]' : ''}`}
+            {/* Resources dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setResourcesOpen(true)}
+              onMouseLeave={() => setResourcesOpen(false)}
             >
-              Resources
-              {pathname === '/resources' && (
-                <motion.div
-                  layoutId="nav-indicator"
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#3e91ce]"
-                  transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                />
-              )}
-            </Link>
+              <button
+                className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors ${
+                  scrolled ? 'text-gray-300 hover:text-white' : 'text-[#30505b] hover:text-[#3e91ce]'
+                } ${pathname.startsWith('/resources') ? (scrolled ? 'text-white' : 'text-[#3e91ce]') : ''}`}
+              >
+                Resources
+                <motion.svg
+                  animate={{ rotate: resourcesOpen ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </motion.svg>
+              </button>
+              <AnimatePresence>
+                {resourcesOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 8, scale: 0.97 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full left-0 w-72 bg-[#0d1b2a] border border-white/10 rounded-2xl py-3 z-50 shadow-2xl shadow-black/50"
+                  >
+                    <div className="px-3 mb-2">
+                      <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase">Resources</p>
+                    </div>
+                    {[
+                      {
+                        href: '/resources',
+                        label: 'Articles & Insights',
+                        desc: 'Technical articles on water storage, compliance, and maintenance',
+                        icon: (
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2 2 0 00-.586-1.414l-4.5-4.5A2 2 0 0014.914 3H19a2 2 0 012 2v13a2 2 0 01-2 2z" />
+                          </svg>
+                        ),
+                      },
+                      {
+                        href: '/resources/downloads',
+                        label: 'Free Downloads',
+                        desc: 'Free guides for water infrastructure — storage, treatment, and compliance',
+                        icon: (
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                          </svg>
+                        ),
+                      },
+                    ].map((item, i) => (
+                      <motion.div
+                        key={item.href}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: i * 0.05 }}
+                      >
+                        <Link
+                          href={item.href}
+                          className={`flex items-start gap-3 px-3 py-3 text-sm hover:text-white hover:bg-white/5 transition-all rounded-lg mx-1 ${
+                            pathname === item.href ? 'text-[#3e91ce] bg-white/5' : 'text-gray-400'
+                          }`}
+                        >
+                          <span className="text-[#3e91ce] flex-shrink-0 mt-0.5">{item.icon}</span>
+                          <div>
+                            <p className="font-semibold leading-tight">{item.label}</p>
+                            <p className="text-gray-500 text-xs mt-0.5 leading-relaxed">{item.desc}</p>
+                          </div>
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
             {/* Tools — free lead-gen assessments */}
             <Link
@@ -336,7 +403,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-3">
             <Link
               href="/contact"
-              className="glow-btn bg-[#3e91ce] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#2d7ab8] transition-all duration-300 hover:scale-105"
+              className="glow-btn bg-[#2a72ad] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#246397] transition-all duration-300 hover:scale-105"
             >
               Discuss a Project
             </Link>
@@ -495,12 +562,50 @@ export default function Header() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.35 }}
                 >
-                  <Link
-                    href="/resources"
-                    className="block text-gray-300 hover:text-white font-medium py-2.5 border-b border-white/5 transition-colors"
+                  <button
+                    className="flex items-center justify-between w-full text-gray-300 font-medium py-2.5 border-b border-white/5"
+                    onClick={() => setMobileResources(!mobileResources)}
                   >
                     Resources
-                  </Link>
+                    <motion.svg
+                      animate={{ rotate: mobileResources ? 180 : 0 }}
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </motion.svg>
+                  </button>
+                  <AnimatePresence>
+                    {mobileResources && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="overflow-hidden pl-4"
+                      >
+                        <Link
+                          href="/resources"
+                          className="flex items-center gap-2 text-sm text-gray-500 hover:text-[#3e91ce] py-2 transition-colors"
+                        >
+                          <svg className="w-4 h-4 text-[#3e91ce]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2 2 0 00-.586-1.414l-4.5-4.5A2 2 0 0014.914 3H19a2 2 0 012 2v13a2 2 0 01-2 2z" />
+                          </svg>
+                          Articles & Insights
+                        </Link>
+                        <Link
+                          href="/resources/downloads"
+                          className="flex items-center gap-2 text-sm text-gray-500 hover:text-[#3e91ce] py-2 transition-colors"
+                        >
+                          <svg className="w-4 h-4 text-[#3e91ce]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                          </svg>
+                          Free Downloads
+                        </Link>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </motion.div>
 
                 <motion.div
@@ -519,7 +624,7 @@ export default function Header() {
                 <div className="pt-4 space-y-3">
                   <Link
                     href="/contact"
-                    className="block w-full text-center bg-[#3e91ce] text-white px-4 py-3 rounded-full text-sm font-semibold"
+                    className="block w-full text-center bg-[#2a72ad] text-white px-4 py-3 rounded-full text-sm font-semibold"
                   >
                     Discuss a Project
                   </Link>

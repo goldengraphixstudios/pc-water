@@ -9,7 +9,7 @@ import SectionProjects from '@/components/SectionProjects'
 export const metadata: Metadata = {
   title: 'Remote Area Water Infrastructure Delivery',
   description:
-    'Specialist water infrastructure delivery for remote and regional Australia. FIFO crews, Indigenous community engagement, harsh environment materials, and remote logistics expertise.',
+    'Water infrastructure delivery for remote and regional Australia. FIFO crews, Indigenous community engagement, and specialist remote logistics expertise.',
   keywords: [
     'remote area project delivery water infrastructure',
     'remote water infrastructure australia',
@@ -21,6 +21,24 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/services/remote-area-delivery',
   },
+
+  openGraph: {
+    type: 'website',
+    locale: 'en_AU',
+    siteName: 'PC Water Infrastructure',
+    title: 'Remote Area Water Infrastructure Delivery',
+    description: 'Water infrastructure delivery for remote and regional Australia. FIFO crews, Indigenous community engagement, and specialist remote logistics expertise.',
+    url: 'https://pcwater.com.au/services/remote-area-delivery',
+    images: [
+      {
+        url: '/hero.png',
+        width: 1200,
+        height: 630,
+        alt: 'PC Water Infrastructure — Engineered Water Asset Solutions',
+      },
+    ],
+  },
+  twitter: { card: 'summary_large_image' as const, images: ['/hero.png'] },
 }
 
 const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
@@ -46,12 +64,11 @@ export default function RemoteAreaDeliveryPage() {
       <section className="relative overflow-hidden" style={{ minHeight: '75vh' }}>
         <Image
           src="/waterdrop-aboriginal-flag.png"
-          alt=""
+          alt="Aboriginal flag water drop — representing PC Water's remote and Indigenous community water infrastructure delivery"
           fill
           className="object-cover object-center"
           sizes="100vw"
           priority
-          aria-hidden="true"
         />
         {/* lighter overlay so image is clearly visible */}
         <div className="absolute inset-0 bg-[#0d1b2a]/55" />
@@ -64,7 +81,7 @@ export default function RemoteAreaDeliveryPage() {
             Specialist water infrastructure delivery for remote and regional Australia — including Indigenous communities, mining operations, and government projects in the most challenging locations.
           </p>
           <div>
-            <Link href="/contact" className="inline-flex items-center gap-2 bg-[#3e91ce] text-white px-9 py-4 rounded font-semibold text-base hover:bg-[#2d7ab8] transition-colors shadow-lg shadow-[#3e91ce]/25">
+            <Link href="/contact" className="inline-flex items-center gap-2 bg-[#2a72ad] text-white px-9 py-4 rounded font-semibold text-base hover:bg-[#246397] transition-colors shadow-lg shadow-[#3e91ce]/25">
               Discuss Your Remote Project
             </Link>
           </div>
@@ -111,9 +128,39 @@ export default function RemoteAreaDeliveryPage() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-black text-[#30505b] mb-8">Industries We Serve</h2>
           <div className="flex flex-wrap justify-center gap-3">
-            {['Remote & Regional Communities', 'Mining & Resources', 'Government & Councils'].map((ind) => (
-              <span key={ind} className="bg-[#F4F6F8] border border-gray-200 text-[#30505b] px-5 py-2.5 rounded-full text-sm font-semibold">{ind}</span>
-            ))}
+            {['Remote & Regional Communities', 'Mining & Resources', 'Government & Councils'].map((ind) => {
+
+              const hrefMap: Record<string, string> = {
+
+                'Mining & Resources': '/industries/mining-resources',
+
+                'Government & Councils': '/industries/government-councils',
+
+                'Industrial Facilities': '/industries/industrial-facilities',
+
+                'Commercial & Fire Compliance': '/industries/commercial-fire-compliance',
+
+                'Commercial Fire Compliance': '/industries/commercial-fire-compliance',
+
+                'Remote & Regional Communities': '/industries/remote-regional-communities',
+
+                'Remote Communities': '/industries/remote-regional-communities',
+
+              }
+
+              const href = hrefMap[ind]
+
+              return href ? (
+
+                <Link key={ind} href={href} className="bg-[#F4F6F8] border border-gray-200 text-[#30505b] px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#3e91ce]/10 hover:border-[#3e91ce]/40 transition-colors">{ind}</Link>
+
+              ) : (
+
+                <span key={ind} className="bg-[#F4F6F8] border border-gray-200 text-[#30505b] px-5 py-2.5 rounded-full text-sm font-semibold">{ind}</span>
+
+              )
+
+            })}
           </div>
         </div>
       </section>

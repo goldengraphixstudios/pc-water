@@ -6,9 +6,9 @@ import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import CTABanner from '@/components/CTABanner'
 
 export const metadata: Metadata = {
-  title: 'Fire Water Tank Solutions for Commercial Properties',
+  title: 'Commercial Fire Water Tank Solutions',
   description:
-    'AS2304 fire water storage and AS1851 annual inspection compliance for commercial properties. Pump system integration, compliance documentation, and ongoing maintenance.',
+    'AS2304 fire water storage and AS1851 annual inspection for commercial properties. Pump integration, compliance documentation, and ongoing maintenance.',
   keywords: [
     'commercial fire water compliance',
     'fire tank compliance commercial buildings',
@@ -19,6 +19,24 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/industries/commercial-fire-compliance',
   },
+
+  openGraph: {
+    type: 'website',
+    locale: 'en_AU',
+    siteName: 'PC Water Infrastructure',
+    title: 'Commercial Fire Water Tank Solutions',
+    description: 'AS2304 fire water storage and AS1851 annual inspection compliance for commercial properties. Pump system integration, compliance documentation, and ongoing maintenance.',
+    url: 'https://pcwater.com.au/industries/commercial-fire-compliance',
+    images: [
+      {
+        url: '/hero.png',
+        width: 1200,
+        height: 630,
+        alt: 'PC Water Infrastructure — Engineered Water Asset Solutions',
+      },
+    ],
+  },
+  twitter: { card: 'summary_large_image' as const, images: ['/hero.png'] },
 }
 
 const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
@@ -41,7 +59,7 @@ export default function CommercialFireCompliancePage() {
         ]}
       />
       <section className="relative pt-40 pb-24 overflow-hidden">
-        <AppImage src="/heroes/commercial-fire-compliance.jpg" alt="" fill priority className="object-cover object-center" sizes="100vw" />
+        <AppImage src="/heroes/commercial-fire-compliance.jpg" alt="Fire water tank system at a commercial facility — AS2304 compliant" fill priority className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#0d1b2a]/75" />
         <div className="relative z-10 max-w-4xl mx-auto px-4">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Industries</p>
@@ -49,7 +67,7 @@ export default function CommercialFireCompliancePage() {
           <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
             AS2304-compliant fire water storage and AS1851 annual inspection for commercial properties — protecting assets, lives, and insurance coverage.
           </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#3e91ce] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#2d7ab8] transition-colors">
+          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#2a72ad] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#246397] transition-colors">
             Request a Compliance Review
           </Link>
         </div>

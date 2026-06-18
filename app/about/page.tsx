@@ -6,7 +6,7 @@ import CTABanner from '@/components/CTABanner'
 export const metadata: Metadata = {
   title: 'About PC Water Infrastructure',
   description:
-    'PC Water Infrastructure — Australian-owned water storage engineering specialists since 2013. 20+ years combined expertise, zero injury record, nationwide coverage.',
+    'PC Water Infrastructure — Australian-owned water storage specialists since 2013. 20+ years combined expertise, zero injury record, nationwide coverage.',
   keywords: [
     'pc water infrastructure',
     'water infrastructure company australia',
@@ -17,6 +17,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/about',
   },
+  openGraph: {
+    type: 'website',
+    locale: 'en_AU',
+    siteName: 'PC Water Infrastructure',
+    title: 'About PC Water Infrastructure',
+    description: 'Australian-owned water storage specialists since 2013. 20+ years combined expertise, zero injury record, and nationwide coverage across every sector.',
+    url: 'https://pcwater.com.au/about',
+    images: [{ url: '/hero.png', width: 1200, height: 630, alt: 'PC Water Infrastructure — Engineered Water Asset Solutions' }],
+  },
+  twitter: { card: 'summary_large_image', images: ['/hero.png'] },
 }
 
 export default function AboutPage() {
@@ -26,7 +36,7 @@ export default function AboutPage() {
       <section className="relative pt-40 pb-24 overflow-hidden">
         <AppImage
           src="/heroes/about.jpg"
-          alt=""
+          alt="PC Water Infrastructure team delivering water storage infrastructure across Australia"
           fill
           priority
           className="object-cover object-center"
@@ -41,7 +51,7 @@ export default function AboutPage() {
           <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
             20+ years of expertise. Australian-owned. Standards-led. Engineering water solutions for the projects that matter most.
           </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#3e91ce] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#2d7ab8] transition-colors">
+          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#2a72ad] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#246397] transition-colors">
             Schedule a Free Consultation
           </Link>
         </div>
@@ -133,7 +143,7 @@ export default function AboutPage() {
 
       {/* Vision */}
       <section className="relative py-20 overflow-hidden">
-        <AppImage src="/water/water-05.jpg" alt="" fill className="object-cover object-center" sizes="100vw" aria-hidden />
+        <AppImage src="/water/water-05.jpg" alt="Clear potable water — safe drinking water delivered by PC Water Infrastructure" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#30505b]/87" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Our Vision</p>
@@ -179,7 +189,7 @@ export default function AboutPage() {
 
       {/* Differentiators */}
       <section className="relative py-20 overflow-hidden">
-        <AppImage src="/water/water-09.jpg" alt="" fill className="object-cover object-center" sizes="100vw" aria-hidden />
+        <AppImage src="/water/water-09.jpg" alt="Deep blue water representing PC Water's national infrastructure capability" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#0d1b2a]/90" />
         <div className="relative z-10 max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">

@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 
 import { deleteProject, updateProject } from '@/lib/cms/admin'
+import { submitSingleUrl } from '@/lib/indexnow'
 import type { CmsProjectInput } from '@/lib/cms/types'
 
 // Static export: no paths pre-rendered (server-only endpoint)
@@ -16,6 +17,11 @@ export async function PATCH(
 
   if (!result.ok) {
     return NextResponse.json({ error: result.error }, { status: result.status })
+  }
+
+  // Auto-submit to IndexNow when a project is published
+  if (input.status === 'published' && input.slug) {
+    submitSingleUrl(`/projects/${input.slug}`)
   }
 
   return NextResponse.json({ id: result.id })

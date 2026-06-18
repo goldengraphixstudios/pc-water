@@ -196,7 +196,7 @@ function ResultView({
         <div className="px-6 pb-6">
           <Link
             href={result.ctaHref}
-            className="glow-btn inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-[#3e91ce] text-white px-8 py-3.5 rounded-full font-semibold hover:bg-[#2d7ab8] transition-colors"
+            className="glow-btn inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-[#2a72ad] text-white px-8 py-3.5 rounded-full font-semibold hover:bg-[#246397] transition-colors"
           >
             {result.ctaLabel}
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

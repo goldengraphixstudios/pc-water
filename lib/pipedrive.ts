@@ -127,7 +127,7 @@ async function findLeadByTitle(
 }
 
 async function createOrganization(name: string) {
-  const data = await pipedriveFetch<{ id: number }>('/v2/organizations', {
+  const data = await pipedriveFetch<{ id: number }>('/api/v2/organizations', {
     method: 'POST',
     body: JSON.stringify({ name }),
   })
@@ -140,7 +140,7 @@ async function createPerson(params: {
   phone?: string | null
   organizationId?: number | null
 }) {
-  const data = await pipedriveFetch<{ id: number }>('/v2/persons', {
+  const data = await pipedriveFetch<{ id: number }>('/api/v2/persons', {
     method: 'POST',
     body: JSON.stringify({
       name: params.name,

@@ -20,6 +20,13 @@ export async function generateStaticParams() {
   }))
 }
 
+function truncateMeta(text: string | null | undefined, max = 155): string {
+  if (!text) return ''
+  const trimmed = text.trim()
+  if (trimmed.length <= max) return trimmed
+  return trimmed.slice(0, max - 1).replace(/[,\s]+$/, '') + '…'
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -32,11 +39,30 @@ export async function generateMetadata({
     return { title: 'Project Not Found' }
   }
 
+  const siteUrlBase = process.env.SITE_URL || 'https://pcwater.com.au'
+  const description = truncateMeta(project.seoDescription || project.summary)
+  const ogTitle = truncateMeta(project.seoTitle || project.title, 60)
+
   return {
-    title: project.seoTitle || `${project.title} | Projects`,
-    description: project.seoDescription || project.summary,
+    title: project.seoTitle ? { absolute: project.seoTitle } : project.title,
+    description,
     alternates: {
       canonical: `/projects/${slug}`,
+    },
+    openGraph: {
+      type: 'website',
+      locale: 'en_AU',
+      siteName: 'PC Water Infrastructure',
+      title: ogTitle,
+      description,
+      url: `${siteUrlBase}/projects/${slug}`,
+      images: [{ url: '/hero.png', width: 1200, height: 630, alt: `${project.title} — PC Water Infrastructure` }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: ogTitle,
+      description,
+      images: ['/hero.png'],
     },
   }
 }
@@ -52,6 +78,12 @@ export default async function ManagedProjectPage({
   if (!project) {
     return null
   }
+
+  // Wrap-around prev/next so every project receives incoming links from its neighbours
+  const allProjects = await getPublicProjects()
+  const projectIndex = allProjects.findIndex((candidate) => candidate.slug === slug)
+  const prevProject = allProjects.length > 1 ? allProjects[(projectIndex - 1 + allProjects.length) % allProjects.length] : null
+  const nextProject = allProjects.length > 1 ? allProjects[(projectIndex + 1) % allProjects.length] : null
 
   const blocks = renderContentBlocks(project.content)
   const serviceNames = project.servicesDelivered?.length
@@ -97,7 +129,7 @@ export default async function ManagedProjectPage({
             Back to Projects
           </Link>
           <div className="flex flex-wrap gap-3 mb-6">
-            <span className="bg-[#3e91ce] text-white text-xs font-semibold px-3 py-1 rounded-full">
+            <span className="bg-[#2a72ad] text-white text-xs font-semibold px-3 py-1 rounded-full">
               {project.sector}
             </span>
           </div>
@@ -170,6 +202,27 @@ export default async function ManagedProjectPage({
           <div className="max-w-6xl mx-auto px-4">
             <h2 className="text-2xl font-black text-[#30505b] mb-8">Project Gallery</h2>
             <GalleryLightbox images={gallery} />
+          </div>
+        </section>
+      )}
+
+      {prevProject && nextProject && (
+        <section className="bg-white py-10 border-t border-gray-100">
+          <div className="max-w-4xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Link
+              href={`/projects/${prevProject.slug}`}
+              className="rounded-xl border border-gray-200 px-5 py-4 hover:border-[#2a72ad] transition-colors"
+            >
+              <p className="text-xs text-gray-500 mb-1">← Previous project</p>
+              <p className="font-bold text-[#30505b]">{prevProject.title}</p>
+            </Link>
+            <Link
+              href={`/projects/${nextProject.slug}`}
+              className="rounded-xl border border-gray-200 px-5 py-4 hover:border-[#2a72ad] transition-colors sm:text-right"
+            >
+              <p className="text-xs text-gray-500 mb-1">Next project →</p>
+              <p className="font-bold text-[#30505b]">{nextProject.title}</p>
+            </Link>
           </div>
         </section>
       )}

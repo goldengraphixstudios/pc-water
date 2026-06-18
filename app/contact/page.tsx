@@ -17,6 +17,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/contact',
   },
+  openGraph: {
+    type: 'website',
+    locale: 'en_AU',
+    siteName: 'PC Water Infrastructure',
+    title: 'Contact PC Water Infrastructure',
+    description: 'Contact PC Water Infrastructure to discuss your water storage project. Phone: 1300 029 804. Email: contact@pcwater.com.au.',
+    url: 'https://pcwater.com.au/contact',
+    images: [{ url: '/hero.png', width: 1200, height: 630, alt: 'PC Water Infrastructure — Engineered Water Asset Solutions' }],
+  },
+  twitter: { card: 'summary_large_image', images: ['/hero.png'] },
 }
 
 export default function ContactPage() {
@@ -26,7 +36,7 @@ export default function ContactPage() {
       <section className="relative pt-40 pb-24 overflow-hidden">
         <AppImage
           src="/heroes/contact.jpg"
-          alt=""
+          alt="PC Water Infrastructure — contact our team to discuss your water infrastructure project"
           fill
           priority
           className="object-cover object-center"

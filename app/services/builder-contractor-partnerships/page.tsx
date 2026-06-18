@@ -6,9 +6,9 @@ import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import CTABanner from '@/components/CTABanner'
 
 export const metadata: Metadata = {
-  title: 'Builder & Contractor Water Infrastructure Partnerships',
+  title: 'Builder & Contractor Partnerships',
   description:
-    'Reliable water storage subcontract partnerships for builders, civil contractors, and project managers. National reach, compliance documentation, and flexible scope delivery.',
+    'Water storage subcontract partnerships for builders and contractors. National reach, AS2304 compliance documentation, and flexible scope delivery.',
   keywords: [
     'builder contractor water infrastructure partnerships',
     'water tank subcontractor australia',
@@ -19,6 +19,24 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/services/builder-contractor-partnerships',
   },
+
+  openGraph: {
+    type: 'website',
+    locale: 'en_AU',
+    siteName: 'PC Water Infrastructure',
+    title: 'Builder & Contractor Partnerships',
+    description: 'Water storage subcontract partnerships for builders and contractors. National reach, AS2304 compliance documentation, and flexible scope delivery.',
+    url: 'https://pcwater.com.au/services/builder-contractor-partnerships',
+    images: [
+      {
+        url: '/hero.png',
+        width: 1200,
+        height: 630,
+        alt: 'PC Water Infrastructure — Engineered Water Asset Solutions',
+      },
+    ],
+  },
+  twitter: { card: 'summary_large_image' as const, images: ['/hero.png'] },
 }
 
 const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
@@ -43,7 +61,7 @@ export default function BuilderContractorPage() {
       <section className="relative pt-40 pb-24 overflow-hidden">
         <AppImage
           src="/heroes/builder-contractor-partnerships.jpg"
-          alt=""
+          alt="Water storage subcontract partnership installation project"
           fill
           priority
           className="object-cover object-center"
@@ -56,7 +74,7 @@ export default function BuilderContractorPage() {
           <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
             Reliable specialist water storage subcontract services for builders, civil contractors, and project managers — with national reach and zero compromise on compliance.
           </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#3e91ce] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#2d7ab8] transition-colors">
+          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#2a72ad] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#246397] transition-colors">
             Discuss a Partnership
           </Link>
         </div>
@@ -100,7 +118,7 @@ export default function BuilderContractorPage() {
       </section>
 
       <section className="relative py-20 overflow-hidden">
-        <AppImage src="/water/water-06.jpg" alt="" fill className="object-cover object-center" sizes="100vw" aria-hidden />
+        <AppImage src="/water/water-06.jpg" alt="Water infrastructure delivered through builder and contractor partnerships" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#30505b]/87" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-black text-white mb-12">What Builders & Contractors Value Most</h2>
@@ -124,9 +142,39 @@ export default function BuilderContractorPage() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-black text-[#30505b] mb-8">Industries We Serve</h2>
           <div className="flex flex-wrap justify-center gap-3">
-            {['Commercial & Fire Compliance', 'Industrial Facilities', 'Government & Councils'].map((ind) => (
-              <span key={ind} className="bg-[#F4F6F8] border border-gray-200 text-[#30505b] px-5 py-2.5 rounded-full text-sm font-semibold">{ind}</span>
-            ))}
+            {['Commercial & Fire Compliance', 'Industrial Facilities', 'Government & Councils'].map((ind) => {
+
+              const hrefMap: Record<string, string> = {
+
+                'Mining & Resources': '/industries/mining-resources',
+
+                'Government & Councils': '/industries/government-councils',
+
+                'Industrial Facilities': '/industries/industrial-facilities',
+
+                'Commercial & Fire Compliance': '/industries/commercial-fire-compliance',
+
+                'Commercial Fire Compliance': '/industries/commercial-fire-compliance',
+
+                'Remote & Regional Communities': '/industries/remote-regional-communities',
+
+                'Remote Communities': '/industries/remote-regional-communities',
+
+              }
+
+              const href = hrefMap[ind]
+
+              return href ? (
+
+                <Link key={ind} href={href} className="bg-[#F4F6F8] border border-gray-200 text-[#30505b] px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#3e91ce]/10 hover:border-[#3e91ce]/40 transition-colors">{ind}</Link>
+
+              ) : (
+
+                <span key={ind} className="bg-[#F4F6F8] border border-gray-200 text-[#30505b] px-5 py-2.5 rounded-full text-sm font-semibold">{ind}</span>
+
+              )
+
+            })}
           </div>
         </div>
       </section>

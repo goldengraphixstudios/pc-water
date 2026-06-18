@@ -9,7 +9,7 @@ import ToolPromo from '@/components/ToolPromo'
 export const metadata: Metadata = {
   title: 'Tank Inspection Technology Australia',
   description:
-    'ROV and UAV tank inspection technology for water storage assets across Australia. Assess condition without costly dewatering and support compliance, maintenance, and refurbishment planning.',
+    'ROV and UAV tank inspection across Australia. Assess condition without dewatering to support AS1851 compliance, maintenance, and refurbishment decisions.',
   keywords: [
     'ROV tank inspection australia',
     'UAV tank inspection',
@@ -21,6 +21,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/services/tank-inspection-technology',
   },
+  openGraph: {
+    type: 'website',
+    locale: 'en_AU',
+    siteName: 'PC Water Infrastructure',
+    title: 'Tank Inspection Technology Australia',
+    description: 'ROV and UAV tank inspection across Australia. Assess condition without dewatering to support AS1851 compliance, maintenance planning, and refurbishment decisions.',
+    url: 'https://pcwater.com.au/services/tank-inspection-technology',
+    images: [{ url: '/hero.png', width: 1200, height: 630, alt: 'PC Water Infrastructure — Engineered Water Asset Solutions' }],
+  },
+  twitter: { card: 'summary_large_image', images: ['/hero.png'] },
 }
 
 const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
@@ -46,7 +56,7 @@ export default function TankInspectionPage() {
       <section className="relative pt-40 pb-24 overflow-hidden">
         <AppImage
           src="/heroes/tank-inspection-technology.jpg"
-          alt=""
+          alt="ROV underwater inspection technology being deployed inside a water tank"
           fill
           priority
           className="object-cover object-center"
@@ -59,7 +69,7 @@ export default function TankInspectionPage() {
           <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
             Advanced ROV and UAV-assisted tank inspection — delivering accurate condition assessment without costly tank dewatering and minimal disruption to your operations.
           </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#3e91ce] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#2d7ab8] transition-colors">
+          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#2a72ad] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#246397] transition-colors">
             Request an Inspection
           </Link>
         </div>
@@ -107,7 +117,7 @@ export default function TankInspectionPage() {
       </section>
 
       <section className="relative py-20 overflow-hidden">
-        <AppImage src="/water/water-10.jpg" alt="" fill className="object-cover object-center" sizes="100vw" aria-hidden />
+        <AppImage src="/water/water-10.jpg" alt="Underwater view representing ROV tank inspection technology" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#30505b]/87" />
         <div className="relative z-10 max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-black text-white text-center mb-12">What Our Inspection Reports Deliver</h2>
@@ -131,9 +141,39 @@ export default function TankInspectionPage() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-black text-[#30505b] mb-8">Industries We Serve</h2>
           <div className="flex flex-wrap justify-center gap-3">
-            {['Government & Councils', 'Mining & Resources', 'Industrial Facilities', 'Commercial & Fire Compliance', 'Remote & Regional Communities'].map((ind) => (
-              <span key={ind} className="bg-[#F4F6F8] border border-gray-200 text-[#30505b] px-5 py-2.5 rounded-full text-sm font-semibold">{ind}</span>
-            ))}
+            {['Government & Councils', 'Mining & Resources', 'Industrial Facilities', 'Commercial & Fire Compliance', 'Remote & Regional Communities'].map((ind) => {
+
+              const hrefMap: Record<string, string> = {
+
+                'Mining & Resources': '/industries/mining-resources',
+
+                'Government & Councils': '/industries/government-councils',
+
+                'Industrial Facilities': '/industries/industrial-facilities',
+
+                'Commercial & Fire Compliance': '/industries/commercial-fire-compliance',
+
+                'Commercial Fire Compliance': '/industries/commercial-fire-compliance',
+
+                'Remote & Regional Communities': '/industries/remote-regional-communities',
+
+                'Remote Communities': '/industries/remote-regional-communities',
+
+              }
+
+              const href = hrefMap[ind]
+
+              return href ? (
+
+                <Link key={ind} href={href} className="bg-[#F4F6F8] border border-gray-200 text-[#30505b] px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#3e91ce]/10 hover:border-[#3e91ce]/40 transition-colors">{ind}</Link>
+
+              ) : (
+
+                <span key={ind} className="bg-[#F4F6F8] border border-gray-200 text-[#30505b] px-5 py-2.5 rounded-full text-sm font-semibold">{ind}</span>
+
+              )
+
+            })}
           </div>
         </div>
       </section>

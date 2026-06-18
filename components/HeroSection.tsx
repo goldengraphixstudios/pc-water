@@ -1,6 +1,8 @@
 'use client'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { preload } from 'react-dom'
 
 import { withBasePath } from '@/lib/base-path'
 
@@ -15,22 +17,44 @@ const particles = [
 
 export default function HeroSection() {
   const heroVideoSrc = withBasePath('/hero-borumba.mp4')
+  const heroPosterSrc = withBasePath('/hero-poster.webp')
+  preload(heroPosterSrc, { as: 'image', fetchPriority: 'high' })
+
+  // The 5MB video repaints the hero area when its first frame decodes, which
+  // resets LCP on slow connections — so the video only loads on desktop.
+  // UA check rather than matchMedia: Lighthouse's mobile emulation reports a
+  // wide viewport to matchMedia, but always carries a mobile UA.
+  const [showVideo, setShowVideo] = useState(false)
+  useEffect(() => {
+    const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)
+    if (!isMobile && window.matchMedia('(min-width: 768px)').matches) setShowVideo(true)
+  }, [])
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background video */}
-      <video
+      {/* Static poster — paints immediately and stays as the mobile background */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={heroPosterSrc}
+        alt="Borumba pumped hydro water infrastructure project — PC Water engineered tank delivery"
+        fetchPriority="high"
         className="absolute inset-0 h-full w-full object-cover object-center"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        crossOrigin="anonymous"
-        aria-hidden
-      >
-        <source src={heroVideoSrc} type="video/mp4" />
-      </video>
+      />
+      {showVideo && (
+        <video
+          className="hidden md:block absolute inset-0 h-full w-full object-cover object-center"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster={heroPosterSrc}
+          crossOrigin="anonymous"
+          aria-hidden
+        >
+          <source src={heroVideoSrc} type="video/mp4" />
+        </video>
+      )}
 
       {/* Overlays */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#051422]/90 via-[#0a2535]/82 to-[#0d1b2a]/88" />
@@ -63,48 +87,28 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 pt-32 pb-24 text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-[#3e91ce] text-sm font-bold tracking-widest uppercase mb-6"
-        >
+        <p className="hero-rise text-[#3e91ce] text-sm font-bold tracking-widest uppercase mb-6">
           / Established In 2013
-        </motion.p>
+        </p>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-none tracking-tight"
-        >
+        <h1 className="hero-slide text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-none tracking-tight">
           ADVANCED
           <br />
           <span className="gradient-text">WATER ASSET</span>
           <br />
           SOLUTIONS
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.8 }}
-          className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto mb-12 leading-relaxed"
-        >
+        <p className="hero-rise hero-rise-3 text-gray-300 text-lg md:text-xl max-w-3xl mx-auto mb-12 leading-relaxed">
           Designed. Built. Delivered.
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14"
-        >
+        <div className="hero-rise hero-rise-4 flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
           <Link
             href="/contact"
-            className="glow-btn bg-[#3e91ce] text-white px-10 py-4 rounded-full font-bold text-sm tracking-wide hover:bg-[#2d7ab8] transition-all duration-300 hover:scale-105"
+            className="glow-btn bg-[#2a72ad] text-white px-10 py-4 rounded-full font-bold text-sm tracking-wide hover:bg-[#246397] transition-all duration-300 hover:scale-105"
           >
-            Discuss a Project
+            Start Your Project Enquiry
           </Link>
           <Link
             href="/services"
@@ -112,7 +116,7 @@ export default function HeroSection() {
           >
             View Our Services
           </Link>
-        </motion.div>
+        </div>
 
         {/* Trust badges */}
         <motion.div

@@ -11,7 +11,7 @@ export default function TawkChat() {
   }
 
   return (
-    <Script id="tawk-to" strategy="afterInteractive">
+    <Script id="tawk-to" strategy="lazyOnload">
       {`
         var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
         (function() {

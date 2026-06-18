@@ -201,7 +201,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={verifying}
-          className="w-full bg-[#3e91ce] text-white py-4 rounded-lg font-bold hover:bg-[#2d7ab8] transition-colors text-sm tracking-wide"
+          className="w-full bg-[#2a72ad] text-white py-4 rounded-lg font-bold hover:bg-[#246397] transition-colors text-sm tracking-wide"
         >
           {verifying ? 'Submitting Enquiry…' : 'Submit Enquiry — We Reply Within 1 Business Day'}
         </button>

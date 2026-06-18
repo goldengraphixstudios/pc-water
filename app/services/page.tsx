@@ -7,7 +7,7 @@ import CTABanner from '@/components/CTABanner'
 export const metadata: Metadata = {
   title: 'Water Infrastructure Services Australia',
   description:
-    'PC Water Infrastructure combines PC Tanks (tank design & supply) and PC Water Solutions (project delivery & asset management) for a complete end-to-end water infrastructure service.',
+    'End-to-end water infrastructure services across Australia. Tank design, installation, RPVC liners, fire compliance, remote delivery, and asset management.',
   keywords: [
     'water infrastructure services australia',
     'engineered water solutions',
@@ -18,6 +18,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/services',
   },
+  openGraph: {
+    type: 'website',
+    locale: 'en_AU',
+    siteName: 'PC Water Infrastructure',
+    title: 'Water Infrastructure Services Australia',
+    description: 'End-to-end water infrastructure services across Australia. Tank design, installation, RPVC liners, fire compliance, remote delivery, and asset management.',
+    url: 'https://pcwater.com.au/services',
+    images: [{ url: '/hero.png', width: 1200, height: 630, alt: 'PC Water Infrastructure — Engineered Water Asset Solutions' }],
+  },
+  twitter: { card: 'summary_large_image', images: ['/hero.png'] },
 }
 
 const waterSolutionsServices = [
@@ -93,7 +103,7 @@ export default function ServicesPage() {
       <section className="relative pt-40 pb-24 overflow-hidden">
         <AppImage
           src="/heroes/services.jpg"
-          alt=""
+          alt="PC Water Infrastructure — full range of water storage and treatment services across Australia"
           fill
           priority
           className="object-cover object-center"

@@ -8,9 +8,9 @@ import AssessmentTool from '@/components/tools/AssessmentTool'
 const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
 export const metadata: Metadata = {
-  title: 'Repair, Reline or Replace? Water Tank Decision Tool',
+  title: 'Repair, Reline or Replace? Tank Tool',
   description:
-    'Free decision tool for aging water tanks. Answer questions on tank use, age, structural condition, corrosion, and liner condition to find out whether to repair, reline with RPVC, or replace — plus your recommended next step.',
+    'Free decision tool for aging water tanks — answer questions on condition, age, and corrosion to find out whether to repair, reline with RPVC, or replace.',
   keywords: [
     'water tank relining australia',
     'replace or reline water tank',
@@ -22,12 +22,14 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/tools/repair-reline-replace' },
   openGraph: {
-    title: 'Repair, Reline or Replace? Water Tank Decision Tool',
+    title: 'Repair, Reline or Replace? Tank Tool',
     description:
       'Answer a few questions about your aging tank and get a practical guidance path — repair, reline, replace, or inspect first.',
     url: `${siteUrl}/tools/repair-reline-replace`,
     type: 'website',
+    images: [{ url: '/hero.png', width: 1200, height: 630, alt: 'PC Water Infrastructure — Engineered Water Asset Solutions' }],
   },
+  twitter: { card: 'summary_large_image' as const, images: ['/hero.png'] },
 }
 
 const faqs = [
@@ -98,7 +100,7 @@ export default function RepairRelineReplacePage() {
           </p>
           <Link
             href="#assessment"
-            className="inline-flex items-center gap-2 bg-[#3e91ce] text-white px-8 py-3.5 rounded-full font-semibold hover:bg-[#2d7ab8] transition-colors"
+            className="inline-flex items-center gap-2 bg-[#2a72ad] text-white px-8 py-3.5 rounded-full font-semibold hover:bg-[#246397] transition-colors"
           >
             Get My Result
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

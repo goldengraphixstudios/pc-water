@@ -27,13 +27,13 @@ export default function ToolPromo({
           <div className="absolute -top-10 -right-10 w-56 h-56 bg-[#3e91ce]/15 blur-3xl rounded-full pointer-events-none" />
           <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div className="max-w-2xl">
-              <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-2">{eyebrow}</p>
+              <p className="text-[#2a72ad] text-xs font-bold tracking-widest uppercase mb-2">{eyebrow}</p>
               <h2 className="text-xl md:text-2xl font-black text-white mb-2">{heading}</h2>
               <p className="text-gray-300 text-sm leading-relaxed">{description}</p>
             </div>
             <Link
               href={href}
-              className="flex-shrink-0 inline-flex items-center justify-center gap-2 bg-[#3e91ce] text-white px-7 py-3.5 rounded-full font-semibold hover:bg-[#2d7ab8] transition-colors whitespace-nowrap"
+              className="flex-shrink-0 inline-flex items-center justify-center gap-2 bg-[#2a72ad] text-white px-7 py-3.5 rounded-full font-semibold hover:bg-[#246397] transition-colors whitespace-nowrap"
             >
               {ctaLabel}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -79,7 +79,7 @@ export default function SectionHero({
             {ctaLabel && ctaHref && (
               <Link
                 href={ctaHref}
-                className="glow-btn inline-flex items-center justify-center bg-[#3e91ce] text-white px-8 py-3.5 rounded-full font-semibold hover:bg-[#2d7ab8] transition-all duration-300 hover:scale-105"
+                className="glow-btn inline-flex items-center justify-center bg-[#2a72ad] text-white px-8 py-3.5 rounded-full font-semibold hover:bg-[#246397] transition-all duration-300 hover:scale-105"
               >
                 {ctaLabel}
               </Link>

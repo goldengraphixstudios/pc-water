@@ -77,7 +77,7 @@ const pcWaterSolutionsResources: Resource[] = [
 
 function ResourceCard({ resource, onDownload }: { resource: Resource; onDownload: (r: Resource) => void }) {
   return (
-    <div className="bg-[#F4F6F8] rounded-xl p-6 border border-gray-100 hover:shadow-md transition-shadow flex flex-col">
+    <div className="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-md transition-shadow flex flex-col">
       <span className="inline-block bg-[#3e91ce]/10 text-[#3e91ce] text-xs font-semibold px-3 py-1 rounded-full mb-4 self-start">
         {resource.tag}
       </span>

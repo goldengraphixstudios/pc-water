@@ -181,7 +181,7 @@ export default function ResourceDownloadGate({ resourceSlug, resourceTitle, divi
                 <button
                   type="submit"
                   disabled={busy || !email.trim()}
-                  className="w-full flex items-center justify-center gap-2 bg-[#3e91ce] hover:bg-[#2d7ab8] disabled:bg-gray-200 disabled:text-gray-400 text-white font-bold py-3 rounded-xl transition-all text-sm shadow-sm shadow-[#3e91ce]/20"
+                  className="w-full flex items-center justify-center gap-2 bg-[#3e91ce] hover:bg-[#246397] disabled:bg-gray-200 disabled:text-gray-400 text-white font-bold py-3 rounded-xl transition-all text-sm shadow-sm shadow-[#3e91ce]/20"
                 >
                   {busy ? (
                     <>

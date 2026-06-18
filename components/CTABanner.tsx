@@ -45,7 +45,7 @@ export default function CTABanner({
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
             <Link
               href={primaryCTA.href}
-              className="glow-btn inline-block bg-[#3e91ce] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#2d7ab8] transition-colors text-sm tracking-wide"
+              className="glow-btn inline-block bg-[#2a72ad] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#246397] transition-colors text-sm tracking-wide"
             >
               {primaryCTA.label}
             </Link>

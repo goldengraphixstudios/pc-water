@@ -1,6 +1,21 @@
 import type { Metadata } from 'next'
+import { Inter, Roboto } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
+
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '700', '900'],
+  variable: '--font-roboto',
+  display: 'swap',
+})
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+  variable: '--font-inter',
+  display: 'swap',
+})
 import SiteChrome from '@/components/SiteChrome'
 import TawkChat from '@/components/TawkChat'
 
@@ -10,7 +25,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: 'PC Water Infrastructure - Engineered Water Solutions',
-    template: '%s | PC Water Infrastructure',
+    template: '%s | PC Water',
   },
   icons: {
     icon: [
@@ -39,6 +54,20 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_AU',
     siteName: 'PC Water Infrastructure',
+    images: [
+      {
+        url: '/hero.png',
+        width: 1200,
+        height: 630,
+        alt: 'PC Water Infrastructure — Engineered Water Asset Solutions',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@pcwaterinfra',
+    creator: '@pcwaterinfra',
+    images: ['/hero.png'],
   },
 }
 
@@ -93,7 +122,7 @@ const organizationSchema = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-AU" suppressHydrationWarning>
+    <html lang="en-AU" className={`${roboto.variable} ${inter.variable}`} suppressHydrationWarning>
       <head>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-Y04Q1N06DC"

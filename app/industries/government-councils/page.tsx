@@ -7,9 +7,9 @@ import CTABanner from '@/components/CTABanner'
 import SectionProjects from '@/components/SectionProjects'
 
 export const metadata: Metadata = {
-  title: 'Water Storage Solutions for Government & Councils',
+  title: 'Water Storage for Government & Councils',
   description:
-    'Compliant, accountable water storage for government and council assets. Tender-ready documentation, AS2304/AS1851 compliance, remote delivery, and procurement support.',
+    'Compliant water storage for government and council assets. Tender-ready documentation, AS2304/AS1851 compliance, and procurement support.',
   keywords: [
     'government council water infrastructure',
     'council water tank solutions',
@@ -20,6 +20,24 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/industries/government-councils',
   },
+
+  openGraph: {
+    type: 'website',
+    locale: 'en_AU',
+    siteName: 'PC Water Infrastructure',
+    title: 'Water Storage for Government & Councils',
+    description: 'Compliant water storage for government and council assets. Tender-ready documentation, AS2304/AS1851 compliance, and procurement support.',
+    url: 'https://pcwater.com.au/industries/government-councils',
+    images: [
+      {
+        url: '/hero.png',
+        width: 1200,
+        height: 630,
+        alt: 'PC Water Infrastructure — Engineered Water Asset Solutions',
+      },
+    ],
+  },
+  twitter: { card: 'summary_large_image' as const, images: ['/hero.png'] },
 }
 
 const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
@@ -42,7 +60,7 @@ export default function GovernmentCouncilsPage() {
         ]}
       />
       <section className="relative pt-40 pb-24 overflow-hidden">
-        <AppImage src="/heroes/government-councils.jpg" alt="" fill priority className="object-cover object-center" sizes="100vw" />
+        <AppImage src="/heroes/government-councils.jpg" alt="Municipal water storage infrastructure project for government and councils" fill priority className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#0d1b2a]/75" />
         <div className="relative z-10 max-w-4xl mx-auto px-4">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Industries</p>
@@ -50,7 +68,7 @@ export default function GovernmentCouncilsPage() {
           <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
             Compliant, accountable, and community-focused water storage delivery for government agencies, local councils, and public infrastructure programs.
           </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#3e91ce] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#2d7ab8] transition-colors">
+          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#2a72ad] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#246397] transition-colors">
             Discuss Your Project
           </Link>
         </div>

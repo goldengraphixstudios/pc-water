@@ -7,7 +7,7 @@ import { getPublicProjects, toProjectGridItems } from '@/lib/cms/queries'
 export const metadata: Metadata = {
   title: 'Water Infrastructure Projects',
   description:
-    'PC Water Infrastructure project portfolio — water storage infrastructure delivered across government, mining, industrial, commercial, and remote community sectors across Australia.',
+    'Water storage infrastructure delivered across government, mining, industrial, and remote community sectors across Australia.',
   keywords: [
     'water infrastructure projects australia',
     'water tank project portfolio',
@@ -16,6 +16,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/projects',
   },
+  openGraph: {
+    type: 'website',
+    locale: 'en_AU',
+    siteName: 'PC Water Infrastructure',
+    title: 'Water Infrastructure Projects',
+    description: 'Water storage infrastructure delivered across government, mining, industrial, and remote community sectors across Australia.',
+    url: 'https://pcwater.com.au/projects',
+    images: [{ url: '/hero.png', width: 1200, height: 630, alt: 'PC Water Infrastructure — Engineered Water Asset Solutions' }],
+  },
+  twitter: { card: 'summary_large_image', images: ['/hero.png'] },
 }
 
 export const dynamic = 'force-static'

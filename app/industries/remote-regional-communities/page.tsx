@@ -9,7 +9,7 @@ import SectionProjects from '@/components/SectionProjects'
 export const metadata: Metadata = {
   title: 'Water Storage for Remote & Regional Communities',
   description:
-    'Safe water access for remote and Indigenous communities. Specialist logistics, FIFO delivery, cultural sensitivity, and community engagement for remote water infrastructure.',
+    'Safe water access for remote and Indigenous communities. Specialist logistics, FIFO delivery, cultural sensitivity, and community engagement.',
   keywords: [
     'remote regional community water infrastructure',
     'indigenous community water infrastructure australia',
@@ -20,6 +20,24 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/industries/remote-regional-communities',
   },
+
+  openGraph: {
+    type: 'website',
+    locale: 'en_AU',
+    siteName: 'PC Water Infrastructure',
+    title: 'Water Storage for Remote & Regional Communities',
+    description: 'Safe water access for remote and Indigenous communities. Specialist logistics, FIFO delivery, cultural sensitivity, and community engagement.',
+    url: 'https://pcwater.com.au/industries/remote-regional-communities',
+    images: [
+      {
+        url: '/hero.png',
+        width: 1200,
+        height: 630,
+        alt: 'PC Water Infrastructure — Engineered Water Asset Solutions',
+      },
+    ],
+  },
+  twitter: { card: 'summary_large_image' as const, images: ['/hero.png'] },
 }
 
 const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
@@ -42,7 +60,7 @@ export default function RemoteRegionalCommunitiesPage() {
         ]}
       />
       <section className="relative pt-40 pb-24 overflow-hidden">
-        <AppImage src="/heroes/remote-regional-communities.jpg" alt="" fill priority className="object-cover object-center" sizes="100vw" />
+        <AppImage src="/heroes/remote-regional-communities.jpg" alt="Water storage tank delivery for a remote and regional community in Australia" fill priority className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#0d1b2a]/75" />
         <div className="relative z-10 max-w-4xl mx-auto px-4">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Industries</p>
@@ -50,7 +68,7 @@ export default function RemoteRegionalCommunitiesPage() {
           <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
             Safe, reliable water access for remote and Indigenous communities — delivered with specialist logistics, cultural sensitivity, and genuine care for community outcomes.
           </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#3e91ce] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#2d7ab8] transition-colors">
+          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#2a72ad] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#246397] transition-colors">
             Discuss Your Community Project
           </Link>
         </div>
@@ -58,7 +76,7 @@ export default function RemoteRegionalCommunitiesPage() {
 
       {/* Indigenous acknowledgement banner */}
       <section className="relative py-8 overflow-hidden">
-        <AppImage src="/water/water-15.jpg" alt="" fill className="object-cover object-center" sizes="100vw" aria-hidden />
+        <AppImage src="/water/water-15.jpg" alt="Water reserves for remote and regional Australian communities" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#30505b]/90" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <p className="text-gray-200 text-sm leading-relaxed">

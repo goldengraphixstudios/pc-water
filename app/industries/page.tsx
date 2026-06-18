@@ -15,6 +15,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/industries',
   },
+  openGraph: {
+    type: 'website',
+    locale: 'en_AU',
+    siteName: 'PC Water Infrastructure',
+    title: 'Water Infrastructure Industries We Serve',
+    description: 'PC Water Infrastructure delivers water storage solutions to government, mining, industrial, commercial, and remote community sectors across Australia.',
+    url: 'https://pcwater.com.au/industries',
+    images: [{ url: '/hero.png', width: 1200, height: 630, alt: 'PC Water Infrastructure — Engineered Water Asset Solutions' }],
+  },
+  twitter: { card: 'summary_large_image', images: ['/hero.png'] },
 }
 
 const industries = [
@@ -51,7 +61,7 @@ export default function IndustriesPage() {
       <section className="relative pt-40 pb-24 overflow-hidden">
         <AppImage
           src="/heroes/industries.jpg"
-          alt=""
+          alt="PC Water Infrastructure serving multiple industries including government, mining, and remote communities across Australia"
           fill
           priority
           className="object-cover object-center"

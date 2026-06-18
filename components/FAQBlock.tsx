@@ -31,7 +31,7 @@ export default function FAQBlock({ faqs, heading = 'FREQUENTLY ASKED QUESTIONS' 
       />
       <div className="max-w-4xl mx-auto px-4">
         <AnimatedSection className="text-center mb-14">
-          <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ FAQs</p>
+          <p className="text-[#2a72ad] text-xs font-bold tracking-widest uppercase mb-3">/ FAQs</p>
           <h2 className="text-3xl md:text-4xl font-black text-[#30505b]">{heading}</h2>
         </AnimatedSection>
         <div className="space-y-3">

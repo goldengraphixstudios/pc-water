@@ -9,7 +9,7 @@ import SectionProjects from '@/components/SectionProjects'
 export const metadata: Metadata = {
   title: 'Water Storage for Mining & Resources',
   description:
-    'Robust water storage for remote mining operations. Harsh environment engineering, AS2304 fire water compliance, RPVC liners, ROV inspection, and FIFO crew deployment.',
+    'Robust water storage for remote mining operations. Harsh environment engineering, AS2304 compliance, RPVC liners, and ROV inspection capability.',
   keywords: [
     'mining water infrastructure',
     'mining camp water storage',
@@ -20,6 +20,24 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/industries/mining-resources',
   },
+
+  openGraph: {
+    type: 'website',
+    locale: 'en_AU',
+    siteName: 'PC Water Infrastructure',
+    title: 'Water Storage for Mining & Resources',
+    description: 'Robust water storage for remote mining operations. Harsh environment engineering, AS2304 compliance, RPVC liners, and ROV inspection capability.',
+    url: 'https://pcwater.com.au/industries/mining-resources',
+    images: [
+      {
+        url: '/hero.png',
+        width: 1200,
+        height: 630,
+        alt: 'PC Water Infrastructure — Engineered Water Asset Solutions',
+      },
+    ],
+  },
+  twitter: { card: 'summary_large_image' as const, images: ['/hero.png'] },
 }
 
 const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
@@ -42,7 +60,7 @@ export default function MiningResourcesPage() {
         ]}
       />
       <section className="relative pt-40 pb-24 overflow-hidden">
-        <AppImage src="/heroes/mining-resources.jpg" alt="" fill priority className="object-cover object-center" sizes="100vw" />
+        <AppImage src="/heroes/mining-resources.jpg" alt="Remote water storage installation at a mining and resources operation" fill priority className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#0d1b2a]/75" />
         <div className="relative z-10 max-w-4xl mx-auto px-4">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Industries</p>
@@ -50,7 +68,7 @@ export default function MiningResourcesPage() {
           <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
             Robust, engineered water infrastructure for remote mining and resources operations — built for harsh environments, compliance-critical, and operationally reliable.
           </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#3e91ce] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#2d7ab8] transition-colors">
+          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#2a72ad] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#246397] transition-colors">
             Discuss Your Mine Site Project
           </Link>
         </div>

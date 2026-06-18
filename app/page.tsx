@@ -12,9 +12,9 @@ import GatedDownloadLink from '@/components/GatedDownloadLink'
 import ToolPromo from '@/components/ToolPromo'
 
 export const metadata: Metadata = {
-  title: 'Water Infrastructure Australia | PC Water Infrastructure',
+  title: 'Water Infrastructure Solutions Australia | PC Water',
   description:
-    'PC Water Infrastructure delivers engineered water storage and water treatment solutions across Australia — project managed facilities, RPVC liners, fire water compliance, tank inspection, and remote project delivery since 2013.',
+    'Engineered water infrastructure, tank inspection, fire water compliance, RPVC liners, and water treatment solutions across Australia.',
   keywords: [
     'water infrastructure australia',
     'engineered water solutions australia',
@@ -28,6 +28,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  openGraph: {
+    type: 'website',
+    locale: 'en_AU',
+    siteName: 'PC Water Infrastructure',
+    title: 'Engineered Water Infrastructure Solutions Australia | PC Water',
+    description: 'Engineered water infrastructure, tank inspection, fire water compliance, RPVC liners, and water treatment solutions across Australia.',
+    url: 'https://pcwater.com.au',
+    images: [{ url: '/hero.png', width: 1200, height: 630, alt: 'PC Water Infrastructure — Engineered Water Asset Solutions' }],
+  },
+  twitter: { card: 'summary_large_image', images: ['/hero.png'] },
 }
 
 const faqs = [
@@ -81,7 +91,7 @@ export default function HomePage() {
 
       {/* ─── STATS ─── */}
       <section className="relative py-20 overflow-hidden">
-        <Image src="/water/water-17.jpg" alt="" fill className="object-cover object-center" sizes="100vw" aria-hidden />
+        <Image src="/water/water-17.jpg" alt="Water storage infrastructure background" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#0d1b2a]/88" />
         <div className="dot-pattern absolute inset-0 opacity-20 pointer-events-none" />
         <StaggerContainer className="relative z-10 max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -108,7 +118,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-16 items-center">
             <AnimatedSection>
-              <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ About Us</p>
+              <p className="text-[#2a72ad] text-xs font-bold tracking-widest uppercase mb-4">/ About Us</p>
               <h2 className="text-4xl md:text-5xl font-black text-[#30505b] leading-tight mb-6">
                 TWO SPECIALIST<br />
                 <span className="text-[#3e91ce]">DIVISIONS.</span><br />
@@ -129,7 +139,7 @@ export default function HomePage() {
               <div className="flex flex-wrap gap-4">
                 <Link
                   href="/about"
-                  className="inline-flex items-center gap-2 bg-[#3e91ce] text-white px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-[#2d7ab8] transition-all duration-300 hover:scale-105"
+                  className="inline-flex items-center gap-2 bg-[#2a72ad] text-white px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-[#246397] transition-all duration-300 hover:scale-105"
                 >
                   About PC Water Infrastructure
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -140,7 +150,7 @@ export default function HomePage() {
                   href="/projects"
                   className="inline-flex items-center gap-2 border-2 border-[#30505b] text-[#30505b] px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-[#30505b] hover:text-white transition-all duration-300"
                 >
-                  View Our Projects
+                  Browse Recent Projects
                 </Link>
               </div>
             </AnimatedSection>
@@ -165,7 +175,7 @@ export default function HomePage() {
               </div>
 
               <div className="mt-3 bg-gradient-to-br from-[#162538] to-[#30505b] rounded-xl p-4 text-white">
-                <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-2">/ Our Two Divisions</p>
+                <p className="text-[#2a72ad] text-xs font-bold tracking-widest uppercase mb-2">/ Our Two Divisions</p>
                 <div className="grid grid-cols-1 gap-2">
                   {[
                     { name: 'PC Water Solutions', role: 'Full-scope delivery — civil, structural, mechanical, process, pipelines, treatment plant integration' },
@@ -190,7 +200,7 @@ export default function HomePage() {
       <section className="bg-[#F4F6F8] py-24">
         <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection className="text-center mb-16">
-            <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ What We Deliver</p>
+            <p className="text-[#2a72ad] text-xs font-bold tracking-widest uppercase mb-3">/ What We Deliver</p>
             <h2 className="text-4xl md:text-5xl font-black text-[#30505b] leading-tight">
               WATER INFRASTRUCTURE<br />
               <span className="text-[#3e91ce]">FROM SOURCE TO SUPPLY</span>
@@ -250,7 +260,7 @@ export default function HomePage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={cap.iconPath} />
                       </svg>
                     </div>
-                    <h3 className="font-bold text-[#30505b] text-lg mb-3">{cap.title}</h3>
+                    <p className="font-bold text-[#30505b] text-lg mb-3">{cap.title}</p>
                     <p className="text-gray-500 text-sm leading-relaxed">{cap.desc}</p>
                   </div>
                   <div className="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#3e91ce] to-[#30505b] group-hover:w-full transition-all duration-700" />
@@ -264,7 +274,7 @@ export default function HomePage() {
               href="/services"
               className="inline-flex items-center gap-3 border-2 border-[#30505b] text-[#30505b] px-8 py-4 rounded-full font-semibold hover:bg-[#30505b] hover:text-white transition-all duration-300 hover:scale-105 text-sm"
             >
-              View All Services
+              Browse All Services
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
@@ -275,7 +285,7 @@ export default function HomePage() {
 
       {/* ─── WHO WE SERVE ─── */}
       <section className="relative py-24 overflow-hidden">
-        <Image src="/water/water-07.jpg" alt="" fill className="object-cover object-center" sizes="100vw" aria-hidden />
+        <Image src="/water/water-07.jpg" alt="Engineered water infrastructure in industrial setting" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#0d1b2a]/85" />
         <div className="dot-pattern absolute inset-0 opacity-20 pointer-events-none" />
         <div className="relative z-10 max-w-6xl mx-auto px-4">
@@ -335,7 +345,7 @@ export default function HomePage() {
                     <span className="text-[#3e91ce] font-black text-sm group-hover:text-white transition-colors">0{sector.idx}</span>
                   </div>
                   <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-2">{sector.sub}</p>
-                  <h3 className="font-bold text-white text-xl mb-4">{sector.title}</h3>
+                  <p className="font-bold text-white text-xl mb-4">{sector.title}</p>
                   <p className="text-gray-400 text-sm leading-relaxed mb-5">{sector.desc}</p>
                   <ul className="space-y-2 mt-auto">
                     {sector.items.map((item) => (
@@ -365,7 +375,7 @@ export default function HomePage() {
 
       {/* ─── WHY PC WATER INFRASTRUCTURE ─── */}
       <section className="relative py-24 overflow-hidden">
-        <Image src="/water/water-11.jpg" alt="" fill className="object-cover object-center" sizes="100vw" aria-hidden />
+        <Image src="/water/water-11.jpg" alt="Water asset infrastructure and treatment project background" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#30505b]/88" />
         <div className="dot-pattern absolute inset-0 opacity-10 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-br from-[#162538]/40 to-transparent pointer-events-none" />
@@ -412,7 +422,7 @@ export default function HomePage() {
                     </span>
                   </div>
                   <div className="w-8 h-0.5 bg-[#3e91ce] mb-4" />
-                  <h3 className="font-bold text-white mb-3 text-lg">{point.title}</h3>
+                  <p className="font-bold text-white mb-3 text-lg">{point.title}</p>
                   <p className="text-gray-400 text-sm leading-relaxed">{point.desc}</p>
                 </div>
               </StaggerItem>
@@ -425,7 +435,7 @@ export default function HomePage() {
       <section className="bg-[#F4F6F8] py-20">
         <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection className="text-center mb-12">
-            <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Standards</p>
+            <p className="text-[#2a72ad] text-xs font-bold tracking-widest uppercase mb-3">/ Standards</p>
             <h2 className="text-3xl md:text-4xl font-black text-[#30505b]">
               COMPLIANCE & PROCUREMENT CONFIDENCE
             </h2>
@@ -449,9 +459,9 @@ export default function HomePage() {
           <AnimatedSection className="text-center mt-10">
             <Link
               href="/commitment"
-              className="inline-flex items-center gap-2 text-[#3e91ce] font-semibold hover:gap-4 transition-all duration-300"
+              className="inline-flex items-center gap-2 text-[#2a72ad] font-semibold hover:gap-4 transition-all duration-300"
             >
-              View Our Commitment
+              Review Standards & Commitment
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
@@ -467,11 +477,10 @@ export default function HomePage() {
       <section className="relative py-28 overflow-hidden">
         <Image
           src="/water/water-05.jpg"
-          alt=""
+          alt="Water infrastructure project background"
           fill
           className="object-cover object-center"
           sizes="100vw"
-          aria-hidden="true"
         />
         <div className="absolute inset-0 bg-[#0d1b2a]/88" />
         <div
@@ -497,9 +506,9 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
             <Link
               href="/contact"
-              className="glow-btn bg-[#3e91ce] text-white px-10 py-5 rounded-full font-bold hover:bg-[#2d7ab8] transition-all duration-300 hover:scale-105 text-base tracking-wide"
+              className="glow-btn bg-[#2a72ad] text-white px-10 py-5 rounded-full font-bold hover:bg-[#246397] transition-all duration-300 hover:scale-105 text-base tracking-wide"
             >
-              Discuss a Project
+              Talk Through Your Project
             </Link>
             <GatedDownloadLink
               resourceKey="capabilityStatement"

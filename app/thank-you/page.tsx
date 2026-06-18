@@ -4,6 +4,8 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Thank You — Enquiry Received',
   description: 'Your enquiry has been received. The PC Water Infrastructure team will respond within one business day.',
+  robots: { index: false, follow: false },
+  alternates: { canonical: '/thank-you' },
 }
 
 export default function ThankYouPage() {

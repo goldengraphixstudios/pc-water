@@ -20,6 +20,24 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/services/project-managed-water-infrastructure',
   },
+
+  openGraph: {
+    type: 'website',
+    locale: 'en_AU',
+    siteName: 'PC Water Infrastructure',
+    title: 'Project Managed Water Infrastructure',
+    description: 'End-to-end project managed water infrastructure delivery across design, procurement, civil integration, commissioning, and handover documentation.',
+    url: 'https://pcwater.com.au/services/project-managed-water-infrastructure',
+    images: [
+      {
+        url: '/hero.png',
+        width: 1200,
+        height: 630,
+        alt: 'PC Water Infrastructure — Engineered Water Asset Solutions',
+      },
+    ],
+  },
+  twitter: { card: 'summary_large_image' as const, images: ['/hero.png'] },
 }
 
 const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
@@ -60,7 +78,7 @@ export default function ProjectManagedWaterInfrastructurePage() {
       <section className="relative pt-40 pb-24 overflow-hidden">
         <AppImage
           src="/water/water-15.jpg"
-          alt=""
+          alt="Project managed water infrastructure delivery across Australia"
           fill
           priority
           className="object-cover object-center"
@@ -78,7 +96,7 @@ export default function ProjectManagedWaterInfrastructurePage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-[#3e91ce] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#2d7ab8] transition-colors"
+            className="inline-flex items-center gap-2 bg-[#2a72ad] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#246397] transition-colors"
           >
             Discuss Your Project
           </Link>

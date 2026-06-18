@@ -9,7 +9,7 @@ import SectionProjects from '@/components/SectionProjects'
 export const metadata: Metadata = {
   title: 'Custom Tank Design & Engineering',
   description:
-    'Purpose-built water storage tanks engineered to AS2304 & AS4020 for any capacity, site condition, or application. RPEQ-certified engineers, structural engineering, civil integration.',
+    'Custom water storage tanks engineered to AS2304 and AS4020. Structural design, material selection, and tailored configuration for any capacity and site.',
   keywords: [
     'custom tank design engineering',
     'water tank design australia',
@@ -21,6 +21,24 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/services/custom-tank-design',
   },
+
+  openGraph: {
+    type: 'website',
+    locale: 'en_AU',
+    siteName: 'PC Water Infrastructure',
+    title: 'Custom Tank Design & Engineering',
+    description: 'Custom water storage tanks engineered to AS2304 and AS4020. Structural design, material selection, and tailored configuration for any capacity and site.',
+    url: 'https://pcwater.com.au/services/custom-tank-design',
+    images: [
+      {
+        url: '/hero.png',
+        width: 1200,
+        height: 630,
+        alt: 'PC Water Infrastructure — Engineered Water Asset Solutions',
+      },
+    ],
+  },
+  twitter: { card: 'summary_large_image' as const, images: ['/hero.png'] },
 }
 
 const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
@@ -36,11 +54,18 @@ const faqs = [
 export default function CustomTankDesignPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: siteUrl },
+          { name: 'Services', url: `${siteUrl}/services` },
+          { name: 'Custom Tank Design & Engineering', url: `${siteUrl}/services/custom-tank-design` },
+        ]}
+      />
       {/* Hero */}
       <section className="relative pt-40 pb-24 overflow-hidden">
         <AppImage
           src="/heroes/custom-tank-design.jpg"
-          alt=""
+          alt="Custom engineered water storage tank design and fabrication"
           fill
           priority
           className="object-cover object-center"
@@ -57,7 +82,7 @@ export default function CustomTankDesignPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-[#3e91ce] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#2d7ab8] transition-colors"
+            className="inline-flex items-center gap-2 bg-[#2a72ad] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#246397] transition-colors"
           >
             Discuss Your Project
           </Link>
@@ -126,7 +151,7 @@ export default function CustomTankDesignPage() {
 
       {/* Delivery scope */}
       <section className="relative py-20 overflow-hidden">
-        <AppImage src="/water/water-01.jpg" alt="" fill className="object-cover object-center" sizes="100vw" aria-hidden />
+        <AppImage src="/water/water-01.jpg" alt="Stored potable water in a custom engineered tank" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#30505b]/87" />
         <div className="relative z-10 max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
@@ -154,11 +179,20 @@ export default function CustomTankDesignPage() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-black text-[#30505b] mb-8">Industries We Serve With This Service</h2>
           <div className="flex flex-wrap justify-center gap-3">
-            {['Mining & Resources', 'Government & Councils', 'Industrial Facilities', 'Remote & Regional Communities'].map((ind) => (
-              <span key={ind} className="bg-[#F4F6F8] border border-gray-200 text-[#30505b] px-5 py-2.5 rounded-full text-sm font-semibold">
-                {ind}
-              </span>
-            ))}
+            {(['Mining & Resources', 'Government & Councils', 'Industrial Facilities', 'Remote & Regional Communities'] as const).map((ind) => {
+              const hrefMap: Record<string, string> = {
+                'Mining & Resources': '/industries/mining-resources',
+                'Government & Councils': '/industries/government-councils',
+                'Industrial Facilities': '/industries/industrial-facilities',
+                'Remote & Regional Communities': '/industries/remote-regional-communities',
+              }
+              const href = hrefMap[ind]
+              return href ? (
+                <Link key={ind} href={href} className="bg-[#F4F6F8] border border-gray-200 text-[#30505b] px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#3e91ce]/10 hover:border-[#3e91ce]/40 transition-colors">{ind}</Link>
+              ) : (
+                <span key={ind} className="bg-[#F4F6F8] border border-gray-200 text-[#30505b] px-5 py-2.5 rounded-full text-sm font-semibold">{ind}</span>
+              )
+            })}
           </div>
         </div>
       </section>

@@ -22,10 +22,21 @@ const menuLinks = [
   { label: 'Industries', href: '/industries' },
   { label: 'Projects', href: '/projects' },
   { label: 'Resources', href: '/resources' },
+  { label: 'Free Downloads', href: '/resources/downloads' },
   { label: 'Free Tools', href: '/tools' },
+  { label: 'Tank Compliance Checker', href: '/tools/tank-compliance-checker' },
+  { label: 'Repair, Reline or Replace?', href: '/tools/repair-reline-replace' },
   { label: 'About', href: '/about' },
   { label: 'Our Commitment', href: '/commitment' },
   { label: 'Contact', href: '/contact' },
+]
+
+const industries = [
+  { label: 'Government & Councils', href: '/industries/government-councils' },
+  { label: 'Mining & Resources', href: '/industries/mining-resources' },
+  { label: 'Industrial Facilities', href: '/industries/industrial-facilities' },
+  { label: 'Commercial Fire Compliance', href: '/industries/commercial-fire-compliance' },
+  { label: 'Remote & Regional Communities', href: '/industries/remote-regional-communities' },
 ]
 
 export default function Footer() {
@@ -60,7 +71,7 @@ export default function Footer() {
             <div className="flex flex-col sm:flex-row gap-2">
               <Link
                 href="/resources"
-                className="inline-flex items-center justify-center bg-[#3e91ce] hover:bg-[#2d7ab8] text-white px-5 py-2.5 rounded text-sm font-semibold transition-colors"
+                className="inline-flex items-center justify-center bg-[#3e91ce] hover:bg-[#246397] text-white px-5 py-2.5 rounded text-sm font-semibold transition-colors"
               >
                 View Resources
               </Link>
@@ -74,8 +85,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Three columns */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+        {/* Four columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Menu */}
           <div>
             <h3 className="text-[#3e91ce] font-bold text-xs tracking-widest uppercase mb-5">Menu</h3>
@@ -84,6 +95,20 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link href={link.href} className="text-gray-400 hover:text-white text-sm transition-colors">
                     {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Industries */}
+          <div>
+            <h3 className="text-[#3e91ce] font-bold text-xs tracking-widest uppercase mb-5">Industries</h3>
+            <ul className="space-y-2">
+              {industries.map((ind) => (
+                <li key={ind.href}>
+                  <Link href={ind.href} className="text-gray-400 hover:text-white text-sm transition-colors">
+                    {ind.label}
                   </Link>
                 </li>
               ))}

@@ -6,9 +6,9 @@ import CTABanner from '@/components/CTABanner'
 const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
 export const metadata: Metadata = {
-  title: 'Free Water Tank Tools — Compliance & Decision Checkers',
+  title: 'Free Water Infrastructure Tools',
   description:
-    'Free online tools from PC Water Infrastructure: check your water tank’s likely compliance risk, and decide whether to repair, reline, or replace an aging tank. Fast, practical, and built for asset owners.',
+    'Free online tools: check your water tank compliance risk, and decide whether to repair, reline, or replace an aging tank. Built for asset owners.',
   keywords: [
     'water tank tools',
     'tank compliance checker',
@@ -17,6 +17,16 @@ export const metadata: Metadata = {
     'water tank decision tool',
   ],
   alternates: { canonical: '/tools' },
+  openGraph: {
+    type: 'website',
+    locale: 'en_AU',
+    siteName: 'PC Water Infrastructure',
+    title: 'Free Water Infrastructure Tools',
+    description: 'Free online tools: check your water tank compliance risk and decide whether to repair, reline, or replace an aging tank. Built for asset owners.',
+    url: 'https://pcwater.com.au/tools',
+    images: [{ url: '/hero.png', width: 1200, height: 630, alt: 'PC Water Infrastructure — Engineered Water Asset Solutions' }],
+  },
+  twitter: { card: 'summary_large_image' as const, images: ['/hero.png'] },
 }
 
 const tools = [
@@ -78,7 +88,7 @@ export default function ToolsPage() {
               </ul>
               <Link
                 href={t.href}
-                className="mt-auto inline-flex items-center justify-center gap-2 bg-[#3e91ce] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#2d7ab8] transition-colors"
+                className="mt-auto inline-flex items-center justify-center gap-2 bg-[#2a72ad] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#246397] transition-colors"
               >
                 {t.cta}
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

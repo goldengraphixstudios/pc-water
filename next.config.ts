@@ -15,7 +15,19 @@ const nextConfig: NextConfig = {
     root: configDir,
   },
   images: {
-    unoptimized: true,
+    unoptimized: isGitHubPages,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'mhggidgfivmdgkjerejn.supabase.co',
+        pathname: '/storage/v1/object/public/cms-media/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'goldengraphixstudios.github.io',
+        pathname: '/pc-water/**',
+      },
+    ],
   },
   async redirects() {
     return [

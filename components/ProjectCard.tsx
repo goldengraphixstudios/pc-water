@@ -11,9 +11,19 @@ interface ProjectCardProps {
   imageSrc?: string
   imageAlt?: string
   href: string
+  titleAsHeading?: boolean
 }
 
-export default function ProjectCard({ title, sector, location, scope, imageSrc, imageAlt, href }: ProjectCardProps) {
+export default function ProjectCard({
+  title,
+  sector,
+  location,
+  scope,
+  imageSrc,
+  imageAlt,
+  href,
+  titleAsHeading = true,
+}: ProjectCardProps) {
   return (
     <motion.div whileHover={{ y: -8 }} transition={{ duration: 0.35, ease: 'easeOut' }}>
       <Link href={href} className="group block h-full">
@@ -35,7 +45,7 @@ export default function ProjectCard({ title, sector, location, scope, imageSrc, 
             <div className="absolute inset-0 bg-gradient-to-t from-[#162538] via-[#0d1b2a]/20 to-transparent" />
 
             <div className="absolute top-4 left-4">
-              <span className="bg-[#3e91ce] text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-sm">
+              <span className="bg-[#2a72ad] text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-sm">
                 {sector}
               </span>
             </div>
@@ -55,12 +65,18 @@ export default function ProjectCard({ title, sector, location, scope, imageSrc, 
 
           {/* Content */}
           <div className="bg-white p-6 border-b-2 border-transparent group-hover:border-[#3e91ce] transition-colors duration-300">
-            <h3 className="font-black text-[#30505b] text-lg mb-2 group-hover:text-[#3e91ce] transition-colors duration-300">
-              {title}
-            </h3>
+            {titleAsHeading ? (
+              <h3 className="font-black text-[#30505b] text-lg mb-2 group-hover:text-[#3e91ce] transition-colors duration-300">
+                {title}
+              </h3>
+            ) : (
+              <p className="font-black text-[#30505b] text-lg mb-2 group-hover:text-[#3e91ce] transition-colors duration-300">
+                {title}
+              </p>
+            )}
             <p className="text-gray-500 text-sm mb-5 leading-relaxed">{scope}</p>
             <div className="flex items-center gap-2 text-[#3e91ce] text-sm font-bold">
-              <span>View Project</span>
+              <span>Project Details</span>
               <svg
                 className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300"
                 fill="none"

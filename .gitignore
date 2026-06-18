@@ -48,3 +48,5 @@ CLAUDE.md
 README.md
 SUPABASE_CMS_SETUP.md
 *.txt
+
+.env*.local

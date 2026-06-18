@@ -11,6 +11,14 @@ const BYPASS_EXACT = ['/robots.txt', '/sitemap.xml', '/favicon.ico']
 const BYPASS_PREFIXES = ['/_next', '/images', '/water']
 
 export function proxy(request: NextRequest) {
+  const host = request.headers.get('host')?.toLowerCase()
+
+  if (host === 'www.pcwater.com.au') {
+    const canonicalUrl = request.nextUrl.clone()
+    canonicalUrl.hostname = 'pcwater.com.au'
+    return NextResponse.redirect(canonicalUrl, 308)
+  }
+
   if (!TEMPORARY_LIMITED_NAVIGATION) {
     return NextResponse.next()
   }

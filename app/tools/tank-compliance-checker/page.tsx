@@ -8,9 +8,9 @@ import AssessmentTool from '@/components/tools/AssessmentTool'
 const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
 export const metadata: Metadata = {
-  title: 'Tank Compliance Checker — Free Water Tank Risk Assessment',
+  title: 'Water Tank Compliance Checker',
   description:
-    'Free online tank compliance checker for Australian water tanks. Answer a few questions on tank type, age, inspection history, and condition to get an instant compliance-risk indication and your recommended next step.',
+    'Free tank compliance checker for Australian water tanks. Answer questions on type, age, inspection history, and condition to get a compliance-risk indication.',
   keywords: [
     'water tank compliance check',
     'fire water tank compliance australia',
@@ -22,12 +22,14 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/tools/tank-compliance-checker' },
   openGraph: {
-    title: 'Tank Compliance Checker — Free Water Tank Risk Assessment',
+    title: 'Water Tank Compliance Checker',
     description:
       'Answer a few questions and get a fast indication of your water tank’s likely compliance risk, plus a clear next step.',
     url: `${siteUrl}/tools/tank-compliance-checker`,
     type: 'website',
+    images: [{ url: '/hero.png', width: 1200, height: 630, alt: 'PC Water Infrastructure — Engineered Water Asset Solutions' }],
   },
+  twitter: { card: 'summary_large_image' as const, images: ['/hero.png'] },
 }
 
 const faqs = [
@@ -99,7 +101,7 @@ export default function TankComplianceCheckerPage() {
           </p>
           <Link
             href="#assessment"
-            className="inline-flex items-center gap-2 bg-[#3e91ce] text-white px-8 py-3.5 rounded-full font-semibold hover:bg-[#2d7ab8] transition-colors"
+            className="inline-flex items-center gap-2 bg-[#2a72ad] text-white px-8 py-3.5 rounded-full font-semibold hover:bg-[#246397] transition-colors"
           >
             Check Compliance Risk
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

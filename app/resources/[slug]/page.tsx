@@ -67,6 +67,79 @@ const resourceLinkMap: Record<
     relatedResources: ['corrosion-is-killing-your-storage-tanks-and-heres-how-to-stop-it', 'water-is-food-your-tank-is-the-crockery'],
     keywords: ['water tank failure warning signs', 'storage tank condition assessment', 'aging water tank inspection'],
   },
+  'water-storage-in-harsh-environments-what-you-need-to-know': {
+    relatedServices: [
+      { href: '/services/remote-area-delivery', label: 'Remote Area Project Delivery' },
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+      { href: '/services/rpvc-liner-systems', label: 'RPVC Liner Systems' },
+    ],
+    relatedResources: ['from-mines-to-hospitals-what-every-sector-gets-wrong-about-tank-maintenance', 'corrosion-is-killing-your-storage-tanks-and-heres-how-to-stop-it'],
+    keywords: ['remote water infrastructure australia', 'harsh environment water storage', 'mining water tank australia', 'remote community water storage'],
+  },
+  'how-we-clean-a-water-tank-diver-vacuuming-method': {
+    relatedServices: [
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+    ],
+    relatedResources: ['water-is-food-your-tank-is-the-crockery', '5-contamination-risks-not-source-water', 'evidence-water-quality-issues-warning-signs'],
+    keywords: ['water tank cleaning australia', 'diver vacuuming water tank', 'potable tank cleaning', 'water tank sediment removal'],
+  },
+  '5-contamination-risks-not-source-water': {
+    relatedServices: [
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+    ],
+    relatedResources: ['water-is-food-your-tank-is-the-crockery', 'evidence-water-quality-issues-warning-signs', 'the-open-overflow-wildlife-drain-point'],
+    keywords: ['water quality contamination storage tank', 'potable water tank contamination', 'water storage contamination pathways australia'],
+  },
+  'evidence-water-quality-issues-warning-signs': {
+    relatedServices: [
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+    ],
+    relatedResources: ['5-contamination-risks-not-source-water', 'the-open-overflow-wildlife-drain-point', 'water-is-food-your-tank-is-the-crockery'],
+    keywords: ['water quality warning signs tank', 'water tank inspection evidence', 'water storage contamination indicators australia'],
+  },
+  'the-open-overflow-wildlife-drain-point': {
+    relatedServices: [
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+    ],
+    relatedResources: ['5-contamination-risks-not-source-water', 'evidence-water-quality-issues-warning-signs', 'birds-are-the-most-common-body-found-inside-australian-tanks'],
+    keywords: ['water tank wildlife entry', 'overflow drain animal entry water tank', 'flapper valve water tank overflow', 'water tank animal contamination australia'],
+  },
+  'birds-are-the-most-common-body-found-inside-australian-tanks': {
+    relatedServices: [
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+    ],
+    relatedResources: ['the-open-overflow-wildlife-drain-point', '5-contamination-risks-not-source-water', 'evidence-water-quality-issues-warning-signs'],
+    keywords: ['birds inside water tanks australia', 'water tank bird contamination', 'vent mesh failure water tank', 'roof exclusion water storage tank'],
+  },
+  'vandalism-and-your-water-tank-the-damage-that-goes-unreported': {
+    relatedServices: [
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+    ],
+    relatedResources: ['5-contamination-risks-not-source-water', 'the-open-overflow-wildlife-drain-point', 'evidence-water-quality-issues-warning-signs'],
+    keywords: ['water tank vandalism contamination risk', 'damaged hatch water tank', 'potable tank security australia', 'water storage vandal damage'],
+  },
+  'sediment-in-your-tank-what-it-is-where-it-comes-from-why-it-matters': {
+    relatedServices: [
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+    ],
+    relatedResources: ['when-iron-and-manganese-come-from-inside-the-tank-not-the-source', 'evidence-water-quality-issues-warning-signs', 'how-we-clean-a-water-tank-diver-vacuuming-method'],
+    keywords: ['sediment in water tank australia', 'water tank sediment removal', 'potable tank cleaning sediment', 'water storage tank floor deposit'],
+  },
+  'when-iron-and-manganese-come-from-inside-the-tank-not-the-source': {
+    relatedServices: [
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+    ],
+    relatedResources: ['sediment-in-your-tank-what-it-is-where-it-comes-from-why-it-matters', 'evidence-water-quality-issues-warning-signs', '5-contamination-risks-not-source-water'],
+    keywords: ['iron manganese water tank australia', 'brown water storage tank cause', 'tank corrosion iron contamination', 'manganese water storage internal'],
+  },
 }
 
 export async function generateStaticParams() {
@@ -75,6 +148,13 @@ export async function generateStaticParams() {
   return posts.map((post) => ({
     slug: post.slug,
   }))
+}
+
+function truncateMeta(text: string | null | undefined, max = 155): string {
+  if (!text) return ''
+  const trimmed = text.trim()
+  if (trimmed.length <= max) return trimmed
+  return trimmed.slice(0, max - 1).replace(/[,\s]+$/, '') + '…'
 }
 
 export async function generateMetadata({
@@ -89,19 +169,33 @@ export async function generateMetadata({
     return { title: 'Resource Not Found' }
   }
 
+  const description = truncateMeta(post.seoDescription || post.excerpt)
+  const ogTitle = truncateMeta(post.seoTitle || post.title, 60)
+  const ogImage = post.coverImageUrl
+    ? [{ url: post.coverImageUrl, width: 1200, height: 630, alt: post.title }]
+    : [{ url: '/hero.png', width: 1200, height: 630, alt: 'PC Water Infrastructure — Engineered Water Asset Solutions' }]
+
   return {
-    title: post.seoTitle || post.title,
-    description: post.seoDescription || post.excerpt,
+    title: post.seoTitle ? { absolute: post.seoTitle } : post.title,
+    description,
     alternates: {
       canonical: `/resources/${post.slug}`,
     },
     keywords: resourceLinkMap[post.slug]?.keywords ?? post.tags.map((tag) => tag.name),
     openGraph: {
       type: 'article',
-      url: `/resources/${post.slug}`,
-      title: post.seoTitle || post.title,
-      description: post.seoDescription || post.excerpt,
-      images: post.coverImageUrl ? [{ url: post.coverImageUrl }] : undefined,
+      locale: 'en_AU',
+      siteName: 'PC Water Infrastructure',
+      url: `${siteUrl}/resources/${post.slug}`,
+      title: ogTitle,
+      description,
+      images: ogImage,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: ogTitle,
+      description,
+      images: ogImage.map((i) => i.url),
     },
   }
 }
@@ -120,9 +214,17 @@ export default async function ResourceArticlePage({
   }
 
   const relatedConfig = resourceLinkMap[post.slug]
-  const relatedResources = allPosts.filter(
+  const mappedResources = allPosts.filter(
     (candidate) => candidate.slug !== post.slug && relatedConfig?.relatedResources.includes(candidate.slug)
   )
+  // Fall back to the latest posts so every article cross-links to others
+  const relatedResources = mappedResources.length > 0
+    ? mappedResources
+    : allPosts.filter((candidate) => candidate.slug !== post.slug).slice(0, 3)
+  // Wrap-around prev/next so every article receives incoming links from its neighbours
+  const postIndex = allPosts.findIndex((candidate) => candidate.slug === post.slug)
+  const prevPost = allPosts.length > 1 ? allPosts[(postIndex - 1 + allPosts.length) % allPosts.length] : null
+  const nextPost = allPosts.length > 1 ? allPosts[(postIndex + 1) % allPosts.length] : null
   const articleUrl = `${siteUrl}/resources/${post.slug}`
   const articleDescription = post.seoDescription || post.excerpt
 
@@ -168,7 +270,7 @@ export default async function ResourceArticlePage({
           </Link>
           <div className="flex flex-wrap gap-3 mb-6">
             {post.tags.map((tag) => (
-              <span key={tag.slug} className="bg-[#3e91ce] text-white text-xs font-semibold px-3 py-1 rounded-full">
+              <span key={tag.slug} className="bg-[#2a72ad] text-white text-xs font-semibold px-3 py-1 rounded-full">
                 {tag.name}
               </span>
             ))}
@@ -236,6 +338,27 @@ export default async function ResourceArticlePage({
                 </div>
               </div>
             ) : null}
+          </div>
+        </section>
+      )}
+
+      {prevPost && nextPost && (
+        <section className="bg-white py-10 border-t border-gray-100">
+          <div className="max-w-4xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Link
+              href={`/resources/${prevPost.slug}`}
+              className="rounded-xl border border-gray-200 px-5 py-4 hover:border-[#2a72ad] transition-colors"
+            >
+              <p className="text-xs text-gray-500 mb-1">← Previous article</p>
+              <p className="font-bold text-[#30505b]">{prevPost.title}</p>
+            </Link>
+            <Link
+              href={`/resources/${nextPost.slug}`}
+              className="rounded-xl border border-gray-200 px-5 py-4 hover:border-[#2a72ad] transition-colors sm:text-right"
+            >
+              <p className="text-xs text-gray-500 mb-1">Next article →</p>
+              <p className="font-bold text-[#30505b]">{nextPost.title}</p>
+            </Link>
           </div>
         </section>
       )}

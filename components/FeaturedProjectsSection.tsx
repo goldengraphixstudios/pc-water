@@ -35,7 +35,7 @@ export default function FeaturedProjectsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Projects</p>
+          <p className="text-[#2a72ad] text-xs font-bold tracking-widest uppercase mb-3">/ Projects</p>
           <h2 className="text-4xl md:text-5xl font-black text-[#30505b]">PROOF IN THE FIELD</h2>
           <p className="text-gray-400 mt-5 text-lg max-w-xl mx-auto">
             Real projects. Real outcomes. Delivered in some of Australia&apos;s most challenging environments.
@@ -67,6 +67,7 @@ export default function FeaturedProjectsSection() {
                   scope={p.summary}
                   imageSrc={p.heroImageUrl ?? undefined}
                   href={`/projects/${p.slug}`}
+                  titleAsHeading={false}
                 />
               </motion.div>
             ))}

@@ -9,7 +9,7 @@ import SectionProjects from '@/components/SectionProjects'
 export const metadata: Metadata = {
   title: 'Water Treatment Solutions Australia',
   description:
-    'Water treatment solutions across Australia covering potable water infrastructure, intake, filtration, disinfection, automation, and compliance-led project delivery.',
+    'Water treatment solutions across Australia. From raw water intake through filtration, disinfection, and automation to ADWG-compliant, project-delivered supply.',
   keywords: [
     'water treatment solutions australia',
     'potable water infrastructure',
@@ -21,6 +21,24 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/services/water-treatment-solutions',
   },
+
+  openGraph: {
+    type: 'website',
+    locale: 'en_AU',
+    siteName: 'PC Water Infrastructure',
+    title: 'Water Treatment Solutions Australia',
+    description: 'Water treatment solutions across Australia. From raw water intake through filtration, disinfection, and automation to ADWG-compliant, project-delivered supply.',
+    url: 'https://pcwater.com.au/services/water-treatment-solutions',
+    images: [
+      {
+        url: '/hero.png',
+        width: 1200,
+        height: 630,
+        alt: 'PC Water Infrastructure — Engineered Water Asset Solutions',
+      },
+    ],
+  },
+  twitter: { card: 'summary_large_image' as const, images: ['/hero.png'] },
 }
 
 const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
@@ -66,7 +84,7 @@ export default function WaterTreatmentSolutionsPage() {
       <section className="relative pt-40 pb-24 overflow-hidden">
         <AppImage
           src="/water/water-16.jpg"
-          alt=""
+          alt="Water treatment plant installation and commissioning across Australia"
           fill
           priority
           className="object-cover object-center"
@@ -84,7 +102,7 @@ export default function WaterTreatmentSolutionsPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-[#3e91ce] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#2d7ab8] transition-colors"
+            className="inline-flex items-center gap-2 bg-[#2a72ad] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#246397] transition-colors"
           >
             Discuss Treatment Scope
           </Link>
@@ -130,7 +148,7 @@ export default function WaterTreatmentSolutionsPage() {
       </section>
 
       <section className="relative py-20 overflow-hidden">
-        <AppImage src="/water/water-03.jpg" alt="" fill className="object-cover object-center" sizes="100vw" aria-hidden />
+        <AppImage src="/water/water-03.jpg" alt="Treated potable water meeting Australian Drinking Water Guidelines" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#30505b]/88" />
         <div className="relative z-10 max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-black text-white text-center mb-12">Typical Treatment Scope Areas</h2>

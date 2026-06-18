@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'Coming Soon',
   description:
     'This section of the PC Water Infrastructure website is temporarily unavailable while the site is being staged.',
+  robots: { index: false, follow: true },
 }
 
 export default function ComingSoonPage() {
@@ -31,7 +32,7 @@ export default function ComingSoonPage() {
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               href="/"
-              className="glow-btn rounded-full bg-[#3e91ce] px-8 py-4 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:bg-[#2d7ab8]"
+              className="glow-btn rounded-full bg-[#3e91ce] px-8 py-4 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:bg-[#246397]"
             >
               Back to Home
             </Link>

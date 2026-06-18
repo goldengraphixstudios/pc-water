@@ -6,7 +6,7 @@ import CTABanner from '@/components/CTABanner'
 export const metadata: Metadata = {
   title: 'Safety, Quality & Compliance Commitment',
   description:
-    'PC Water Infrastructure commitment to safety, quality, sustainability, and community — including our SQE policies, engineering standards, and Indigenous engagement principles.',
+    'PC Water Infrastructure commitment to safety, quality, sustainability, and community — SQE policies, engineering standards, and Indigenous engagement.',
   keywords: [
     'water infrastructure safety and compliance',
     'zero injury water infrastructure',
@@ -17,6 +17,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/commitment',
   },
+  openGraph: {
+    type: 'website',
+    locale: 'en_AU',
+    siteName: 'PC Water Infrastructure',
+    title: 'Safety, Quality & Compliance Commitment',
+    description: 'PC Water Infrastructure commitment to safety, quality, sustainability, and community. SQE policies, engineering standards, and Indigenous engagement.',
+    url: 'https://pcwater.com.au/commitment',
+    images: [{ url: '/hero.png', width: 1200, height: 630, alt: 'PC Water Infrastructure — Engineered Water Asset Solutions' }],
+  },
+  twitter: { card: 'summary_large_image', images: ['/hero.png'] },
 }
 
 export default function CommitmentPage() {
@@ -26,7 +36,7 @@ export default function CommitmentPage() {
       <section className="relative pt-40 pb-24 overflow-hidden">
         <AppImage
           src="/heroes/commitment.jpg"
-          alt=""
+          alt="PC Water Infrastructure — safety, quality and compliance on every project site"
           fill
           priority
           className="object-cover object-center"
@@ -46,7 +56,7 @@ export default function CommitmentPage() {
 
       {/* Mission */}
       <section className="relative py-16 overflow-hidden">
-        <AppImage src="/water/water-04.jpg" alt="" fill className="object-cover object-center" sizes="100vw" aria-hidden />
+        <AppImage src="/water/water-04.jpg" alt="Fresh water surface — PC Water's commitment to community water security" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#30505b]/87" />
         <div className="relative z-10 max-w-3xl mx-auto px-4 text-center">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Our Mission</p>
@@ -90,7 +100,7 @@ export default function CommitmentPage() {
 
       {/* Sector commitment */}
       <section className="relative py-20 overflow-hidden">
-        <AppImage src="/water/water-08.jpg" alt="" fill className="object-cover object-center" sizes="100vw" aria-hidden />
+        <AppImage src="/water/water-08.jpg" alt="Clean drinking water — quality and compliance commitment" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#0d1b2a]/90" />
         <div className="relative z-10 max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">

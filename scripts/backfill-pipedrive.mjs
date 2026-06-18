@@ -85,7 +85,7 @@ async function ensureOrganization(company) {
   const existing = await findOrganizationByName(normalized)
   if (existing) return existing
 
-  const created = await pipedriveFetch('/v2/organizations', {
+  const created = await pipedriveFetch('/api/v2/organizations', {
     method: 'POST',
     body: JSON.stringify({ name: normalized }),
   })
@@ -100,7 +100,7 @@ async function ensurePerson({ name, email, phone, organizationId }) {
     return existing
   }
 
-  const created = await pipedriveFetch('/v2/persons', {
+  const created = await pipedriveFetch('/api/v2/persons', {
     method: 'POST',
     body: JSON.stringify({
       name,

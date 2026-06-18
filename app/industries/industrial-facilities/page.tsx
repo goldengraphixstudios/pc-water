@@ -9,7 +9,7 @@ import SectionProjects from '@/components/SectionProjects'
 export const metadata: Metadata = {
   title: 'Industrial Water Storage Solutions',
   description:
-    'Process water reliability and fire suppression compliance for industrial facilities. Tank design, inspection, RPVC liners, and maintenance for industrial water storage assets.',
+    'Process water reliability and fire suppression compliance for industrial facilities. Tank design, inspection, RPVC liners, and asset maintenance.',
   keywords: [
     'industrial water storage infrastructure',
     'industrial water tanks australia',
@@ -20,6 +20,24 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/industries/industrial-facilities',
   },
+
+  openGraph: {
+    type: 'website',
+    locale: 'en_AU',
+    siteName: 'PC Water Infrastructure',
+    title: 'Industrial Water Storage Solutions',
+    description: 'Process water reliability and fire suppression compliance for industrial facilities. Tank design, inspection, RPVC liners, and asset maintenance.',
+    url: 'https://pcwater.com.au/industries/industrial-facilities',
+    images: [
+      {
+        url: '/hero.png',
+        width: 1200,
+        height: 630,
+        alt: 'PC Water Infrastructure — Engineered Water Asset Solutions',
+      },
+    ],
+  },
+  twitter: { card: 'summary_large_image' as const, images: ['/hero.png'] },
 }
 
 const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
@@ -42,7 +60,7 @@ export default function IndustrialFacilitiesPage() {
         ]}
       />
       <section className="relative pt-40 pb-24 overflow-hidden">
-        <AppImage src="/heroes/industrial-facilities.jpg" alt="" fill priority className="object-cover object-center" sizes="100vw" />
+        <AppImage src="/heroes/industrial-facilities.jpg" alt="Industrial water storage and process water treatment facility" fill priority className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#0d1b2a]/75" />
         <div className="relative z-10 max-w-4xl mx-auto px-4">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Industries</p>
@@ -50,7 +68,7 @@ export default function IndustrialFacilitiesPage() {
           <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
             Process water reliability, fire suppression compliance, and tank lifecycle management for industrial facilities across Australia.
           </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#3e91ce] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#2d7ab8] transition-colors">
+          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#2a72ad] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#246397] transition-colors">
             Discuss Your Industrial Project
           </Link>
         </div>

@@ -19,7 +19,7 @@ export const fallbackPosts: CmsPost[] = [
     coverImageUrl: `${BASE}/water-food-hero.jpg`,
     readTime: '2 min read',
     status: 'published',
-    seoTitle: 'Water is Food: Your Tank is the Crockery | PC Water Infrastructure',
+    seoTitle: 'Water is Food: Your Tank is the Crockery | PC Water',
     seoDescription: 'Water is food — and your storage tank is what it\'s served on. A short, sharp look at why the vessel matters as much as the source.',
     publishedAt: '2026-04-14T09:00:00.000Z',
     createdAt: '2026-04-14T09:00:00.000Z',
@@ -41,9 +41,9 @@ export const fallbackPosts: CmsPost[] = [
     coverImageUrl: `${BASE}/sector-hero.jpg`,
     readTime: '9 min read',
     status: 'published',
-    seoTitle: 'From Mines to Hospitals: What Every Sector Gets Wrong About Tank Maintenance',
+    seoTitle: 'Tank Maintenance Mistakes Every Sector Makes | PC Water',
     seoDescription:
-      'Every sector depends on water storage and every sector repeats the same maintenance mistakes. Discover the five critical errors costing asset owners in Australia.',
+      'Every sector depends on water storage and every sector repeats the same maintenance mistakes. Discover the five critical errors costing asset owners.',
     publishedAt: '2026-04-01T09:00:00.000Z',
     createdAt: '2026-04-01T09:00:00.000Z',
     updatedAt: '2026-04-01T09:00:00.000Z',
@@ -64,7 +64,7 @@ export const fallbackPosts: CmsPost[] = [
     coverImageUrl: `${BASE}/fire-tank-hero.jpg`,
     readTime: '6 min read',
     status: 'published',
-    seoTitle: 'Why Your Fire Tank Might Fail Compliance — And How to Fix It Fast | PC Water Infrastructure',
+    seoTitle: 'Fire Water Tank Compliance Failures | PC Water',
     seoDescription:
       'Many Australian fire tanks fail AS 2304 and AS 1851 compliance without owners realising. Understand the common causes, real costs, and how to fix issues fast.',
     publishedAt: '2026-04-03T09:00:00.000Z',
@@ -87,7 +87,7 @@ export const fallbackPosts: CmsPost[] = [
     coverImageUrl: `${BASE}/ticking-hero.jpg`,
     readTime: '5 min read',
     status: 'published',
-    seoTitle: 'Is Your Water Tank a Ticking Time Bomb? 5 Signs Your Tank Is Failing',
+    seoTitle: 'Is Your Water Tank Failing? 5 Signs to Watch | PC Water',
     seoDescription:
       'Five proven warning signs your water tank is failing — corrosion, contamination, leaks, pressure loss, and age. What Australian asset owners must do before failure strikes.',
     publishedAt: '2026-04-05T09:00:00.000Z',
@@ -110,7 +110,7 @@ export const fallbackPosts: CmsPost[] = [
     coverImageUrl: `${BASE}/corrosion-hero.jpg`,
     readTime: '7 min read',
     status: 'published',
-    seoTitle: 'Corrosion Is Killing Your Storage Tanks — And Here\'s How to Stop It',
+    seoTitle: 'Corrosion Is Killing Your Storage Tanks | PC Water',
     seoDescription:
       'Corrosion is the leading cause of premature tank failure in Australia. Learn to detect it early, choose the right coating, and extend asset life without full replacement.',
     publishedAt: '2026-04-07T09:00:00.000Z',
@@ -133,7 +133,7 @@ export const fallbackPosts: CmsPost[] = [
     coverImageUrl: `${BASE}/rpvc-hero.jpg`,
     readTime: '5 min read',
     status: 'published',
-    seoTitle: 'How RPVC Liners Extend the Life of Aging Water Tanks | PC Water Infrastructure',
+    seoTitle: 'How RPVC Liners Extend Aging Water Tank Life | PC Water',
     seoDescription:
       'Aging water storage tanks don\'t always need replacing. RPVC liners extend tank service life by 10–20 years at a fraction of replacement cost.',
     publishedAt: '2026-04-09T09:00:00.000Z',
@@ -156,7 +156,7 @@ export const fallbackPosts: CmsPost[] = [
     coverImageUrl: `${BASE}/harsh-env-hero.jpg`,
     readTime: '6 min read',
     status: 'published',
-    seoTitle: 'Water Storage in Harsh Environments: What You Need to Know | PC Water Infrastructure',
+    seoTitle: 'Water Storage in Harsh Environments | PC Water',
     seoDescription:
       'Mining zones, island communities, remote outback — water storage in harsh Australian environments demands more than standard design.',
     publishedAt: '2026-04-11T09:00:00.000Z',
@@ -166,6 +166,461 @@ export const fallbackPosts: CmsPost[] = [
       { id: 'tag-remote-projects', name: 'Remote Projects', slug: 'remote-projects' },
       { id: 'tag-asset-management-he', name: 'Asset Management', slug: 'asset-management' },
       { id: 'tag-tank-maintenance-he', name: 'Tank Maintenance', slug: 'tank-maintenance' },
+    ],
+  },
+  {
+    id: staticId('post', 'How We Clean A Water Tank Diver Vacuuming'),
+    title: 'How We Clean a Water Tank: The Diver Vacuuming Method',
+    slug: 'how-we-clean-a-water-tank-diver-vacuuming-method',
+    excerpt:
+      'A specialist diver descends while your taps keep running. This is exactly how we clean a water storage tank without taking it offline — and how often it actually needs to happen.',
+    content:
+      "<p class=\"article-lead\">\n  Most people have never thought about how a water tank gets cleaned. The answer might surprise you: a specialist diver goes in while the tank is still full — and your taps keep running the whole time.\n</p>\n\n<p>This is diver vacuuming — the method that replaced the old drain-and-sweep approach and became the standard for potable water storage tank cleaning in Australia. No service disruption. No confined-space entry for the crew outside. And critically, the tank stays online.</p>\n\n<figure class=\"article-video-embed\" style=\"margin:40px 0;border-radius:12px;overflow:hidden;\">\n  <iframe width=\"100%\" style=\"aspect-ratio:16/9;display:block;\" src=\"https://www.youtube.com/embed/5mIIj7CTKh4\" title=\"Diver Vacuuming Sediment from a Water Reservoir\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>\n  <figcaption style=\"background:#f9fafb;padding:10px 16px;font-size:12.5px;color:#6b7280;border-top:1px solid #e5e7eb;\">Diver vacuuming sediment from the floor of a concrete reservoir — tank remains online and in service throughout.</figcaption>\n</figure>\n\n<p>The diver works in a dry suit and full-face mask — not for their safety, but for the water's. Every piece of equipment that enters a potable tank is dedicated to that tank, disinfected, and strictly controlled.</p>\n\n<div class=\"article-divider\"><span>How it works — step by step</span></div>\n\n<p>The process follows a consistent four-step pattern regardless of tank size. The tank stays full (or nearly full) so the vacuum pump can prime over the top. The diver maps a systematic vacuum pattern covering the full floor including hard-to-reach zones around posts and pipework. Three vacuum head sizes handle different sediment types — sticky, loose, and fine — and all sediment exits via hose to a settling tank outside. It never re-enters the supply. And the few hours spent onsite are typically the only human contact the tank receives in years — so cleaning and condition assessment happen in one visit.</p>\n\n<blockquote class=\"article-quotable\">\n  <p>Diver vacuuming allows a water storage tank to be cleaned without taking it offline. A specialist diver enters the full tank in a dry suit and full-face mask — using dedicated, disinfected equipment — and removes sediment via a vacuum system that exits the tank without re-entering the water supply. Keeping sediment loads below 15mm is the difference between a routine clean and an emergency remediation.</p>\n</blockquote>\n\n<div class=\"article-pull-stat\">\n  <span class=\"stat-num\">15mm</span>\n  <span class=\"stat-label\">The sediment threshold — keep loads below this and every downstream job becomes faster, cheaper, and lower risk</span>\n</div>\n\n<div class=\"article-faq-item\">\n  <p class=\"faq-q\">What is diver vacuuming in water tank cleaning?</p>\n  <p class=\"faq-a\">Diver vacuuming is the standard method for cleaning potable water storage tanks in Australia. A specialist diver enters the tank in a dry suit and full-face mask, using a vacuum system to remove sediment from the floor while the tank remains full and in service. Water supply is not interrupted at any point during the process.</p>\n</div>\n\n<div class=\"article-faq-item\">\n  <p class=\"faq-q\">Can a water storage tank be cleaned while it is still in service?</p>\n  <p class=\"faq-a\">Yes. Diver vacuuming is specifically designed for in-service cleaning. The tank stays online and water supply continues uninterrupted throughout the entire process. This makes it the preferred method for utilities and councils who cannot afford service disruption.</p>\n</div>\n\n<div class=\"article-faq-item\">\n  <p class=\"faq-q\">How often should a potable water storage tank be cleaned?</p>\n  <p class=\"faq-a\">Cleaning intervals depend on water source and tank type. Clear water storage at a treatment plant typically requires cleaning every 6–12 months. Standard distribution tanks range from 4–6 years. Bore water tanks with high iron or manganese content should be cleaned every 2–4 years.</p>\n</div>\n\n<div class=\"article-cta\">\n  <p>PC Water Infrastructure provides potable water tank cleaning and condition assessment across Australia, including diver vacuuming, ROV inspection, and combined clean-and-assess site visits.</p>\n  <a href=\"/contact\" class=\"cta-btn\">Book a tank clean</a>\n</div>",
+    coverImageUrl: `${BASE}/water-food-diver.png`,
+    readTime: '4 min read',
+    status: 'published',
+    seoTitle: 'How We Clean a Water Tank: The Diver Vacuuming Method | PC Water',
+    seoDescription:
+      'A diver descends while your taps keep running. Diver vacuuming, cleaning intervals by tank type, and what sediment levels mean for water quality and cost.',
+    publishedAt: '2026-05-01T09:00:00.000Z',
+    createdAt: '2026-05-01T09:00:00.000Z',
+    updatedAt: '2026-05-01T09:00:00.000Z',
+    tags: [
+      { id: 'tag-tank-cleaning', name: 'Tank Cleaning', slug: 'tank-cleaning' },
+      { id: 'tag-potable-water-dv', name: 'Potable Water', slug: 'potable-water' },
+      { id: 'tag-tank-maintenance-dv', name: 'Tank Maintenance', slug: 'tank-maintenance' },
+    ],
+  },
+  {
+    id: staticId('post', '5 Contamination Risks Not Source Water'),
+    title: '5 Contamination Risks That Have Nothing To Do With the Source Water',
+    slug: '5-contamination-risks-not-source-water',
+    excerpt:
+      'Most water quality failures get blamed on the source. But when a trained inspector reads the evidence inside the tank, the trail almost always leads somewhere else — to the vessel itself.',
+    content:
+      "<p class=\"article-lead\">\n  Most water quality failures get blamed on the treatment process or the source catchment. But when a diver goes in to investigate, the evidence trail almost always leads somewhere else — to the asset itself.\n</p>\n\n<p>A trained inspector doesn't start by testing the water. They start by reading what's inside the tank — the physical evidence left by each contamination pathway.</p>\n\n<div class=\"article-pull-stat\">\n  <span class=\"stat-num\">10</span>\n  <span class=\"stat-label\">Distinct contamination indicators a trained inspector reads from a tank interior — before a single water quality test is run.</span>\n</div>\n\n<div class=\"article-divider\"><span>Risk 1 — Open overflow drain points and animal entry</span></div>\n\n<p>Birds are the most common animal body found inside Australian water storage tanks. Snakes, frogs, rabbits, and feral cats follow. In almost all cases, they entered through one of three places: an open overflow drain point, a damaged access hatch, or deteriorated vent mesh. Without a flapper valve fitted to the drain end, it is an open invitation.</p>\n\n<div class=\"article-divider\"><span>Risk 2 — Vandalism and compromised hatch security</span></div>\n\n<p>Rocks and rubbish found inside a tank during inspection are the most unambiguous indicator of vandalism: they didn't fall in by accident. A hatch left open after a vandal event exposes the tank to the full range of animal entry risks. Neither risk resolves itself — the exposure continues until a site visit identifies and rectifies the damage.</p>\n\n<div class=\"article-divider\"><span>Risk 3 — Environmental debris and airborne contamination</span></div>\n\n<p>Leaf debris and grass litter inside a tank tell two stories: the vent mesh is too coarse, and maintenance contractors don't understand they're working near a potable water asset. In Australian conditions, dust accumulation inside tanks — particularly in agricultural regions and near unsealed roads — can be significant.</p>\n\n<div class=\"article-divider\"><span>Risk 4 — Sediment accumulation and mixing failures</span></div>\n\n<p>Sediment on the <em>walls</em> — not the floor — indicates inadequate cycling. Water that stratifies and sits still allows suspended particles to settle at the waterline. Black sediment or floc carry-over points to treatment plant operational issues — the one contamination risk on this list that originates upstream, but whose evidence lives in the tank.</p>\n\n<div class=\"article-divider\"><span>Risk 5 — Contractor and maintenance activity</span></div>\n\n<p>Contractors performing legitimate work above a tank are working directly above the water stored below. Construction debris, fasteners, drilling swarf, and sealant residue all have a path into the tank if work isn't managed correctly. Any construction on a potable water tank should include contractor induction and a post-works internal inspection before the asset is returned to service.</p>\n\n<blockquote class=\"article-quotable\">\n  <p>Following the evidence trail will assist in determining the source of the contamination to ensure the consumers are not exposed to unsafe water. A lot of water quality issues can be identified — and often solved — by a fresh eyes approach to inspecting assets.</p>\n</blockquote>\n\n<div class=\"article-faq-item\">\n  <p class=\"faq-q\">Can water be contaminated if it comes from a clean treated source?</p>\n  <p class=\"faq-a\">Yes. Treated water that enters storage in excellent condition can be re-contaminated by the vessel holding it. Animal entry, environmental debris, sediment accumulation, maintenance activity, and vandalism all represent contamination pathways that exist entirely within the storage asset — independent of source water quality.</p>\n</div>\n\n<div class=\"article-faq-item\">\n  <p class=\"faq-q\">What does sediment on the walls of a water tank indicate?</p>\n  <p class=\"faq-a\">Sediment banding on walls rather than the floor indicates historical water level fluctuation combined with inadequate tank cycling. The minerals and organic matter suspended in the water settled at the waterline as the level dropped, leaving a physical record of historical drawdown events.</p>\n</div>\n\n<div class=\"article-cta\">\n  <p>PC Water Infrastructure provides independent inspection and condition assessment for potable water storage assets across Australia — identifying contamination pathways before they become water quality events.</p>\n  <a href=\"/contact\" class=\"cta-btn\">Request an inspection</a>\n</div>",
+    coverImageUrl: `${BASE}/corrosion-rov-inspection.png`,
+    readTime: '6 min read',
+    status: 'published',
+    seoTitle: '5 Water Tank Contamination Risks | PC Water',
+    seoDescription:
+      'Most water quality failures get blamed on the source. But five contamination risks exist entirely within the storage asset — and none are visible at the tap until it\'s too late.',
+    publishedAt: '2026-05-08T09:00:00.000Z',
+    createdAt: '2026-05-08T09:00:00.000Z',
+    updatedAt: '2026-05-08T09:00:00.000Z',
+    tags: [
+      { id: 'tag-water-quality', name: 'Water Quality', slug: 'water-quality' },
+      { id: 'tag-tank-inspection-cr', name: 'Tank Inspection', slug: 'tank-inspection' },
+      { id: 'tag-compliance-cr', name: 'Compliance', slug: 'compliance' },
+    ],
+  },
+  {
+    id: staticId('post', 'Evidence Water Quality Issues Warning Signs'),
+    title: 'The Tank Is Already Telling You — How to Read the Evidence of Water Quality Issues',
+    slug: 'evidence-water-quality-issues-warning-signs',
+    excerpt:
+      'Water quality inspectors don\'t just test water — they read the tank. Every piece of physical evidence inside a storage tank is a clue, and every clue points somewhere specific.',
+    content:
+      "<p class=\"article-lead\">\n  Water quality inspectors don't just test water — they read the tank. Every piece of physical evidence inside a storage tank is a clue, and every clue points somewhere specific.\n</p>\n\n<p>This is the practical skill that separates a compliance tick-box inspection from one that actually protects water quality. A diver who enters a tank sees a complete picture of what has been happening to the water held inside it — often for years before the inspection ever occurred.</p>\n\n<div class=\"article-divider\"><span>Start at the waterline</span></div>\n\n<p>The waterline is the first place an experienced inspector looks. Staining at the waterline tells you the tank has experienced historical water level fluctuation — minerals and organic matter left behind as the water receded. Multiple stain bands at different heights means the water level has cycled repeatedly. Floating debris on the water surface is typically evidence of inadequate vent mesh protection.</p>\n\n<div class=\"article-pull-stat\">\n  <span class=\"stat-num\">8+</span>\n  <span class=\"stat-label\">Distinct evidence categories an experienced inspector reads from a storage tank interior — each pointing to a specific contamination source</span>\n</div>\n\n<div class=\"article-divider\"><span>What the animals tell you</span></div>\n\n<p>An animal carcass found inside a tank tells you which access pathway failed. A bird near the roof entered through a roof penetration. A frog on the floor entered through the overflow drain pipe during an overflow event, then couldn't get back out. A rabbit or feral cat on the floor entered through the access hatch — most likely when the hatch was left open or the lock was damaged. All of these events are preventable with the right hardware fitted and maintained.</p>\n\n<div class=\"article-divider\"><span>What the sediment tells you</span></div>\n\n<p>Standard grey-brown silt accumulating uniformly on the floor is normal operational accumulation. Black sediment is a different matter — typically iron and manganese precipitates, or decomposing organic matter pointing to biological activity. Sediment concentrated near the inlet indicates high-velocity turbulence. Sediment on walls rather than the floor indicates inadequate cycling.</p>\n\n<blockquote class=\"article-quotable\">\n  <p>The tank is not a passive vessel — it's a record of everything that has happened to the water inside it. A diver with the right training reads that record as clearly as a doctor reads an X-ray. The difference is that the doctor's patient can describe their symptoms. The tank can't. The evidence is the only voice it has.</p>\n</blockquote>\n\n<div class=\"article-faq-item\">\n  <p class=\"faq-q\">What does floating debris inside a water storage tank indicate?</p>\n  <p class=\"faq-a\">Floating debris on the water surface typically indicates that vent mesh protection is inadequate. The material is entering through roof vents or gaps in the roof structure that admit airborne particulates. Upgrading to finer mesh on all vents and sealing roof edge flashings resolves the majority of floating debris findings.</p>\n</div>\n\n<div class=\"article-faq-item\">\n  <p class=\"faq-q\">What does sediment on the walls of a water tank mean?</p>\n  <p class=\"faq-a\">Sediment banding on walls indicates historical water level fluctuation combined with inadequate tank cycling. The minerals and organic matter suspended in the water settled at the waterline as the level dropped, leaving a physical record. Multiple banding levels indicate repeated drawdown events.</p>\n</div>\n\n<div class=\"article-faq-item\">\n  <p class=\"faq-q\">How do you trace the source of contamination in a water storage tank?</p>\n  <p class=\"faq-a\">An experienced inspector reads the physical evidence in the tank — the location of animal remains, the distribution and type of sediment, staining patterns on the walls, the condition of roof vents and access hatches — and maps each piece of evidence to a specific entry pathway or upstream cause.</p>\n</div>\n\n<div class=\"article-cta\">\n  <p>PC Water Infrastructure provides specialist inspection and condition assessment for water storage assets across Australia — reading the evidence inside the tank before it becomes a water quality event.</p>\n  <a href=\"/contact\" class=\"cta-btn\">Request an inspection</a>\n</div>",
+    coverImageUrl: `${BASE}/ticking-site-inspection.png`,
+    readTime: '5 min read',
+    status: 'published',
+    seoTitle: 'How to Read Water Quality Warning Signs in a Storage Tank | PC Water',
+    seoDescription:
+      'Every piece of physical evidence inside a water storage tank is a clue — floating debris, sediment, staining, and animal remains each point to a specific contamination source.',
+    publishedAt: '2026-05-15T09:00:00.000Z',
+    createdAt: '2026-05-15T09:00:00.000Z',
+    updatedAt: '2026-05-15T09:00:00.000Z',
+    tags: [
+      { id: 'tag-water-quality-ev', name: 'Water Quality', slug: 'water-quality' },
+      { id: 'tag-tank-inspection-ev', name: 'Tank Inspection', slug: 'tank-inspection' },
+      { id: 'tag-potable-water-ev', name: 'Potable Water', slug: 'potable-water' },
+    ],
+  },
+  {
+    id: staticId('post', 'The Open Overflow Wildlife Drain Point'),
+    title: 'The Open Overflow: How Wildlife Gets In Through Your Drain Point',
+    slug: 'the-open-overflow-wildlife-drain-point',
+    excerpt:
+      'The overflow drain is one of the most overlooked animal entry points in water storage. Here\'s how wildlife gets in, why they can\'t get out, and what a flapper valve costs versus what a contamination event costs.',
+    content:
+      "<p class=\"article-lead\">\n  The overflow drain is a critical safeguard — it stops your tank from being overpressured. But for most of the year, the open end sitting in the grass isn't releasing water. It's providing shelter.\n</p>\n\n<p>One of the most overlooked animal entry pathways sits at ground level, away from the tank, pointing at a paddock: the overflow drain point. The overflow pipe itself is essential — it prevents structural overpressure when a tank reaches capacity, routing excess water to a drain or soakage area. The riser climbs from the tank's high-water mark to an outlet positioned some distance from the tank perimeter. And the drain end? It sits open, waiting for the next overflow event — which, in most potable water systems, might not happen for months.</p>\n\n<div class=\"article-divider\"><span>The problem with open ends</span></div>\n\n<p>A dry, dark, sheltered pipe sitting in an Australian paddock is not just infrastructure. To the local wildlife, it's a burrow. A snake smells water. A rabbit follows the scent. A feral cat investigates the opening. The overflow riser runs straight up into the tank interior — and once an animal climbs it, the confined space they find at the top offers no route back.</p>\n\n<p>They drown. The carcass contaminates the stored water. And unless the tank is on a regular inspection cycle, no one knows until the distribution system starts delivering the evidence.</p>\n\n<div class=\"article-pull-stat\">\n  <span class=\"stat-num\">#1</span>\n  <span class=\"stat-label\">Birds are the most common animal body found inside Australian water storage tanks — but they're not the only ones.</span>\n</div>\n\n<div class=\"article-divider\"><span>The four access pathways</span></div>\n\n<p>The overflow drain is the most overlooked route. But it's not the only one. Animal entry into water storage tanks happens through four distinct pathways, and in most cases more than one is active at a time.</p>\n\n<p><strong>1. The overflow drain point</strong> — An open-ended drain pipe with no valve. Overflow events are rare. Between events, the pipe is dry and hospitable. Rabbits, cats, and snakes are the most common entrants — small enough to fit the pipe diameter, drawn in by the smell of water. A flapper valve eliminates this risk entirely.</p>\n\n<p><strong>2. Vandal-damaged or unsealed access hatches</strong> — Vandal activity can leave hatches open or damage locking mechanisms. On inground tanks especially, an open hatch can admit larger animals — possums, goannas, and in rare cases feral foxes. Regular hatch audits are not optional maintenance; they're the line between a secure asset and an exposed one.</p>\n\n<p><strong>3. Deteriorated vent mesh and roof edge flashings</strong> — Smaller birds don't require much space. Unsealed roof edge flashings and damaged or poorly installed vent mesh are the primary entry routes for small birds seeking protected nesting areas. Birds can enter freely, nest within the tank, and — when they can't find their way back out — die there. The nesting material alone constitutes a contamination risk.</p>\n\n<p><strong>4. Overhanging trees and surrounding bushland</strong> — Proximity to bushland increases the pressure on all of the above. Overhanging trees provide a physical bridge from ground-level habitat to roof-level entry points. Keeping vegetation cut back from the tank perimeter is passive exclusion management.</p>\n\n<blockquote class=\"article-quotable\">\n  <p>The overflow drain is designed to release water once or twice a year. For the other 363 days, the open end sitting in the grass isn't managing hydraulic pressure — it's managing shelter demand. A flapper valve resolves both functions. Without one, you're managing only the first.</p>\n</blockquote>\n\n<div class=\"article-pull-stat\">\n  <span class=\"stat-num\">&lt;$500</span>\n  <span class=\"stat-label\">Typical cost of a flapper valve and installation — compare to a contamination response event that can run to tens of thousands</span>\n</div>\n\n<div class=\"article-divider\"><span>What prevention actually looks like</span></div>\n\n<p>When our divers go into a tank, animal remains are one of the more common findings — particularly small birds near the roof structure and larger animals on the floor. The presence of remains is a direct indicator of an access failure. And in every case, the evidence trail leads back to one of the four pathways above.</p>\n\n<p><strong>Fit a flapper valve to the overflow drain end.</strong> A flapper valve — also called a check valve or duck-bill valve — is a one-way seal that opens under flow pressure during an overflow event and stays closed otherwise. It is the single most cost-effective animal exclusion measure available for an overflow drain point. If your overflow drain ends are open, this is the first thing to address.</p>\n\n<p><strong>Inspect and upgrade vent mesh.</strong> Vent mesh deteriorates. Corrosion eats through it; physical damage distorts it; poor installation leaves gaps around the edges. Any mesh with holes, missing sections, or inadequate gauge for the local fauna should be replaced. Fine mesh that keeps insects out will also keep small birds out.</p>\n\n<p><strong>Audit hatch condition and locking.</strong> A hatch that can be opened by hand — by a person or a determined large mammal — is not a secure closure. Tamper-resistant latches and proper sealing around the hatch frame should be standard on any potable water asset. Hatch condition should be recorded at every inspection.</p>\n\n<p><strong>Clear vegetation from the tank perimeter.</strong> Overhanging branches, long grass around the overflow drain, and dense scrub against the tank wall all increase the likelihood of animal contact with entry points. A maintained perimeter is passive exclusion.</p>\n\n<table style=\"width:100%;border-collapse:collapse;margin:32px 0;font-size:14px;\">\n  <thead>\n    <tr style=\"background:#0d1b2a;\">\n      <th style=\"padding:12px 16px;text-align:left;font-weight:600;font-size:13px;color:#fff;\">Exclusion measure</th>\n      <th style=\"padding:12px 16px;text-align:left;font-weight:600;font-size:13px;color:#fff;\">Target entry pathway</th>\n      <th style=\"padding:12px 16px;text-align:left;font-weight:600;font-size:13px;color:#fff;\">Priority</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Flapper valve on all overflow drain ends</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Overflow riser — small mammals, snakes, frogs</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;font-weight:600;\">High</td>\n    </tr>\n    <tr>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Vegetation cleared from tank perimeter</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">All ground-level and roof-level pathways</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;font-weight:600;\">High</td>\n    </tr>\n    <tr>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Vent mesh inspected and replaced where damaged</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Vent openings — small birds, insects</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;font-weight:600;\">High</td>\n    </tr>\n    <tr>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Roof edge flashings sealed</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Roof-level gaps — small birds</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Medium</td>\n    </tr>\n    <tr>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Access hatches locked and properly sealed</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Hatch openings — larger animals, vandal access</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;font-weight:600;\">High</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>The obligation to maintain water quality from storage to tap is established in the Australian Drinking Water Guidelines (NHMRC) and supported by <strong>AS/NZS 4766</strong>. Any inspection finding of an open overflow drain point, damaged vent mesh, or compromised hatch should be flagged as a rectification item in the asset's formal condition report — not deferred to the next scheduled maintenance cycle.</p>\n\n<div class=\"article-faq-item\">\n  <p class=\"faq-q\">How do animals get into water storage tanks through the overflow pipe?</p>\n  <p class=\"faq-a\">The overflow drain point is typically an open-ended pipe situated away from the tank. Because overflow events are rare, the pipe stays dry most of the time — making it a sheltered, attractive space for native wildlife. Small animals including rabbits, cats, snakes, and frogs can smell stored water, enter the open end, climb the overflow riser, and fall into the tank with no means of escape. They then drown and contaminate the stored water.</p>\n</div>\n\n<div class=\"article-faq-item\">\n  <p class=\"faq-q\">What is a flapper valve and why should it be fitted to overflow drain points?</p>\n  <p class=\"faq-a\">A flapper valve is a simple one-way seal fitted to the end of an overflow pipe. It opens under flow pressure during an overflow event and stays closed at all other times, preventing animal entry. It is one of the most cost-effective measures for protecting potable water storage from wildlife contamination — the valve itself is inexpensive, and the surrounding area should also be kept clear of vegetation.</p>\n</div>\n\n<div class=\"article-faq-item\">\n  <p class=\"faq-q\">What types of animals are most commonly found inside Australian water tanks?</p>\n  <p class=\"faq-a\">Birds are the most common bodies found inside tanks. Small birds seek protected nesting spaces and can enter through unsealed roof edge flashings or damaged vent mesh. Snakes, frogs, rabbits, and feral cats are also regularly found — typically entering through open overflow drain points. On inground tanks with significant structural breaches, larger animals including possums and goannas have been recorded.</p>\n</div>\n\n<div class=\"article-faq-item\">\n  <p class=\"faq-q\">How do I know if an animal has entered my water storage tank?</p>\n  <p class=\"faq-a\">The earliest indicators are often changes in water quality — unusual turbidity, odour, or taste in the distribution system. During internal inspections, divers or technicians may find animal remains on the tank floor, nesting material near roof structures, or physical damage to vent mesh and flashings. Any confirmed animal entry should be treated as a contamination event requiring immediate response under the Australian Drinking Water Guidelines (NHMRC).</p>\n</div>\n\n<div class=\"article-faq-item\">\n  <p class=\"faq-q\">Is an open overflow drain a compliance issue under Australian standards?</p>\n  <p class=\"faq-a\">Open overflow drain points that allow animal or debris entry are inconsistent with the duty to maintain water quality from storage to tap, established in the Australian Drinking Water Guidelines (NHMRC) and supported by <strong>AS/NZS 4766</strong>. While no single clause mandates a specific valve type, any inspection finding of an open overflow drain point should be flagged as a rectification item in the asset's condition assessment report.</p>\n</div>\n\n<div class=\"article-cta\">\n  <p>PC Water Infrastructure conducts overflow drain and access pathway audits as part of every tank inspection program across Australia — identifying animal entry points before they become contamination events.</p>\n  <a href=\"/contact\" class=\"cta-btn\">Request a pathway audit</a>\n</div>",
+    coverImageUrl: `${BASE}/harsh-env-drone.png`,
+    readTime: '5 min read',
+    status: 'published',
+    seoTitle: 'Wildlife Entry Through Tank Overflow Drain | PC Water',
+    seoDescription:
+      'The overflow drain is the most overlooked animal entry point in water storage. Here\'s how wildlife gets in, why they can\'t get out, and what a flapper valve costs versus a contamination event.',
+    publishedAt: '2026-05-22T09:00:00.000Z',
+    createdAt: '2026-05-22T09:00:00.000Z',
+    updatedAt: '2026-06-09T09:00:00.000Z',
+    tags: [
+      { id: 'tag-water-quality-oo', name: 'Water Quality', slug: 'water-quality' },
+      { id: 'tag-tank-maintenance-oo', name: 'Tank Maintenance', slug: 'tank-maintenance' },
+      { id: 'tag-compliance-oo', name: 'Compliance', slug: 'compliance' },
+    ],
+  },
+  {
+    id: staticId('post', 'Birds Are The Most Common Body Found Inside Australian Tanks'),
+    title: 'Birds Are the Most Common Body Found Inside Australian Tanks',
+    slug: 'birds-are-the-most-common-body-found-inside-australian-tanks',
+    excerpt:
+      'When birds turn up inside a potable water tank, the problem is not random wildlife. It is a roof, hatch, or vent exclusion failure that needs investigation.',
+    content:
+      "<p class=\"article-lead\">\n  When a bird turns up inside a potable water tank, the finding is not random wildlife. It is evidence that a roof-level exclusion barrier has failed.\n</p>\n\n<p>In <a href=\"/resources/evidence-water-quality-issues-warning-signs\">our earlier post on reading contamination evidence</a>, we made the point that the tank records what has been happening long before a complaint reaches the operator. Bird remains are one of the clearest examples. They tell you the problem is not at the treatment plant and not out in the reticulation. The problem is the tank itself.</p>\n\n<p>We've also covered the ground-level wildlife pathway in <a href=\"/resources/the-open-overflow-wildlife-drain-point\">The Open Overflow</a>. Birds are different. They usually enter from above — through damaged vent mesh, unsealed roof edge flashings, ridge gaps, or a hatch that was left insecure after inspection, maintenance, or vandal activity.</p>\n\n<div class=\"article-divider\"><span>Why birds show up so often</span></div>\n\n<p>Birds do not need a large breach. A small opening near a vent, roof seam, or hatch perimeter is enough. Potable water tanks also offer what birds seek: shade, shelter from weather, and a quiet perch point away from predators. Once they enter the roof space or tank interior, many cannot orient themselves to escape. Smooth internal walls and dark confined spaces work against them.</p>\n\n<figure>\n  <img src=\"https://mhggidgfivmdgkjerejn.supabase.co/storage/v1/object/public/cms-media/posts/birds-tank-vent-gap.png\" alt=\"Damaged roof vent mesh on a water storage tank creating a bird entry gap\" style=\"width:100%;display:block;border-radius:10px;aspect-ratio:16/9;object-fit:cover;\"/>\n  <figcaption><strong>Small opening, major consequence.</strong> Birds do not need a large breach. A damaged vent screen or roof gap is enough to turn a sanitary tank into an entry point.</figcaption>\n</figure>\n\n<div class=\"article-pull-stat\">\n  <span class=\"stat-num\">#1</span>\n  <span class=\"stat-label\">Birds are the most common bodies found inside Australian water storage tanks because the most common exclusion failures happen at roof level.</span>\n</div>\n\n<div class=\"article-divider\"><span>What bird evidence actually tells you</span></div>\n\n<p>A bird inside the tank is not just a contamination finding. It is a structural clue. The type of evidence narrows the likely pathway:</p>\n\n<p><strong>Feathers at the waterline</strong> — Feathers floating at the top water line indicate active or recent entry. An inspector should move immediately to the vent openings, roof edge flashings, ridge capping, and hatch seals.</p>\n\n<p><strong>Nesting material on roof framing</strong> — Twigs, grass, and down near roof members indicate birds are not just getting in, they are attempting to occupy the space. That usually means the opening has existed for some time.</p>\n\n<p><strong>Droppings around hatches or vent zones</strong> — Bird fouling concentrated near a hatch cover or vent screen often shows the exact perch point being used.</p>\n\n<p><strong>A carcass on the floor</strong> — At that point the issue has progressed from exclusion failure to confirmed contamination event. The response needs to deal with both: remove the contamination and close the pathway that allowed it.</p>\n\n<blockquote class=\"article-quotable\">\n  <p>A bird in a water tank is never just a bird. It is proof that the roof, hatch, or vent barrier stopped being a barrier.</p>\n</blockquote>\n\n<div class=\"article-divider\"><span>The risk is bigger than the carcass</span></div>\n\n<p>Asset owners sometimes think the problem begins and ends with the body itself. It does not. Feathers, faeces, nesting material, microbial load, and the likelihood of repeat entry all matter. If one bird got in, the pathway is still open for the next one.</p>\n\n<p>That is why the response should not be limited to clean-up. It should include a roof-level exclusion audit, repair of all damaged screens and seals, and confirmation that the hatch and surrounding platform area remain weather-tight. The practical expectation from the Australian Drinking Water Guidelines (NHMRC), supported by <strong>AS/NZS 4766</strong> where relevant, is simple: the stored water must be protected from external contamination.</p>\n\n<div class=\"article-photo-grid\">\n  <figure>\n    <img src=\"https://mhggidgfivmdgkjerejn.supabase.co/storage/v1/object/public/cms-media/posts/birds-tank-feather-evidence.png\" alt=\"Feathers floating at the waterline inside a potable water storage tank\"/>\n    <figcaption><strong>Waterline evidence.</strong> Feathers and light biological debris at the surface tell an inspector that the entry pathway is active or was active very recently.</figcaption>\n  </figure>\n  <figure>\n    <img src=\"https://mhggidgfivmdgkjerejn.supabase.co/storage/v1/object/public/cms-media/posts/birds-tank-damaged-mesh.png\" alt=\"Corroded vent mesh on a water tank with visible tears and gaps\"/>\n    <figcaption><strong>Failed exclusion screen.</strong> Once fine mesh is torn, corroded, or poorly fixed to its frame, birds can exploit the gap surprisingly quickly.</figcaption>\n  </figure>\n</div>\n\n<table style=\"width:100%;border-collapse:collapse;margin:32px 0;font-size:14px;\">\n  <thead>\n    <tr style=\"background:#0d1b2a;\">\n      <th style=\"padding:12px 16px;text-align:left;font-weight:600;font-size:13px;color:#fff;\">Finding</th>\n      <th style=\"padding:12px 16px;text-align:left;font-weight:600;font-size:13px;color:#fff;\">Most likely pathway</th>\n      <th style=\"padding:12px 16px;text-align:left;font-weight:600;font-size:13px;color:#fff;\">First action</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Feathers at waterline</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Vent screen failure or roof gap</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Inspect all vents, ridge capping, and flashings</td>\n    </tr>\n    <tr>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Nesting material on roof members</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Longstanding roof-level opening</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Identify opening, remove material, reseal entry point</td>\n    </tr>\n    <tr>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Droppings near hatch perimeter</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Hatch perch point or poor hatch drainage</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Check hatch seal, drainage path, and cover seating</td>\n    </tr>\n    <tr>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Bird carcass on floor</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Confirmed active entry</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Treat as contamination event and complete exclusion audit</td>\n    </tr>\n    <tr>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Damaged vent mesh visible from outside</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Direct roof-level ingress route</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Replace with correctly fixed fine mesh immediately</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>The fix is usually straightforward. Replace damaged vent mesh. Seal roof edge flashings and ridge gaps. Confirm hatches close squarely and drain correctly. Review any recent contractor work that involved opening the tank. One unresolved access point can keep reintroducing the same problem.</p>\n\n<div class=\"article-faq-item\">\n  <p class=\"faq-q\">Why are birds the most common bodies found inside Australian water tanks?</p>\n  <p class=\"faq-a\">Birds only need a very small roof-level opening to gain entry. Damaged vent mesh, unsealed roof edge flashings, ridge gaps, and poorly secured hatches give them access to sheltered spaces inside the tank. Once inside, smooth walls, darkness, and limited orientation cues mean many birds cannot find their way back out. That is why bird remains are such a common internal finding.</p>\n</div>\n\n<div class=\"article-faq-item\">\n  <p class=\"faq-q\">What does a bird found inside a potable water tank tell an inspector?</p>\n  <p class=\"faq-a\">It tells the inspector there has been a roof, hatch, or ventilation barrier failure. A bird in the tank is not random bad luck. It is structural evidence. Feathers at the waterline, nesting material on roof framing, droppings near hatches, and damaged vent screens all narrow the investigation to specific entry pathways.</p>\n</div>\n\n<div class=\"article-faq-item\">\n  <p class=\"faq-q\">Is the contamination risk only the bird carcass itself?</p>\n  <p class=\"faq-a\">No. The carcass is only one part of the risk. Feathers, faeces, nesting material, and ongoing access by additional birds all represent contamination pathways. Any confirmed bird entry should be treated as a water quality event under the Australian Drinking Water Guidelines (NHMRC), with the structural access point identified and rectified.</p>\n</div>\n\n<div class=\"article-faq-item\">\n  <p class=\"faq-q\">What standards apply when birds are entering a water tank?</p>\n  <p class=\"faq-a\">The duty to maintain sanitary integrity from storage to tap is established by the Australian Drinking Water Guidelines (NHMRC) and supported by <strong>AS/NZS 4766</strong> where applicable. The practical requirement is straightforward: if birds can get in, the tank exclusion barrier is not performing and the defect needs rectification.</p>\n</div>\n\n<div class=\"article-cta\">\n  <p>If feathers, nesting material, or bird remains have ever been found in your tank, the question is not whether the barrier failed. The question is where.</p>\n  <a href=\"/contact\" class=\"cta-btn\">Request a tank inspection</a>\n</div>",
+    coverImageUrl: `${BASE}/birds-tanks-hero.png`,
+    readTime: '4 min read',
+    status: 'published',
+    seoTitle: 'Birds Inside Australian Water Tanks | PC Water',
+    seoDescription:
+      'Bird remains, feathers, and nesting material are structural evidence of roof-level exclusion failures in Australian water storage tanks. Here\'s what to fix first.',
+    publishedAt: '2026-06-09T09:00:00.000Z',
+    createdAt: '2026-06-09T09:00:00.000Z',
+    updatedAt: '2026-06-09T09:00:00.000Z',
+    tags: [
+      { id: 'tag-water-quality-birds', name: 'Water Quality', slug: 'water-quality' },
+      { id: 'tag-tank-inspection-birds', name: 'Tank Inspection', slug: 'tank-inspection' },
+      { id: 'tag-compliance-birds', name: 'Compliance', slug: 'compliance' },
+    ],
+  },
+  {
+    id: staticId('post', 'Vandalism And Your Water Tank The Damage That Goes Unreported'),
+    title: 'Vandalism and Your Water Tank: The Damage That Goes Unreported',
+    slug: 'vandalism-and-your-water-tank-the-damage-that-goes-unreported',
+    excerpt:
+      'The real cost of vandalism is rarely the visible damage. It is the contamination pathway, hatch failure, and security weakness left behind after no one notices.',
+    content:
+      "<p class=\"article-lead\">\n  The most expensive part of a vandal event is usually not the damage you can see. It is the contamination pathway left open after no one realises the sanitary barrier has been broken.\n</p>\n\n<p>In <a href=\"/resources/5-contamination-risks-not-source-water\">our earlier contamination post</a>, we listed vandalism as one of the five major risks that come from the storage asset itself, not the source water. A forced hatch, torn vent screen, or broken lock can leave a tank exposed for days or weeks before the next visit.</p>\n\n<p>By the time <a href=\"/resources/evidence-water-quality-issues-warning-signs\">water quality symptoms appear</a>, the visible act of vandalism may already be over. What remains is the secondary damage: dust, leaf litter, insects, birds, stormwater, or rubbish entering a vessel that was previously sealed.</p>\n\n<div class=\"article-divider\"><span>What unreported vandalism looks like</span></div>\n\n<p>Most people imagine spray paint, graffiti, or obvious impact damage. Those things happen. But the more serious findings are often smaller and easier to miss:</p>\n\n<p><strong>Forced hatch dogs, hinges, or lock points</strong> — If a hatch has been levered, twisted, or slammed closed after being forced open, it may still appear shut while no longer sealing properly. A hatch that looks closed is not necessarily secure.</p>\n\n<p><strong>Torn or peeled-back vent mesh</strong> — Once the screen is broken, the tank no longer has an effective exclusion barrier. Dust, insects, and small birds can continue entering long after the vandal event.</p>\n\n<p><strong>Foreign material on the roof or inside the tank</strong> — Rocks, rubbish, drink containers, and loose debris are direct evidence of interference. They also tell you the event was not limited to external damage.</p>\n\n<figure>\n  <img src=\"https://mhggidgfivmdgkjerejn.supabase.co/storage/v1/object/public/cms-media/posts/vandalism-damaged-hatch.png\" alt=\"Water tank hatch showing pry marks and damaged latch hardware after vandalism\" style=\"width:100%;display:block;border-radius:10px;aspect-ratio:16/9;object-fit:cover;\"/>\n  <figcaption><strong>Closed does not mean sealed.</strong> A vandalised hatch may sit back in place while its locking, seating, or gasket integrity has already been compromised.</figcaption>\n</figure>\n\n<div class=\"article-pull-stat\">\n  <span class=\"stat-num\">3</span>\n  <span class=\"stat-label\">One vandal event can create three separate risks at once: contamination, repeat unauthorised access, and unsafe access hardware for the next worker who attends site.</span>\n</div>\n\n<blockquote class=\"article-quotable\">\n  <p>The visible damage is rarely the full story. What matters is whether the hatch, vent, roof, or access system still performs the function it was meant to perform after the event.</p>\n</blockquote>\n\n<div class=\"article-divider\"><span>Why the real damage is delayed</span></div>\n\n<p>On remote sites, the lag between event and discovery can be long — a security event can quickly become the same kind of animal-entry problem described in <a href=\"/resources/the-open-overflow-wildlife-drain-point\">The Open Overflow</a>, only arriving through a different route.</p>\n\n<p>Proactive measures — alarmed hatches, CCTV, or a defined minimum inspection frequency — materially reduce the exposure window on remote sites. The shorter the time to detection, the lower the contamination consequence.</p>\n\n<p>There is also a worker safety dimension. If ladders, cages, handrails, or hatch surrounds have been tampered with, the next person climbing onto the tank could be stepping onto damaged access hardware. Safe access components need repair consistent with <strong>AS 1657</strong> — while hatches, vents, and closures need restoration of the sanitary barrier expected for potable water storage.</p>\n\n<div class=\"article-divider\"><span>What to inspect after every suspected event</span></div>\n\n<p><strong>Secure the sanitary barrier first</strong> — Check hatch seating, locking points, gaskets, vent screens, flashings, and any roof penetrations. If any closure is compromised, treat it as an active contamination pathway until proven otherwise.</p>\n\n<p><strong>Inspect for internal evidence</strong> — If there are signs the tank was opened, look for rocks, rubbish, feathers, fresh debris, or waterline contamination indicators. An internal inspection may be warranted to confirm what entered the stored water.</p>\n\n<p><strong>Check access hardware and approach areas</strong> — Look at ladders, cages, platforms, handrails, and hatch approach areas. A vandalised tank can be both a hygiene failure and a fall hazard.</p>\n\n<p><strong>Check overflow drain ends and roof penetrations</strong> — Overflow drain openings and roof penetrations can become secondary entry routes when the tank is left unsecured. Inspect all open overflow drain ends and fit a flapper valve if one is not already in place.</p>\n\n<div class=\"article-photo-grid\">\n  <figure>\n    <img src=\"https://mhggidgfivmdgkjerejn.supabase.co/storage/v1/object/public/cms-media/posts/vandalism-broken-lock.png\" alt=\"Broken padlock on a water tank access point indicating unauthorised entry\"/>\n    <figcaption><strong>Access control failure.</strong> A broken lock is not just a security issue. It means the sanitary barrier has to be assumed compromised until checked.</figcaption>\n  </figure>\n  <figure>\n    <img src=\"https://mhggidgfivmdgkjerejn.supabase.co/storage/v1/object/public/cms-media/posts/vandalism-damaged-vent.png\" alt=\"Damaged vent screen on a water tank allowing debris and animal ingress\"/>\n    <figcaption><strong>Secondary contamination route.</strong> Once a vent screen is peeled back or torn, the tank remains exposed long after the initial event.</figcaption>\n  </figure>\n</div>\n\n<table style=\"width:100%;border-collapse:collapse;margin:32px 0;font-size:14px;\">\n  <thead>\n    <tr style=\"background:#0d1b2a;\">\n      <th style=\"padding:12px 16px;text-align:left;font-weight:600;font-size:13px;color:#fff;\">Damage found</th>\n      <th style=\"padding:12px 16px;text-align:left;font-weight:600;font-size:13px;color:#fff;\">Hidden consequence</th>\n      <th style=\"padding:12px 16px;text-align:left;font-weight:600;font-size:13px;color:#fff;\">Response now</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Forced or bent hatch</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Closure may no longer seal, even if shut</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Verify seating, gasket condition, and locking integrity</td>\n    </tr>\n    <tr>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Broken or missing lock</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Repeat unauthorised access risk</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Replace lock and inspect for evidence of opening</td>\n    </tr>\n    <tr>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Damaged vent mesh</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Ongoing dust, insect, and bird ingress</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Replace screen and inspect surrounding framing</td>\n    </tr>\n    <tr>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Rocks or rubbish inside tank area</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Likely direct internal interference</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Escalate to an internal inspection</td>\n    </tr>\n    <tr>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Damaged ladder, cage, or handrail</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Worker fall risk at next attendance</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Repair safe access elements consistent with <strong>AS 1657</strong></td>\n    </tr>\n    <tr>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Evidence of roof traffic or displaced flashings</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Stormwater and debris entry pathway</td>\n      <td style=\"padding:12px 16px;border-bottom:1px solid #e5e7eb;color:#374151;vertical-align:top;\">Inspect all penetrations and reseal as required</td>\n    </tr>\n  </tbody>\n</table>\n\n<p>The objective after vandalism is not cosmetic restoration. It is to re-establish the two functions the asset must provide: sanitary protection of the stored water and safe access for the people who maintain it. The ADWG sets the water quality expectation. Practical asset management means treating every suspected breach as a potential contamination pathway until inspection proves otherwise.</p>\n\n<div class=\"article-faq-item\">\n  <p class=\"faq-q\">Does a vandalism event trigger formal notification to the water authority or regulator?</p>\n  <p class=\"faq-a\">It depends on the nature of the breach and the applicable drinking water framework. If there is evidence the sanitary barrier was compromised, many state and territory frameworks — including conditions under local water service licences — require operators to notify the relevant authority within a specified timeframe. The ADWG provides guidance on when a contamination event should be reported. Check your service contract, operating licence, or drinking water quality management plan for the obligations that apply to your supply.</p>\n</div>\n\n<div class=\"article-faq-item\">\n  <p class=\"faq-q\">How long can a vandalised tank remain exposed before contamination occurs?</p>\n  <p class=\"faq-a\">There is no fixed timeframe — it depends on the nature of the breach, the local environment, and site activity. A forced hatch in a remote location with active wildlife can result in animal entry within days. The practical approach is to treat any confirmed or suspected breach as an active contamination pathway and attend the site as quickly as the risk assessment demands.</p>\n</div>\n\n<div class=\"article-faq-item\">\n  <p class=\"faq-q\">What is the difference between a contamination response and a routine post-vandalism inspection?</p>\n  <p class=\"faq-a\">A routine post-vandalism inspection confirms that the sanitary barrier is intact and re-establishes the asset's baseline condition. A contamination response is triggered when there is evidence the stored water has been directly affected — a confirmed open hatch, foreign material inside the tank, or water quality indicators in the distribution system. Contamination responses typically require sampling, possible water withdrawal, and formal reporting to the water authority.</p>\n</div>\n\n<div class=\"article-cta\">\n  <p>If a tank has been tampered with, the right question is not how bad it looks from the fence line. It is what the damage has left open.</p>\n  <a href=\"/contact\" class=\"cta-btn\">Book a tank security and contamination audit</a>\n</div>",
+    coverImageUrl: `${BASE}/vandalism-tank-hero.png`,
+    readTime: '4 min read',
+    status: 'published',
+    seoTitle: 'Water Tank Vandalism: Hidden Contamination Risks | PC Water',
+    seoDescription:
+      'The real cost of water tank vandalism is rarely the visible damage. Forced hatches, broken locks, and torn vent screens leave contamination pathways open for weeks.',
+    publishedAt: '2026-06-09T09:00:00.000Z',
+    createdAt: '2026-06-09T09:00:00.000Z',
+    updatedAt: '2026-06-09T09:00:00.000Z',
+    tags: [
+      { id: 'tag-water-quality-vand', name: 'Water Quality', slug: 'water-quality' },
+      { id: 'tag-tank-maintenance-vand', name: 'Tank Maintenance', slug: 'tank-maintenance' },
+      { id: 'tag-compliance-vand', name: 'Compliance', slug: 'compliance' },
+    ],
+  },
+  {
+    id: staticId('post', 'Sediment In Your Tank What It Is Where It Comes From Why It Matters'),
+    title: 'Sediment in Your Tank: What It Is, Where It Comes From, Why It Matters',
+    slug: 'sediment-in-your-tank-what-it-is-where-it-comes-from-why-it-matters',
+    excerpt:
+      'Sediment in a water tank is not just dirt on the floor. Learn where it comes from, what it tells you, and when it becomes a cleaning and water quality problem.',
+    content: `<p class="article-lead">
+  Sediment in a water storage tank is physical evidence that material is entering, forming, or settling inside the asset faster than the system is removing it.
+</p>
+
+<p>Asset owners often treat sediment as a housekeeping issue. It is more useful to treat it as a diagnostic signal. The depth, colour, texture, and location of the deposit tell you whether the problem is poor turnover, upstream treatment carry-over, coating breakdown, airborne entry, corroding internals, or simply a cleaning interval that has drifted too far.</p>
+
+<p>That is why this post sits naturally alongside <a href="/resources/evidence-water-quality-issues-warning-signs">our earlier guide to reading water quality evidence</a>. Sediment is not just a symptom to remove. It is a record of how the tank has been operating.</p>
+
+<div class="article-divider"><span>What counts as sediment</span></div>
+
+<p>In potable storage, sediment can include fine dust and silt, corrosion product, floc carry-over, iron and manganese precipitate, and organic debris such as leaves, insect material, and algae residue. All of those may settle on the tank floor, around the outlet zone, along the wall-floor junction, or as banding at repeated operating levels.</p>
+
+<p>Not all sediment means the same thing. A thin stable dusting in a low-risk system is very different from soft black sludge in a low-chlorine dead zone or orange-brown deposits developing beside corroding fittings. The correct maintenance response depends on what the deposit is telling you.</p>
+
+<figure>
+  <img src="${BASE}/sediment-floor-deposit.png" alt="Sediment accumulated across the floor of a potable water storage tank"/>
+  <figcaption><strong>Sediment is evidence.</strong> The deposit itself records where material is entering, where water is slowing down, and whether the tank is starting to generate contamination internally.</figcaption>
+</figure>
+
+<div class="article-divider"><span>Where it comes from</span></div>
+
+<h3>Airborne entry and external debris</h3>
+<p>If vent mesh is too coarse, ridge capping is poorly sealed, hatches are compromised, or overflows are left exposed, wind-borne dust, leaf fragments, and other debris can enter the vessel. In arid and remote parts of Australia, that external load can be significant even when the tank looks acceptable from ground level.</p>
+
+<h3>Source-water and treatment carry-over</h3>
+<p>Some sediment begins upstream. Fine treatment solids can settle once flow velocity drops inside the tank. Bore supplies with elevated iron or manganese can also leave deposits, particularly where water age is high and turnover is poor.</p>
+
+<h3>Internal corrosion and material breakdown</h3>
+<p>The tank can manufacture its own sediment. Failing coatings, corroding steel, permanently immersed components that were poorly selected, and deteriorating fixtures all shed material into the stored water. In potable systems, materials in contact with drinking water should comply with <strong>AS 4020</strong> requirements, and maintenance choices should align with local hygiene obligations — not just what was convenient during a past repair.</p>
+
+<h3>Hydraulic stagnation</h3>
+<p>Sediment is not only about what enters the tank. It is also about what stays there. An oversized or poorly cycled tank allows fine particles to settle, stratify, and build up. That same behaviour also supports disinfectant loss and localised biological activity.</p>
+
+<table class="checklist-table">
+  <thead>
+    <tr>
+      <th>Finding</th>
+      <th>What it usually suggests</th>
+      <th>Why it matters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fine light silt across the floor</td>
+      <td>Dust ingress, low flow velocity, or long interval between cleans</td>
+      <td>Usually points to exclusion details and operating history</td>
+    </tr>
+    <tr>
+      <td>Black sludge or dark floc</td>
+      <td>Treatment carry-over, stagnant zones, or biological activity</td>
+      <td>May indicate a water quality problem, not just a cleaning one</td>
+    </tr>
+    <tr>
+      <td>Orange-brown deposits</td>
+      <td>Iron precipitation, internal corrosion, or corroding fittings</td>
+      <td>Often means the tank is generating contamination internally</td>
+    </tr>
+    <tr>
+      <td>Sediment banding on walls</td>
+      <td>Repeated standing levels and poor turnover</td>
+      <td>Indicates a hydraulic management issue</td>
+    </tr>
+    <tr>
+      <td>Build-up near the outlet or scour</td>
+      <td>Dead spots, poor cleaning history, or weak screen design</td>
+      <td>Increases the chance of mobilisation into supply</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="article-pull-stat">
+  <span class="stat-num">5-15 mm</span>
+  <span class="stat-label">Commonly observed in well-run distribution tanks. Keeping sediment in this range minimises disposal issues — once deposits grow thick, soft, widespread, or concentrated at hydraulic points, cleaning cost and inspection difficulty rise quickly.</span>
+</div>
+
+<div class="article-divider"><span>When it becomes a problem</span></div>
+
+<p>There is no single universal millimetre depth that makes one tank safe and another unsafe. The real question is whether the sediment load has started affecting inspection clarity, outlet performance, disinfection confidence, or cleaning complexity.</p>
+
+<p>Heavy deposits make condition assessment harder because they cover the floor, mask early defects, and hide what is happening at the wall-floor junction. They can also obstruct scour drains, sit unnoticed until demand changes disturb them, and suddenly appear as a discolouration complaint even though the build-up has been present for years.</p>
+
+<blockquote class="article-quotable">
+  <p>A thin layer of sediment is a maintenance task. A heavy layer of sediment is usually evidence that the tank has been left unobserved for too long.</p>
+</blockquote>
+
+<div class="article-photo-grid">
+  <figure>
+    <img src="${BASE}/sediment-wall-banding.png" alt="Sediment banding on the internal wall of a water tank at repeated standing water levels"/>
+    <figcaption><strong>Wall banding.</strong> Sediment on the walls is a hydraulic clue that the tank is not cycling or mixing effectively.</figcaption>
+  </figure>
+  <figure>
+    <img src="${BASE}/sediment-outlet-zone.png" alt="Sediment build-up near the outlet area of a potable water tank"/>
+    <figcaption><strong>Outlet risk.</strong> Deposits concentrated around low points and outlet zones are the ones most likely to be disturbed back into supply.</figcaption>
+  </figure>
+</div>
+
+<div class="article-divider"><span>What asset owners should do next</span></div>
+
+<h3>Characterise the deposit</h3>
+<p>Record depth, colour, texture, smell, and location. "Sediment present" is not enough to support a useful maintenance decision.</p>
+
+<h3>Check entry and generation points</h3>
+<p>Inspect hatches, vents, roof details, overflows, submerged fittings, outlet screens, and any internal metalwork. If the tank is creating the sediment itself, a clean alone will not solve the problem.</p>
+
+<h3>Review the tank's operating history</h3>
+<p>Wall staining, persistent low chlorine, and repeated standing levels are observable clues that conditions inside the tank are contributing to sediment accumulation. Note what you find and pass it to the inspector — it shapes the diagnosis.</p>
+
+<h3>Combine cleaning with inspection</h3>
+<p>Cleaning removes the material. Inspection explains the cause. Done together, the tank becomes visible again and the next maintenance decision is based on evidence rather than guesswork.</p>
+
+<div class="article-faq-item">
+  <p class="faq-q">How much sediment in a water tank is too much?</p>
+  <p class="faq-a">There is no single universal threshold, because risk depends on tank type, water source, deposit type, and where the material has accumulated. In practice, once sediment begins affecting outlet zones, inspection clarity, or cleaning complexity, it has moved beyond routine background build-up and should be addressed.</p>
+</div>
+
+<div class="article-faq-item">
+  <p class="faq-q">Can sediment in a potable water tank affect water quality even if the water looks clear?</p>
+  <p class="faq-a">Yes. Settled deposits can remain unnoticed until demand changes or tank levels move enough to disturb them. At that point the sediment can contribute to discolouration, turbidity, taste and odour issues, or carry other contaminants into supply.</p>
+</div>
+
+<div class="article-faq-item">
+  <p class="faq-q">Does sediment always come from the source water?</p>
+  <p class="faq-a">No. Sediment may come from external dust ingress, internal corrosion, degraded coatings, organic entry through compromised exclusion points, or hydraulic stagnation inside the tank itself. One of the most common mistakes is assuming every deposit originated upstream.</p>
+</div>
+
+<div class="article-faq-item">
+  <p class="faq-q">How often should a water storage tank be cleaned?</p>
+  <p class="faq-a">That depends on the source water, the tank's operating regime, and what previous inspections have found. As a general guide, standard distribution tanks often sit in the 4 to 6 year range, while higher-risk supplies such as bore water with iron or manganese may require shorter intervals around 2 to 4 years. Always check your scheme's approval conditions — some supplies have mandatory cleaning intervals set by their regulator.</p>
+</div>
+
+<div class="article-faq-item">
+  <p class="faq-q">Should cleaning and inspection be done together?</p>
+  <p class="faq-a">Usually yes. Cleaning removes the physical load, but inspection explains why that load formed and whether it has been masking corrosion, coating failure, hydraulic issues, or exclusion defects. Combining the two gives a much stronger maintenance decision than either task alone.</p>
+</div>
+
+<div class="article-cta">
+  <p>If sediment is building in your tank, do not wait for it to become an outlet problem or a complaint trigger. Read the evidence while it is still cheap to fix.</p>
+  <a href="/contact" class="cta-btn">Book a tank clean and inspection</a>
+</div>`,
+    coverImageUrl: `${BASE}/sediment-tank-hero.jpg`,
+    readTime: '5 min read',
+    status: 'published',
+    seoTitle: 'Sediment in Your Water Tank: What It Means | PC Water',
+    seoDescription:
+      'Sediment in a water tank is not just dirt on the floor. Learn where it comes from, what it tells you, and when it becomes a cleaning and water quality problem.',
+    publishedAt: '2026-06-16T09:00:00.000Z',
+    createdAt: '2026-06-16T09:00:00.000Z',
+    updatedAt: '2026-06-16T09:00:00.000Z',
+    tags: [
+      { id: 'tag-water-quality-sed', name: 'Water Quality', slug: 'water-quality' },
+      { id: 'tag-tank-maintenance-sed', name: 'Tank Maintenance', slug: 'tank-maintenance' },
+      { id: 'tag-potable-water-sed', name: 'Potable Water', slug: 'potable-water' },
+    ],
+  },
+  {
+    id: staticId('post', 'When Iron And Manganese Come From Inside The Tank Not The Source'),
+    title: 'When Iron and Manganese Come From Inside the Tank, Not the Source',
+    slug: 'when-iron-and-manganese-come-from-inside-the-tank-not-the-source',
+    excerpt:
+      'Brown or black water does not always start at the source. Learn how iron and manganese can come from inside the tank, and what evidence proves it.',
+    content: `<p class="article-lead">
+  If iron and manganese show up in complaints, sample results, or visible discolouration, do not assume they came from the raw water or treatment plant.
+</p>
+
+<p>Water storage tanks can generate or mobilise iron- and manganese-related deposits internally through corrosion, poor material selection, stagnant zones, disturbed floor sediment, and biological activity. That matters because the response is completely different depending on the true source.</p>
+
+<p>If the metals are arriving with the water, the answer may sit in treatment performance. If the tank is generating or releasing them internally, the answer is inspection, cleaning, materials review, and correction of the operating conditions that allowed the deposit to form. <a href="/resources/sediment-in-your-tank-what-it-is-where-it-comes-from-why-it-matters">The sediment story</a> and <a href="/resources/evidence-water-quality-issues-warning-signs">the evidence story</a> both point in the same direction: the tank is often part of the mechanism.</p>
+
+<div class="article-divider"><span>Why the source gets blamed first</span></div>
+
+<p>Iron and manganese sound like treatment words. Operators think about oxidation, filtration, and source water chemistry. Storage-side problems are easier to miss because a reservoir can look structurally acceptable from outside while still holding corroding internals, settled deposits, or low-turnover zones that periodically release colour into supply.</p>
+
+<p>That is why "brown water" is not a diagnosis. It is only a symptom. The real question is whether the material is entering storage or being created there.</p>
+
+<figure>
+  <img src="${BASE}/iron-manganese-corroding-fitting.png" alt="Corroding internal tank fitting with orange-brown staining inside a potable water tank"/>
+  <figcaption><strong>The tank can become the source.</strong> Corroding submerged fittings and staining concentrated around them are strong clues that the storage asset is generating contamination internally.</figcaption>
+</figure>
+
+<div class="article-divider"><span>How the tank creates the problem</span></div>
+
+<h3>Corroding steel and submerged metalwork</h3>
+<p>Internal steel components, degraded coatings, and inappropriate permanently immersed fittings can shed corrosion product into the stored water. Once that process starts, the tank is no longer acting as a passive container.</p>
+
+<h3>Wrong material in the wrong duty</h3>
+<p>Some internals and screen arrangements are simply unsuited to permanent immersion. In potable service, immersed materials should be selected for corrosion performance and compliance with <strong>AS 4020</strong>, not just convenience or legacy practice.</p>
+
+<h3>Settled deposits that get remobilised</h3>
+<p>Iron- and manganese-rich sediment can sit quietly on the floor until water levels change, outlet hydraulics pull through a dead zone, or maintenance activity disturbs the deposit. That is why the complaint often appears suddenly even though the deposit has been there for a long time.</p>
+
+<h3>Stagnant zones and disinfectant loss</h3>
+<p>Poor turnover creates areas where oxidised material settles, chlorine residual falls, and biological processes become more active. In those zones, iron and manganese bacteria may contribute to slime, staining, and black deposits that look like source-water colour but are being sustained by the storage environment.</p>
+
+<table class="checklist-table">
+  <thead>
+    <tr>
+      <th>Internal evidence</th>
+      <th>What it usually means</th>
+      <th>Why it changes the diagnosis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Orange-brown staining near corroding steel or fittings</td>
+      <td>Active iron-related corrosion inside the tank</td>
+      <td>Points to tank-generated contamination</td>
+    </tr>
+    <tr>
+      <td>Black soft deposits on the floor or in corners</td>
+      <td>Stagnant zones, biological activity, or metal-rich sediment</td>
+      <td>Suggests storage-side conditions are part of the problem</td>
+    </tr>
+    <tr>
+      <td>Deposits concentrated around outlet areas</td>
+      <td>Material is being mobilised into supply during drawdown</td>
+      <td>Explains intermittent complaints</td>
+    </tr>
+    <tr>
+      <td>Sediment banding and poor wall cleanliness</td>
+      <td>Weak cycling and repeated settling</td>
+      <td>Indicates the tank environment is enabling the build-up</td>
+    </tr>
+    <tr>
+      <td>Clear plant water but recurring complaints behind one tank</td>
+      <td>The problem is isolated to the storage asset</td>
+      <td>Narrows the root cause quickly</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="article-pull-stat">
+  <span class="stat-num">5</span>
+  <span class="stat-label">Five common storage-side pathways can create or release iron and manganese after the water has already entered the tank.</span>
+</div>
+
+<blockquote class="article-quotable">
+  <p>When the same storage asset keeps sitting behind brown or black water complaints, the tank is no longer just the place where the evidence settles. It is part of the mechanism.</p>
+</blockquote>
+
+<div class="article-divider"><span>What to inspect first</span></div>
+
+<h3>Check the floor deposits</h3>
+<p>Colour, texture, and distribution matter. A broad even dusting tells a different story from isolated black sludge or concentrated orange-brown deposits at fittings and low points.</p>
+
+<h3>Check submerged materials</h3>
+<p>Inspect outlet screens, bolts, brackets, ladders, pipe penetrations, and other immersed details for corrosion or poor specification. Materials that are acceptable above water are not automatically acceptable underwater for years.</p>
+
+<h3>Check turnover evidence</h3>
+<p>Wall banding, waterline staining, and signs that the tank is not drawing down properly support the conclusion that the hydraulic regime is helping the problem form and persist.</p>
+
+<div class="article-photo-grid">
+  <figure>
+    <img src="${BASE}/iron-manganese-black-deposit.png" alt="Black soft deposits settled on the floor of a potable water tank"/>
+    <figcaption><strong>Deposit character matters.</strong> Soft black deposits can point to stagnant zones, biological activity, or remobilisable metal-rich sediment.</figcaption>
+  </figure>
+  <figure>
+    <img src="${BASE}/iron-manganese-outlet-corrosion.png" alt="Corroded outlet zone inside a water storage tank with staining and deposit build-up"/>
+    <figcaption><strong>Look at the outlet zone.</strong> Local corrosion and deposit concentration around the outlet often explain why complaints appear during drawdown events.</figcaption>
+  </figure>
+</div>
+
+<div class="article-divider"><span>What the fix looks like</span></div>
+
+<p>The right response is usually straightforward in sequence, even if the repair scope varies from tank to tank: clean and remove the deposit, inspect the exposed condition, replace or redesign any corroding immersed components, review turnover and operating levels, disinfect and flush the tank before returning it to service, then re-test after the correction rather than after the clean alone.</p>
+
+<p>Treating the issue as a plant-only chemistry problem usually leaves the real source in service. Treating it as a cleaning-only problem removes the evidence but not the cause. The efficient path is to combine both cleaning and condition assessment while the tank is open and visible.</p>
+
+<div class="article-faq-item">
+  <p class="faq-q">Can a water storage tank itself cause iron and manganese problems?</p>
+  <p class="faq-a">Yes. Corroding internals, poor material selection, settled deposits, stagnant zones, and biological activity can all cause iron- and manganese-related contamination to form or be released inside the tank after the water has entered storage.</p>
+</div>
+
+<div class="article-faq-item">
+  <p class="faq-q">How do you tell whether brown water is coming from the source or the tank?</p>
+  <p class="faq-a">Look for internal evidence and system pattern. If one specific tank sits behind recurring complaints, and internal inspection finds corroding fittings, black deposits, orange-brown sediment, or poor turnover evidence, the storage asset is likely part of the cause.</p>
+</div>
+
+<div class="article-faq-item">
+  <p class="faq-q">Can sediment on the tank floor release iron and manganese later?</p>
+  <p class="faq-a">Yes. Deposits can remain settled until water levels change, outlet hydraulics disturb them, or maintenance work mobilises them. That is why discolouration complaints often appear intermittent rather than constant.</p>
+</div>
+
+<div class="article-faq-item">
+  <p class="faq-q">Are galvanised components a risk inside potable water tanks?</p>
+  <p class="faq-a">They can be if they are permanently immersed or used in duties they were not suited for. In potable service, immersed materials should be selected for corrosion performance and compliance with <strong>AS 4020</strong>, not just convenience or legacy practice.</p>
+</div>
+
+<div class="article-faq-item">
+  <p class="faq-q">What is the best fix if the tank is the source?</p>
+  <p class="faq-a">The best fix is a combined clean and condition assessment, followed by replacement of corroding components and correction of the operating conditions that allowed the deposit to form. Disinfect and flush the tank before returning it to service, then re-test after the correction. Treating it as a plant-only issue usually leaves the real source in service.</p>
+</div>
+
+<div class="article-cta">
+  <p>If one storage asset keeps sitting behind brown or black water complaints, stop adjusting assumptions and inspect the tank itself.</p>
+  <a href="/contact" class="cta-btn">Request an internal tank assessment</a>
+</div>`,
+    coverImageUrl: `${BASE}/iron-manganese-tank-hero.png`,
+    readTime: '4 min read',
+    status: 'published',
+    seoTitle: 'Iron and Manganese from Inside the Tank | PC Water',
+    seoDescription:
+      'Brown or black water does not always start at the source. Learn how iron and manganese can come from inside the tank, and what evidence proves it.',
+    publishedAt: '2026-06-17T09:00:00.000Z',
+    createdAt: '2026-06-17T09:00:00.000Z',
+    updatedAt: '2026-06-17T09:00:00.000Z',
+    tags: [
+      { id: 'tag-water-quality-im', name: 'Water Quality', slug: 'water-quality' },
+      { id: 'tag-tank-maintenance-im', name: 'Tank Maintenance', slug: 'tank-maintenance' },
+      { id: 'tag-corrosion-im', name: 'Corrosion', slug: 'corrosion' },
     ],
   },
 ]
@@ -192,11 +647,11 @@ export const fallbackProjects: CmsProject[] = [
     ],
     status: 'published',
     featured: true,
-    seoTitle: null,
-    seoDescription: null,
     publishedAt: '2026-04-01T09:00:00.000Z',
     createdAt: '2026-04-01T09:00:00.000Z',
     updatedAt: '2026-04-01T09:00:00.000Z',
+    seoTitle: 'Borumba Hydro Scheme Water Infrastructure | PC Water',
+    seoDescription: 'PC Water Infrastructure designed and installed two 521kL tanks — potable and effluent storage — at the remote Borumba Dam hydro scheme site in Queensland.',
     tags: [{ id: 'tag-government', name: 'Government', slug: 'government' }],
   },
   {
@@ -223,11 +678,11 @@ export const fallbackProjects: CmsProject[] = [
     ],
     status: 'published',
     featured: true,
-    seoTitle: null,
-    seoDescription: null,
     publishedAt: '2026-04-02T09:00:00.000Z',
     createdAt: '2026-04-02T09:00:00.000Z',
     updatedAt: '2026-04-02T09:00:00.000Z',
+    seoTitle: 'Nyrstar Hobart Industrial Tank Installation | PC Water',
+    seoDescription: 'Two industrial water tanks for the Nyrstar zinc smelter in Hobart, Tasmania — specialist corrosion-resistant engineering for a harsh processing environment.',
     tags: [{ id: 'tag-refurbish', name: 'Refurbish', slug: 'refurbish' }],
   },
   {
@@ -262,8 +717,8 @@ export const fallbackProjects: CmsProject[] = [
     ],
     status: 'published',
     featured: true,
-    seoTitle: null,
-    seoDescription: null,
+    seoTitle: 'Doomadgee 2ML Reservoir | PC Water',
+    seoDescription: 'PC Water delivering a 2ML ground-level tank for Doomadgee Council in remote Queensland — supporting the community water treatment plant.',
     publishedAt: '2026-04-03T09:00:00.000Z',
     createdAt: '2026-04-03T09:00:00.000Z',
     updatedAt: '2026-04-03T09:00:00.000Z',
@@ -297,8 +752,8 @@ export const fallbackProjects: CmsProject[] = [
     ],
     status: 'published',
     featured: false,
-    seoTitle: null,
-    seoDescription: null,
+    seoTitle: 'Albury Reservoir RPVC Reline | PC Water',
+    seoDescription: 'RPVC liner installation and full refurbishment of a 600kL Albury NSW reservoir — restoring AS4020 potable water compliance and extending asset life by 20+ years',
     publishedAt: '2026-04-04T09:00:00.000Z',
     createdAt: '2026-04-04T09:00:00.000Z',
     updatedAt: '2026-04-04T09:00:00.000Z',
@@ -334,8 +789,8 @@ export const fallbackProjects: CmsProject[] = [
     ],
     status: 'published',
     featured: true,
-    seoTitle: 'Kybrook Farm Elevated Tank Replacement — Pine Creek NT | PC Tanks',
-    seoDescription: 'PC Tanks delivered a 90kL elevated 316 stainless steel potable water tank replacement at Kybrook Farm, Pine Creek NT for McMahon Services and Power and Water Corporation.',
+    seoTitle: 'Kybrook Farm Elevated Tank Replacement — Pine Creek NT | PC Water',
+    seoDescription: '90kL stainless steel elevated potable water tank replacement at Kybrook Farm, Pine Creek NT — remote Northern Territory delivery by PC Water Infrastructure.',
     publishedAt: '2026-05-07T09:00:00.000Z',
     createdAt: '2026-05-07T09:00:00.000Z',
     updatedAt: '2026-05-07T09:00:00.000Z',
@@ -364,8 +819,8 @@ export const fallbackProjects: CmsProject[] = [
     ],
     status: 'published',
     featured: false,
-    seoTitle: null,
-    seoDescription: null,
+    seoTitle: 'Clarence Road RPVC Liner Replacement | PC Water',
+    seoDescription: 'RPVC liner replacement for two commercial water storage tanks at 107 Clarence Road — restoring compliance and avoiding full asset replacement.',
     publishedAt: '2026-04-05T09:00:00.000Z',
     createdAt: '2026-04-05T09:00:00.000Z',
     updatedAt: '2026-04-05T09:00:00.000Z',
