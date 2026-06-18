@@ -25,6 +25,62 @@ function normalizeFileName(name: string) {
   return `${safe || 'image'}${ext}`
 }
 
+function jpgFileName(name: string) {
+  const dot = name.lastIndexOf('.')
+  const base = dot === -1 ? name : name.slice(0, dot)
+  return normalizeFileName(`${base}.jpg`)
+}
+
+async function compressImageForUpload(file: File, folder: string) {
+  if (!file.type.startsWith('image/') || file.type === 'image/gif') {
+    return file
+  }
+
+  const imageUrl = URL.createObjectURL(file)
+  try {
+    const image = await new Promise<HTMLImageElement>((resolve, reject) => {
+      const img = new Image()
+      img.onload = () => resolve(img)
+      img.onerror = () => reject(new Error('Could not read image file.'))
+      img.src = imageUrl
+    })
+
+    const maxEdge = folder.includes('projects/hero') ? 1920 : 1600
+    const scale = Math.min(1, maxEdge / Math.max(image.naturalWidth, image.naturalHeight))
+    const width = Math.max(1, Math.round(image.naturalWidth * scale))
+    const height = Math.max(1, Math.round(image.naturalHeight * scale))
+
+    const canvas = document.createElement('canvas')
+    canvas.width = width
+    canvas.height = height
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return file
+
+    ctx.fillStyle = '#ffffff'
+    ctx.fillRect(0, 0, width, height)
+    ctx.imageSmoothingEnabled = true
+    ctx.imageSmoothingQuality = 'high'
+    ctx.drawImage(image, 0, 0, width, height)
+
+    const blob = await new Promise<Blob | null>((resolve) => {
+      canvas.toBlob(resolve, 'image/jpeg', 0.72)
+    })
+
+    if (!blob || blob.size >= file.size) {
+      return file
+    }
+
+    return new File([blob], jpgFileName(file.name), {
+      type: 'image/jpeg',
+      lastModified: Date.now(),
+    })
+  } catch {
+    return file
+  } finally {
+    URL.revokeObjectURL(imageUrl)
+  }
+}
+
 // ── Small icon buttons ────────────────────────────────────────────────────────
 
 function IconBtn({ onClick, title, danger, disabled, children }: {
@@ -391,10 +447,11 @@ export default function MediaUploader({
     try {
       const uploaded: string[] = []
       for (const file of files) {
-        const path = `${folder}/${Date.now()}-${crypto.randomUUID()}-${normalizeFileName(file.name)}`
+        const uploadFile = await compressImageForUpload(file, folder)
+        const path = `${folder}/${Date.now()}-${crypto.randomUUID()}-${normalizeFileName(uploadFile.name)}`
         const { data, error: uploadError } = await supabase.storage
           .from('cms-media')
-          .upload(path, file, { contentType: file.type || 'application/octet-stream', upsert: false })
+          .upload(path, uploadFile, { contentType: uploadFile.type || 'application/octet-stream', upsert: false })
 
         if (uploadError || !data) throw new Error(uploadError?.message ?? 'Upload failed.')
         const { data: urlData } = supabase.storage.from('cms-media').getPublicUrl(data.path)
