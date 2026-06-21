@@ -125,7 +125,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en-AU" className={`${roboto.variable} ${inter.variable}`} suppressHydrationWarning>
       <head>
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-Y04Q1N06DC"
+          src="https://www.googletagmanager.com/gtag/js?id=GT-TBNRDZ9P"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -133,7 +133,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-Y04Q1N06DC');
+            gtag('config', 'GT-TBNRDZ9P');
           `}
         </Script>
         {/* Dark mode FOUC prevention — must run before paint */}
