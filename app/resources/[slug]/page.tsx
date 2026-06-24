@@ -140,6 +140,22 @@ const resourceLinkMap: Record<
     relatedResources: ['sediment-in-your-tank-what-it-is-where-it-comes-from-why-it-matters', 'evidence-water-quality-issues-warning-signs', '5-contamination-risks-not-source-water'],
     keywords: ['iron manganese water tank australia', 'brown water storage tank cause', 'tank corrosion iron contamination', 'manganese water storage internal'],
   },
+  'how-often-should-a-water-tank-be-cleaned': {
+    relatedServices: [
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+    ],
+    relatedResources: ['what-5-15mm-of-sediment-actually-looks-like', 'how-we-clean-a-water-tank-diver-vacuuming-method', 'sediment-in-your-tank-what-it-is-where-it-comes-from-why-it-matters'],
+    keywords: ['how often should a water tank be cleaned', 'water tank cleaning frequency australia', 'potable water tank maintenance', 'AS4020 water tank', 'AS1851 fire tank inspection'],
+  },
+  'what-5-15mm-of-sediment-actually-looks-like': {
+    relatedServices: [
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+    ],
+    relatedResources: ['how-often-should-a-water-tank-be-cleaned', 'sediment-in-your-tank-what-it-is-where-it-comes-from-why-it-matters', 'evidence-water-quality-issues-warning-signs'],
+    keywords: ['how much sediment in a water tank is too much', 'sediment depth in potable water tank australia', 'water tank sediment cleaning threshold ADWG', 'tank sediment turbidity risk AS4020'],
+  },
 }
 
 export async function generateStaticParams() {
