@@ -36,7 +36,34 @@ const PROJECT_SERVICE_FALLBACKS = {
 }
 
 const PROJECT_STATUSES = {
-  'doomadgee-wtp': 'Incomplete',
+  'doomadgee-wtp': 'Ongoing',
+}
+
+const PROJECT_SNAPSHOT_DETAILS = {
+  'hobart-nyrstar': {
+    clientOrganisation: 'Nyrstar',
+    contractValue: '$450,000',
+  },
+  'albury-reservoir': {
+    clientOrganisation: 'AlburyCity Council',
+    contractValue: '$96,500.00',
+  },
+  'doomadgee-wtp': {
+    clientOrganisation: 'Australian Government, through the National Water Grid Fund, and the Queensland Government\n\nDepartment of Local Government, Water and Volunteers (DLGWV)',
+    contractValue: '$3,000,000',
+  },
+  'borumba-hydro': {
+    clientOrganisation: 'Hydra Dynamics Pty LTD',
+    contractValue: '$260,000.00',
+  },
+  'clarence-road-liner': {
+    clientOrganisation: 'SAVVE Developments & Construction',
+    contractValue: '$55,000.00',
+  },
+  'kybrook-nt': {
+    clientOrganisation: 'McMahon Services Australia (NT)',
+    contractValue: '$240,000.00',
+  },
 }
 
 const DOOMADGEE_OUTCOME =
@@ -54,7 +81,8 @@ function loadEnvFile(filePath) {
     const separatorIndex = trimmed.indexOf('=')
     if (separatorIndex === -1) continue
     const key = trimmed.slice(0, separatorIndex).trim()
-    const value = trimmed.slice(separatorIndex + 1).trim()
+    const rawValue = trimmed.slice(separatorIndex + 1).trim()
+    const value = rawValue.replace(/^['"]|['"]$/g, '')
     if (!(key in process.env)) process.env[key] = value
   }
 }
@@ -121,6 +149,7 @@ async function main() {
 
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL
   const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  const serviceKey = process.env.SUPABASE_SECRET_KEY
   const email = getArgValue('--email')
   const password = getArgValue('--password')
 
@@ -128,15 +157,16 @@ async function main() {
     throw new Error('Missing NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_ANON_KEY.')
   }
 
-  if (!email || !password) {
+  if (!serviceKey && (!email || !password)) {
     throw new Error('Usage: node scripts/sync-project-meta.cjs --email you@example.com --password your-password')
   }
 
-  const accessToken = await authenticate({ url, anonKey, email, password })
+  const accessToken = serviceKey || await authenticate({ url, anonKey, email, password })
+  const apiKey = serviceKey || anonKey
   const projects = await fetchJson(
     `${url}/rest/v1/cms_projects?select=id,slug,content`,
     {
-      headers: createHeaders(anonKey, accessToken),
+      headers: createHeaders(apiKey, accessToken),
     },
   )
 
@@ -145,19 +175,22 @@ async function main() {
   for (const project of projects ?? []) {
     const servicesDelivered = PROJECT_SERVICE_FALLBACKS[project.slug] ?? []
     const projectStatus = PROJECT_STATUSES[project.slug] ?? 'Completed'
+    const snapshotDetails = PROJECT_SNAPSHOT_DETAILS[project.slug] ?? {}
     const content = project.slug === 'doomadgee-wtp'
       ? replaceDoomadgeeOutcome(project.content)
       : stripProjectMeta(project.content)
 
     await fetchJson(`${url}/rest/v1/cms_projects?id=eq.${project.id}`, {
       method: 'PATCH',
-      headers: createHeaders(anonKey, accessToken, {
+      headers: createHeaders(apiKey, accessToken, {
         'Content-Type': 'application/json',
         Prefer: 'return=minimal',
       }),
       body: JSON.stringify({
         content: serializeProjectContent(content, {
           projectStatus,
+          clientOrganisation: snapshotDetails.clientOrganisation || '',
+          contractValue: snapshotDetails.contractValue || '',
           servicesDelivered,
         }),
       }),

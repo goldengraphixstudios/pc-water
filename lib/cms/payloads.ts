@@ -39,6 +39,8 @@ export function buildProjectPayload(input: CmsProjectInput) {
     summary:         input.summary.trim(),
     content:         serializeProjectContent(input.content, {
       projectStatus: input.projectStatus,
+      clientOrganisation: input.clientOrganisation,
+      contractValue: input.contractValue,
       servicesDelivered: input.servicesDelivered,
     }),
     sector:          input.sector.trim(),

@@ -33,6 +33,8 @@ export interface CmsProject {
   location: string
   scope: string
   projectStatus?: string
+  clientOrganisation?: string
+  contractValue?: string
   servicesDelivered?: string[]
   heroImageUrl: string | null
   galleryUrls: string[]
@@ -69,6 +71,8 @@ export interface CmsProjectInput {
   location: string
   scope: string
   projectStatus?: string
+  clientOrganisation?: string
+  contractValue?: string
   servicesDelivered?: string[]
   heroImageUrl?: string | null
   galleryUrls: string[]

@@ -20,7 +20,8 @@ function loadEnvFile(filePath) {
     }
 
     const key = trimmed.slice(0, separatorIndex).trim()
-    const value = trimmed.slice(separatorIndex + 1).trim()
+    const rawValue = trimmed.slice(separatorIndex + 1).trim()
+    const value = rawValue.replace(/^['"]|['"]$/g, '')
     if (!(key in process.env)) {
       process.env[key] = value
     }
@@ -86,12 +87,42 @@ const PROJECT_SERVICE_FALLBACKS = {
   ],
 }
 
+const PROJECT_SNAPSHOT_DETAILS = {
+  'hobart-nyrstar': {
+    clientOrganisation: 'Nyrstar',
+    contractValue: '$450,000',
+  },
+  'albury-reservoir': {
+    clientOrganisation: 'AlburyCity Council',
+    contractValue: '$96,500.00',
+  },
+  'doomadgee-wtp': {
+    clientOrganisation: 'Australian Government, through the National Water Grid Fund, and the Queensland Government\n\nDepartment of Local Government, Water and Volunteers (DLGWV)',
+    contractValue: '$3,000,000',
+  },
+  'borumba-hydro': {
+    clientOrganisation: 'Hydra Dynamics Pty LTD',
+    contractValue: '$260,000.00',
+  },
+  'clarence-road-liner': {
+    clientOrganisation: 'SAVVE Developments & Construction',
+    contractValue: '$55,000.00',
+  },
+  'kybrook-nt': {
+    clientOrganisation: 'McMahon Services Australia (NT)',
+    contractValue: '$240,000.00',
+  },
+}
+
 const META_RE = /<!--\s*cms:project-meta\s*([\s\S]*?)\s*-->\s*/i
 
 function serializeProjectContent(project) {
   const content = (project.content ?? '').replace(META_RE, '').trim()
+  const snapshotDetails = PROJECT_SNAPSHOT_DETAILS[project.slug] || {}
   const meta = {
     projectStatus: project.projectStatus || 'Completed',
+    clientOrganisation: project.clientOrganisation || snapshotDetails.clientOrganisation || '',
+    contractValue: project.contractValue || snapshotDetails.contractValue || '',
     servicesDelivered: project.servicesDelivered || PROJECT_SERVICE_FALLBACKS[project.slug] || [],
   }
 

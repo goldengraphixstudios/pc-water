@@ -28,6 +28,8 @@ function toFormState(project?: CmsProject | null): CmsProjectInput {
     location:       project?.location       ?? '',
     scope:          project?.scope          ?? '',
     projectStatus:  project?.projectStatus  ?? 'Completed',
+    clientOrganisation: project?.clientOrganisation ?? '',
+    contractValue:  project?.contractValue  ?? '',
     servicesDelivered: project?.servicesDelivered ?? [],
     heroImageUrl:   project?.heroImageUrl   ?? '',
     galleryUrls:    project?.galleryUrls    ?? [],
@@ -266,8 +268,26 @@ export default function ProjectEditorForm({ project, availableClassifications = 
                 </Field>
               </div>
               <Field label="Project Snapshot Status" hint="Shown in the public Project Snapshot panel. This is separate from CMS publish status.">
-                <input value={form.projectStatus ?? ''} onChange={(e) => update('projectStatus', e.target.value)} className="field" placeholder="Completed, Incomplete, In Progress" required />
+                <input value={form.projectStatus ?? ''} onChange={(e) => update('projectStatus', e.target.value)} className="field" placeholder="Completed, Ongoing, In Progress" required />
               </Field>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <Field label="Client / Organisation" hint="Shown in the public Project Snapshot panel.">
+                  <textarea
+                    value={form.clientOrganisation ?? ''}
+                    onChange={(e) => update('clientOrganisation', e.target.value)}
+                    className="field min-h-24 resize-y"
+                    placeholder="Client, council, funding body, or principal organisation"
+                  />
+                </Field>
+                <Field label="Contract Value" hint="Shown in the public Project Snapshot panel.">
+                  <input
+                    value={form.contractValue ?? ''}
+                    onChange={(e) => update('contractValue', e.target.value)}
+                    className="field"
+                    placeholder="$450,000"
+                  />
+                </Field>
+              </div>
               <Field label="Summary" hint="Shown in project cards on industry/service pages">
                 <textarea value={form.summary} onChange={(e) => update('summary', e.target.value)} className="field min-h-20 resize-none" placeholder="Short project summary for grid cards and previews." required />
               </Field>

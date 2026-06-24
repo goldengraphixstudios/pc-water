@@ -72,6 +72,8 @@ function mapProject(row: ProjectRow): CmsProject {
     summary: row.summary ?? '', content: parsedContent.content,
     sector: row.sector ?? '', location: row.location ?? '', scope: row.scope ?? '',
     projectStatus: parsedContent.meta.projectStatus,
+    clientOrganisation: parsedContent.meta.clientOrganisation,
+    contractValue: parsedContent.meta.contractValue,
     servicesDelivered: parsedContent.meta.servicesDelivered,
     heroImageUrl: row.hero_image_url, galleryUrls: row.gallery_urls ?? [],
     status: row.status, featured: Boolean(row.featured),

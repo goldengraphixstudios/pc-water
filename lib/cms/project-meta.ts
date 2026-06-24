@@ -1,5 +1,7 @@
 export type ProjectContentMeta = {
   projectStatus: string
+  clientOrganisation: string
+  contractValue: string
   servicesDelivered: string[]
 }
 
@@ -9,6 +11,8 @@ const META_RE = /<!--\s*cms:project-meta\s*([\s\S]*?)\s*-->\s*/i
 
 export const defaultProjectMeta: ProjectContentMeta = {
   projectStatus: 'Completed',
+  clientOrganisation: '',
+  contractValue: '',
   servicesDelivered: [],
 }
 
@@ -29,6 +33,8 @@ export function parseProjectContent(rawContent: string | null | undefined) {
       content: source.replace(META_RE, '').trimStart(),
       meta: {
         projectStatus: parsed.projectStatus?.trim() || defaultProjectMeta.projectStatus,
+        clientOrganisation: parsed.clientOrganisation?.trim() || defaultProjectMeta.clientOrganisation,
+        contractValue: parsed.contractValue?.trim() || defaultProjectMeta.contractValue,
         servicesDelivered: Array.isArray(parsed.servicesDelivered)
           ? parsed.servicesDelivered.map((service) => String(service).trim()).filter(Boolean)
           : [],
@@ -46,6 +52,8 @@ export function serializeProjectContent(content: string, meta?: Partial<ProjectC
   const cleanContent = parseProjectContent(content).content.trim()
   const normalizedMeta: ProjectContentMeta = {
     projectStatus: meta?.projectStatus?.trim() || defaultProjectMeta.projectStatus,
+    clientOrganisation: meta?.clientOrganisation?.trim() || defaultProjectMeta.clientOrganisation,
+    contractValue: meta?.contractValue?.trim() || defaultProjectMeta.contractValue,
     servicesDelivered: Array.isArray(meta?.servicesDelivered)
       ? meta.servicesDelivered.map((service) => service.trim()).filter(Boolean)
       : [],

@@ -167,11 +167,13 @@ export default async function ManagedProjectPage({
                     { label: 'Sector', value: project.sector },
                     { label: 'Location', value: project.location },
                     { label: 'Scope', value: project.scope },
+                    { label: 'Client / Organisation', value: project.clientOrganisation },
+                    { label: 'Contract Value', value: project.contractValue },
                     { label: 'Status', value: project.projectStatus || 'Completed' },
-                  ].map((item) => (
+                  ].filter((item) => item.value?.trim()).map((item) => (
                     <div key={item.label} className="flex justify-between gap-4 py-2 border-b border-gray-200 last:border-0">
                       <dt className="text-gray-500 font-medium">{item.label}</dt>
-                      <dd className="text-[#30505b] font-semibold text-right">{item.value}</dd>
+                      <dd className="text-[#30505b] font-semibold text-right whitespace-pre-line">{item.value}</dd>
                     </div>
                   ))}
                 </dl>

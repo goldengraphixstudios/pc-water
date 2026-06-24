@@ -636,6 +636,8 @@ export const fallbackProjects: CmsProject[] = [
     sector: 'Hydro Energy / Government',
     location: 'Borumba Dam, Queensland',
     scope: '2 × 521KL tanks — potable water and effluent storage, AS4020 compliant',
+    clientOrganisation: 'Hydra Dynamics Pty LTD',
+    contractValue: '$260,000.00',
     heroImageUrl: 'https://goldengraphixstudios.github.io/pc-water/projects/borumba-hero.jpg',
     galleryUrls: [
       'https://goldengraphixstudios.github.io/pc-water/projects/borumba-01.jpg',
@@ -664,6 +666,8 @@ export const fallbackProjects: CmsProject[] = [
     sector: 'Industrial / Refurbish',
     location: 'Hobart, Tasmania',
     scope: '2 × industrial tanks — specialist coatings for zinc processing environment',
+    clientOrganisation: 'Nyrstar',
+    contractValue: '$450,000',
     heroImageUrl: 'https://goldengraphixstudios.github.io/pc-water/projects/hobart-01.jpg',
     galleryUrls: [
       'https://goldengraphixstudios.github.io/pc-water/projects/hobart-01.jpg',
@@ -695,7 +699,9 @@ export const fallbackProjects: CmsProject[] = [
       sector: 'Remote Community / Government',
       location: 'Doomadgee, QLD (Remote)',
       scope: '2ML ground-level tank — water treatment plant storage',
-      projectStatus: 'Incomplete',
+      projectStatus: 'Ongoing',
+      clientOrganisation: 'Australian Government, through the National Water Grid Fund, and the Queensland Government\n\nDepartment of Local Government, Water and Volunteers (DLGWV)',
+      contractValue: '$3,000,000',
       servicesDelivered: [
         'Remote Area Project Delivery',
         'Custom Tank Design & Engineering',
@@ -737,6 +743,8 @@ export const fallbackProjects: CmsProject[] = [
     sector: 'Municipal / Government',
     location: 'Albury, NSW',
     scope: '600kL reservoir RPVC reline and full refurbishment — AS4020 compliance',
+    clientOrganisation: 'AlburyCity Council',
+    contractValue: '$96,500.00',
     heroImageUrl: 'https://goldengraphixstudios.github.io/pc-water/projects/albury-06.jpg',
     galleryUrls: [
       'https://goldengraphixstudios.github.io/pc-water/projects/albury-06.jpg',
@@ -774,6 +782,8 @@ export const fallbackProjects: CmsProject[] = [
     sector: 'Utilities / Government',
     location: 'Kybrook Farm, Pine Creek, NT',
     scope: '1 × 90kL elevated potable water tank replacement — 316 stainless steel',
+    clientOrganisation: 'McMahon Services Australia (NT)',
+    contractValue: '$240,000.00',
     heroImageUrl: 'https://goldengraphixstudios.github.io/pc-water/projects/kybrook-01.jpg',
     galleryUrls: [
       'https://goldengraphixstudios.github.io/pc-water/projects/kybrook-01.jpg',
@@ -808,6 +818,8 @@ export const fallbackProjects: CmsProject[] = [
     sector: 'Commercial',
     location: '107 Clarence Road',
     scope: '2 × tank RPVC liner replacement — compliance restoration',
+    clientOrganisation: 'SAVVE Developments & Construction',
+    contractValue: '$55,000.00',
     heroImageUrl: 'https://goldengraphixstudios.github.io/pc-water/projects/clarence-01.jpg',
     galleryUrls: [
       'https://goldengraphixstudios.github.io/pc-water/projects/clarence-01.jpg',
