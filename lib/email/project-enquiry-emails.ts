@@ -7,10 +7,8 @@ type EmailSendResult = {
 }
 
 const PROJECT_ENQUIRY_NOTIFY_TO = [
-  'goldengraphixstudios@gmail.com',
   'james@pctanks.com.au',
   'mike@pctanks.com.au',
-  'ricci@pctanks.com.au',
 ]
 
 function escapeHtml(value: string) {
