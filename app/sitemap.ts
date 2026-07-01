@@ -20,6 +20,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // priority 0.85
     { url: `${BASE_URL}/tools/tank-compliance-checker`, lastModified, changeFrequency: 'monthly', priority: 0.85 },
     { url: `${BASE_URL}/tools/repair-reline-replace`, lastModified, changeFrequency: 'monthly', priority: 0.85 },
+    { url: `${BASE_URL}/offer`, lastModified, changeFrequency: 'weekly', priority: 0.85 },
 
     // priority 0.8
     { url: `${BASE_URL}/about`, lastModified, changeFrequency: 'monthly', priority: 0.8 },

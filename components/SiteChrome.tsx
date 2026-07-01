@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation'
 
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
+import OfferPopup from '@/components/OfferPopup'
 import PageTransition from '@/components/PageTransition'
 
 export default function SiteChrome({ children }: { children: React.ReactNode }) {
@@ -21,6 +22,7 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
         <PageTransition>{children}</PageTransition>
       </main>
       <Footer />
+      <OfferPopup />
     </>
   )
 }
