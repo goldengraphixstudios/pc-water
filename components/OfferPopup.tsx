@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import AppImage from '@/components/AppImage'
 import { getActiveOffer } from '@/lib/offers'
 
-const DELAY_MS = 5000
+const DELAY_MS = 3000
 const STORAGE_PREFIX = 'pcw-offer-popup:'
 
 export default function OfferPopup() {
