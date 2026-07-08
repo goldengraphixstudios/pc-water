@@ -145,7 +145,7 @@ const resourceLinkMap: Record<
       { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
       { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
     ],
-    relatedResources: ['what-5-15mm-of-sediment-actually-looks-like', 'how-we-clean-a-water-tank-diver-vacuuming-method', 'sediment-in-your-tank-what-it-is-where-it-comes-from-why-it-matters'],
+    relatedResources: ['what-5-15mm-of-sediment-actually-looks-like', 'when-cleaning-is-not-just-cleaning', 'sediment-disposal-what-happens-to-everything-that-comes-out-of-your-tank'],
     keywords: ['how often should a water tank be cleaned', 'water tank cleaning frequency australia', 'potable water tank maintenance', 'AS4020 water tank', 'AS1851 fire tank inspection'],
   },
   'what-5-15mm-of-sediment-actually-looks-like': {
@@ -153,8 +153,24 @@ const resourceLinkMap: Record<
       { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
       { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
     ],
-    relatedResources: ['how-often-should-a-water-tank-be-cleaned', 'sediment-in-your-tank-what-it-is-where-it-comes-from-why-it-matters', 'evidence-water-quality-issues-warning-signs'],
+    relatedResources: ['how-often-should-a-water-tank-be-cleaned', 'sediment-in-your-tank-what-it-is-where-it-comes-from-why-it-matters', 'sediment-disposal-what-happens-to-everything-that-comes-out-of-your-tank'],
     keywords: ['how much sediment in a water tank is too much', 'sediment depth in potable water tank australia', 'water tank sediment cleaning threshold ADWG', 'tank sediment turbidity risk AS4020'],
+  },
+  'sediment-disposal-what-happens-to-everything-that-comes-out-of-your-tank': {
+    relatedServices: [
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+    ],
+    relatedResources: ['how-often-should-a-water-tank-be-cleaned', 'what-5-15mm-of-sediment-actually-looks-like', 'how-we-clean-a-water-tank-diver-vacuuming-method'],
+    keywords: ['tank sediment disposal australia', 'water tank cleaning waste removal', 'tank cleaning wastewater discharge method', 'coffer dam water tank cleaning', 'vacuum tanker tank cleaning cost', 'trade waste approval tank cleaning'],
+  },
+  'when-cleaning-is-not-just-cleaning': {
+    relatedServices: [
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+    ],
+    relatedResources: ['how-often-should-a-water-tank-be-cleaned', 'sediment-in-your-tank-what-it-is-where-it-comes-from-why-it-matters', 'corrosion-is-killing-your-storage-tanks-and-heres-how-to-stop-it'],
+    keywords: ['water tank inspection during cleaning', 'concrete reservoir spalling australia', 'tank roof support post corrosion', 'water tank condition assessment australia', 'tank coating failure inspection', 'tank lining refurbishment australia'],
   },
 }
 
