@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
 
 import AppImage from '@/components/AppImage'
 import ArticleJsonLd from '@/components/ArticleJsonLd'
@@ -242,7 +243,7 @@ export default async function ResourceArticlePage({
   const allPosts = await getPublicPosts()
 
   if (!post) {
-    return null
+    notFound()
   }
 
   const relatedConfig = resourceLinkMap[post.slug]

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
 
 import AppImage from '@/components/AppImage'
 import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
@@ -76,7 +77,7 @@ export default async function ManagedProjectPage({
   const project = await getPublicProjectBySlug(slug)
 
   if (!project) {
-    return null
+    notFound()
   }
 
   // Wrap-around prev/next so every project receives incoming links from its neighbours
