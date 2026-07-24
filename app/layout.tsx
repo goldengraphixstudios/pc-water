@@ -18,6 +18,7 @@ const inter = Inter({
 })
 import SiteChrome from '@/components/SiteChrome'
 import TawkChat from '@/components/TawkChat'
+import { socialProfileUrls } from '@/lib/social-links'
 
 const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
@@ -113,11 +114,7 @@ const organizationSchema = {
       closes: '17:00',
     },
   },
-  sameAs: [
-    'https://www.facebook.com/pacificwatertanks',
-    'https://www.instagram.com/pacificwatertanks',
-    'https://www.linkedin.com/company/pacificwatertanks',
-  ],
+  sameAs: socialProfileUrls,
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
