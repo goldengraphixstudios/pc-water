@@ -68,15 +68,20 @@ export interface FieldConfig {
   fullWidth?: boolean
 }
 
+export interface FormStep {
+  heading: string
+  intro?: string
+  fields: FieldConfig[]
+}
+
 export interface FormConfig {
-  /** Step 1 — project qualification. Campaign-specific. */
-  step1Heading: string
-  step1Intro?: string
-  step1Fields: FieldConfig[]
-  /** Step 2 — contact details. Shared shape across both campaigns. */
-  step2Heading: string
-  step2Intro?: string
-  step2Fields: FieldConfig[]
+  /**
+   * Qualification steps (campaign-specific). Kept short so the form fits inside
+   * the hero on desktop and stays fast to complete on mobile.
+   */
+  steps: FormStep[]
+  /** Final contact step — shared shape across both campaigns. */
+  contact: FormStep
   submitLabel: string
 }
 
@@ -308,53 +313,65 @@ export const tankRemediationConfig: CampaignConfig = {
     primaryCta: 'Request a Tank Remediation Proposal',
   },
   form: {
-    step1Heading: 'Tell us about the asset',
-    step1Intro: 'Step 1 of 2 — a few details about the tank and the issue.',
-    step1Fields: [
+    steps: [
       {
-        name: 'conditionIssues',
-        label: 'What condition issues are you seeing?',
-        type: 'cards',
-        required: true,
-        helper: 'Select all that apply.',
-        options: [
-          'Active leak',
-          'Corrosion',
-          'Liner deterioration',
-          'Structural concern',
-          'Water-quality concern',
-          'Recurring maintenance',
-          'Unknown condition',
+        heading: 'What’s happening with the tank?',
+        intro: 'A quick picture of the issue — this shapes the assessment.',
+        fields: [
+          {
+            name: 'conditionIssues',
+            label: 'What condition issues are you seeing?',
+            type: 'cards',
+            required: true,
+            helper: 'Select all that apply.',
+            options: [
+              'Active leak',
+              'Corrosion',
+              'Liner deterioration',
+              'Structural concern',
+              'Water-quality concern',
+              'Recurring maintenance',
+              'Unknown condition',
+            ],
+            fullWidth: true,
+          },
+          {
+            name: 'suspectedPathway',
+            label: 'What pathway do you suspect you need?',
+            type: 'radio',
+            options: ['Repair', 'Reline', 'Replace', 'Unsure'],
+            fullWidth: true,
+          },
         ],
-        fullWidth: true,
       },
       {
-        name: 'suspectedPathway',
-        label: 'What pathway do you suspect you need?',
-        type: 'radio',
-        options: ['Repair', 'Reline', 'Replace', 'Unsure'],
-        fullWidth: true,
-      },
-      { name: 'tankApplication', label: 'Tank application', type: 'text', placeholder: 'e.g. Potable, fire, process, industrial' },
-      { name: 'approximateCapacity', label: 'Approximate capacity', type: 'text', placeholder: 'e.g. 600kL, 2ML' },
-      { name: 'projectLocation', label: 'Project location', type: 'text', required: true, placeholder: 'Town / region, state' },
-      {
-        name: 'urgency',
-        label: 'Urgency',
-        type: 'select',
-        options: ['Active failure — urgent', 'Deteriorating — within 3 months', 'Planning — 3–12 months', 'Assessing options'],
-      },
-      {
-        name: 'projectDetails',
-        label: 'Project details',
-        type: 'textarea',
-        placeholder: 'Describe the tank, the issue, access constraints and anything relevant.',
-        fullWidth: true,
+        heading: 'About the asset',
+        intro: 'The tank, the site and how urgent it is.',
+        fields: [
+          { name: 'tankApplication', label: 'Tank application', type: 'text', placeholder: 'e.g. Potable, fire, process' },
+          { name: 'approximateCapacity', label: 'Approximate capacity', type: 'text', placeholder: 'e.g. 600kL, 2ML' },
+          { name: 'projectLocation', label: 'Project location', type: 'text', required: true, placeholder: 'Town / region, state' },
+          {
+            name: 'urgency',
+            label: 'Urgency',
+            type: 'select',
+            options: ['Active failure — urgent', 'Deteriorating — within 3 months', 'Planning — 3–12 months', 'Assessing options'],
+          },
+          {
+            name: 'projectDetails',
+            label: 'Project details',
+            type: 'textarea',
+            placeholder: 'Describe the tank, the issue, access constraints and anything relevant.',
+            fullWidth: true,
+          },
+        ],
       },
     ],
-    step2Heading: 'Where should we send the proposal?',
-    step2Intro: 'Step 2 of 2 — your contact details.',
-    step2Fields: contactFields,
+    contact: {
+      heading: 'Where should we send the proposal?',
+      intro: 'Your details — we reply within one business day.',
+      fields: contactFields,
+    },
     submitLabel: 'Request My Remediation Proposal',
   },
 }
@@ -537,55 +554,73 @@ export const remoteWaterConfig: CampaignConfig = {
     primaryCta: 'Discuss Your Remote Project',
   },
   form: {
-    step1Heading: 'Tell us about the project',
-    step1Intro: 'Step 1 of 2 — a few details about the remote project.',
-    step1Fields: [
+    steps: [
       {
-        name: 'projectType',
-        label: 'Project type',
-        type: 'cards',
-        required: true,
-        helper: 'Select the closest match.',
-        options: [
-          'New water storage',
-          'Reservoir replacement',
-          'Water-treatment infrastructure',
-          'Tank relining or upgrade',
-          'Capacity expansion',
-          'Civil and foundation works',
-          'Tender or contractor support',
-          'Unsure / requires scoping',
+        heading: 'What are you planning?',
+        intro: 'The type of project and who it’s for.',
+        fields: [
+          {
+            name: 'projectType',
+            label: 'Project type',
+            type: 'cards',
+            required: true,
+            helper: 'Select the closest match.',
+            options: [
+              'New water storage',
+              'Reservoir replacement',
+              'Water-treatment infrastructure',
+              'Tank relining or upgrade',
+              'Capacity expansion',
+              'Civil and foundation works',
+              'Tender or contractor support',
+              'Unsure / requires scoping',
+            ],
+            fullWidth: true,
+          },
+          {
+            name: 'sector',
+            label: 'Sector',
+            type: 'select',
+            options: ['Remote community', 'Government', 'Council', 'Mining & resources', 'Industrial', 'Contractor', 'Other'],
+          },
         ],
-        fullWidth: true,
       },
       {
-        name: 'sector',
-        label: 'Sector',
-        type: 'select',
-        options: ['Remote community', 'Government', 'Council', 'Mining & resources', 'Industrial', 'Contractor', 'Other'],
+        heading: 'Scope & site',
+        intro: 'Where it is and what it needs to do.',
+        fields: [
+          { name: 'projectLocation', label: 'Project location', type: 'text', required: true, placeholder: 'Town / region, state' },
+          { name: 'waterApplication', label: 'Water application', type: 'text', placeholder: 'e.g. Potable, treatment, process' },
+          { name: 'estimatedCapacity', label: 'Estimated capacity', type: 'text', placeholder: 'e.g. 500kL, 2ML' },
+          {
+            name: 'projectStage',
+            label: 'Project stage',
+            type: 'select',
+            options: ['Early planning', 'Feasibility / scoping', 'Design phase', 'Ready to deliver', 'Tender / procurement'],
+          },
+        ],
       },
-      { name: 'projectLocation', label: 'Project location', type: 'text', required: true, placeholder: 'Town / region, state' },
-      { name: 'waterApplication', label: 'Water application', type: 'text', placeholder: 'e.g. Potable, treatment, process, fire' },
-      { name: 'estimatedCapacity', label: 'Estimated capacity', type: 'text', placeholder: 'e.g. 500kL, 2ML' },
       {
-        name: 'projectStage',
-        label: 'Project stage',
-        type: 'select',
-        options: ['Early planning', 'Feasibility / scoping', 'Design phase', 'Ready to deliver', 'Tender / procurement'],
-      },
-      { name: 'targetTimeline', label: 'Target timeline', type: 'text', placeholder: 'e.g. Next dry season, 6–12 months' },
-      { name: 'accessConstraints', label: 'Access constraints', type: 'text', placeholder: 'e.g. Unsealed roads, wet-season closure' },
-      {
-        name: 'projectDetails',
-        label: 'Project details',
-        type: 'textarea',
-        placeholder: 'Describe the project, site, logistics and anything relevant.',
-        fullWidth: true,
+        heading: 'Timeline & logistics',
+        intro: 'When you’re aiming for, and the access realities.',
+        fields: [
+          { name: 'targetTimeline', label: 'Target timeline', type: 'text', placeholder: 'e.g. Next dry season, 6–12 months' },
+          { name: 'accessConstraints', label: 'Access constraints', type: 'text', placeholder: 'e.g. Unsealed roads, wet-season closure' },
+          {
+            name: 'projectDetails',
+            label: 'Project details',
+            type: 'textarea',
+            placeholder: 'Describe the project, site, logistics and anything relevant.',
+            fullWidth: true,
+          },
+        ],
       },
     ],
-    step2Heading: 'Where should we send the strategy?',
-    step2Intro: 'Step 2 of 2 — your contact details.',
-    step2Fields: contactFields,
+    contact: {
+      heading: 'Where should we send the strategy?',
+      intro: 'Your details — we reply within one business day.',
+      fields: contactFields,
+    },
     submitLabel: 'Discuss My Remote Project',
   },
 }

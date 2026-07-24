@@ -29,17 +29,17 @@ export default function CampaignHero({ config }: { config: CampaignConfig }) {
       </div>
 
       <div
-        className={`${container} grid items-start gap-10 py-12 sm:py-14 lg:grid-cols-[1.05fr_minmax(0,460px)] lg:gap-12 lg:py-20`}
+        className={`${container} grid items-start gap-8 py-10 sm:py-14 lg:grid-cols-[1.05fr_minmax(0,460px)] lg:gap-12 lg:py-20`}
       >
         {/* Copy column */}
         <div className="max-w-xl">
           <p className={eyebrowCls}>{hero.eyebrow}</p>
-          <h1 className="mt-4 text-3xl font-black leading-[1.1] tracking-tight text-white sm:text-4xl lg:text-[2.9rem]">
+          <h1 className="mt-4 text-[1.7rem] font-black leading-[1.12] tracking-tight text-white sm:text-4xl lg:text-[2.85rem]">
             {hero.headline}
           </h1>
-          <p className="mt-5 text-base leading-relaxed text-gray-300 sm:text-lg">{hero.sub}</p>
+          <p className="mt-4 text-[0.95rem] leading-relaxed text-gray-300 sm:mt-5 sm:text-lg">{hero.sub}</p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <CtaLink href="#lead-form" variant="onDark" action="start-form" ctaLocation="hero">
               {hero.primaryCta}
             </CtaLink>
@@ -48,8 +48,20 @@ export default function CampaignHero({ config }: { config: CampaignConfig }) {
             </CtaLink>
           </div>
 
-          {/* Compact trust indicators */}
-          <ul className="mt-10 grid grid-cols-1 gap-x-6 gap-y-3 border-t border-white/10 pt-6 sm:grid-cols-2">
+          {/* Quick reassurance — visible on every size */}
+          <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-1.5 text-xs font-medium text-gray-400">
+            <span className="inline-flex items-center gap-1.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#3e91ce]" aria-hidden="true" />
+              Australia-wide delivery
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#3e91ce]" aria-hidden="true" />
+              Reply within 1 business day
+            </span>
+          </div>
+
+          {/* Fuller trust list — desktop only (TrustStrip covers mobile below) */}
+          <ul className="mt-9 hidden grid-cols-2 gap-x-6 gap-y-3 border-t border-white/10 pt-6 lg:grid">
             {config.trust.map((t) => (
               <li key={t.title} className="flex items-start gap-2.5 text-sm text-gray-300">
                 <svg

@@ -23,7 +23,7 @@ export default function CampaignFAQ({ config }: { config: CampaignConfig }) {
   return (
     <section id="faq" className="scroll-mt-20 bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <div className={`${container} py-14 sm:py-16 lg:py-20`}>
+      <div className={`${container} py-12 sm:py-16 lg:py-20`}>
         <CampaignReveal>
           <SectionHeading eyebrow={faq.eyebrow} heading={faq.heading} />
         </CampaignReveal>

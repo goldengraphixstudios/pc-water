@@ -46,6 +46,16 @@ const industries: { label: string; href: string; icon: React.ReactNode }[] = [
   { label: 'Remote & Regional Communities', href: '/industries/remote-regional-communities', icon: <IcGlobe /> },
 ]
 
+const toolLinks: { label: string; href: string; icon: React.ReactNode }[] = [
+  { label: 'Tank Compliance Checker', href: '/tools/tank-compliance-checker', icon: <IcScan /> },
+  { label: 'Repair vs Reline vs Replace', href: '/tools/repair-reline-replace', icon: <IcShield /> },
+]
+
+const projectFunnels: { label: string; href: string; icon: React.ReactNode }[] = [
+  { label: 'Tank Remediation', href: '/campaigns/tank-remediation', icon: <IcWrench /> },
+  { label: 'Remote Water Infrastructure', href: '/campaigns/remote-water-infrastructure', icon: <IcPin /> },
+]
+
 const socialPaths = [
   { href: socialProfiles.facebook, label: 'Facebook', path: 'M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z' },
   { href: socialProfiles.instagram, label: 'Instagram', path: 'M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z' },
@@ -64,9 +74,11 @@ export default function Header() {
   const [servicesOpen, setServicesOpen] = useState(false)
   const [industriesOpen, setIndustriesOpen] = useState(false)
   const [resourcesOpen, setResourcesOpen] = useState(false)
+  const [toolsOpen, setToolsOpen] = useState(false)
   const [mobileServices, setMobileServices] = useState(false)
   const [mobileIndustries, setMobileIndustries] = useState(false)
   const [mobileResources, setMobileResources] = useState(false)
+  const [mobileTools, setMobileTools] = useState(false)
   const pathname = usePathname()
   const offerActive = getActiveOffer() !== null
 
@@ -383,22 +395,86 @@ export default function Header() {
               </AnimatePresence>
             </div>
 
-            {/* Tools — free lead-gen assessments */}
-            <Link
-              href="/tools"
-              className={`relative px-4 py-2 text-sm font-medium transition-colors animated-underline ${
-                scrolled ? 'text-gray-300 hover:text-white' : 'text-[#30505b] hover:text-[#3e91ce]'
-              } ${pathname.startsWith('/tools') ? 'text-[#3e91ce]' : ''}`}
+            {/* Tools — free assessments + project funnels */}
+            <div
+              className="relative"
+              onMouseEnter={() => setToolsOpen(true)}
+              onMouseLeave={() => setToolsOpen(false)}
             >
-              Tools
-              {pathname.startsWith('/tools') && (
-                <motion.div
-                  layoutId="nav-indicator"
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#3e91ce]"
-                  transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                />
-              )}
-            </Link>
+              <button
+                className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors ${
+                  scrolled ? 'text-gray-300 hover:text-white' : 'text-[#30505b] hover:text-[#3e91ce]'
+                } ${
+                  pathname.startsWith('/tools') || pathname.startsWith('/campaigns')
+                    ? scrolled
+                      ? 'text-white'
+                      : 'text-[#3e91ce]'
+                    : ''
+                }`}
+              >
+                Tools
+                <motion.svg
+                  animate={{ rotate: toolsOpen ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </motion.svg>
+              </button>
+              <AnimatePresence>
+                {toolsOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 8, scale: 0.97 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full left-0 w-80 bg-[#0d1b2a] border border-white/10 rounded-2xl py-3 z-50 shadow-2xl shadow-black/50"
+                  >
+                    <div className="px-3 mb-2">
+                      <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase">Free Tools</p>
+                    </div>
+                    {toolLinks.map((t) => (
+                      <Link
+                        key={t.href}
+                        href={t.href}
+                        className="flex items-center gap-3 px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-all rounded-lg mx-1"
+                      >
+                        <span className="text-[#3e91ce] flex-shrink-0">{t.icon}</span>
+                        {t.label}
+                      </Link>
+                    ))}
+                    <div className="border-t border-white/10 my-2" />
+                    <div className="px-3 mb-2">
+                      <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase">Start a Project</p>
+                    </div>
+                    {projectFunnels.map((t) => (
+                      <Link
+                        key={t.href}
+                        href={t.href}
+                        className="flex items-center gap-3 px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-all rounded-lg mx-1"
+                      >
+                        <span className="text-[#3e91ce] flex-shrink-0">{t.icon}</span>
+                        {t.label}
+                      </Link>
+                    ))}
+                    <div className="border-t border-white/10 mt-2 pt-2 px-3">
+                      <Link
+                        href="/tools"
+                        className="flex items-center gap-2 text-sm font-semibold text-[#3e91ce] hover:text-white transition-colors"
+                      >
+                        View All Tools
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </Link>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
             {/* Offers — promotional funnel */}
             <Link
@@ -637,12 +713,58 @@ export default function Header() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.4 }}
                 >
-                  <Link
-                    href="/tools"
-                    className="block text-gray-300 hover:text-white font-medium py-2.5 border-b border-white/5 transition-colors"
+                  <button
+                    className="flex items-center justify-between w-full text-gray-300 font-medium py-2.5 border-b border-white/5"
+                    onClick={() => setMobileTools(!mobileTools)}
                   >
                     Tools
-                  </Link>
+                    <motion.svg
+                      animate={{ rotate: mobileTools ? 180 : 0 }}
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </motion.svg>
+                  </button>
+                  <AnimatePresence>
+                    {mobileTools && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="overflow-hidden pl-4"
+                      >
+                        <p className="pt-2 text-[10px] font-bold uppercase tracking-widest text-[#3e91ce]/70">Free Tools</p>
+                        {toolLinks.map((t) => (
+                          <Link
+                            key={t.href}
+                            href={t.href}
+                            className="flex items-center gap-2 text-sm text-gray-500 hover:text-[#3e91ce] py-1.5 transition-colors"
+                          >
+                            <span className="text-[#3e91ce]">{t.icon}</span> {t.label}
+                          </Link>
+                        ))}
+                        <p className="pt-2 text-[10px] font-bold uppercase tracking-widest text-[#3e91ce]/70">Start a Project</p>
+                        {projectFunnels.map((t) => (
+                          <Link
+                            key={t.href}
+                            href={t.href}
+                            className="flex items-center gap-2 text-sm text-gray-500 hover:text-[#3e91ce] py-1.5 transition-colors"
+                          >
+                            <span className="text-[#3e91ce]">{t.icon}</span> {t.label}
+                          </Link>
+                        ))}
+                        <Link
+                          href="/tools"
+                          className="flex items-center gap-2 text-sm font-semibold text-[#3e91ce] py-2 transition-colors"
+                        >
+                          View All Tools
+                        </Link>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </motion.div>
 
                 <motion.div

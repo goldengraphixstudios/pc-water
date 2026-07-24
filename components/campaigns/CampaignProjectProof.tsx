@@ -11,12 +11,12 @@ export default function CampaignProjectProof({ config }: { config: CampaignConfi
 
   return (
     <section id="project-proof" className="scroll-mt-20 bg-white">
-      <div className={`${container} py-14 sm:py-16 lg:py-20`}>
+      <div className={`${container} py-12 sm:py-16 lg:py-20`}>
         <CampaignReveal>
           <SectionHeading eyebrow={proof.eyebrow} heading={proof.heading} intro={proof.intro} />
         </CampaignReveal>
 
-        <div className="mt-12 space-y-14 lg:space-y-20">
+        <div className="mt-10 space-y-12 lg:space-y-20">
           {proof.projects.map((project, i) => {
             const imageFirst = i % 2 === 0
             return (

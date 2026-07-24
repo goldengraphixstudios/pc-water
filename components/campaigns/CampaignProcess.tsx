@@ -9,7 +9,7 @@ export default function CampaignProcess({ config }: { config: CampaignConfig }) 
   return (
     <section id="process" className="relative scroll-mt-20 bg-[#f4f6f8]">
       <div className={`pointer-events-none absolute inset-0 ${gridLinesLight}`} aria-hidden="true" />
-      <div className={`${container} relative py-14 sm:py-16 lg:py-20`}>
+      <div className={`${container} relative py-12 sm:py-16 lg:py-20`}>
         <CampaignReveal>
           <SectionHeading eyebrow={process.eyebrow} heading={process.heading} intro={process.intro} />
         </CampaignReveal>

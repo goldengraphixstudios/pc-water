@@ -8,7 +8,7 @@ export default function CampaignFinalCTA({ config }: { config: CampaignConfig })
   return (
     <section className="relative isolate overflow-hidden bg-[#0d1b2a]">
       <div className={`pointer-events-none absolute inset-0 ${gridLinesDark} opacity-70`} aria-hidden="true" />
-      <div className={`${container} relative py-16 sm:py-20`}>
+      <div className={`${container} relative py-14 sm:py-20`}>
         <div className="max-w-3xl">
           <h2 className="text-2xl font-black leading-tight tracking-tight text-white sm:text-4xl">
             {finalCta.heading}

@@ -48,6 +48,26 @@ const tools = [
   },
 ]
 
+// Higher-intent project funnels — request a project-specific proposal / strategy.
+const projectPathways = [
+  {
+    title: 'Tank Remediation',
+    href: '/campaigns/tank-remediation',
+    blurb:
+      'Leaking, corroded or deteriorating tank? Request a project-specific proposal covering repair, RPVC relining, upgrades or replacement — with the pathway confirmed at assessment.',
+    cta: 'Request a Remediation Proposal',
+    points: ['Repair · Reline · Replace pathways', 'Councils, industrial & commercial', 'Reply within 1 business day'],
+  },
+  {
+    title: 'Remote Water Infrastructure',
+    href: '/campaigns/remote-water-infrastructure',
+    blurb:
+      'Planning water storage or treatment in remote Australia? Discuss an end-to-end delivery strategy — planning, civil, storage, treatment, installation and commissioning under one team.',
+    cta: 'Discuss Your Remote Project',
+    points: ['End-to-end coordinated delivery', 'Freight, access & seasonal planning', 'Reply within 1 business day'],
+  },
+]
+
 export default function ToolsPage() {
   return (
     <>
@@ -97,6 +117,50 @@ export default function ToolsPage() {
               </Link>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Higher-intent project funnels */}
+      <section className="bg-[#f4f6f8] py-20 border-t border-gray-100">
+        <div className="max-w-5xl mx-auto px-4">
+          <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Start a Project</p>
+          <h2 className="text-3xl md:text-4xl font-black text-[#30505b] mb-4">Ready to Move on a Project?</h2>
+          <p className="text-gray-600 leading-relaxed max-w-2xl mb-10">
+            Past the assessment stage? These guided pathways take a few details about your asset or project and
+            put it in front of our engineering team — with a project-specific proposal or delivery strategy to follow.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {projectPathways.map((p) => (
+              <div
+                key={p.href}
+                className="group rounded-2xl border border-gray-200 bg-white p-8 flex flex-col hover:border-[#3e91ce] hover:shadow-sm transition-all"
+              >
+                <span className="inline-flex items-center gap-2 self-start rounded-full bg-[#0d1b2a] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#3e91ce]" />
+                  Project Enquiry
+                </span>
+                <h3 className="mt-4 text-2xl font-black text-[#30505b] mb-3">{p.title}</h3>
+                <p className="text-gray-600 leading-relaxed mb-5">{p.blurb}</p>
+                <ul className="space-y-2 mb-6">
+                  {p.points.map((pt) => (
+                    <li key={pt} className="flex items-start gap-2.5 text-sm text-[#30505b]">
+                      <span className="w-1.5 h-1.5 bg-[#3e91ce] rounded-full flex-shrink-0 mt-2" />
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href={p.href}
+                  className="mt-auto inline-flex items-center justify-center gap-2 bg-[#0d1b2a] text-white px-6 py-3.5 rounded-full font-semibold hover:bg-[#30505b] transition-colors"
+                >
+                  {p.cta}
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
