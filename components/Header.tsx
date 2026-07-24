@@ -68,6 +68,10 @@ const navLinks = [
   { label: 'Contact', href: '/contact' },
 ]
 
+const desktopNavLinks = [
+  { label: 'Projects', href: '/projects' },
+]
+
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -88,8 +92,6 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  useEffect(() => { setMobileOpen(false) }, [pathname])
-
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'shadow-2xl shadow-black/30' : ''}`}>
       {/* Top utility bar */}
@@ -99,7 +101,7 @@ export default function Header() {
         transition={{ duration: 0.6, delay: 0.1 }}
         className="bg-[#0d1b2a] border-b border-white/5 text-white text-xs"
       >
-        <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+        <div className="mx-auto flex max-w-[1500px] items-center justify-between px-5 py-2 lg:px-8">
           <div className="flex items-center gap-4">
             {socialPaths.map((social) => (
               <a
@@ -142,15 +144,19 @@ export default function Header() {
         transition={{ duration: 0.6, delay: 0.2 }}
         className={`transition-all duration-500 ${scrolled ? 'bg-[#0d1b2a]/95 backdrop-blur-xl border-b border-white/5' : 'bg-white border-b border-gray-100'}`}
       >
-        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-          <Link href="/" className="flex-shrink-0 group">
-            <div className="relative overflow-hidden">
+        <div className="mx-auto flex min-h-[78px] max-w-[1500px] items-center px-5 lg:px-8">
+          <Link
+            href="/"
+            aria-label="PC Water Infrastructure home"
+            className="group flex w-[205px] flex-none items-center pr-8 2xl:w-[235px] 2xl:pr-10"
+          >
+            <div className="relative w-full overflow-hidden">
               <Image
                 src="/logo-pacific-water-group.png"
                 alt="PC Water Infrastructure - Engineered Water Systems"
                 width={320}
                 height={98}
-                className={`h-11 md:h-12 w-auto transition-all duration-500 group-hover:scale-105 ${
+                className={`h-auto w-full transition-all duration-500 group-hover:scale-[1.025] ${
                   scrolled ? 'brightness-0 invert' : ''
                 }`}
                 priority
@@ -159,12 +165,12 @@ export default function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-1">
-            {navLinks.map((item) => (
+          <nav className="hidden min-w-0 flex-1 items-center justify-center xl:flex 2xl:gap-1">
+            {desktopNavLinks.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative px-4 py-2 text-sm font-medium transition-colors animated-underline ${
+                className={`animated-underline relative px-3 py-2 text-sm font-medium transition-colors 2xl:px-4 ${
                   scrolled ? 'text-gray-300 hover:text-white' : 'text-[#30505b] hover:text-[#3e91ce]'
                 } ${pathname === item.href ? 'text-[#3e91ce]' : ''}`}
               >
@@ -186,7 +192,7 @@ export default function Header() {
               onMouseLeave={() => setServicesOpen(false)}
             >
               <button
-                className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors ${
+                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors 2xl:px-4 ${
                   scrolled ? 'text-gray-300 hover:text-white' : 'text-[#30505b] hover:text-[#3e91ce]'
                 }`}
               >
@@ -253,7 +259,7 @@ export default function Header() {
               onMouseLeave={() => setIndustriesOpen(false)}
             >
               <button
-                className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors ${
+                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors 2xl:px-4 ${
                   scrolled ? 'text-gray-300 hover:text-white' : 'text-[#30505b] hover:text-[#3e91ce]'
                 }`}
               >
@@ -320,7 +326,7 @@ export default function Header() {
               onMouseLeave={() => setResourcesOpen(false)}
             >
               <button
-                className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors ${
+                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors 2xl:px-4 ${
                   scrolled ? 'text-gray-300 hover:text-white' : 'text-[#30505b] hover:text-[#3e91ce]'
                 } ${pathname.startsWith('/resources') ? (scrolled ? 'text-white' : 'text-[#3e91ce]') : ''}`}
               >
@@ -390,6 +396,17 @@ export default function Header() {
                         </Link>
                       </motion.div>
                     ))}
+                    <div className="mx-3 mt-2 border-t border-white/10 pt-2">
+                      <GatedDownloadLink
+                        resourceKey="capabilityStatement"
+                        className="flex w-full items-center gap-3 rounded-lg px-1 py-2 text-left text-sm font-semibold text-[#3e91ce] transition-colors hover:text-white"
+                      >
+                        <svg className="h-4 w-4 flex-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 10v6m0 0l-3-3m3 3l3-3M6 4h8l4 4v12H6V4z" />
+                        </svg>
+                        Download Capability Statement
+                      </GatedDownloadLink>
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -402,7 +419,7 @@ export default function Header() {
               onMouseLeave={() => setToolsOpen(false)}
             >
               <button
-                className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors ${
+                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors 2xl:px-4 ${
                   scrolled ? 'text-gray-300 hover:text-white' : 'text-[#30505b] hover:text-[#3e91ce]'
                 } ${
                   pathname.startsWith('/tools') || pathname.startsWith('/campaigns')
@@ -476,10 +493,26 @@ export default function Header() {
               </AnimatePresence>
             </div>
 
+            <Link
+              href="/about"
+              className={`animated-underline relative px-3 py-2 text-sm font-medium transition-colors 2xl:px-4 ${
+                scrolled ? 'text-gray-300 hover:text-white' : 'text-[#30505b] hover:text-[#3e91ce]'
+              } ${pathname === '/about' ? 'text-[#3e91ce]' : ''}`}
+            >
+              About
+              {pathname === '/about' && (
+                <motion.div
+                  layoutId="nav-indicator"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#3e91ce]"
+                  transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                />
+              )}
+            </Link>
+
             {/* Offers — promotional funnel */}
             <Link
               href="/offer"
-              className={`relative px-4 py-2 text-sm font-semibold transition-colors flex items-center gap-1.5 ${
+              className={`relative flex items-center gap-1.5 px-3 py-2 text-sm font-semibold transition-colors 2xl:px-4 ${
                 pathname === '/offer'
                   ? 'text-[#c2410c]'
                   : offerActive
@@ -499,30 +532,23 @@ export default function Header() {
             </Link>
           </nav>
 
-          {/* CTA buttons */}
-          <div className="hidden lg:flex items-center gap-3">
+          {/* Primary desktop CTA */}
+          <div className="hidden w-[188px] flex-none justify-end pl-8 xl:flex 2xl:w-[220px] 2xl:pl-10">
             <Link
               href="/contact"
-              className="glow-btn bg-[#2a72ad] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#246397] transition-all duration-300 hover:scale-105"
+              className="inline-flex min-h-12 items-center gap-2 whitespace-nowrap rounded-lg bg-[#2a72ad] px-5 text-sm font-bold text-white shadow-[0_8px_22px_rgba(42,114,173,0.24)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#246397] hover:shadow-[0_12px_28px_rgba(42,114,173,0.32)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3e91ce] focus-visible:ring-offset-2"
             >
               Discuss a Project
+              <svg className="h-4 w-4 flex-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
             </Link>
-            <GatedDownloadLink
-              resourceKey="capabilityStatement"
-              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105 border ${
-                scrolled
-                  ? 'border-white/20 text-white hover:bg-white/10'
-                  : 'border-[#30505b] text-[#30505b] hover:bg-[#30505b] hover:text-white'
-              }`}
-            >
-              Capability Statement
-            </GatedDownloadLink>
           </div>
 
           {/* Mobile hamburger */}
           <motion.button
             whileTap={{ scale: 0.9 }}
-            className={`lg:hidden p-2 rounded-lg ${scrolled ? 'text-white' : 'text-[#30505b]'}`}
+            className={`ml-auto rounded-lg p-2 xl:hidden ${scrolled ? 'text-white' : 'text-[#30505b]'}`}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -554,7 +580,12 @@ export default function Header() {
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden overflow-hidden bg-[#0d1b2a] border-t border-white/10"
+              className="overflow-hidden border-t border-white/10 bg-[#0d1b2a] xl:hidden"
+              onClick={(event) => {
+                if (event.target instanceof Element && event.target.closest('a')) {
+                  setMobileOpen(false)
+                }
+              }}
             >
               <div className="px-4 py-6 space-y-2">
                 {navLinks.map((item, i) => (
@@ -703,6 +734,15 @@ export default function Header() {
                           </svg>
                           Free Downloads
                         </Link>
+                        <GatedDownloadLink
+                          resourceKey="capabilityStatement"
+                          className="flex items-center gap-2 py-2 text-sm text-gray-500 transition-colors hover:text-[#3e91ce]"
+                        >
+                          <svg className="h-4 w-4 text-[#3e91ce]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 10v6m0 0l-3-3m3 3l3-3M6 4h8l4 4v12H6V4z" />
+                          </svg>
+                          Capability Statement
+                        </GatedDownloadLink>
                       </motion.div>
                     )}
                   </AnimatePresence>
