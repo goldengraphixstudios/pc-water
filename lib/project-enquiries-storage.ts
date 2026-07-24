@@ -53,6 +53,42 @@ function normalizeStoredRecord(value: unknown): ProjectEnquiry | null {
     pipedriveLeadId: typeof row.pipedriveLeadId === 'string' ? row.pipedriveLeadId : null,
     pipedriveSyncedAt: typeof row.pipedriveSyncedAt === 'string' ? row.pipedriveSyncedAt : null,
     pipedriveSyncError: typeof row.pipedriveSyncError === 'string' ? row.pipedriveSyncError : null,
+    campaignId: typeof row.campaignId === 'string' ? row.campaignId : '',
+    jobRole: typeof row.jobRole === 'string' ? row.jobRole : '',
+    preferredContactMethod:
+      typeof row.preferredContactMethod === 'string' ? row.preferredContactMethod : '',
+    attribution:
+      row.attribution && typeof row.attribution === 'object'
+        ? {
+            landingPage: typeof (row.attribution as Record<string, unknown>).landingPage === 'string'
+              ? String((row.attribution as Record<string, unknown>).landingPage)
+              : '',
+            referrer: typeof (row.attribution as Record<string, unknown>).referrer === 'string'
+              ? String((row.attribution as Record<string, unknown>).referrer)
+              : '',
+            utmSource: typeof (row.attribution as Record<string, unknown>).utmSource === 'string'
+              ? String((row.attribution as Record<string, unknown>).utmSource)
+              : '',
+            utmMedium: typeof (row.attribution as Record<string, unknown>).utmMedium === 'string'
+              ? String((row.attribution as Record<string, unknown>).utmMedium)
+              : '',
+            utmCampaign: typeof (row.attribution as Record<string, unknown>).utmCampaign === 'string'
+              ? String((row.attribution as Record<string, unknown>).utmCampaign)
+              : '',
+            utmContent: typeof (row.attribution as Record<string, unknown>).utmContent === 'string'
+              ? String((row.attribution as Record<string, unknown>).utmContent)
+              : '',
+            utmTerm: typeof (row.attribution as Record<string, unknown>).utmTerm === 'string'
+              ? String((row.attribution as Record<string, unknown>).utmTerm)
+              : '',
+            gclid: typeof (row.attribution as Record<string, unknown>).gclid === 'string'
+              ? String((row.attribution as Record<string, unknown>).gclid)
+              : '',
+            fbclid: typeof (row.attribution as Record<string, unknown>).fbclid === 'string'
+              ? String((row.attribution as Record<string, unknown>).fbclid)
+              : '',
+          }
+        : undefined,
   }
 }
 

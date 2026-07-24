@@ -1,5 +1,7 @@
 import 'server-only'
 
+import type { ProjectEnquiryAttribution } from '@/lib/project-enquiries'
+
 type PipedriveSearchItem = {
   item?: {
     id?: number | string
@@ -234,6 +236,11 @@ export async function syncProjectEnquiryToPipedrive(params: {
   budget?: string
   tankType?: string
   message: string
+  source?: string
+  campaignId?: string
+  jobRole?: string
+  preferredContactMethod?: string
+  attribution?: ProjectEnquiryAttribution
   submittedAt: string
 }) : Promise<PipedriveSyncResult> {
   if (!hasPipedriveEnv()) {
@@ -263,11 +270,15 @@ export async function syncProjectEnquiryToPipedrive(params: {
       content: [
         '<p><strong>PC Water Website Project Enquiry</strong></p>',
         paragraph('Source record ID', params.sourceId),
+        paragraph('Lead source', params.source),
+        paragraph('Campaign', params.campaignId),
         paragraph('Submitted at', params.submittedAt),
         paragraph('Contact name', fullName),
         paragraph('Email', params.email),
         paragraph('Phone', params.phone),
         paragraph('Company', params.company),
+        paragraph('Job role', params.jobRole),
+        paragraph('Preferred contact method', params.preferredContactMethod),
         paragraph('State', params.state),
         paragraph('Suburb / Town', params.suburbTown),
         paragraph('Industry', params.industry),
@@ -277,6 +288,15 @@ export async function syncProjectEnquiryToPipedrive(params: {
         paragraph('Budget', params.budget),
         paragraph('Tank type / application', params.tankType),
         paragraph('Message', params.message),
+        paragraph('Landing page', params.attribution?.landingPage),
+        paragraph('Referrer', params.attribution?.referrer),
+        paragraph('UTM source', params.attribution?.utmSource),
+        paragraph('UTM medium', params.attribution?.utmMedium),
+        paragraph('UTM campaign', params.attribution?.utmCampaign),
+        paragraph('UTM content', params.attribution?.utmContent),
+        paragraph('UTM term', params.attribution?.utmTerm),
+        paragraph('Google click ID', params.attribution?.gclid),
+        paragraph('Meta click ID', params.attribution?.fbclid),
       ].join(''),
     })
 

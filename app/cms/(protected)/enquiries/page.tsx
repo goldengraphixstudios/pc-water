@@ -167,6 +167,9 @@ function EnquiryDetailModal({
               <DetailRow label="Suburb / Town" value={enquiry.suburbTown} />
               <DetailRow label="Industry" value={enquiry.industry} />
               <DetailRow label="Source" value={enquiry.source} />
+              <DetailRow label="Campaign" value={enquiry.campaignId} />
+              <DetailRow label="Job role" value={enquiry.jobRole} />
+              <DetailRow label="Preferred contact" value={enquiry.preferredContactMethod} />
             </div>
           </DetailSection>
 
@@ -205,6 +208,13 @@ function EnquiryDetailModal({
               <DetailRow label="Pipedrive organization ID" value={enquiry.pipedriveOrganizationId ? String(enquiry.pipedriveOrganizationId) : '—'} />
               <DetailRow label="Pipedrive lead ID" value={enquiry.pipedriveLeadId} />
               <DetailRow label="Pipedrive synced at" value={enquiry.pipedriveSyncedAt ? formatDateTime(enquiry.pipedriveSyncedAt) : '—'} />
+              <DetailRow label="UTM source" value={enquiry.attribution?.utmSource} />
+              <DetailRow label="UTM medium" value={enquiry.attribution?.utmMedium} />
+              <DetailRow label="UTM campaign" value={enquiry.attribution?.utmCampaign} />
+              <DetailRow label="UTM content" value={enquiry.attribution?.utmContent} />
+              <DetailRow label="UTM term" value={enquiry.attribution?.utmTerm} />
+              <DetailRow label="Google click ID" value={enquiry.attribution?.gclid} />
+              <DetailRow label="Meta click ID" value={enquiry.attribution?.fbclid} />
             </div>
 
             {(enquiry.emailDeliveryError || enquiry.pipedriveSyncError) && (

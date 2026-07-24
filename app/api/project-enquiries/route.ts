@@ -4,7 +4,11 @@ import { requireCmsAdmin } from '@/lib/cms/admin'
 import { validateEmailLocally } from '@/lib/email-validation'
 import { sendProjectEnquiryEmails } from '@/lib/email/project-enquiry-emails'
 import { syncProjectEnquiryToPipedrive } from '@/lib/pipedrive'
-import { normalizeProjectEnquiryInput, type ProjectEnquiryInput } from '@/lib/project-enquiries'
+import {
+  normalizeProjectEnquiryInput,
+  type ProjectEnquiryAttribution,
+  type ProjectEnquiryInput,
+} from '@/lib/project-enquiries'
 import {
   deleteProjectEnquiryRecord,
   listProjectEnquiryRecords,
@@ -13,6 +17,31 @@ import {
 
 function getRequiredText(value: unknown) {
   return typeof value === 'string' ? value.trim() : ''
+}
+
+const CAMPAIGN_IDS = new Set(['tank-remediation', 'remote-water-infrastructure'])
+
+function getLimitedText(value: unknown, maxLength = 500) {
+  return getRequiredText(value).slice(0, maxLength)
+}
+
+function getAttribution(value: unknown): ProjectEnquiryAttribution | undefined {
+  if (!value || typeof value !== 'object') return undefined
+  const row = value as Record<string, unknown>
+
+  const attribution = {
+    landingPage: getLimitedText(row.landingPage, 2000),
+    referrer: getLimitedText(row.referrer, 2000),
+    utmSource: getLimitedText(row.utmSource),
+    utmMedium: getLimitedText(row.utmMedium),
+    utmCampaign: getLimitedText(row.utmCampaign),
+    utmContent: getLimitedText(row.utmContent),
+    utmTerm: getLimitedText(row.utmTerm),
+    gclid: getLimitedText(row.gclid, 1000),
+    fbclid: getLimitedText(row.fbclid, 1000),
+  }
+
+  return Object.values(attribution).some(Boolean) ? attribution : undefined
 }
 
 export async function GET() {
@@ -63,26 +92,58 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true })
   }
 
+  const submittedSource = getLimitedText(rawBody.source, 100)
+  const campaignId = getLimitedText(rawBody.campaignId, 100)
+  const isCampaignEnquiry = submittedSource === 'paid-campaign'
+
+  if (isCampaignEnquiry && !CAMPAIGN_IDS.has(campaignId)) {
+    return NextResponse.json(
+      { ok: false, reason: 'Invalid campaign attribution.' },
+      { status: 400 },
+    )
+  }
+
+  if (isCampaignEnquiry && rawBody.consent !== true) {
+    return NextResponse.json(
+      { ok: false, reason: 'Please confirm you agree to be contacted.' },
+      { status: 400 },
+    )
+  }
+
   const input = normalizeProjectEnquiryInput({
-    firstName: getRequiredText(rawBody.firstName),
-    lastName: getRequiredText(rawBody.lastName),
-    company: getRequiredText(rawBody.company),
-    email: getRequiredText(rawBody.email),
-    phone: getRequiredText(rawBody.phone),
-    state: getRequiredText(rawBody.state),
-    suburbTown: getRequiredText(rawBody.suburbTown),
-    industry: getRequiredText(rawBody.industry),
-    service: getRequiredText(rawBody.service),
-    projectStage: getRequiredText(rawBody.projectStage),
-    timeline: getRequiredText(rawBody.timeline),
-    budget: getRequiredText(rawBody.budget),
-    tankType: getRequiredText(rawBody.tankType),
-    message: getRequiredText(rawBody.message),
+    firstName: getLimitedText(rawBody.firstName),
+    lastName: getLimitedText(rawBody.lastName),
+    company: getLimitedText(rawBody.company),
+    email: getLimitedText(rawBody.email),
+    phone: getLimitedText(rawBody.phone),
+    state: getLimitedText(rawBody.state),
+    suburbTown: getLimitedText(rawBody.suburbTown),
+    industry: getLimitedText(rawBody.industry),
+    service: getLimitedText(rawBody.service),
+    projectStage: getLimitedText(rawBody.projectStage),
+    timeline: getLimitedText(rawBody.timeline),
+    budget: getLimitedText(rawBody.budget),
+    tankType: getLimitedText(rawBody.tankType),
+    message: getLimitedText(rawBody.message, 10000),
+    source: isCampaignEnquiry ? 'paid-campaign' : 'website',
+    campaignId: isCampaignEnquiry ? campaignId : '',
+    jobRole: isCampaignEnquiry ? getLimitedText(rawBody.jobRole) : '',
+    preferredContactMethod: isCampaignEnquiry
+      ? getLimitedText(rawBody.preferredContactMethod, 100)
+      : '',
+    attribution: isCampaignEnquiry ? getAttribution(rawBody.attribution) : undefined,
   })
 
   if (!input.firstName || !input.lastName || !input.email || !input.message) {
     return NextResponse.json(
       { ok: false, reason: 'Please complete all required fields.' },
+      { status: 400 },
+    )
+  }
+
+  if (isCampaignEnquiry && (!input.company || !input.phone)) {
+    return NextResponse.json(
+      { ok: false, reason: 'Please provide your company and phone number.' },
       { status: 400 },
     )
   }
@@ -112,7 +173,11 @@ export async function POST(request: Request) {
     budget: input.budget || '',
     tankType: input.tankType || '',
     message: input.message,
-    source: 'website',
+    source: input.source || 'website',
+    campaignId: input.campaignId || '',
+    jobRole: input.jobRole || '',
+    preferredContactMethod: input.preferredContactMethod || '',
+    attribution: input.attribution,
     submissionStatus: 'new' as const,
     emailDeliveryStatus: 'skipped' as const,
     emailDeliveryError: null as string | null,
@@ -152,6 +217,10 @@ export async function POST(request: Request) {
     pipedriveLeadId: record.pipedriveLeadId,
     pipedriveSyncedAt: record.pipedriveSyncedAt,
     pipedriveSyncError: record.pipedriveSyncError,
+    campaignId: record.campaignId,
+    jobRole: record.jobRole,
+    preferredContactMethod: record.preferredContactMethod,
+    attribution: record.attribution,
   })
 
   if (!saveResult.ok) {
@@ -185,6 +254,11 @@ export async function POST(request: Request) {
     budget: record.budget,
     tankType: record.tankType,
     message: record.message,
+    source: record.source,
+    campaignId: record.campaignId,
+    jobRole: record.jobRole,
+    preferredContactMethod: record.preferredContactMethod,
+    attribution: record.attribution,
     submittedAt: record.submittedAt,
   })
 
@@ -215,6 +289,10 @@ export async function POST(request: Request) {
     pipedriveLeadId: pipedriveResult.leadId ?? null,
     pipedriveSyncedAt: pipedriveResult.ok ? new Date().toISOString() : null,
     pipedriveSyncError: pipedriveResult.ok ? null : pipedriveResult.error ?? 'Pipedrive sync failed.',
+    campaignId: record.campaignId,
+    jobRole: record.jobRole,
+    preferredContactMethod: record.preferredContactMethod,
+    attribution: record.attribution,
   })
 
   if (!pipedriveResult.ok) {

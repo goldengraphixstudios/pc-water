@@ -1,3 +1,15 @@
+export interface ProjectEnquiryAttribution {
+  landingPage: string
+  referrer: string
+  utmSource: string
+  utmMedium: string
+  utmCampaign: string
+  utmContent: string
+  utmTerm: string
+  gclid: string
+  fbclid: string
+}
+
 export interface ProjectEnquiryInput {
   firstName: string
   lastName: string
@@ -13,6 +25,11 @@ export interface ProjectEnquiryInput {
   budget?: string
   tankType?: string
   message: string
+  source?: string
+  campaignId?: string
+  jobRole?: string
+  preferredContactMethod?: string
+  attribution?: ProjectEnquiryAttribution
 }
 
 export interface ProjectEnquiry extends ProjectEnquiryInput {
@@ -28,6 +45,26 @@ export interface ProjectEnquiry extends ProjectEnquiryInput {
   pipedriveLeadId?: string | null
   pipedriveSyncedAt?: string | null
   pipedriveSyncError?: string | null
+}
+
+function normalizeAttribution(
+  attribution?: Partial<ProjectEnquiryAttribution>,
+): ProjectEnquiryAttribution | undefined {
+  if (!attribution) return undefined
+
+  const normalized = {
+    landingPage: attribution.landingPage?.trim() || '',
+    referrer: attribution.referrer?.trim() || '',
+    utmSource: attribution.utmSource?.trim() || '',
+    utmMedium: attribution.utmMedium?.trim() || '',
+    utmCampaign: attribution.utmCampaign?.trim() || '',
+    utmContent: attribution.utmContent?.trim() || '',
+    utmTerm: attribution.utmTerm?.trim() || '',
+    gclid: attribution.gclid?.trim() || '',
+    fbclid: attribution.fbclid?.trim() || '',
+  }
+
+  return Object.values(normalized).some(Boolean) ? normalized : undefined
 }
 
 export function normalizeProjectEnquiryInput(input: ProjectEnquiryInput): ProjectEnquiryInput {
@@ -46,5 +83,10 @@ export function normalizeProjectEnquiryInput(input: ProjectEnquiryInput): Projec
     budget: input.budget?.trim() || '',
     tankType: input.tankType?.trim() || '',
     message: input.message.trim(),
+    source: input.source?.trim() || 'website',
+    campaignId: input.campaignId?.trim() || '',
+    jobRole: input.jobRole?.trim() || '',
+    preferredContactMethod: input.preferredContactMethod?.trim() || '',
+    attribution: normalizeAttribution(input.attribution),
   }
 }

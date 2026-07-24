@@ -25,12 +25,14 @@ function formatValue(value?: string) {
   return trimmed ? escapeHtml(trimmed).replace(/\n/g, '<br />') : '—'
 }
 
-function buildDetailRows(input: ProjectEnquiryInput) {
-  return [
+function buildDetailRows(input: ProjectEnquiryInput, includeAttribution = false) {
+  const rows: Array<readonly [string, string]> = [
     ['Name', `${input.firstName} ${input.lastName}`.trim()],
     ['Company / Organisation', input.company || ''],
     ['Email', input.email],
     ['Phone', input.phone || ''],
+    ['Job Role', input.jobRole || ''],
+    ['Preferred Contact Method', input.preferredContactMethod || ''],
     ['State', input.state || ''],
     ['Suburb / Town', input.suburbTown || ''],
     ['Industry', input.industry || ''],
@@ -40,7 +42,25 @@ function buildDetailRows(input: ProjectEnquiryInput) {
     ['Estimated Budget Range', input.budget || ''],
     ['Tank Type / Application', input.tankType || ''],
     ['Project Description / Message', input.message],
-  ] as const
+  ]
+
+  if (includeAttribution) {
+    rows.push(
+      ['Lead Source', input.source || 'website'],
+      ['Campaign', input.campaignId || ''],
+      ['Landing Page', input.attribution?.landingPage || ''],
+      ['Referrer', input.attribution?.referrer || ''],
+      ['UTM Source', input.attribution?.utmSource || ''],
+      ['UTM Medium', input.attribution?.utmMedium || ''],
+      ['UTM Campaign', input.attribution?.utmCampaign || ''],
+      ['UTM Content', input.attribution?.utmContent || ''],
+      ['UTM Term', input.attribution?.utmTerm || ''],
+      ['Google Click ID', input.attribution?.gclid || ''],
+      ['Meta Click ID', input.attribution?.fbclid || ''],
+    )
+  }
+
+  return rows
 }
 
 function buildDetailsTable(rows: ReadonlyArray<readonly [string, string]>) {
@@ -113,7 +133,7 @@ function buildConfirmationHtml(input: ProjectEnquiryInput) {
 }
 
 function buildNotificationHtml(input: ProjectEnquiryInput) {
-  const rows = buildDetailRows(input)
+  const rows = buildDetailRows(input, true)
 
   return `
     <div style="font-family: Arial, sans-serif; color: #111827; line-height: 1.5;">
@@ -187,7 +207,9 @@ export async function sendProjectEnquiryEmails(input: ProjectEnquiryInput): Prom
 
   const notification = await sendResendEmail({
     to: notifyTo,
-    subject: `New project enquiry from ${input.firstName} ${input.lastName}`,
+    subject: input.campaignId
+      ? `New ${input.campaignId} campaign enquiry from ${input.firstName} ${input.lastName}`
+      : `New project enquiry from ${input.firstName} ${input.lastName}`,
     html: buildNotificationHtml(input),
     replyTo: input.email,
   })
