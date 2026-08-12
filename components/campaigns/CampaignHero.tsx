@@ -5,36 +5,45 @@ import { container, eyebrow as eyebrowCls, gridLinesDark } from './styles'
 import type { CampaignConfig } from './config'
 
 /**
- * Hero + primary conversion point. On desktop the lead form sits in the right
- * column, above the fold. On mobile the copy stacks first and the hero CTA
- * scrolls to the same form (id="lead-form") below.
+ * Hero + primary conversion point.
+ *
+ * Desktop (lg+): full-bleed project photography with a two-column layout —
+ * copy left, lead form right, above the fold.
+ *
+ * Mobile/tablet: the photo becomes a crisp top image band that fades into a
+ * solid navy field (rather than a single landscape image stretched behind the
+ * whole tall hero, which looked low-quality). Copy and the white form card then
+ * sit on clean navy.
  */
 export default function CampaignHero({ config }: { config: CampaignConfig }) {
   const { hero } = config
 
   return (
     <section id="top" className="relative isolate overflow-hidden bg-[#0d1b2a]">
-      {/* Full-bleed project photography with a navy editorial overlay */}
-      <div className="absolute inset-0 -z-10">
-        <AppImage
-          src={hero.image.src}
-          alt={hero.image.alt}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0d1b2a]/85 via-[#0d1b2a]/80 to-[#0d1b2a]/95 lg:bg-gradient-to-r lg:from-[#0d1b2a]/95 lg:via-[#0d1b2a]/88 lg:to-[#0d1b2a]/70" />
+      {/* Faint engineering grid on the solid-navy field (mobile) */}
+      <div className={`absolute inset-0 -z-10 ${gridLinesDark} opacity-40 lg:hidden`} aria-hidden="true" />
+
+      {/* Desktop: full-bleed photography */}
+      <div className="absolute inset-0 -z-10 hidden lg:block">
+        <AppImage src={hero.image.src} alt={hero.image.alt} fill priority sizes="100vw" className="object-cover object-center" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0d1b2a]/95 via-[#0d1b2a]/88 to-[#0d1b2a]/70" />
         <div className={`absolute inset-0 ${gridLinesDark} opacity-60`} aria-hidden="true" />
       </div>
 
+      {/* Mobile/tablet: crisp image band that fades into navy */}
+      <div className="relative h-[210px] w-full overflow-hidden sm:h-[280px] lg:hidden">
+        <AppImage src={hero.image.src} alt={hero.image.alt} fill priority sizes="100vw" className="object-cover object-center" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0d1b2a]/25 via-[#0d1b2a]/55 to-[#0d1b2a]" />
+        <div className={`absolute inset-0 ${gridLinesDark} opacity-50`} aria-hidden="true" />
+      </div>
+
       <div
-        className={`${container} grid items-start gap-8 py-10 sm:py-14 lg:grid-cols-[1.05fr_minmax(0,460px)] lg:gap-12 lg:py-20`}
+        className={`${container} relative grid items-start gap-9 pb-12 pt-8 sm:gap-10 lg:grid-cols-[1.05fr_minmax(0,460px)] lg:gap-12 lg:pb-20 lg:pt-20`}
       >
         {/* Copy column */}
         <div className="max-w-xl">
           <p className={eyebrowCls}>{hero.eyebrow}</p>
-          <h1 className="mt-4 text-[1.7rem] font-black leading-[1.12] tracking-tight text-white sm:text-4xl lg:text-[2.85rem]">
+          <h1 className="mt-3.5 text-[1.85rem] font-black leading-[1.1] tracking-tight text-balance text-white sm:mt-4 sm:text-[2.4rem] lg:text-[2.85rem] lg:leading-[1.08]">
             {hero.headline}
           </h1>
           <p className="mt-4 text-[0.95rem] leading-relaxed text-gray-300 sm:mt-5 sm:text-lg">{hero.sub}</p>
@@ -81,7 +90,7 @@ export default function CampaignHero({ config }: { config: CampaignConfig }) {
         </div>
 
         {/* Form column — the single dominant action */}
-        <div id="lead-form" className="scroll-mt-20">
+        <div id="lead-form" className="scroll-mt-24">
           <CampaignLeadFormUI config={config} />
         </div>
       </div>

@@ -17,10 +17,10 @@ const PhoneGlyph = () => (
 export default function CampaignHeader({ config }: { config: CampaignConfig }) {
   return (
     <header className="sticky top-0 z-40 border-b border-gray-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/85">
-      <div className={`${container} flex h-16 items-center justify-between gap-4`}>
+      <div className={`${container} flex h-16 items-center justify-between gap-3`}>
         <a
           href="#top"
-          className="flex items-center rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3e91ce] focus-visible:ring-offset-2"
+          className="-my-1 flex min-h-[44px] items-center rounded py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3e91ce] focus-visible:ring-offset-2"
           aria-label="PC Water Infrastructure"
         >
           <AppImage
@@ -28,13 +28,13 @@ export default function CampaignHeader({ config }: { config: CampaignConfig }) {
             alt="PC Water Infrastructure"
             width={320}
             height={98}
-            className="h-9 w-auto sm:h-10"
+            className="h-8 w-auto sm:h-10"
             priority
           />
         </a>
 
-        <div className="flex items-center gap-3 sm:gap-5">
-          <span className="hidden items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#30505b] md:flex">
+        <div className="flex items-center gap-2 sm:gap-4">
+          <span className="hidden items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#30505b] lg:flex">
             <span className="h-1.5 w-1.5 rounded-full bg-[#3e91ce]" aria-hidden="true" />
             Australia-Wide Project Delivery
           </span>
@@ -43,11 +43,11 @@ export default function CampaignHeader({ config }: { config: CampaignConfig }) {
             href={`tel:${config.phone}`}
             data-action="call"
             data-cta-location="header"
-            className="flex items-center gap-2 rounded px-1 text-sm font-semibold text-[#30505b] transition-colors hover:text-[#0d1b2a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3e91ce] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+            aria-label={`Call ${config.phoneDisplay}`}
+            className="inline-flex min-h-[44px] items-center gap-2 rounded-lg px-2.5 text-sm font-semibold text-[#30505b] transition-colors hover:bg-[#f4f6f8] hover:text-[#0d1b2a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3e91ce] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
           >
             <PhoneGlyph />
             <span className="hidden sm:inline">{config.phoneDisplay}</span>
-            <span className="sr-only sm:hidden">Call {config.phoneDisplay}</span>
           </a>
 
           <CtaLink
@@ -55,7 +55,7 @@ export default function CampaignHeader({ config }: { config: CampaignConfig }) {
             variant="primary"
             action="start-form"
             ctaLocation="header"
-            className="hidden !min-h-[44px] px-5 sm:inline-flex"
+            className="!min-h-[44px] px-4 text-[13px] sm:px-5 sm:text-sm"
           >
             {config.ctaShort}
           </CtaLink>
