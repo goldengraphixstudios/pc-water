@@ -105,7 +105,7 @@ export default async function DownloadsPage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative pt-40 pb-28 overflow-hidden min-h-[500px] flex items-end">
+      <section className="relative pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28 overflow-hidden min-h-[500px] flex items-end">
         <div className="absolute inset-0 bg-gradient-to-br from-[#0d1b2a] via-[#162538] to-[#1e3a52]" />
         {/* Decorative grid pattern */}
         <div
@@ -125,7 +125,7 @@ export default async function DownloadsPage() {
             <span className="text-gray-600 text-xs">/</span>
             <span className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase">Free Downloads</span>
           </div>
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-5 leading-none">
+          <h1 className="text-[2.25rem] sm:text-5xl md:text-6xl font-black text-white mb-5 leading-none">
             FREE TECHNICAL<br />
             <span className="text-[#3e91ce]">RESOURCES.</span>
           </h1>
@@ -150,7 +150,7 @@ export default async function DownloadsPage() {
       </section>
 
       {/* ── Why these guides ── */}
-      <section className="bg-white py-16 border-b border-gray-100">
+      <section className="bg-white py-12 sm:py-16 border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Why Download</p>
@@ -174,7 +174,7 @@ export default async function DownloadsPage() {
       </section>
 
       {/* ── Downloads grid ── */}
-      <section className="bg-[#F4F6F8] py-20">
+      <section className="bg-[#F4F6F8] py-14 sm:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-14">
             <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Downloads</p>
@@ -188,7 +188,7 @@ export default async function DownloadsPage() {
       </section>
 
       {/* ── FAQs ── */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-14 sm:py-20">
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-14">
             <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ FAQs</p>
@@ -203,7 +203,7 @@ export default async function DownloadsPage() {
       </section>
 
       {/* ── Featured articles (advertise blog) ── */}
-      <section className="bg-[#F4F6F8] py-20">
+      <section className="bg-[#F4F6F8] py-14 sm:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>

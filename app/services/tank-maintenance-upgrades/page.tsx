@@ -61,7 +61,7 @@ export default function TankMaintenancePage() {
           { name: 'Water Tank Maintenance & Upgrades', url: `${siteUrl}/services/tank-maintenance-upgrades` },
         ]}
       />
-      <section className="relative pt-40 pb-24 overflow-hidden">
+      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
         <AppImage
           src="/heroes/tank-maintenance-upgrades.jpg"
           alt="Water tank maintenance and structural upgrade works in progress"
@@ -73,7 +73,7 @@ export default function TankMaintenancePage() {
         <div className="absolute inset-0 bg-[#0d1b2a]/75" />
         <div className="relative z-10 max-w-4xl mx-auto px-4">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Services</p>
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-6">Tank Maintenance & Upgrades</h1>
+          <h1 className="text-[2.25rem] sm:text-5xl md:text-6xl font-black text-white mb-6">Tank Maintenance & Upgrades</h1>
           <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
             Planned and reactive maintenance, structural upgrades, and lifecycle extension for steel and concrete water storage assets — keeping your infrastructure performing for decades.
           </p>
@@ -83,7 +83,7 @@ export default function TankMaintenancePage() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
+      <section className="bg-white py-14 sm:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -117,7 +117,7 @@ export default function TankMaintenancePage() {
         </div>
       </section>
 
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-14 sm:py-20 overflow-hidden">
         <AppImage src="/water/water-14.jpg" alt="Water held in a professionally maintained storage tank" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#30505b]/87" />
         <div className="relative z-10 max-w-6xl mx-auto px-4">
@@ -145,7 +145,7 @@ export default function TankMaintenancePage() {
         </div>
       </section>
 
-      <section className="bg-white py-16">
+      <section className="bg-white py-12 sm:py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-black text-[#30505b] mb-8">Industries We Serve</h2>
           <div className="flex flex-wrap justify-center gap-3">

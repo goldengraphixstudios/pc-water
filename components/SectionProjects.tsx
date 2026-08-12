@@ -52,7 +52,7 @@ export default function SectionProjects({
   if (loaded && projects.length === 0) return null
 
   return (
-    <section className={`${bgColor} py-20`}>
+    <section className={`${bgColor} py-14 sm:py-20`}>
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-2xl font-black text-[#30505b] mb-8 text-center">{heading}</h2>
 

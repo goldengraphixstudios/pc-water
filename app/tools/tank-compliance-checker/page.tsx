@@ -88,12 +88,12 @@ export default function TankComplianceCheckerPage() {
       />
 
       {/* Hero — asset-free gradient */}
-      <section className="relative pt-40 pb-24 overflow-hidden bg-[#0d1b2a]">
+      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden bg-[#0d1b2a]">
         <div className="dot-pattern absolute inset-0 opacity-20 pointer-events-none" />
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#3e91ce]/10 blur-3xl rounded-full pointer-events-none" />
         <div className="relative z-10 max-w-4xl mx-auto px-4">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Free Tool</p>
-          <h1 className="text-4xl md:text-6xl font-black text-white mb-6">Tank Compliance Checker</h1>
+          <h1 className="text-[2rem] sm:text-4xl md:text-6xl font-black text-white mb-6">Tank Compliance Checker</h1>
           <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
             Not sure whether your water tank is compliant, at risk, or overdue for review? Answer a few quick
             questions and get a fast, plain-language indication of your likely compliance risk — and exactly
@@ -115,7 +115,7 @@ export default function TankComplianceCheckerPage() {
       <AssessmentTool slug="tank-compliance-checker" />
 
       {/* How it works */}
-      <section className="relative py-20 overflow-hidden bg-[#30505b]">
+      <section className="relative py-14 sm:py-20 overflow-hidden bg-[#30505b]">
         <div className="dot-pattern absolute inset-0 opacity-10 pointer-events-none" />
         <div className="relative z-10 max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-black text-white text-center mb-12">How the Compliance Checker Works</h2>
@@ -132,7 +132,7 @@ export default function TankComplianceCheckerPage() {
       </section>
 
       {/* Who it's for */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-12 sm:py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Who this is for</p>
           <h2 className="text-2xl md:text-3xl font-black text-[#30505b] mb-8">
@@ -149,7 +149,7 @@ export default function TankComplianceCheckerPage() {
       </section>
 
       {/* Related next steps */}
-      <section className="bg-[#F4F6F8] py-16">
+      <section className="bg-[#F4F6F8] py-12 sm:py-16">
         <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             { title: 'Tank Inspection Technology', description: 'ROV and UAV inspection methods that assess condition with less disruption — often without dewatering.', href: '/services/tank-inspection-technology' },

@@ -59,12 +59,12 @@ export default function GovernmentCouncilsPage() {
           { name: 'Water Storage Solutions for Government & Councils', url: `${siteUrl}/industries/government-councils` },
         ]}
       />
-      <section className="relative pt-40 pb-24 overflow-hidden">
+      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
         <AppImage src="/heroes/government-councils.jpg" alt="Municipal water storage infrastructure project for government and councils" fill priority className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#0d1b2a]/75" />
         <div className="relative z-10 max-w-4xl mx-auto px-4">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Industries</p>
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-6">Water Storage Solutions for Government & Councils</h1>
+          <h1 className="text-[2.25rem] sm:text-5xl md:text-6xl font-black text-white mb-6">Water Storage Solutions for Government & Councils</h1>
           <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
             Compliant, accountable, and community-focused water storage delivery for government agencies, local councils, and public infrastructure programs.
           </p>
@@ -74,7 +74,7 @@ export default function GovernmentCouncilsPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
+      <section className="bg-white py-14 sm:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
@@ -118,7 +118,7 @@ export default function GovernmentCouncilsPage() {
         </div>
       </section>
 
-      <section className="bg-[#F4F6F8] py-16">
+      <section className="bg-[#F4F6F8] py-12 sm:py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-black text-[#30505b] mb-6">Applicable Standards</h2>
           <div className="flex flex-wrap justify-center gap-4">

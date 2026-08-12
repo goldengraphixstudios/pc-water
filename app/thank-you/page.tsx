@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function ThankYouPage() {
   return (
     <main className="min-h-screen bg-[#F4F6F8] flex items-center justify-center pt-24">
-      <div className="max-w-2xl mx-auto px-4 py-20 text-center">
+      <div className="max-w-2xl mx-auto px-4 py-14 sm:py-20 text-center">
         {/* Success icon */}
         <div className="w-20 h-20 bg-[#3e91ce] rounded-full flex items-center justify-center mx-auto mb-8">
           <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

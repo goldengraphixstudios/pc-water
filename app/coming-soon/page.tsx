@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function ComingSoonPage() {
   return (
     <main className="min-h-screen bg-[#0d1b2a] text-white">
-      <section className="relative overflow-hidden px-4 py-32">
+      <section className="relative overflow-hidden px-4 py-16 sm:py-24 lg:py-32">
         <div className="dot-pattern absolute inset-0 opacity-20 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-br from-[#30505b]/40 via-transparent to-[#3e91ce]/10 pointer-events-none" />
 

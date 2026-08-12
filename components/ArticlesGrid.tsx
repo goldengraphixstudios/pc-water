@@ -138,7 +138,7 @@ export default function ArticlesGrid({ articles }: { articles: Article[] }) {
               <ArticleCard key={article.id} article={article} index={i} />
             ))
           ) : (
-            <div className="col-span-3 text-center py-16 text-gray-400">
+            <div className="col-span-3 text-center py-12 sm:py-16 text-gray-400">
               No articles in this category yet.
             </div>
           )}

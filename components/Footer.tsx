@@ -179,12 +179,12 @@ export default function Footer() {
 
         {/* Indigenous Acknowledgement */}
         <div className="border-t border-white/10 pt-8 mb-6">
-          <div className="flex items-center gap-8">
-            <div className="relative w-56 h-28 flex-shrink-0">
-              <Image src="/aboriginal-flag.png" alt="Aboriginal flag" fill className="object-contain object-left" sizes="224px" />
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
+            <div className="relative h-20 w-40 flex-shrink-0 sm:h-28 sm:w-56">
+              <Image src="/aboriginal-flag.png" alt="Aboriginal flag" fill className="object-contain object-left" sizes="(min-width: 640px) 224px, 160px" />
             </div>
-            <p className="text-gray-400 text-base leading-relaxed flex-1">
-              <span className="text-white font-bold">Acknowledgement of Country: </span>
+            <p className="flex-1 text-sm leading-relaxed text-gray-400 sm:text-base">
+              <span className="font-bold text-white">Acknowledgement of Country: </span>
               PC Water Infrastructure acknowledges the Traditional Custodians of the land on which we work and live. We pay our respects to Elders past, present and emerging.
             </p>
           </div>

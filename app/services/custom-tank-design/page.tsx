@@ -62,7 +62,7 @@ export default function CustomTankDesignPage() {
         ]}
       />
       {/* Hero */}
-      <section className="relative pt-40 pb-24 overflow-hidden">
+      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
         <AppImage
           src="/heroes/custom-tank-design.jpg"
           alt="Custom engineered water storage tank design and fabrication"
@@ -74,7 +74,7 @@ export default function CustomTankDesignPage() {
         <div className="absolute inset-0 bg-[#0d1b2a]/75" />
         <div className="relative z-10 max-w-4xl mx-auto px-4">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Services</p>
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
+          <h1 className="text-[2.25rem] sm:text-5xl md:text-6xl font-black text-white mb-6">
             Custom Tank Design<br />& Engineering
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
@@ -90,7 +90,7 @@ export default function CustomTankDesignPage() {
       </section>
 
       {/* What this service covers */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-14 sm:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -125,7 +125,7 @@ export default function CustomTankDesignPage() {
       </section>
 
       {/* Common triggers */}
-      <section className="bg-[#F4F6F8] py-20">
+      <section className="bg-[#F4F6F8] py-14 sm:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-black text-[#30505b]">When Do You Need Custom Tank Design?</h2>
@@ -150,7 +150,7 @@ export default function CustomTankDesignPage() {
       </section>
 
       {/* Delivery scope */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-14 sm:py-20 overflow-hidden">
         <AppImage src="/water/water-01.jpg" alt="Stored potable water in a custom engineered tank" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#30505b]/87" />
         <div className="relative z-10 max-w-6xl mx-auto px-4">
@@ -175,7 +175,7 @@ export default function CustomTankDesignPage() {
       </section>
 
       {/* Industries */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-12 sm:py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-black text-[#30505b] mb-8">Industries We Serve With This Service</h2>
           <div className="flex flex-wrap justify-center gap-3">

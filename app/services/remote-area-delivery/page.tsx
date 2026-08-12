@@ -72,9 +72,9 @@ export default function RemoteAreaDeliveryPage() {
         />
         {/* lighter overlay so image is clearly visible */}
         <div className="absolute inset-0 bg-[#0d1b2a]/55" />
-        <div className="relative z-10 flex flex-col justify-center min-h-[75vh] max-w-4xl mx-auto px-4 pt-40 pb-24">
+        <div className="relative z-10 flex flex-col justify-center min-h-[75vh] max-w-4xl mx-auto px-4 pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-5">/ Services</p>
-          <h1 className="text-6xl md:text-7xl font-black text-white mb-8 leading-tight">
+          <h1 className="text-[2.5rem] sm:text-6xl md:text-7xl font-black text-white mb-8 leading-tight">
             Remote Area<br />Project Delivery
           </h1>
           <p className="text-gray-200 text-xl max-w-2xl leading-relaxed mb-10">
@@ -88,7 +88,7 @@ export default function RemoteAreaDeliveryPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
+      <section className="bg-white py-14 sm:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -124,7 +124,7 @@ export default function RemoteAreaDeliveryPage() {
 
       <SectionProjects heading="Featured Project" slugs={['doomadgee-wtp']} bgColor="bg-[#F4F6F8]" />
 
-      <section className="bg-white py-16">
+      <section className="bg-white py-12 sm:py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-black text-[#30505b] mb-8">Industries We Serve</h2>
           <div className="flex flex-wrap justify-center gap-3">

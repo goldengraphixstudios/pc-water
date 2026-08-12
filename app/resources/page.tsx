@@ -121,7 +121,7 @@ export default async function ArticlesPage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative pt-40 pb-28 overflow-hidden min-h-[520px] flex items-end">
+      <section className="relative pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28 overflow-hidden min-h-[520px] flex items-end">
         <AppImage
           src="/heroes/resources.jpg"
           alt="Water storage engineering articles and technical insights"
@@ -133,7 +133,7 @@ export default async function ArticlesPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0d1b2a]/60 via-[#0d1b2a]/70 to-[#0d1b2a]/85" />
         <div className="relative z-10 max-w-5xl mx-auto px-4 w-full">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Articles & Insights</p>
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-5 leading-none">
+          <h1 className="text-[2.25rem] sm:text-5xl md:text-6xl font-black text-white mb-5 leading-none">
             ENGINEERING KNOWLEDGE<br />
             <span className="text-[#3e91ce]">WRITTEN DOWN.</span>
           </h1>
@@ -174,7 +174,7 @@ export default async function ArticlesPage() {
       </section>
 
       {/* ── Articles grid with filter ── */}
-      <section className="bg-[#F4F6F8] py-20">
+      <section className="bg-[#F4F6F8] py-14 sm:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Browse</p>
@@ -188,7 +188,7 @@ export default async function ArticlesPage() {
       </section>
 
       {/* ── Free Downloads teaser ── */}
-      <section className="bg-[#0d1b2a] py-20">
+      <section className="bg-[#0d1b2a] py-14 sm:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>

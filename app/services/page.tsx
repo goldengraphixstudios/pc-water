@@ -100,7 +100,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-40 pb-24 overflow-hidden">
+      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
         <AppImage
           src="/heroes/services.jpg"
           alt="PC Water Infrastructure — full range of water storage and treatment services across Australia"
@@ -112,7 +112,7 @@ export default function ServicesPage() {
         <div className="absolute inset-0 bg-[#0d1b2a]/75" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ What We Do</p>
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
+          <h1 className="text-[2.25rem] sm:text-5xl md:text-6xl font-black text-white mb-6">
             COMPLETE WATER INFRASTRUCTURE SERVICES
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
@@ -122,7 +122,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Brand overview — two divisions */}
-      <section className="bg-white py-16 border-b border-gray-100">
+      <section className="bg-white py-12 sm:py-16 border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Two Divisions. One Team.</p>
@@ -212,7 +212,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Services grid */}
-      <section className="bg-[#F4F6F8] py-20">
+      <section className="bg-[#F4F6F8] py-14 sm:py-20">
         <div className="max-w-6xl mx-auto px-4">
 
           {/* PC Water Solutions */}
@@ -251,7 +251,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Why choose PWT */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-14 sm:py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-black text-[#30505b] mb-6">ONE PARTNER. EVERY STAGE.</h2>
           <p className="text-gray-600 text-lg leading-relaxed mb-8">

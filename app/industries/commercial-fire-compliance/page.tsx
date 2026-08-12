@@ -58,12 +58,12 @@ export default function CommercialFireCompliancePage() {
           { name: 'Fire Water Tank Solutions for Commercial Properties', url: `${siteUrl}/industries/commercial-fire-compliance` },
         ]}
       />
-      <section className="relative pt-40 pb-24 overflow-hidden">
+      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
         <AppImage src="/heroes/commercial-fire-compliance.jpg" alt="Fire water tank system at a commercial facility — AS2304 compliant" fill priority className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#0d1b2a]/75" />
         <div className="relative z-10 max-w-4xl mx-auto px-4">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Industries</p>
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-6">Fire Water Tank Solutions for Commercial Properties</h1>
+          <h1 className="text-[2.25rem] sm:text-5xl md:text-6xl font-black text-white mb-6">Fire Water Tank Solutions for Commercial Properties</h1>
           <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
             AS2304-compliant fire water storage and AS1851 annual inspection for commercial properties — protecting assets, lives, and insurance coverage.
           </p>
@@ -73,7 +73,7 @@ export default function CommercialFireCompliancePage() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
+      <section className="bg-white py-14 sm:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>

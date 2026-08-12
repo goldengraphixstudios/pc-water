@@ -236,7 +236,7 @@ export default function CmsMediaPage() {
 
       {/* Grid */}
       {loading ? (
-        <div className="flex flex-col items-center py-20 gap-3">
+        <div className="flex flex-col items-center py-14 sm:py-20 gap-3">
           <svg className="w-5 h-5 animate-spin text-[#3E91CE]" fill="none" viewBox="0 0 24 24">
             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
@@ -244,7 +244,7 @@ export default function CmsMediaPage() {
           <p className="text-[13px] text-[#99AABF] dark:text-[#4A5670]">Loading media files…</p>
         </div>
       ) : filtered.length === 0 ? (
-        <div className="cms-card flex flex-col items-center py-20 text-center">
+        <div className="cms-card flex flex-col items-center py-14 sm:py-20 text-center">
           <div className="w-14 h-14 bg-black/[0.04] dark:bg-white/[0.04] rounded-2xl flex items-center justify-center mb-4">
             <svg className="w-7 h-7 text-[#99AABF] dark:text-[#4A5670]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />

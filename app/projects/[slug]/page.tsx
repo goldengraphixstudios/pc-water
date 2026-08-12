@@ -108,7 +108,7 @@ export default async function ManagedProjectPage({
           { name: project.title, url: projectUrl },
         ]}
       />
-      <section className="relative pt-40 pb-24 overflow-hidden min-h-[480px] flex items-end">
+      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden min-h-[480px] flex items-end">
         {project.heroImageUrl ? (
           <AppImage
             src={project.heroImageUrl}
@@ -134,12 +134,12 @@ export default async function ManagedProjectPage({
               {project.sector}
             </span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-4">{project.title}</h1>
+          <h1 className="text-[1.9rem] sm:text-4xl md:text-5xl font-black text-white mb-4">{project.title}</h1>
           <p className="text-gray-300 text-lg">{project.location}</p>
         </div>
       </section>
 
-      <section className="bg-white py-20">
+      <section className="bg-white py-14 sm:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
@@ -200,7 +200,7 @@ export default async function ManagedProjectPage({
       </section>
 
       {gallery.length > 0 && (
-        <section className="bg-[#F4F6F8] py-16">
+        <section className="bg-[#F4F6F8] py-12 sm:py-16">
           <div className="max-w-6xl mx-auto px-4">
             <h2 className="text-2xl font-black text-[#30505b] mb-8">Project Gallery</h2>
             <GalleryLightbox images={gallery} />

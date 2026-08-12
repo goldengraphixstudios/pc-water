@@ -33,7 +33,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-40 pb-24 overflow-hidden">
+      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
         <AppImage
           src="/heroes/about.jpg"
           alt="PC Water Infrastructure team delivering water storage infrastructure across Australia"
@@ -45,7 +45,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-[#0d1b2a]/75" />
         <div className="relative z-10 max-w-4xl mx-auto px-4">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ About PC Water Infrastructure</p>
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
+          <h1 className="text-[2.25rem] sm:text-5xl md:text-6xl font-black text-white mb-6">
             SHAPING THE FUTURE<br />OF WATER INFRASTRUCTURE
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
@@ -58,7 +58,7 @@ export default function AboutPage() {
       </section>
 
       {/* Company intro */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-14 sm:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -93,7 +93,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="bg-[#F4F6F8] py-20">
+      <section className="bg-[#F4F6F8] py-14 sm:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Our Values</p>
@@ -117,7 +117,7 @@ export default function AboutPage() {
       </section>
 
       {/* Focus areas */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-14 sm:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Specialisations</p>
@@ -142,7 +142,7 @@ export default function AboutPage() {
       </section>
 
       {/* Vision */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-14 sm:py-20 overflow-hidden">
         <AppImage src="/water/water-05.jpg" alt="Clear potable water — safe drinking water delivered by PC Water Infrastructure" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#30505b]/87" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
@@ -155,7 +155,7 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-14 sm:py-20">
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-12">
             <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Leadership</p>
@@ -188,7 +188,7 @@ export default function AboutPage() {
       </section>
 
       {/* Differentiators */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-14 sm:py-20 overflow-hidden">
         <AppImage src="/water/water-09.jpg" alt="Deep blue water representing PC Water's national infrastructure capability" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#0d1b2a]/90" />
         <div className="relative z-10 max-w-6xl mx-auto px-4">

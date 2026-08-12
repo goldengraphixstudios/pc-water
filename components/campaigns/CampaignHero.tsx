@@ -38,27 +38,19 @@ export default function CampaignHero({ config }: { config: CampaignConfig }) {
       </div>
 
       <div
-        className={`${container} relative grid items-start gap-9 pb-12 pt-8 sm:gap-10 lg:grid-cols-[1.05fr_minmax(0,460px)] lg:gap-12 lg:pb-20 lg:pt-20`}
+        className={`${container} relative grid items-start gap-6 pb-12 pt-7 sm:gap-8 lg:grid-cols-[1.05fr_minmax(0,460px)] lg:gap-12 lg:pb-20 lg:pt-20`}
       >
-        {/* Copy column */}
+        {/* Copy column — on mobile only the hook + reassurance show, so the
+            form (checklist) appears immediately below. Sub-copy, CTAs and the
+            fuller trust list are desktop-only. */}
         <div className="max-w-xl">
           <p className={eyebrowCls}>{hero.eyebrow}</p>
-          <h1 className="mt-3.5 text-[1.85rem] font-black leading-[1.1] tracking-tight text-balance text-white sm:mt-4 sm:text-[2.4rem] lg:text-[2.85rem] lg:leading-[1.08]">
+          <h1 className="mt-3 text-[1.8rem] font-black leading-[1.1] tracking-tight text-balance text-white sm:mt-4 sm:text-[2.4rem] lg:text-[2.85rem] lg:leading-[1.08]">
             {hero.headline}
           </h1>
-          <p className="mt-4 text-[0.95rem] leading-relaxed text-gray-300 sm:mt-5 sm:text-lg">{hero.sub}</p>
 
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <CtaLink href="#lead-form" variant="onDark" action="start-form" ctaLocation="hero">
-              {hero.primaryCta}
-            </CtaLink>
-            <CtaLink href={`tel:${config.phone}`} variant="outlineDark" action="call" ctaLocation="hero">
-              {hero.secondaryCta}
-            </CtaLink>
-          </div>
-
-          {/* Quick reassurance — visible on every size */}
-          <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-1.5 text-xs font-medium text-gray-400">
+          {/* Quick reassurance — visible on every size, sits right under the hook on mobile */}
+          <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-1.5 text-xs font-medium text-gray-300 sm:mt-5">
             <span className="inline-flex items-center gap-1.5">
               <span className="h-1.5 w-1.5 rounded-full bg-[#3e91ce]" aria-hidden="true" />
               Australia-wide delivery
@@ -67,6 +59,19 @@ export default function CampaignHero({ config }: { config: CampaignConfig }) {
               <span className="h-1.5 w-1.5 rounded-full bg-[#3e91ce]" aria-hidden="true" />
               Reply within 1 business day
             </span>
+          </div>
+
+          {/* Sub-copy — desktop only */}
+          <p className="mt-5 hidden text-lg leading-relaxed text-gray-300 lg:block">{hero.sub}</p>
+
+          {/* CTAs — desktop only (on mobile the form is right here) */}
+          <div className="mt-7 hidden flex-col gap-3 sm:flex-row sm:flex-wrap lg:flex">
+            <CtaLink href="#lead-form" variant="onDark" action="start-form" ctaLocation="hero">
+              {hero.primaryCta}
+            </CtaLink>
+            <CtaLink href={`tel:${config.phone}`} variant="outlineDark" action="call" ctaLocation="hero">
+              {hero.secondaryCta}
+            </CtaLink>
           </div>
 
           {/* Fuller trust list — desktop only (TrustStrip covers mobile below) */}
@@ -89,7 +94,7 @@ export default function CampaignHero({ config }: { config: CampaignConfig }) {
           </ul>
         </div>
 
-        {/* Form column — the single dominant action */}
+        {/* Form column — the single dominant action; appears immediately on mobile */}
         <div id="lead-form" className="scroll-mt-24">
           <CampaignLeadFormUI config={config} />
         </div>

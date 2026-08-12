@@ -75,7 +75,7 @@ export default function ProjectManagedWaterInfrastructurePage() {
           { name: 'Project Managed Water Infrastructure', url: `${siteUrl}/services/project-managed-water-infrastructure` },
         ]}
       />
-      <section className="relative pt-40 pb-24 overflow-hidden">
+      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
         <AppImage
           src="/water/water-15.jpg"
           alt="Project managed water infrastructure delivery across Australia"
@@ -87,7 +87,7 @@ export default function ProjectManagedWaterInfrastructurePage() {
         <div className="absolute inset-0 bg-[#0d1b2a]/78" />
         <div className="relative z-10 max-w-4xl mx-auto px-4">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Services</p>
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
+          <h1 className="text-[2.25rem] sm:text-5xl md:text-6xl font-black text-white mb-6">
             Project Managed Water Infrastructure
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
@@ -103,7 +103,7 @@ export default function ProjectManagedWaterInfrastructurePage() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
+      <section className="bg-white py-14 sm:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -141,7 +141,7 @@ export default function ProjectManagedWaterInfrastructurePage() {
         </div>
       </section>
 
-      <section className="bg-[#F4F6F8] py-20">
+      <section className="bg-[#F4F6F8] py-14 sm:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-black text-[#30505b] text-center mb-12">How The Delivery Model Works</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -161,7 +161,7 @@ export default function ProjectManagedWaterInfrastructurePage() {
         </div>
       </section>
 
-      <section className="bg-white py-16">
+      <section className="bg-white py-12 sm:py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-black text-[#30505b] mb-8">Best Fit Sectors</h2>
           <div className="flex flex-wrap justify-center gap-3">

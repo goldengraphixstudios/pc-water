@@ -35,7 +35,7 @@ export default async function ProjectsPage() {
 
   return (
     <>
-      <section className="relative pt-40 pb-24 overflow-hidden min-h-[500px] flex items-center">
+      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden min-h-[500px] flex items-center">
         <Image
           src="/projects/borumba-03.jpg"
             alt="PC Water Infrastructure project portfolio"
@@ -47,7 +47,7 @@ export default async function ProjectsPage() {
         <div className="absolute inset-0 bg-[#0d1b2a]/75" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Our Work</p>
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
+          <h1 className="text-[2.25rem] sm:text-5xl md:text-6xl font-black text-white mb-6">
             BUILT TO PERFORM.<br />DESIGNED TO LAST.
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">

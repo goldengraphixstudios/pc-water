@@ -280,7 +280,7 @@ export default async function ResourceArticlePage({
         keywords={resourceLinkMap[post.slug]?.keywords ?? post.tags.map((tag) => tag.name)}
       />
       {/* Hero — full bleed cover image with overlay */}
-      <section className="relative pt-40 pb-24 overflow-hidden min-h-[480px] flex items-end">
+      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden min-h-[480px] flex items-end">
         {post.coverImageUrl ? (
           <AppImage
             src={post.coverImageUrl}
@@ -308,7 +308,7 @@ export default async function ResourceArticlePage({
               </span>
             ))}
           </div>
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight">{post.title}</h1>
+          <h1 className="text-[1.9rem] sm:text-4xl md:text-5xl font-black text-white mb-4 leading-tight">{post.title}</h1>
           <div className="flex items-center gap-4 text-gray-400 text-sm">
             {post.readTime && <span className="bg-white/10 px-3 py-1 rounded-full text-white/70">{post.readTime}</span>}
             {post.publishedAt && <span>{formatDate(post.publishedAt)}</span>}
@@ -317,7 +317,7 @@ export default async function ResourceArticlePage({
       </section>
 
       {/* Article body */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-14 sm:py-20">
         <div className="max-w-3xl mx-auto px-4">
           <p className="text-xl text-gray-600 leading-relaxed mb-10 border-l-4 border-[#3e91ce] pl-6 italic">{post.excerpt}</p>
           {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
@@ -329,7 +329,7 @@ export default async function ResourceArticlePage({
       </section>
 
       {(relatedConfig?.relatedServices?.length || relatedResources.length > 0) && (
-        <section className="bg-[#F4F6F8] py-16">
+        <section className="bg-[#F4F6F8] py-12 sm:py-16">
           <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-[1.1fr,0.9fr] gap-8">
             {relatedConfig?.relatedServices?.length ? (
               <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">

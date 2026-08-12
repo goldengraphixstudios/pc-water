@@ -86,12 +86,12 @@ export default function HeroSection() {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-4 pt-32 pb-24 text-center">
-        <p className="hero-rise text-[#3e91ce] text-sm font-bold tracking-widest uppercase mb-6">
+      <div className="relative z-10 mx-auto max-w-6xl px-5 pb-16 pt-28 text-center sm:px-4 sm:pb-24 sm:pt-32">
+        <p className="hero-rise mb-4 text-[#3e91ce] text-xs font-bold uppercase tracking-widest sm:mb-6 sm:text-sm">
           / Established In 2013
         </p>
 
-        <h1 className="hero-slide text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-none tracking-tight">
+        <h1 className="hero-slide mb-5 text-[2.6rem] font-black leading-[1.02] tracking-tight text-white sm:mb-6 sm:text-6xl md:text-7xl lg:text-8xl">
           ADVANCED
           <br />
           <span className="gradient-text">WATER ASSET</span>
@@ -99,20 +99,20 @@ export default function HeroSection() {
           SOLUTIONS
         </h1>
 
-        <p className="hero-rise hero-rise-3 text-gray-300 text-lg md:text-xl max-w-3xl mx-auto mb-12 leading-relaxed">
+        <p className="hero-rise hero-rise-3 mx-auto mb-9 max-w-3xl text-base leading-relaxed text-gray-300 sm:mb-12 sm:text-xl">
           Designed. Built. Delivered.
         </p>
 
-        <div className="hero-rise hero-rise-4 flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
+        <div className="hero-rise hero-rise-4 mb-10 flex flex-col items-stretch justify-center gap-3 sm:mb-14 sm:flex-row sm:items-center sm:gap-4">
           <Link
             href="/contact"
-            className="glow-btn bg-[#2a72ad] text-white px-10 py-4 rounded-full font-bold text-sm tracking-wide hover:bg-[#246397] transition-all duration-300 hover:scale-105"
+            className="glow-btn rounded-full bg-[#2a72ad] px-8 py-3.5 text-sm font-bold tracking-wide text-white transition-all duration-300 hover:bg-[#246397] hover:scale-105 sm:px-10 sm:py-4"
           >
             Start Your Project Enquiry
           </Link>
           <Link
             href="/services"
-            className="border-2 border-white/30 text-white px-10 py-4 rounded-full font-bold text-sm tracking-wide hover:bg-white/10 transition-all duration-300 hover:scale-105 backdrop-blur-sm"
+            className="rounded-full border-2 border-white/30 px-8 py-3.5 text-sm font-bold tracking-wide text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:scale-105 sm:px-10 sm:py-4"
           >
             View Our Services
           </Link>

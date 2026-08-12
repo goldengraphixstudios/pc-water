@@ -90,7 +90,7 @@ export default function HomePage() {
       <HeroSection />
 
       {/* ─── STATS ─── */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-14 sm:py-20 overflow-hidden">
         <Image src="/water/water-17.jpg" alt="Water storage infrastructure background" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#0d1b2a]/88" />
         <div className="dot-pattern absolute inset-0 opacity-20 pointer-events-none" />
@@ -114,12 +114,12 @@ export default function HomePage() {
       <PartnerMarquee />
 
       {/* ─── ABOUT US ─── */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-16 sm:py-20 lg:py-24">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-10 lg:gap-16 items-center">
             <AnimatedSection>
               <p className="text-[#2a72ad] text-xs font-bold tracking-widest uppercase mb-4">/ About Us</p>
-              <h2 className="text-4xl md:text-5xl font-black text-[#30505b] leading-tight mb-6">
+              <h2 className="text-[1.9rem] sm:text-4xl md:text-5xl font-black text-[#30505b] leading-tight mb-6">
                 TWO SPECIALIST<br />
                 <span className="text-[#3e91ce]">DIVISIONS.</span><br />
                 ONE MISSION.
@@ -197,15 +197,15 @@ export default function HomePage() {
       </section>
 
       {/* ─── WHAT WE DELIVER ─── */}
-      <section className="bg-[#F4F6F8] py-24">
+      <section className="bg-[#F4F6F8] py-16 sm:py-20 lg:py-24">
         <div className="max-w-6xl mx-auto px-4">
-          <AnimatedSection className="text-center mb-16">
+          <AnimatedSection className="text-center mb-10 sm:mb-16">
             <p className="text-[#2a72ad] text-xs font-bold tracking-widest uppercase mb-3">/ What We Deliver</p>
-            <h2 className="text-4xl md:text-5xl font-black text-[#30505b] leading-tight">
+            <h2 className="text-[1.9rem] sm:text-4xl md:text-5xl font-black text-[#30505b] leading-tight">
               WATER INFRASTRUCTURE<br />
               <span className="text-[#3e91ce]">FROM SOURCE TO SUPPLY</span>
             </h2>
-            <p className="text-gray-500 mt-5 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-500 mt-4 text-base sm:text-lg max-w-2xl mx-auto">
               Complete water infrastructure capabilities — project managed, engineered to compliance, delivered anywhere in Australia.
             </p>
           </AnimatedSection>
@@ -284,18 +284,18 @@ export default function HomePage() {
       </section>
 
       {/* ─── WHO WE SERVE ─── */}
-      <section className="relative py-24 overflow-hidden">
+      <section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden">
         <Image src="/water/water-07.jpg" alt="Engineered water infrastructure in industrial setting" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#0d1b2a]/85" />
         <div className="dot-pattern absolute inset-0 opacity-20 pointer-events-none" />
         <div className="relative z-10 max-w-6xl mx-auto px-4">
-          <AnimatedSection className="text-center mb-16">
+          <AnimatedSection className="text-center mb-10 sm:mb-16">
             <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Who We Serve</p>
-            <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
+            <h2 className="text-[1.9rem] sm:text-4xl md:text-5xl font-black text-white leading-tight">
               SAFE WATER.<br />
               <span className="gradient-text">EVERY SECTOR.</span>
             </h2>
-            <p className="text-gray-400 mt-5 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-400 mt-4 text-base sm:text-lg max-w-2xl mx-auto">
               Three distinct sectors. One consistent standard of water infrastructure delivery — the postcode changes, the scale changes, the standard remains.
             </p>
           </AnimatedSection>
@@ -374,16 +374,16 @@ export default function HomePage() {
       />
 
       {/* ─── WHY PC WATER INFRASTRUCTURE ─── */}
-      <section className="relative py-24 overflow-hidden">
+      <section className="relative py-16 sm:py-20 lg:py-24 overflow-hidden">
         <Image src="/water/water-11.jpg" alt="Water asset infrastructure and treatment project background" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#30505b]/88" />
         <div className="dot-pattern absolute inset-0 opacity-10 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-br from-[#162538]/40 to-transparent pointer-events-none" />
         <div className="relative z-10 max-w-6xl mx-auto px-4">
-          <AnimatedSection className="text-center mb-16">
+          <AnimatedSection className="text-center mb-10 sm:mb-16">
             <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Our Difference</p>
-            <h2 className="text-4xl md:text-5xl font-black text-white">WHY PC WATER INFRASTRUCTURE</h2>
-            <p className="text-gray-300 mt-5 max-w-2xl mx-auto text-lg">
+            <h2 className="text-[1.9rem] sm:text-4xl md:text-5xl font-black text-white">WHY PC WATER INFRASTRUCTURE</h2>
+            <p className="text-gray-300 mt-4 max-w-2xl mx-auto text-base sm:text-lg">
               Not a product supplier. A specialist water infrastructure company that understands every stage of the project lifecycle.
             </p>
           </AnimatedSection>
@@ -432,11 +432,11 @@ export default function HomePage() {
       </section>
 
       {/* ─── COMPLIANCE ─── */}
-      <section className="bg-[#F4F6F8] py-20">
+      <section className="bg-[#F4F6F8] py-14 sm:py-20">
         <div className="max-w-6xl mx-auto px-4">
-          <AnimatedSection className="text-center mb-12">
+          <AnimatedSection className="text-center mb-8 sm:mb-12">
             <p className="text-[#2a72ad] text-xs font-bold tracking-widest uppercase mb-3">/ Standards</p>
-            <h2 className="text-3xl md:text-4xl font-black text-[#30505b]">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#30505b]">
               COMPLIANCE & PROCUREMENT CONFIDENCE
             </h2>
           </AnimatedSection>
@@ -474,7 +474,7 @@ export default function HomePage() {
       <FAQBlock faqs={faqs} heading="FREQUENTLY ASKED QUESTIONS" />
 
       {/* ─── FINAL CTA ─── */}
-      <section className="relative py-28 overflow-hidden">
+      <section className="relative py-16 sm:py-24 lg:py-28 overflow-hidden">
         <Image
           src="/water/water-05.jpg"
           alt="Water infrastructure project background"
@@ -495,11 +495,11 @@ export default function HomePage() {
 
         <AnimatedSection className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-5">/ Get Started</p>
-          <h2 className="text-5xl md:text-6xl font-black text-white mb-6 leading-tight">
+          <h2 className="text-[2.15rem] sm:text-5xl md:text-6xl font-black text-white mb-6 leading-tight">
             READY TO DISCUSS<br />
             <span className="gradient-text">YOUR PROJECT?</span>
           </h2>
-          <p className="text-gray-400 text-xl mb-12 max-w-2xl mx-auto">
+          <p className="text-gray-400 text-lg sm:text-xl mb-8 sm:mb-12 max-w-2xl mx-auto">
             Whether you need water treatment infrastructure, a new installation, a compliance fix, or a long-term
             maintenance partner — we are ready.
           </p>

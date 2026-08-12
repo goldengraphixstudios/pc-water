@@ -53,7 +53,7 @@ export default function AssessmentTool({ slug }: { slug: string }) {
   const current = config.questions[step]
 
   return (
-    <section className="bg-white py-16" id="assessment">
+    <section className="bg-white py-12 sm:py-16" id="assessment">
       <div className="max-w-3xl mx-auto px-4">
         {/* Progress */}
         <div className="mb-8">

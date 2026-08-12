@@ -29,7 +29,7 @@ export default function SectionHero({
       : 'bg-gradient-to-br from-[#162538] via-[#30505b] to-[#3e91ce]'
 
   return (
-    <section className={`${bg} pt-40 pb-24 relative overflow-hidden`}>
+    <section className={`${bg} pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 relative overflow-hidden`}>
       {/* Dot pattern */}
       <div className="dot-pattern absolute inset-0 opacity-20 pointer-events-none" />
 
@@ -55,7 +55,7 @@ export default function SectionHero({
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight"
+          className="text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-5 sm:mb-6 leading-[1.12] sm:leading-tight"
         >
           {heading}
         </motion.h1>
@@ -64,7 +64,7 @@ export default function SectionHero({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.35 }}
-            className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8 max-w-2xl"
+            className="text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed mb-7 sm:mb-8 max-w-2xl"
           >
             {subheading}
           </motion.p>
@@ -74,12 +74,12 @@ export default function SectionHero({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4"
           >
             {ctaLabel && ctaHref && (
               <Link
                 href={ctaHref}
-                className="glow-btn inline-flex items-center justify-center bg-[#2a72ad] text-white px-8 py-3.5 rounded-full font-semibold hover:bg-[#246397] transition-all duration-300 hover:scale-105"
+                className="glow-btn inline-flex w-full sm:w-auto items-center justify-center bg-[#2a72ad] text-white px-8 py-3.5 rounded-full font-semibold hover:bg-[#246397] transition-all duration-300 hover:scale-105"
               >
                 {ctaLabel}
               </Link>
@@ -87,7 +87,7 @@ export default function SectionHero({
             {secondaryCtaLabel && secondaryCtaHref && (
               <Link
                 href={secondaryCtaHref}
-                className="inline-flex items-center justify-center border-2 border-white/30 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-white/10 transition-all duration-300 hover:scale-105 backdrop-blur-sm"
+                className="inline-flex w-full sm:w-auto items-center justify-center border-2 border-white/30 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-white/10 transition-all duration-300 hover:scale-105 backdrop-blur-sm"
               >
                 {secondaryCtaLabel}
               </Link>

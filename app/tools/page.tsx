@@ -78,12 +78,12 @@ export default function ToolsPage() {
         ]}
       />
 
-      <section className="relative pt-40 pb-24 overflow-hidden bg-[#0d1b2a]">
+      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden bg-[#0d1b2a]">
         <div className="dot-pattern absolute inset-0 opacity-20 pointer-events-none" />
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#3e91ce]/10 blur-3xl rounded-full pointer-events-none" />
         <div className="relative z-10 max-w-4xl mx-auto px-4">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Free Tools</p>
-          <h1 className="text-4xl md:text-6xl font-black text-white mb-6">Water Tank Tools</h1>
+          <h1 className="text-[2rem] sm:text-4xl md:text-6xl font-black text-white mb-6">Water Tank Tools</h1>
           <p className="text-gray-300 text-lg max-w-2xl leading-relaxed">
             Practical, no-cost tools to help you understand the condition and compliance position of your water
             tank assets — and decide what to do next. Built on the same engineering experience behind our
@@ -92,7 +92,7 @@ export default function ToolsPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
+      <section className="bg-white py-14 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
           {tools.map((t) => (
             <div key={t.href} className="rounded-2xl border border-gray-200 p-8 flex flex-col hover:border-[#3e91ce] transition-colors">
@@ -121,10 +121,10 @@ export default function ToolsPage() {
       </section>
 
       {/* Higher-intent project funnels */}
-      <section className="bg-[#f4f6f8] py-20 border-t border-gray-100">
+      <section className="bg-[#f4f6f8] py-14 sm:py-20 border-t border-gray-100">
         <div className="max-w-5xl mx-auto px-4">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Start a Project</p>
-          <h2 className="text-3xl md:text-4xl font-black text-[#30505b] mb-4">Ready to Move on a Project?</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#30505b] mb-4">Ready to Move on a Project?</h2>
           <p className="text-gray-600 leading-relaxed max-w-2xl mb-10">
             Past the assessment stage? These guided pathways take a few details about your asset or project and
             put it in front of our engineering team — with a project-specific proposal or delivery strategy to follow.

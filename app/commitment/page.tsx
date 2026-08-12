@@ -33,7 +33,7 @@ export default function CommitmentPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-40 pb-24 overflow-hidden">
+      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
         <AppImage
           src="/heroes/commitment.jpg"
           alt="PC Water Infrastructure — safety, quality and compliance on every project site"
@@ -45,7 +45,7 @@ export default function CommitmentPage() {
         <div className="absolute inset-0 bg-[#0d1b2a]/75" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Our Commitment</p>
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
+          <h1 className="text-[1.9rem] sm:text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
             DRIVEN BY SAFETY, QUALITY,<br />AND SUSTAINABILITY IN EVERY<br />PROJECT WE DELIVER
           </h1>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
@@ -55,7 +55,7 @@ export default function CommitmentPage() {
       </section>
 
       {/* Mission */}
-      <section className="relative py-16 overflow-hidden">
+      <section className="relative py-12 sm:py-16 overflow-hidden">
         <AppImage src="/water/water-04.jpg" alt="Fresh water surface — PC Water's commitment to community water security" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#30505b]/87" />
         <div className="relative z-10 max-w-3xl mx-auto px-4 text-center">
@@ -68,7 +68,7 @@ export default function CommitmentPage() {
       </section>
 
       {/* How we commit */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-14 sm:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-black text-[#30505b]">HOW WE COMMIT</h2>
@@ -99,7 +99,7 @@ export default function CommitmentPage() {
       </section>
 
       {/* Sector commitment */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-14 sm:py-20 overflow-hidden">
         <AppImage src="/water/water-08.jpg" alt="Clean drinking water — quality and compliance commitment" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#0d1b2a]/90" />
         <div className="relative z-10 max-w-6xl mx-auto px-4">
@@ -138,7 +138,7 @@ export default function CommitmentPage() {
       </section>
 
       {/* Indigenous Engagement */}
-      <section className="bg-[#F4F6F8] py-20">
+      <section className="bg-[#F4F6F8] py-14 sm:py-20">
         <div className="max-w-4xl mx-auto px-4">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Indigenous Engagement</p>
           <h2 className="text-3xl font-black text-[#30505b] mb-6">OUR COMMITMENT TO COUNTRY AND COMMUNITY</h2>
@@ -157,7 +157,7 @@ export default function CommitmentPage() {
       </section>
 
       {/* Engineering Standards */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-14 sm:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Standards</p>
@@ -182,7 +182,7 @@ export default function CommitmentPage() {
       </section>
 
       {/* Policy cards */}
-      <section className="bg-[#F4F6F8] py-20">
+      <section className="bg-[#F4F6F8] py-14 sm:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Policies</p>
@@ -229,7 +229,7 @@ export default function CommitmentPage() {
       </section>
 
       {/* SQE Objectives */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-14 sm:py-20">
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-10">
             <h2 className="text-2xl font-black text-[#30505b]">SQE OBJECTIVES</h2>

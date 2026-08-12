@@ -24,7 +24,7 @@ export default function FeaturedProjectsSection() {
   if (loaded && projects.length === 0) return null
 
   return (
-    <section className="bg-white py-24">
+    <section className="bg-white py-12 sm:py-16 sm:py-24">
       <div className="max-w-6xl mx-auto px-4">
 
         {/* Heading */}
@@ -36,7 +36,7 @@ export default function FeaturedProjectsSection() {
           className="text-center mb-16"
         >
           <p className="text-[#2a72ad] text-xs font-bold tracking-widest uppercase mb-3">/ Projects</p>
-          <h2 className="text-4xl md:text-5xl font-black text-[#30505b]">PROOF IN THE FIELD</h2>
+          <h2 className="text-[1.9rem] sm:text-4xl md:text-5xl font-black text-[#30505b]">PROOF IN THE FIELD</h2>
           <p className="text-gray-400 mt-5 text-lg max-w-xl mx-auto">
             Real projects. Real outcomes. Delivered in some of Australia&apos;s most challenging environments.
           </p>

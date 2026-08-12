@@ -24,7 +24,7 @@ export default function CTABanner({
   const secondaryDownloadResource = secondaryCTA ? getResourceByFileUrl(secondaryCTA.href) : null
 
   return (
-    <section className={`${bg} py-20 relative overflow-hidden`}>
+    <section className={`${bg} py-14 sm:py-20 relative overflow-hidden`}>
       {/* Animated background rings */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-[#3e91ce]/5 animate-ping pointer-events-none"
@@ -37,7 +37,7 @@ export default function CTABanner({
       <div className="dot-pattern absolute inset-0 opacity-20 pointer-events-none" />
 
       <AnimatedSection className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-        <h2 className="text-3xl md:text-4xl font-black text-white mb-4">{heading}</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-4">{heading}</h2>
         {subheading && (
           <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">{subheading}</p>
         )}

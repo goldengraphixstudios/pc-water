@@ -429,7 +429,7 @@ export default function LeadsDashboardPage() {
         </div>
 
         {loading ? (
-          <div className="flex flex-col items-center gap-3 py-20">
+          <div className="flex flex-col items-center gap-3 py-14 sm:py-20">
             <svg className="w-5 h-5 animate-spin text-[#3E91CE]" fill="none" viewBox="0 0 24 24">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
@@ -437,7 +437,7 @@ export default function LeadsDashboardPage() {
             <p className="text-[13px] text-[#99AABF] dark:text-[#4A5670]">Loading leads…</p>
           </div>
         ) : filtered.length === 0 ? (
-          <div className="px-5 py-16 text-center">
+          <div className="px-5 py-12 sm:py-16 text-center">
             <p className="text-[13px] text-[#99AABF] dark:text-[#4A5670]">
               {leads.length === 0
                 ? 'No leads yet — downloads will appear here as they come in.'

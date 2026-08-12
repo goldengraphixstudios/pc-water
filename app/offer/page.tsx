@@ -59,7 +59,7 @@ export default function OfferPage() {
               <span className="w-1.5 h-1.5 rounded-full bg-[#3e91ce] animate-pulse" />
               {offer.eyebrow}
             </span>
-            <h1 className="text-4xl md:text-6xl font-black text-white leading-none mb-6">
+            <h1 className="text-[2rem] sm:text-4xl md:text-6xl font-black text-white leading-none mb-6">
               {offer.title}
               <br />
               <span className="text-[#3e91ce]">{offer.titleHighlight}</span>
@@ -98,7 +98,7 @@ export default function OfferPage() {
       </section>
 
       {/* Discounts band */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-12 sm:py-16">
         <div className="max-w-5xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {offer.discounts.map((d) => (
@@ -119,7 +119,7 @@ export default function OfferPage() {
       </section>
 
       {/* Why it matters */}
-      <section className="bg-[#F4F6F8] py-16">
+      <section className="bg-[#F4F6F8] py-12 sm:py-16">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Clarity Now, Not Crisis Later</p>
@@ -146,7 +146,7 @@ export default function OfferPage() {
       </section>
 
       {/* Claim form */}
-      <section id="claim" className="bg-white py-20 scroll-mt-24">
+      <section id="claim" className="bg-white py-14 sm:py-20 scroll-mt-24">
         <div className="max-w-5xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-[0.85fr,1.15fr] gap-10">
           <div>
             <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Book Before {offer.endLabel}</p>
@@ -197,12 +197,12 @@ export default function OfferPage() {
 function NoActiveOffer() {
   return (
     <>
-      <section className="relative pt-40 pb-24 overflow-hidden bg-[#0d1b2a]">
+      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden bg-[#0d1b2a]">
         <div className="absolute inset-0 bg-gradient-to-br from-[#0d1b2a] via-[#12263b] to-[#1a3353]" />
         <div className="dot-pattern absolute inset-0 opacity-20 pointer-events-none" />
         <div className="relative z-10 max-w-3xl mx-auto px-4 text-center">
           <p className="text-[#7fc2f0] text-xs font-bold tracking-widest uppercase mb-4">/ Offers &amp; Promotions</p>
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-6">No live promotion right now</h1>
+          <h1 className="text-[1.9rem] sm:text-4xl md:text-5xl font-black text-white mb-6">No live promotion right now</h1>
           <p className="text-gray-300 text-lg leading-relaxed max-w-xl mx-auto">
             We run seasonal inspection and maintenance offers throughout the year. There is no active
             promotion today — but there are still two ways to get ahead.
@@ -210,7 +210,7 @@ function NoActiveOffer() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
+      <section className="bg-white py-14 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="rounded-2xl border border-gray-100 bg-[#f8fbfe] p-8 shadow-sm flex flex-col">
             <div className="w-12 h-12 rounded-xl bg-[#3e91ce]/10 text-[#3e91ce] flex items-center justify-center mb-5">
