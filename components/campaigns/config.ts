@@ -484,8 +484,8 @@ export const remoteWaterConfig: CampaignConfig = {
         location: 'Doomadgee, QLD (Remote) · National Water Grid Fund & QLD Government',
         scope: '2ML ground-level tank — water treatment plant storage',
         status: 'Ongoing project',
-        body: 'All materials, plant and crew are transported hundreds of kilometres on unsealed roads that close in the wet season. Construction is scheduled within the dry-season window with materials pre-positioned ahead of wet-season risk, and civil earthworks engineered to the site’s soil conditions. Earthworks are complete and steel bar placement is underway; once commissioned, the tank will add the storage capacity the community’s water treatment plant needs.',
-        image: { src: '/projects/doomadgee-01.jpg', alt: 'Doomadgee 2ML reservoir site — civil earthworks and construction in progress' },
+        body: 'All materials, plant and crew are transported hundreds of kilometres on unsealed roads that close in the wet season. Construction is scheduled within the dry-season window with materials pre-positioned ahead of wet-season risk, and civil earthworks engineered to the site’s soil conditions. The 2ML tank structure and external access system are now built on site; the broader project remains ongoing as work progresses toward final completion and commissioning.',
+        image: { src: '/projects/doomadgee-completed-tank-hero.jpg', alt: 'Built 2ML ground-level tank at the ongoing Doomadgee reservoir project' },
       },
       {
         name: 'Civil earthworks & foundation',
