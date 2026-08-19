@@ -42,12 +42,10 @@ yarn-error.log*
 next-env.d.ts
 
 # local-only meta / dev files
+.claude/
 .claudeignore
 AGENTS.md
 CLAUDE.md
 README.md
 SUPABASE_CMS_SETUP.md
 *.txt
-
-.env*.local
-.vercel
