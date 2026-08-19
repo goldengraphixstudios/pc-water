@@ -46,6 +46,5 @@ next-env.d.ts
 .claudeignore
 AGENTS.md
 CLAUDE.md
-README.md
 SUPABASE_CMS_SETUP.md
 *.txt
