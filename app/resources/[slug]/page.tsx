@@ -213,6 +213,46 @@ const resourceLinkMap: Record<
     relatedResources: ['birds-are-the-most-common-body-found-inside-australian-tanks', 'the-open-overflow-wildlife-drain-point', '5-contamination-risks-not-source-water'],
     keywords: ['water tank contamination roof hatch vent', 'potable tank access hatch compliance', 'tank vent mesh contamination', 'treated water re-contamination tank', 'water tank vermin proofing australia'],
   },
+  'rov-inspection-vs-manned-entry-choosing-the-right-method': {
+    relatedServices: [
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+    ],
+    relatedResources: ['what-a-professional-tank-inspection-actually-covers', 'reading-a-tank-inspection-report-what-the-findings-actually-mean', 'is-your-water-tank-a-ticking-time-bomb-5-signs-your-tank-is-failing'],
+    keywords: ['ROV tank inspection australia', 'manned entry water tank inspection', 'drone water tank inspection', 'confined space tank inspection'],
+  },
+  'modular-tanks-in-remote-australia-transport-access-and-assembly': {
+    relatedServices: [
+      { href: '/services/remote-area-delivery', label: 'Remote Area Project Delivery' },
+      { href: '/services/tank-installation', label: 'Tank Installation' },
+    ],
+    relatedResources: ['water-storage-in-harsh-environments-what-you-need-to-know', 'from-mines-to-hospitals-what-every-sector-gets-wrong-about-tank-maintenance', 'fire-tank-volume-and-draw-down-getting-the-numbers-right'],
+    keywords: ['modular water tank remote australia', 'remote water infrastructure delivery', 'water tank transport logistics australia', 'remote site tank assembly'],
+  },
+  'reading-a-tank-inspection-report-what-the-findings-actually-mean': {
+    relatedServices: [
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+    ],
+    relatedResources: ['what-a-professional-tank-inspection-actually-covers', 'rov-inspection-vs-manned-entry-choosing-the-right-method', 'is-your-water-tank-a-ticking-time-bomb-5-signs-your-tank-is-failing'],
+    keywords: ['how to read a tank inspection report', 'water tank condition rating', 'tank inspection findings explained', 'water tank defect report australia'],
+  },
+  'fire-tank-volume-and-draw-down-getting-the-numbers-right': {
+    relatedServices: [
+      { href: '/services/fire-water-tanks', label: 'Fire Water Tank Solutions' },
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+    ],
+    relatedResources: ['fire-water-tank-as1851-service-levels-explained', 'why-your-fire-tank-might-fail-compliance-and-how-to-fix-it-fast', 'what-a-professional-tank-inspection-actually-covers'],
+    keywords: ['fire tank usable volume', 'AS2419 fire tank draw down', 'fire water tank pump suction', 'fire tank sediment compliance australia'],
+  },
+  'water-chemistry-and-disinfection-residual-why-it-matters-in-storage': {
+    relatedServices: [
+      { href: '/services/water-treatment-solutions', label: 'Water Treatment Solutions' },
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+    ],
+    relatedResources: ['water-is-food-your-tank-is-the-crockery', 'when-iron-and-manganese-come-from-inside-the-tank-not-the-source', 'evidence-water-quality-issues-warning-signs'],
+    keywords: ['disinfection residual water tank', 'chlorine residual decay storage tank', 'water tank retention time quality', 'potable water storage chemistry australia'],
+  },
 }
 
 export async function generateStaticParams() {
