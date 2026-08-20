@@ -173,6 +173,46 @@ const resourceLinkMap: Record<
     relatedResources: ['how-often-should-a-water-tank-be-cleaned', 'sediment-in-your-tank-what-it-is-where-it-comes-from-why-it-matters', 'corrosion-is-killing-your-storage-tanks-and-heres-how-to-stop-it'],
     keywords: ['water tank inspection during cleaning', 'concrete reservoir spalling australia', 'tank roof support post corrosion', 'water tank condition assessment australia', 'tank coating failure inspection', 'tank lining refurbishment australia'],
   },
+  'how-to-read-a-tank-coating-failure': {
+    relatedServices: [
+      { href: '/services/rpvc-liner-systems', label: 'RPVC Liner Systems' },
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+    ],
+    relatedResources: ['corrosion-is-killing-your-storage-tanks-and-heres-how-to-stop-it', 'reline-or-replace-ageing-steel-tank-lifecycle-cost', 'when-iron-and-manganese-come-from-inside-the-tank-not-the-source'],
+    keywords: ['tank coating failure', 'coating blistering delamination undercutting', 'steel tank corrosion protection australia', 'coating disbondment holidays', 'water tank recoat or reline'],
+  },
+  'fire-water-tank-as1851-service-levels-explained': {
+    relatedServices: [
+      { href: '/services/fire-water-tanks', label: 'Fire Water Tank Solutions' },
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+    ],
+    relatedResources: ['why-your-fire-tank-might-fail-compliance-and-how-to-fix-it-fast', 'what-a-professional-tank-inspection-actually-covers', 'how-often-should-a-water-tank-be-cleaned'],
+    keywords: ['AS1851 fire water tank inspection', 'fire tank compliance australia', 'fire water storage service schedule', 'AS1851 baseline data record', 'fire tank maintenance records'],
+  },
+  'reline-or-replace-ageing-steel-tank-lifecycle-cost': {
+    relatedServices: [
+      { href: '/services/rpvc-liner-systems', label: 'RPVC Liner Systems' },
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+    ],
+    relatedResources: ['how-rpvc-liners-extend-the-life-of-aging-water-tanks', 'corrosion-is-killing-your-storage-tanks-and-heres-how-to-stop-it', 'how-to-read-a-tank-coating-failure'],
+    keywords: ['reline vs replace water tank', 'RPVC relining cost australia', 'extend water tank life', 'tank lifecycle cost', 'ageing steel tank refurbishment'],
+  },
+  'what-a-professional-tank-inspection-actually-covers': {
+    relatedServices: [
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+    ],
+    relatedResources: ['when-cleaning-is-not-just-cleaning', 'is-your-water-tank-a-ticking-time-bomb-5-signs-your-tank-is-failing', 'fire-water-tank-as1851-service-levels-explained'],
+    keywords: ['professional water tank inspection australia', 'ROV UAV tank inspection', 'tank condition assessment scope', 'water tank inspection without dewatering', 'cathodic protection tank inspection'],
+  },
+  'tank-roof-and-hatch-overlooked-contamination-entry-point': {
+    relatedServices: [
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+    ],
+    relatedResources: ['birds-are-the-most-common-body-found-inside-australian-tanks', 'the-open-overflow-wildlife-drain-point', '5-contamination-risks-not-source-water'],
+    keywords: ['water tank contamination roof hatch vent', 'potable tank access hatch compliance', 'tank vent mesh contamination', 'treated water re-contamination tank', 'water tank vermin proofing australia'],
+  },
 }
 
 export async function generateStaticParams() {
