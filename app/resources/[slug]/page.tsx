@@ -253,6 +253,86 @@ const resourceLinkMap: Record<
     relatedResources: ['water-is-food-your-tank-is-the-crockery', 'when-iron-and-manganese-come-from-inside-the-tank-not-the-source', 'evidence-water-quality-issues-warning-signs'],
     keywords: ['disinfection residual water tank', 'chlorine residual decay storage tank', 'water tank retention time quality', 'potable water storage chemistry australia'],
   },
+  'foundation-and-civil-works-why-tank-failures-start-below-ground': {
+    relatedServices: [
+      { href: '/services/foundation-civil-integration', label: 'Foundation & Civil Integration' },
+      { href: '/services/tank-installation', label: 'Tank Installation' },
+    ],
+    relatedResources: ['custom-tank-design-when-a-standard-size-doesnt-fit-your-site', 'reline-or-replace-ageing-steel-tank-lifecycle-cost', 'what-a-professional-tank-inspection-actually-covers'],
+    keywords: ['water tank foundation failure', 'tank pad settlement australia', 'water tank civil works', 'tank foundation drainage'],
+  },
+  'custom-tank-design-when-a-standard-size-doesnt-fit-your-site': {
+    relatedServices: [
+      { href: '/services/custom-tank-design', label: 'Custom Tank Design' },
+      { href: '/services/tank-installation', label: 'Tank Installation' },
+    ],
+    relatedResources: ['foundation-and-civil-works-why-tank-failures-start-below-ground', 'builder-contractor-partnerships-getting-water-storage-right-on-a-new-build', 'fire-tank-volume-and-draw-down-getting-the-numbers-right'],
+    keywords: ['custom water tank design australia', 'bespoke water storage tank', 'non standard water tank design', 'water tank site constraints design'],
+  },
+  'tender-and-procurement-for-water-infrastructure-what-councils-get-wrong': {
+    relatedServices: [
+      { href: '/services/tender-procurement-support', label: 'Tender & Procurement Support' },
+      { href: '/services/project-managed-water-infrastructure', label: 'Project-Managed Water Infrastructure' },
+    ],
+    relatedResources: ['what-a-professional-tank-inspection-actually-covers', 'project-managed-water-infrastructure-why-one-point-of-accountability-matters', 'from-mines-to-hospitals-what-every-sector-gets-wrong-about-tank-maintenance'],
+    keywords: ['water infrastructure tender australia', 'council water tank procurement', 'tank refurbishment tender specification', 'water infrastructure contract disputes'],
+  },
+  'cathodic-protection-for-steel-water-tanks-does-your-tank-need-it': {
+    relatedServices: [
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+    ],
+    relatedResources: ['how-to-read-a-tank-coating-failure', 'corrosion-is-killing-your-storage-tanks-and-heres-how-to-stop-it', 'reline-or-replace-ageing-steel-tank-lifecycle-cost'],
+    keywords: ['cathodic protection water tank', 'sacrificial anode steel tank', 'impressed current tank corrosion protection', 'steel water tank corrosion prevention australia'],
+  },
+  'confined-space-entry-requirements-for-water-tank-work-a-safety-primer': {
+    relatedServices: [
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+    ],
+    relatedResources: ['rov-inspection-vs-manned-entry-choosing-the-right-method', 'how-we-clean-a-water-tank-diver-vacuuming-method', 'what-a-professional-tank-inspection-actually-covers'],
+    keywords: ['confined space entry water tank', 'water tank entry safety requirements', 'tank atmospheric testing australia', 'confined space permit water tank'],
+  },
+  'builder-contractor-partnerships-getting-water-storage-right-on-a-new-build': {
+    relatedServices: [
+      { href: '/services/builder-contractor-partnerships', label: 'Builder & Contractor Partnerships' },
+      { href: '/services/custom-tank-design', label: 'Custom Tank Design' },
+    ],
+    relatedResources: ['custom-tank-design-when-a-standard-size-doesnt-fit-your-site', 'foundation-and-civil-works-why-tank-failures-start-below-ground', 'why-your-fire-tank-might-fail-compliance-and-how-to-fix-it-fast'],
+    keywords: ['water tank new build australia', 'builder water storage partnership', 'commercial fire tank sizing new build', 'water infrastructure construction integration'],
+  },
+  'concrete-reservoir-spalling-vs-steel-tank-corrosion-whats-different': {
+    relatedServices: [
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+    ],
+    relatedResources: ['how-to-read-a-tank-coating-failure', 'corrosion-is-killing-your-storage-tanks-and-heres-how-to-stop-it', 'reading-a-tank-inspection-report-what-the-findings-actually-mean'],
+    keywords: ['concrete reservoir spalling', 'reinforcement corrosion concrete tank', 'concrete water tank repair australia', 'concrete reservoir inspection'],
+  },
+  'turbidity-spikes-after-tank-cleaning-whats-normal-and-whats-a-red-flag': {
+    relatedServices: [
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+      { href: '/services/water-treatment-solutions', label: 'Water Treatment Solutions' },
+    ],
+    relatedResources: ['how-we-clean-a-water-tank-diver-vacuuming-method', 'how-often-should-a-water-tank-be-cleaned', 'evidence-water-quality-issues-warning-signs'],
+    keywords: ['turbidity after tank cleaning', 'water tank cleaning water quality', 'post cleaning turbidity spike normal', 'tank cleaning water testing australia'],
+  },
+  'project-managed-water-infrastructure-why-one-point-of-accountability-matters': {
+    relatedServices: [
+      { href: '/services/project-managed-water-infrastructure', label: 'Project-Managed Water Infrastructure' },
+      { href: '/services/remote-area-delivery', label: 'Remote Area Project Delivery' },
+    ],
+    relatedResources: ['tender-and-procurement-for-water-infrastructure-what-councils-get-wrong', 'modular-tanks-in-remote-australia-transport-access-and-assembly', 'water-storage-in-harsh-environments-what-you-need-to-know'],
+    keywords: ['project managed water infrastructure', 'single point accountability water project', 'water infrastructure delivery model australia', 'remote water project management'],
+  },
+  'iron-bacteria-in-water-tanks-the-slime-thats-quietly-corroding-your-asset': {
+    relatedServices: [
+      { href: '/services/water-treatment-solutions', label: 'Water Treatment Solutions' },
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+    ],
+    relatedResources: ['when-iron-and-manganese-come-from-inside-the-tank-not-the-source', 'water-is-food-your-tank-is-the-crockery', 'cathodic-protection-for-steel-water-tanks-does-your-tank-need-it'],
+    keywords: ['iron bacteria water tank', 'iron bacteria fouling corrosion', 'reddish brown water tank slime', 'microbiologically influenced corrosion water tank'],
+  },
 }
 
 export async function generateStaticParams() {
