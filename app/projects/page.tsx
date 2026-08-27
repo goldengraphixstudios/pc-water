@@ -35,6 +35,9 @@ export const dynamic = 'force-static'
 
 const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
+/** The project given the flagship slot. Falls back to the first featured. */
+const FLAGSHIP_SLUG = 'hobart-nyrstar'
+
 /** Compound sectors like "Hydro Energy / Government" become two facets. */
 function splitSector(sector: string): string[] {
   return sector
@@ -74,10 +77,10 @@ export default async function ProjectsPage() {
     projectStatus: p.projectStatus ?? null,
   }))
 
-  const lead = items.find((p) => p.featured) ?? items[0]
+  const lead = items.find((p) => p.slug === FLAGSHIP_SLUG) ?? items.find((p) => p.featured) ?? items[0]
   const rest = items.filter((p) => p.slug !== lead?.slug)
-  /* The flagship rail shows the other featured projects only — three keeps
-     each row readable and the column balanced against the lead card. */
+  /* The rail shows the other featured projects only — three fill the column
+     beside the flagship card without crowding it. */
   const alsoFeatured = rest.filter((p) => p.featured).slice(0, 3)
 
   // Sidebar facets
@@ -176,35 +179,23 @@ export default async function ProjectsPage() {
 
       {/* ── Flagship project ── */}
       {lead && (
-        <section className="bg-[#0d1b2a] py-10 sm:py-14">
+        <section className="bg-[#0d1b2a] pb-10 pt-6 sm:pb-14 sm:pt-8">
           <div className={SHELL}>
-            <div className="mb-6 flex flex-wrap items-end justify-between gap-4 border-b border-white/15 pb-3">
-              <div>
-                <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[#3e91ce]">
-                  / Flagship
-                </p>
-                <h2 className="text-xl font-black text-white sm:text-2xl">START HERE</h2>
-              </div>
-              <p className="max-w-md text-[13px] leading-relaxed text-gray-400">
-                A representative example of how we scope, deliver and commission water storage infrastructure.
-              </p>
-            </div>
-
             <div className="grid grid-cols-1 gap-5 lg:grid-cols-[1.5fr_1fr]">
               <ProjectCard project={lead} variant="lead" />
               {alsoFeatured.length > 0 && (
                 <div className="flex flex-col">
-                  <h3 className="mb-2 border-b border-white/20 pb-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-white">
+                  <h2 className="mb-1 border-b border-white/20 pb-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-white">
                     Also in the portfolio
-                  </h3>
-                  <div className="divide-y divide-white/10 [&_h4]:text-white [&_p]:text-gray-400 [&_span]:text-[#7fc2f0]">
+                  </h2>
+                  <div className="flex flex-1 flex-col divide-y divide-white/10">
                     {alsoFeatured.map((p) => (
-                      <ProjectCard key={p.slug} project={p} variant="compact" />
+                      <ProjectCard key={p.slug} project={p} variant="rail" />
                     ))}
                   </div>
                   <a
                     href="#portfolio"
-                    className="mt-3 inline-flex items-center gap-1.5 text-[13px] font-bold text-[#7fc2f0] transition-colors hover:text-white"
+                    className="mt-3 inline-flex items-center gap-1.5 border-t border-white/20 pt-3 text-[13px] font-bold text-[#7fc2f0] transition-colors hover:text-white"
                   >
                     See all {items.length} projects
                     <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
