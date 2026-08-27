@@ -333,6 +333,85 @@ const resourceLinkMap: Record<
     relatedResources: ['when-iron-and-manganese-come-from-inside-the-tank-not-the-source', 'water-is-food-your-tank-is-the-crockery', 'cathodic-protection-for-steel-water-tanks-does-your-tank-need-it'],
     keywords: ['iron bacteria water tank', 'iron bacteria fouling corrosion', 'reddish brown water tank slime', 'microbiologically influenced corrosion water tank'],
   },
+  'water-tank-warranty-claims-what-voids-cover-and-what-doesnt': {
+    relatedServices: [
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+    ],
+    relatedResources: ['reading-a-tank-inspection-report-what-the-findings-actually-mean', 'water-tank-insurance-and-risk-what-insurers-actually-look-for-after-a-claim', 'as4020-certification-what-it-actually-certifies-on-a-potable-water-tank'],
+    keywords: ['water tank warranty claim', 'tank warranty void maintenance', 'water tank warranty terms australia', 'tank maintenance records warranty'],
+  },
+  'mining-and-resources-water-storage-compliance-beyond-standard-as-requirements': {
+    relatedServices: [
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+      { href: '/services/remote-area-delivery', label: 'Remote Area Project Delivery' },
+    ],
+    relatedResources: ['water-storage-in-harsh-environments-what-you-need-to-know', 'modular-tanks-in-remote-australia-transport-access-and-assembly', 'tender-and-procurement-for-water-infrastructure-what-councils-get-wrong'],
+    keywords: ['mining water storage compliance australia', 'mine site water tank regulations', 'process water potable separation mining', 'resources sector water infrastructure'],
+  },
+  'water-storage-for-bushfire-prone-properties-static-water-supply-explained': {
+    relatedServices: [
+      { href: '/services/fire-water-tanks', label: 'Fire Water Tank Solutions' },
+      { href: '/services/custom-tank-design', label: 'Custom Tank Design' },
+    ],
+    relatedResources: ['fire-water-tank-as1851-service-levels-explained', 'fire-tank-volume-and-draw-down-getting-the-numbers-right', 'why-your-fire-tank-might-fail-compliance-and-how-to-fix-it-fast'],
+    keywords: ['bushfire static water supply tank', 'rural fire water tank requirements', 'bushfire prone property water storage', 'RFS static water supply australia'],
+  },
+  'water-tank-level-monitoring-and-scada-integration-what-to-specify': {
+    relatedServices: [
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+    ],
+    relatedResources: ['rov-inspection-vs-manned-entry-choosing-the-right-method', 'reading-a-tank-inspection-report-what-the-findings-actually-mean', 'project-managed-water-infrastructure-why-one-point-of-accountability-matters'],
+    keywords: ['water tank level monitoring', 'tank SCADA integration', 'water tank sensor specification', 'remote tank monitoring australia'],
+  },
+  'rainwater-harvesting-vs-reticulated-backup-storage-choosing-the-right-system': {
+    relatedServices: [
+      { href: '/services/water-treatment-solutions', label: 'Water Treatment Solutions' },
+      { href: '/services/remote-area-delivery', label: 'Remote Area Project Delivery' },
+    ],
+    relatedResources: ['water-storage-in-harsh-environments-what-you-need-to-know', 'water-is-food-your-tank-is-the-crockery', 'modular-tanks-in-remote-australia-transport-access-and-assembly'],
+    keywords: ['rainwater harvesting tank vs backup storage', 'reticulated water backup tank', 'rural water storage strategy australia', 'water tank sizing demand'],
+  },
+  'water-tank-decommissioning-what-proper-removal-and-site-remediation-involves': {
+    relatedServices: [
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+      { href: '/services/tank-installation', label: 'Tank Installation' },
+    ],
+    relatedResources: ['foundation-and-civil-works-why-tank-failures-start-below-ground', 'sediment-disposal-what-happens-to-everything-that-comes-out-of-your-tank', 'reline-or-replace-ageing-steel-tank-lifecycle-cost'],
+    keywords: ['water tank decommissioning', 'water tank removal australia', 'tank site remediation', 'disused water tank disposal'],
+  },
+  'as4020-certification-what-it-actually-certifies-on-a-potable-water-tank': {
+    relatedServices: [
+      { href: '/services/rpvc-liner-systems', label: 'RPVC Liner Systems' },
+      { href: '/services/tank-installation', label: 'Tank Installation' },
+    ],
+    relatedResources: ['how-rpvc-liners-extend-the-life-of-aging-water-tanks', 'water-tank-warranty-claims-what-voids-cover-and-what-doesnt', 'what-a-professional-tank-inspection-actually-covers'],
+    keywords: ['AS4020 certification water tank', 'AS4020 drinking water product testing', 'potable water tank compliance australia', 'AS4020 vs AS2304'],
+  },
+  'water-tank-insurance-and-risk-what-insurers-actually-look-for-after-a-claim': {
+    relatedServices: [
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+    ],
+    relatedResources: ['water-tank-warranty-claims-what-voids-cover-and-what-doesnt', 'reading-a-tank-inspection-report-what-the-findings-actually-mean', 'is-your-water-tank-a-ticking-time-bomb-5-signs-your-tank-is-failing'],
+    keywords: ['water tank insurance claim', 'tank failure insurance australia', 'water tank maintenance insurance risk', 'tank inspection insurance evidence'],
+  },
+  'seismic-and-wind-loading-on-water-tanks-why-structural-design-doesnt-stop-at-the-walls': {
+    relatedServices: [
+      { href: '/services/custom-tank-design', label: 'Custom Tank Design' },
+      { href: '/services/foundation-civil-integration', label: 'Foundation & Civil Integration' },
+    ],
+    relatedResources: ['foundation-and-civil-works-why-tank-failures-start-below-ground', 'custom-tank-design-when-a-standard-size-doesnt-fit-your-site', 'fire-tank-volume-and-draw-down-getting-the-numbers-right'],
+    keywords: ['seismic design water tank', 'wind loading water tank australia', 'tank sloshing load design', 'water tank structural engineering'],
+  },
+  'data-centre-and-critical-facility-water-storage-redundancy-requirements-explained': {
+    relatedServices: [
+      { href: '/services/project-managed-water-infrastructure', label: 'Project-Managed Water Infrastructure' },
+      { href: '/services/fire-water-tanks', label: 'Fire Water Tank Solutions' },
+    ],
+    relatedResources: ['fire-tank-volume-and-draw-down-getting-the-numbers-right', 'water-tank-level-monitoring-and-scada-integration-what-to-specify', 'project-managed-water-infrastructure-why-one-point-of-accountability-matters'],
+    keywords: ['data centre water storage redundancy', 'critical facility fire water tank', 'cooling water storage redundancy', 'data centre water infrastructure australia'],
+  },
 }
 
 export async function generateStaticParams() {
