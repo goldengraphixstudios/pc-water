@@ -6,6 +6,7 @@ import CTABanner from '@/components/CTABanner'
 import ArticleCard from '@/components/resources/ArticleCard'
 import ArticleBrowser from '@/components/resources/ArticleBrowser'
 import CategoryGrid from '@/components/resources/CategoryGrid'
+import LibrarySidebar from '@/components/resources/LibrarySidebar'
 import { getPublicPosts } from '@/lib/cms/queries'
 import {
   CATEGORIES,
@@ -14,7 +15,9 @@ import {
   TOPICS,
   countByCategory,
   countByRegion,
+  countByTopic,
   enrichArticles,
+  getCategoryPreviews,
   getFeatured,
   sortByNewest,
 } from '@/lib/cms/taxonomy'
@@ -86,8 +89,11 @@ export default async function ArticlesPage() {
   const featured = getFeatured(articles, 5)
   const [lead, ...secondary] = featured
   const categoryCounts = countByCategory(articles)
+  const categoryPreviews = getCategoryPreviews(articles)
   const regionCounts = countByRegion(articles)
-  const regionsWithArticles = REGIONS.filter((r) => (regionCounts[r.slug] ?? 0) > 0)
+  const topicCounts = countByTopic(articles)
+  const featuredIds = new Set(featured.map((a) => a.id))
+  const sidebarRecent = latest.filter((a) => !featuredIds.has(a.id)).slice(0, 4)
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -187,94 +193,50 @@ export default async function ArticlesPage() {
         </section>
       )}
 
-      {/* ── Browse by section ── */}
-      <section className="bg-white py-14 sm:py-20">
+      {/* ── Sections strip ── */}
+      <section className="border-b border-gray-100 bg-white pt-10 pb-8 sm:pt-14">
         <div className="mx-auto max-w-6xl px-4">
-          <div className="mb-10 max-w-2xl">
-            <p className="mb-2 text-xs font-bold uppercase tracking-widest text-[#3e91ce]">/ Sections</p>
-            <h2 className="mb-3 text-2xl font-black text-[#30505b] sm:text-3xl">BROWSE BY SECTION</h2>
-            <p className="leading-relaxed text-gray-500">
-              Every article sits in one section. Each section is a complete body of work on that part of water
-              infrastructure — start with the one closest to your problem.
-            </p>
-          </div>
-          <CategoryGrid categories={CATEGORIES} counts={categoryCounts} />
-        </div>
-      </section>
-
-      {/* ── Browse by region ── */}
-      {regionsWithArticles.length > 0 && (
-        <section className="border-y border-gray-100 bg-[#F4F6F8] py-12 sm:py-16">
-          <div className="mx-auto max-w-6xl px-4">
-            <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-              <div>
-                <p className="mb-2 text-xs font-bold uppercase tracking-widest text-[#3e91ce]">/ By Region</p>
-                <h2 className="text-2xl font-black text-[#30505b] sm:text-3xl">WHERE YOU OPERATE</h2>
-              </div>
-              <p className="max-w-md text-sm leading-relaxed text-gray-500">
-                Climate, industry and terrain change what a correct specification looks like. These guides cover
-                the regional realities.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              {regionsWithArticles.map((r) => (
-                <Link
-                  key={r.slug}
-                  href={`/resources/region/${r.slug}`}
-                  className="group inline-flex items-center gap-2.5 rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-[#30505b] transition-all hover:border-[#3e91ce] hover:text-[#3e91ce]"
-                >
-                  <span className="rounded-md bg-[#0d1b2a] px-2 py-0.5 text-[10px] font-bold text-white transition-colors group-hover:bg-[#3e91ce]">
-                    {r.shortName}
-                  </span>
-                  {r.name}
-                  <span className="text-gray-400">({regionCounts[r.slug]})</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ── Full library: search + facets ── */}
-      <section id="library" className="scroll-mt-24 bg-white py-14 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="mb-8 max-w-2xl">
-            <p className="mb-2 text-xs font-bold uppercase tracking-widest text-[#3e91ce]">/ Full Library</p>
-            <h2 className="mb-3 text-2xl font-black text-[#30505b] sm:text-3xl">EVERY ARTICLE</h2>
-            <p className="leading-relaxed text-gray-500">
-              Search the full library, or narrow it by section, format, topic and region.
-            </p>
-          </div>
-          <ArticleBrowser
-            articles={latest}
-            categories={CATEGORIES}
-            formats={FORMATS}
-            topics={TOPICS}
-            regions={REGIONS}
-          />
-        </div>
-      </section>
-
-      {/* ── Downloads teaser ── */}
-      <section className="bg-[#0d1b2a] py-14 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
+          <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
             <div>
-              <p className="mb-2 text-xs font-bold uppercase tracking-widest text-[#3e91ce]">/ Free Downloads</p>
-              <h2 className="mb-3 text-2xl font-black text-white sm:text-3xl">TAKE SOMETHING WITH YOU</h2>
-              <p className="max-w-xl leading-relaxed text-gray-400">
-                Checklists, compliance guides and decision frameworks — free to download, no strings attached.
-              </p>
+              <p className="mb-1 text-xs font-bold uppercase tracking-widest text-[#3e91ce]">/ Sections</p>
+              <h2 className="text-xl font-black text-[#30505b] sm:text-2xl">BROWSE BY SECTION</h2>
             </div>
-            <Link
-              href="/resources/downloads"
-              className="inline-flex flex-shrink-0 items-center gap-2 rounded-full bg-[#2a72ad] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#246397]"
-            >
-              View All Downloads
-              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
+            <p className="max-w-sm text-sm leading-relaxed text-gray-500">
+              Every article sits in one section — start with the one closest to your problem.
+            </p>
+          </div>
+          <CategoryGrid categories={CATEGORIES} counts={categoryCounts} previews={categoryPreviews} />
+        </div>
+      </section>
+
+      {/* ── Magazine layout: library + sidebar ── */}
+      <section id="library" className="scroll-mt-24 bg-[#F4F6F8] py-10 sm:py-14">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-10">
+            {/* Main column */}
+            <div className="min-w-0">
+              <div className="mb-6">
+                <p className="mb-1 text-xs font-bold uppercase tracking-widest text-[#3e91ce]">/ Full Library</p>
+                <h2 className="text-xl font-black text-[#30505b] sm:text-2xl">EVERY ARTICLE</h2>
+              </div>
+              <ArticleBrowser
+                articles={latest}
+                categories={CATEGORIES}
+                formats={FORMATS}
+                topics={TOPICS}
+                regions={REGIONS}
+                columns="two"
+              />
+            </div>
+
+            {/* Sidebar */}
+            <LibrarySidebar
+              regions={REGIONS}
+              regionCounts={regionCounts}
+              topics={TOPICS}
+              topicCounts={topicCounts}
+              mostRecent={sidebarRecent}
+            />
           </div>
         </div>
       </section>

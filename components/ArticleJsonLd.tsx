@@ -6,6 +6,8 @@ interface ArticleJsonLdProps {
   publishedAt?: string | null
   modifiedAt?: string | null
   keywords?: string[]
+  /** Named author with job title, when known. Falls back to the organisation. */
+  author?: { name: string; role?: string } | null
 }
 
 export default function ArticleJsonLd({
@@ -16,6 +18,7 @@ export default function ArticleJsonLd({
   publishedAt,
   modifiedAt,
   keywords = [],
+  author,
 }: ArticleJsonLdProps) {
   const schema = {
     '@context': 'https://schema.org',
@@ -30,10 +33,17 @@ export default function ArticleJsonLd({
     datePublished: publishedAt || undefined,
     dateModified: modifiedAt || publishedAt || undefined,
     keywords: keywords.length ? keywords.join(', ') : undefined,
-    author: {
-      '@type': 'Organization',
-      name: 'PC Water Infrastructure',
-    },
+    author: author
+      ? {
+          '@type': 'Person',
+          name: author.name,
+          jobTitle: author.role || undefined,
+          worksFor: { '@type': 'Organization', name: 'PC Water Infrastructure' },
+        }
+      : {
+          '@type': 'Organization',
+          name: 'PC Water Infrastructure',
+        },
     publisher: {
       '@type': 'Organization',
       name: 'PC Water Infrastructure',

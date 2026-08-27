@@ -665,6 +665,20 @@ export function countByRegion(articles: EnrichedArticle[]): Record<string, numbe
   return counts
 }
 
+/**
+ * A representative cover image per category, taken from the most recent
+ * article in that section that has one. Used for section preview tiles.
+ */
+export function getCategoryPreviews(articles: EnrichedArticle[]): Record<string, string> {
+  const previews: Record<string, string> = {}
+  for (const a of sortByNewest(articles)) {
+    if (a.coverImageUrl && !previews[a.category.slug]) {
+      previews[a.category.slug] = a.coverImageUrl
+    }
+  }
+  return previews
+}
+
 export function countByTopic(articles: EnrichedArticle[]): Record<string, number> {
   const counts: Record<string, number> = {}
   for (const a of articles) for (const t of a.topics) counts[t.slug] = (counts[t.slug] ?? 0) + 1

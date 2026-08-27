@@ -119,9 +119,10 @@ function StandardCard({ article }: { article: EnrichedArticle }) {
   return (
     <Link
       href={`/resources/${article.slug}`}
-      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+      className="group flex h-full flex-row gap-3 overflow-hidden rounded-xl border border-gray-100 bg-white p-3 shadow-sm transition-all duration-300 hover:shadow-lg sm:flex-col sm:gap-0 sm:rounded-2xl sm:p-0 sm:hover:-translate-y-1 sm:hover:shadow-xl"
     >
-      <div className="relative h-44 overflow-hidden bg-gradient-to-br from-[#162538] via-[#30505b] to-[#3e91ce]">
+      {/* Thumbnail — compact square on mobile, full-width band on larger screens */}
+      <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-lg bg-gradient-to-br from-[#162538] via-[#30505b] to-[#3e91ce] sm:h-40 sm:w-full sm:rounded-none">
         {article.coverImageUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -131,28 +132,39 @@ function StandardCard({ article }: { article: EnrichedArticle }) {
             loading="lazy"
           />
         ) : (
-          <div className="absolute inset-0 flex items-end p-4">
-            <span className="select-none text-5xl font-black leading-none text-white/20">PC</span>
+          <div className="absolute inset-0 flex items-end p-3">
+            <span className="select-none text-3xl font-black leading-none text-white/20 sm:text-5xl">PC</span>
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0d1b2a]/45 to-transparent" />
-        <div className="absolute left-4 top-4">
+        <div className="absolute inset-0 hidden bg-gradient-to-t from-[#0d1b2a]/45 to-transparent sm:block" />
+        <div className="absolute left-3 top-3 hidden sm:block">
           <CategoryPill article={article} />
         </div>
         {article.region && (
-          <div className="absolute right-4 top-4">
+          <div className="absolute right-3 top-3 hidden sm:block">
             <span className="rounded-full bg-[#0d1b2a]/70 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-sm">
               {article.region.shortName}
             </span>
           </div>
         )}
       </div>
-      <div className="flex flex-1 flex-col p-5">
-        <Meta article={article} className="mb-2.5 text-gray-400" />
-        <h3 className="mb-2.5 text-base font-bold leading-snug text-[#30505b] transition-colors group-hover:text-[#3e91ce]">
+
+      <div className="flex min-w-0 flex-1 flex-col sm:p-5">
+        {/* Mobile-only category label (the pill lives on the image at sm+) */}
+        <span
+          className="mb-1 text-[10px] font-bold uppercase tracking-wider sm:hidden"
+          style={{ color: article.category.accent }}
+        >
+          {article.category.shortName}
+        </span>
+        <Meta article={article} className="mb-2 hidden text-gray-400 sm:flex" />
+        <h3 className="mb-1.5 line-clamp-3 text-sm font-bold leading-snug text-[#30505b] transition-colors group-hover:text-[#3e91ce] sm:mb-2.5 sm:line-clamp-none sm:text-base">
           {article.title}
         </h3>
-        <p className="line-clamp-3 flex-1 text-sm leading-relaxed text-gray-500">{article.excerpt}</p>
+        <p className="hidden flex-1 text-sm leading-relaxed text-gray-500 sm:line-clamp-3 sm:block">
+          {article.excerpt}
+        </p>
+        <span className="text-[11px] text-gray-400 sm:hidden">{article.readTime}</span>
       </div>
     </Link>
   )

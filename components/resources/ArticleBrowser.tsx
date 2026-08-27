@@ -19,6 +19,8 @@ interface Props {
   /** Hide the region facet when the surrounding page already scopes to one. */
   lockRegion?: boolean
   heading?: string
+  /** Grid density — use 'two' when rendered beside a sidebar. */
+  columns?: 'two' | 'three'
 }
 
 function toggle<T>(list: T[], value: T): T[] {
@@ -34,6 +36,7 @@ export default function ArticleBrowser({
   lockCategory = false,
   lockRegion = false,
   heading,
+  columns = 'three',
 }: Props) {
   const [query, setQuery] = useState('')
   const [category, setCategory] = useState<string>('all')
@@ -289,7 +292,11 @@ export default function ArticleBrowser({
       {/* ── Results ── */}
       {shown.length > 0 ? (
         <>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div
+            className={`grid grid-cols-1 gap-5 sm:grid-cols-2 ${
+              columns === 'three' ? 'lg:grid-cols-3' : ''
+            }`}
+          >
             {shown.map((a) => (
               <ArticleCard key={a.id} article={a} />
             ))}

@@ -6,7 +6,10 @@ import AppImage from '@/components/AppImage'
 import ArticleJsonLd from '@/components/ArticleJsonLd'
 import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import CTABanner from '@/components/CTABanner'
+import ArticleByline from '@/components/resources/ArticleByline'
+import ArticleFooterMeta from '@/components/resources/ArticleFooterMeta'
 import Breadcrumbs from '@/components/resources/Breadcrumbs'
+import { getAuthorFor } from '@/lib/cms/authors'
 import { getPublicPostBySlug, getPublicPosts } from '@/lib/cms/queries'
 import { enrichArticle } from '@/lib/cms/taxonomy'
 import { formatDate } from '@/lib/cms/utils'
@@ -791,6 +794,7 @@ export default async function ResourceArticlePage({
   const articleUrl = `${siteUrl}/resources/${post.slug}`
   const articleDescription = post.seoDescription || post.excerpt
   const meta = enrichArticle(post)
+  const author = getAuthorFor(post.publishedAt)
 
   return (
     <>
@@ -810,6 +814,7 @@ export default async function ResourceArticlePage({
         publishedAt={post.publishedAt}
         modifiedAt={post.updatedAt}
         keywords={resourceLinkMap[post.slug]?.keywords ?? post.tags.map((tag) => tag.name)}
+        author={{ name: author.name, role: author.role }}
       />
       {/* Hero — full bleed cover image with overlay */}
       <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden min-h-[480px] flex items-end">
@@ -855,10 +860,13 @@ export default async function ResourceArticlePage({
               </Link>
             )}
           </div>
-          <h1 className="text-[1.9rem] sm:text-4xl md:text-5xl font-black text-white mb-4 leading-tight">{post.title}</h1>
-          <div className="flex flex-wrap items-center gap-3 text-gray-400 text-sm">
-            {post.readTime && <span className="bg-white/10 px-3 py-1 rounded-full text-white/70">{post.readTime}</span>}
-            {post.publishedAt && <span>{formatDate(post.publishedAt)}</span>}
+          <h1 className="text-[1.9rem] sm:text-4xl md:text-5xl font-black text-white mb-5 leading-tight">{post.title}</h1>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+            <ArticleByline author={author} light />
+            <div className="flex flex-wrap items-center gap-3 text-gray-400 text-sm">
+              {post.readTime && <span className="bg-white/10 px-3 py-1 rounded-full text-white/70">{post.readTime}</span>}
+              {post.publishedAt && <span>{formatDate(post.publishedAt)}</span>}
+            </div>
           </div>
           {meta.topics.length > 0 && (
             <div className="mt-5 flex flex-wrap items-center gap-2">
@@ -886,6 +894,7 @@ export default async function ResourceArticlePage({
             className="article-content prose max-w-none"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
+          <ArticleFooterMeta author={author} url={articleUrl} title={post.title} />
         </div>
       </section>
 
