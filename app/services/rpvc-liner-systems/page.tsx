@@ -6,6 +6,10 @@ import FAQBlock from '@/components/FAQBlock'
 import CTABanner from '@/components/CTABanner'
 import SectionProjects from '@/components/SectionProjects'
 import ToolPromo from '@/components/ToolPromo'
+import Masthead from '@/components/editorial/Masthead'
+import DetailRail from '@/components/editorial/DetailRail'
+import DetailFooterBand from '@/components/editorial/DetailFooterBand'
+import { SHELL } from '@/lib/shell'
 
 export const metadata: Metadata = {
   title: 'RPVC Liner Systems Australia',
@@ -62,31 +66,24 @@ export default function RPVCLinerPage() {
           { name: 'RPVC Liner Systems', url: `${siteUrl}/services/rpvc-liner-systems` },
         ]}
       />
-      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
-        <AppImage
-          src="/heroes/rpvc-liner-systems.jpg"
-          alt="RPVC liner installation inside an aging water storage tank"
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-[#0d1b2a]/75" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Services</p>
-          <h1 className="text-[2.25rem] sm:text-5xl md:text-6xl font-black text-white mb-6">RPVC Liner Systems</h1>
-          <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
-            High-performance RPVC liner installation to protect tanks from corrosion, extend asset life by 20+ years, and restore potable water compliance — at a fraction of replacement cost.
-          </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#2a72ad] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#246397] transition-colors">
-            Request a Liner Assessment
-          </Link>
-        </div>
-      </section>
+      <Masthead
+        kicker="Services"
+        title="RPVC Liner Systems"
+        lead="High-performance RPVC liner installation to protect tanks from corrosion, extend asset life by 20+ years, and restore potable water compliance — at a fraction of replacement cost."
+        crumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Services', href: '/services' },
+          { label: "RPVC Liner Systems" },
+        ]}
+        imageSrc="/heroes/rpvc-liner-systems.jpg"
+        imageAlt="RPVC liner installation inside an aging water storage tank"
+        primaryCta={{ label: 'Request a Liner Assessment', href: '/contact' }}
+        secondaryCta={{ label: 'View Our Work', href: '/projects' }}
+      />
 
-      <section className="bg-white py-14 sm:py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="bg-white py-8 sm:py-10">
+        <div className={SHELL}>
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_320px]">
             <div>
               <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ The RPVC Advantage</p>
               <h2 className="text-3xl font-black text-[#30505b] mb-6">Extend, Don't Replace</h2>
@@ -114,7 +111,8 @@ export default function RPVCLinerPage() {
                 </div>
               ))}
             </div>
-          </div>
+              <DetailRail family="services" currentHref="/services/rpvc-liner-systems" />
+            </div>
         </div>
       </section>
 
@@ -127,7 +125,7 @@ export default function RPVCLinerPage() {
 
       <SectionProjects heading="Featured Projects" slugs={['albury-reservoir', 'hobart-nyrstar', 'clarence-road-liner']} bgColor="bg-[#F4F6F8]" />
 
-      <section className="relative py-14 sm:py-20 overflow-hidden">
+      <section className="relative py-8 sm:py-10 overflow-hidden">
         <AppImage src="/water/water-02.jpg" alt="Clean potable water protected by an RPVC tank liner" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#30505b]/87" />
         <div className="relative z-10 max-w-6xl mx-auto px-4">
@@ -149,7 +147,7 @@ export default function RPVCLinerPage() {
         </div>
       </section>
 
-      <section className="bg-white py-12 sm:py-16">
+      <section className="bg-white py-8 sm:py-10">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-black text-[#30505b] mb-8">Industries We Serve</h2>
           <div className="flex flex-wrap justify-center gap-3">
@@ -190,8 +188,8 @@ export default function RPVCLinerPage() {
         </div>
       </section>
 
-      <section className="bg-[#F4F6F8] py-12 sm:py-16">
-        <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section className="bg-[#F4F6F8] py-8 sm:py-10">
+        <div className={`${SHELL} grid grid-cols-1 md:grid-cols-3 gap-6`}>
           {[
             {
               title: 'Why RPVC relining works',
@@ -217,6 +215,8 @@ export default function RPVCLinerPage() {
           ))}
         </div>
       </section>
+
+      <DetailFooterBand family="services" currentHref="/services/rpvc-liner-systems" />
 
       <FAQBlock faqs={faqs} heading="RPVC Liner Systems — FAQs" />
       <CTABanner heading="RESTORE YOUR TANK. EXTEND ITS LIFE." subheading="Get an RPVC liner assessment and find out if relining is right for your asset." primaryCTA={{ label: 'Request an Assessment', href: '/contact' }} secondaryCTA={{ label: 'Download Tank Upgrade Guide', href: '/downloads/tank-upgrade-decision-guide.pdf' }} />

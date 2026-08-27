@@ -1,8 +1,21 @@
 import type { Metadata } from 'next'
-import AppImage from '@/components/AppImage'
 import Link from 'next/link'
-import ServiceCard from '@/components/ServiceCard'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import CTABanner from '@/components/CTABanner'
+import CrossLinks from '@/components/editorial/CrossLinks'
+import EntryCard from '@/components/editorial/EntryCard'
+import FlagshipBlock from '@/components/editorial/FlagshipBlock'
+import Masthead from '@/components/editorial/Masthead'
+import RuleHeading from '@/components/editorial/RuleHeading'
+import { Rail, RailArticles, RailContact, RailDownload, RailLinks, RailPanel } from '@/components/editorial/RailPanel'
+import { getPublicPosts, getPublicProjects } from '@/lib/cms/queries'
+import { enrichArticles, sortByNewest } from '@/lib/cms/taxonomy'
+import { SHELL } from '@/lib/shell'
+import { allServices, pcTanksServices, STANDARDS, waterSolutionsServices } from '@/lib/site-directory'
+
+export const dynamic = 'force-static'
+
+const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
 export const metadata: Metadata = {
   title: 'Water Infrastructure Services Australia',
@@ -30,251 +43,288 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image', images: ['/hero.png'] },
 }
 
-const waterSolutionsServices = [
+/** The umbrella service given the flagship slot. */
+const FLAGSHIP_HREF = '/services/project-managed-water-infrastructure'
+
+
+
+const divisions = [
   {
-    title: 'Project Managed Water Infrastructure Facilities',
-    description: 'End-to-end project management across the full water infrastructure lifecycle — from initial brief, civil design, and procurement through to commissioning, handover documentation, and ongoing asset support. Single point of accountability.',
-    href: '/services/project-managed-water-infrastructure',
+    name: 'PC Water Solutions',
+    label: 'Division One',
+    accent: '#3e91ce',
+    body:
+      'Our project delivery division, delivering complex water infrastructure and treatment facility works across Australia — civil construction, structural works, mechanical and process installation, pipeline and reticulation, SCADA and electrical integration, and complete treatment plant delivery.',
+    services: waterSolutionsServices,
   },
   {
-    title: 'Water Treatment Solutions',
-    description: 'Potable water treatment infrastructure from source to supply — covering raw water intake, chemical conditioning, coagulation and filtration, UV and chlorine disinfection, and SCADA-controlled automated operation to Australian Drinking Water Guideline (ADWG) compliance.',
-    href: '/services/water-treatment-solutions',
-  },
-  {
-    title: 'Foundation & Civil Integration',
-    description: 'Engineered concrete foundations and civil integration for tanks of all sizes. Geotechnical assessment, civil contractor coordination, and structural compliance documentation.',
-    href: '/services/foundation-civil-integration',
-  },
-  {
-    title: 'Remote Area Project Delivery',
-    description: 'Specialist delivery for remote and regional Australia — remote logistics, FIFO teams, Indigenous community projects, and harsh environment material selection.',
-    href: '/services/remote-area-delivery',
+    name: 'PC Tanks',
+    label: 'Division Two',
+    accent: '#30505b',
+    body:
+      'Our specialist engineering and supply division for high-performance water storage. Bolted steel, GFS and rectangular systems for potable, process, fire and critical infrastructure applications — plus the full asset lifecycle: lining, corrosion protection, inspection, refurbishment and maintenance.',
+    services: pcTanksServices,
   },
 ]
 
-const pcTanksServices = [
-  {
-    title: 'Custom Tank Design & Engineering',
-    description: 'Purpose-built tank systems engineered to AS2304 & AS4020 for any capacity, site condition, or application. RPEQ-certified structural engineering, material selection, and modular design.',
-    href: '/services/custom-tank-design',
-  },
-  {
-    title: 'Professional Tank Installation',
-    description: 'End-to-end installation with certified crews, national reach, JSA/SWMS compliance, and Gantt-based project scheduling. Site preparation through to commissioning.',
-    href: '/services/tank-installation',
-  },
-  {
-    title: 'RPVC Liner Systems',
-    description: 'High-performance RPVC liner installation to protect tanks from corrosion, restore potable water compliance, and extend asset life by 20+ years. AS4020 compliant.',
-    href: '/services/rpvc-liner-systems',
-  },
-  {
-    title: 'Tank Inspection Technology',
-    description: 'Advanced ROV and UAV drone inspection for accurate condition assessment without costly dewatering. Detailed condition reports supporting AS1851 compliance and targeted maintenance.',
-    href: '/services/tank-inspection-technology',
-  },
-  {
-    title: 'Tank Maintenance & Upgrades',
-    description: 'Planned and reactive maintenance, structural upgrades, corrosion treatment, and long-term asset management for steel and concrete water storage infrastructure.',
-    href: '/services/tank-maintenance-upgrades',
-  },
-  {
-    title: 'Fire Water Tank Solutions',
-    description: 'AS2304-compliant fire water storage systems with flow rate calculations, pump system integration, and annual inspection support under AS1851. For commercial, industrial, and mining sites.',
-    href: '/services/fire-water-tanks',
-  },
-  {
-    title: 'Tender & Procurement Support',
-    description: 'Capability statements, specification support, tender response assistance, and compliance documentation for councils, government agencies, and major contractors.',
-    href: '/services/tender-procurement-support',
-  },
-  {
-    title: 'Builder & Contractor Partnerships',
-    description: 'Reliable subcontract services for builders, civil contractors, and project managers who need specialist water infrastructure capability with national reach.',
-    href: '/services/builder-contractor-partnerships',
-  },
+const standards = STANDARDS
+
+const industryLinks = [
+  { label: 'Government & Councils', href: '/industries/government-councils' },
+  { label: 'Mining & Resources', href: '/industries/mining-resources' },
+  { label: 'Industrial Facilities', href: '/industries/industrial-facilities' },
+  { label: 'Commercial & Fire Compliance', href: '/industries/commercial-fire-compliance' },
+  { label: 'Remote & Regional Communities', href: '/industries/remote-regional-communities' },
 ]
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const [projects, posts] = await Promise.all([getPublicProjects(), getPublicPosts()])
+
+  const lead = allServices.find((s) => s.href === FLAGSHIP_HREF) ?? allServices[0]
+  const rail = allServices.filter((s) => s.href !== lead.href).slice(0, 3)
+
+  const relatedArticles = sortByNewest(enrichArticles(posts))
+    .slice(0, 4)
+    .map((a) => ({ id: a.id, slug: a.slug, title: a.title, readTime: a.readTime, kicker: a.category.shortName }))
+
+  const proof = projects.slice(0, 3).map((p) => ({
+    href: `/projects/${p.slug}`,
+    title: p.title,
+    blurb: p.scope || p.summary,
+    kicker: p.sector,
+    imageSrc: p.heroImageUrl,
+    meta: p.location,
+  }))
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Water Infrastructure Services',
+    description:
+      'End-to-end water infrastructure services across Australia — design, treatment, installation, lining, inspection and asset management.',
+    url: `${siteUrl}/services`,
+    publisher: { '@type': 'Organization', name: 'PC Water Infrastructure', url: siteUrl },
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: allServices.length,
+      itemListElement: allServices.map((s, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        url: `${siteUrl}${s.href}`,
+        name: s.title,
+      })),
+    },
+  }
+
   return (
     <>
-      {/* Hero */}
-      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
-        <AppImage
-          src="/heroes/services.jpg"
-          alt="PC Water Infrastructure — full range of water storage and treatment services across Australia"
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-[#0d1b2a]/75" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ What We Do</p>
-          <h1 className="text-[2.25rem] sm:text-5xl md:text-6xl font-black text-white mb-6">
-            COMPLETE WATER INFRASTRUCTURE SERVICES
-          </h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
-            PC Water Solutions and PC Tanks — together as PC Water Infrastructure — deliver every stage of your water infrastructure project, from treatment design and supply through to installation, inspection, lining, and long-term asset management.
-          </p>
-        </div>
-      </section>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: siteUrl },
+          { name: 'Services', url: `${siteUrl}/services` },
+        ]}
+      />
 
-      {/* Brand overview — two divisions */}
-      <section className="bg-white py-12 sm:py-16 border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Two Divisions. One Team.</p>
-            <h2 className="text-3xl font-black text-[#30505b]">HOW OUR SERVICES ARE STRUCTURED</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* PC Water Solutions — Division One */}
-            <div className="bg-[#F4F6F8] rounded-2xl p-8 border-2 border-transparent hover:border-[#3e91ce]/30 transition-all duration-300">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-[#3e91ce] rounded-xl flex items-center justify-center flex-shrink-0">
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase">Division One</p>
-                  <h3 className="font-black text-[#30505b] text-xl">PC Water Solutions</h3>
-                </div>
-              </div>
-              <p className="text-gray-600 text-sm leading-relaxed mb-2">
-                PC Water Solutions is our project delivery division, delivering complex water infrastructure and treatment facility works across Australia.
-              </p>
-              <p className="text-gray-600 text-sm leading-relaxed mb-2">
-                Our scope covers civil construction, structural works, mechanical and process installation, pipeline and reticulation systems, SCADA and electrical integration, and complete water treatment plant delivery.
-              </p>
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                From greenfield treatment facilities to major infrastructure upgrades, PC Water Solutions delivers with precision in demanding, remote, and regional environments — including projects across every state and territory in Australia.
-              </p>
-              <ul className="space-y-2">
-                {[
-                  'Project Managed Water Infrastructure',
-                  'Water Treatment Solutions',
-                  'Professional Installation & Commissioning',
-                  'Remote Area Project Delivery',
-                  'Foundation & Civil Integration',
-                ].map(s => (
-                  <li key={s} className="flex items-center gap-2 text-sm text-[#30505b]">
-                    <span className="w-1.5 h-1.5 bg-[#3e91ce] rounded-full flex-shrink-0" />
-                    {s}
-                  </li>
-                ))}
-              </ul>
-            </div>
+      <Masthead
+        kicker="What We Do"
+        title={
+          <>
+            COMPLETE WATER<br />
+            <span className="text-[#3e91ce]">INFRASTRUCTURE SERVICES.</span>
+          </>
+        }
+        lead="PC Water Solutions and PC Tanks — together as PC Water Infrastructure — deliver every stage of your project, from treatment design and supply through to installation, inspection, lining, and long-term asset management."
+        crumbs={[{ label: 'Home', href: '/' }, { label: 'Services' }]}
+        imageSrc="/heroes/services.jpg"
+        imageAlt="PC Water Infrastructure — full range of water storage and treatment services across Australia"
+        stats={[
+          { label: 'Services', value: allServices.length },
+          { label: 'Divisions', value: divisions.length },
+          { label: 'Projects', value: projects.length },
+        ]}
+      />
 
-            {/* PC Tanks — Division Two */}
-            <div className="bg-[#F4F6F8] rounded-2xl p-8 border-2 border-transparent hover:border-[#3e91ce]/30 transition-all duration-300">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-[#30505b] rounded-xl flex items-center justify-center flex-shrink-0">
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16M3 21h18M9 21V10h6v11" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-[#30505b] text-xs font-bold tracking-widest uppercase">Division Two</p>
-                  <h3 className="font-black text-[#30505b] text-xl">PC Tanks</h3>
-                </div>
-              </div>
-              <p className="text-gray-600 text-sm leading-relaxed mb-2">
-                PC Tanks is our specialist engineering and supply division for high-performance water storage systems.
-              </p>
-              <p className="text-gray-600 text-sm leading-relaxed mb-2">
-                We design and manufacture bolted steel, GFS, and rectangular tank systems for potable water, process water, fire protection, and critical infrastructure applications. Every system is engineered for long-term asset performance, durability, and compliance with Australian Standards including AS2304 and AS4020.
-              </p>
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                Beyond new tank supply, PC Tanks also delivers complete asset lifecycle services including RPVC lining, corrosion protection, reservoir and liner inspections, liner maintenance, refurbishment, and ongoing tank maintenance programs.
-              </p>
-              <ul className="space-y-2">
-                {[
-                  'Custom Tank Design & Engineering',
-                  'Custom Tank Supply & Fabrication',
-                  'AS2304 & AS4020 Compliance',
-                  'RPVC Liner Systems',
-                  'Tank Inspection Technology',
-                  'Tank Maintenance & Upgrades',
-                  'Fire Water Tank Solutions',
-                  'Tender & Procurement Support',
-                ].map(s => (
-                  <li key={s} className="flex items-center gap-2 text-sm text-[#30505b]">
-                    <span className="w-1.5 h-1.5 bg-[#30505b] rounded-full flex-shrink-0" />
-                    {s}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+      <FlagshipBlock
+        lead={lead}
+        rail={rail}
+        railTitle="Also from our team"
+        seeAll={{ label: `See all ${allServices.length} services`, href: '#catalogue' }}
+      />
 
-      {/* Services grid */}
-      <section className="bg-[#F4F6F8] py-14 sm:py-20">
-        <div className="max-w-6xl mx-auto px-4">
-
-          {/* PC Water Solutions */}
-          <div className="mb-14">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-2 h-8 bg-[#3e91ce] rounded-full" />
-              <div>
-                <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase">Division One</p>
-                <h2 className="text-2xl font-black text-[#30505b]">PC Water Solutions</h2>
-              </div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {waterSolutionsServices.map((service, idx) => (
-                <ServiceCard key={service.href} {...service} number={idx + 1} />
-              ))}
-            </div>
-          </div>
-
-          {/* PC Tanks */}
-          <div>
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-2 h-8 bg-[#30505b] rounded-full" />
-              <div>
-                <p className="text-[#30505b] text-xs font-bold tracking-widest uppercase">Division Two</p>
-                <h2 className="text-2xl font-black text-[#30505b]">PC Tanks</h2>
-              </div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {pcTanksServices.map((service, idx) => (
-                <ServiceCard key={service.href} {...service} number={idx + 1} />
-              ))}
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* Why choose PWT */}
-      <section className="bg-white py-14 sm:py-20">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-black text-[#30505b] mb-6">ONE PARTNER. EVERY STAGE.</h2>
-          <p className="text-gray-600 text-lg leading-relaxed mb-8">
-            Rather than managing multiple contractors across your water storage project, PC Water Infrastructure provides a single point of accountability — from initial design through to long-term maintenance. Our integrated service model reduces handover risk, improves compliance outcomes, and keeps your project on schedule.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-            {[
-              { label: 'Design & Build', services: ['Custom Tank Design', 'Foundation & Civil Integration', 'Tank Installation'] },
-              { label: 'Compliance & Safety', services: ['Fire Water Solutions', 'Tank Inspection Technology', 'RPVC Liner Systems'] },
-              { label: 'Partnerships & Support', services: ['Remote Area Delivery', 'Maintenance & Upgrades', 'Tender Support', 'Contractor Partnerships'] },
-            ].map((group) => (
-              <div key={group.label} className="bg-[#F4F6F8] rounded-xl p-6">
-                <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">{group.label}</p>
-                <ul className="space-y-2">
-                  {group.services.map((s) => (
-                    <li key={s} className="flex items-center gap-2 text-sm text-[#30505b]">
-                      <span className="w-1.5 h-1.5 bg-[#3e91ce] rounded-full flex-shrink-0" />
-                      {s}
+      {/* ── Divisions ── */}
+      <section className="border-b border-gray-200 bg-white py-8 sm:py-10">
+        <div className={SHELL}>
+          <RuleHeading meta="Two divisions. One team.">How Our Services Are Structured</RuleHeading>
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-10">
+            {divisions.map((d) => (
+              <div key={d.name} className="border-l-2 pl-5" style={{ borderColor: d.accent }}>
+                <p
+                  className="mb-1 text-[10px] font-bold uppercase tracking-[0.12em]"
+                  style={{ color: d.accent }}
+                >
+                  {d.label}
+                </p>
+                <h3 className="mb-3 text-xl font-black text-[#0d1b2a]">{d.name}</h3>
+                <p className="mb-4 max-w-[62ch] text-[14px] leading-relaxed text-gray-600">{d.body}</p>
+                <ul className="grid grid-cols-1 gap-x-6 gap-y-1.5 sm:grid-cols-2">
+                  {d.services.map((s) => (
+                    <li key={s.href}>
+                      <Link
+                        href={s.href}
+                        className="group flex items-center gap-2 text-[13px] font-medium text-[#30505b] transition-colors hover:text-[#2a72ad]"
+                      >
+                        <span
+                          className="h-1.5 w-1.5 flex-shrink-0 rounded-full"
+                          style={{ backgroundColor: d.accent }}
+                        />
+                        {s.title}
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── The catalogue + rail ── */}
+      <section id="catalogue" className="scroll-mt-20 bg-[#f4f6f8] py-8 sm:py-10">
+        <div className={SHELL}>
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-10">
+            <div>
+              {divisions.map((d, di) => (
+                <div key={d.name} className={di > 0 ? 'mt-10' : ''}>
+                  <RuleHeading meta={`${d.services.length} services`}>{d.name}</RuleHeading>
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                    {d.services.map((s) => (
+                      <EntryCard key={s.href} entry={s} />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <Rail>
+              <RailPanel title="Standards we work to">
+                <div className="flex flex-wrap gap-1.5">
+                  {standards.map((s) => (
+                    <span
+                      key={s}
+                      className="inline-flex items-center border border-gray-300 bg-white px-2.5 py-1 text-[11px] font-medium text-[#30505b]"
+                    >
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </RailPanel>
+
+              <RailPanel title="Who we deliver for">
+                <RailLinks links={industryLinks} />
+              </RailPanel>
+
+              <RailDownload />
+
+              <RailPanel title="Free decision tools">
+                <RailLinks
+                  links={[
+                    { label: 'Tank Compliance Checker', href: '/tools/tank-compliance-checker' },
+                    { label: 'Repair vs Reline vs Replace', href: '/tools/repair-reline-replace' },
+                  ]}
+                />
+              </RailPanel>
+
+              <RailArticles articles={relatedArticles} />
+              <RailContact
+                heading="Not sure which service you need?"
+                body="Describe the asset and the problem — we'll tell you which of these actually applies."
+                label="Talk to an engineer"
+              />
+            </Rail>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Proof ── */}
+      {proof.length > 0 && (
+        <section className="bg-[#0d1b2a] py-8 sm:py-10">
+          <div className={SHELL}>
+            <RuleHeading light meta={`${projects.length} in the portfolio`}>
+              These Services, Delivered
+            </RuleHeading>
+            <CrossLinks links={proof} dark columns={3} />
+            <Link
+              href="/projects"
+              className="mt-5 inline-flex items-center gap-1.5 border-t border-white/20 pt-4 text-[13px] font-bold text-[#7fc2f0] transition-colors hover:text-white"
+            >
+              See every project
+              <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+        </section>
+      )}
+
+      {/* ── One partner ── */}
+      <section className="bg-white py-8 sm:py-10">
+        <div className={SHELL}>
+          <RuleHeading>One Partner. Every Stage.</RuleHeading>
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:gap-14">
+            <p className="text-[17px] font-medium leading-relaxed text-[#30505b]">
+              Rather than managing multiple contractors across your water storage project, PC Water Infrastructure
+              provides a single point of accountability — from initial design through to long-term maintenance. Our
+              integrated service model reduces handover risk, improves compliance outcomes, and keeps your project on
+              schedule.
+            </p>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+              {[
+                {
+                  label: 'Design & Build',
+                  items: [
+                    { name: 'Custom Tank Design', href: '/services/custom-tank-design' },
+                    { name: 'Foundation & Civil Integration', href: '/services/foundation-civil-integration' },
+                    { name: 'Tank Installation', href: '/services/tank-installation' },
+                  ],
+                },
+                {
+                  label: 'Compliance & Safety',
+                  items: [
+                    { name: 'Fire Water Solutions', href: '/services/fire-water-tanks' },
+                    { name: 'Tank Inspection Technology', href: '/services/tank-inspection-technology' },
+                    { name: 'RPVC Liner Systems', href: '/services/rpvc-liner-systems' },
+                  ],
+                },
+                {
+                  label: 'Partnerships & Support',
+                  items: [
+                    { name: 'Remote Area Delivery', href: '/services/remote-area-delivery' },
+                    { name: 'Maintenance & Upgrades', href: '/services/tank-maintenance-upgrades' },
+                    { name: 'Tender Support', href: '/services/tender-procurement-support' },
+                    { name: 'Contractor Partnerships', href: '/services/builder-contractor-partnerships' },
+                  ],
+                },
+              ].map((group) => (
+                <div key={group.label} className="border-t-2 border-[#0d1b2a] pt-3">
+                  <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.12em] text-[#2a72ad]">
+                    {group.label}
+                  </p>
+                  <ul className="divide-y divide-gray-200">
+                    {group.items.map((s) => (
+                      <li key={s.href}>
+                        <Link
+                          href={s.href}
+                          className="block py-2 text-[13px] font-medium text-[#30505b] transition-colors hover:text-[#2a72ad]"
+                        >
+                          {s.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

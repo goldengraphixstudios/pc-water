@@ -4,6 +4,9 @@ import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import FAQBlock from '@/components/FAQBlock'
 import CTABanner from '@/components/CTABanner'
 import AssessmentTool from '@/components/tools/AssessmentTool'
+import Masthead from '@/components/editorial/Masthead'
+import DetailFooterBand from '@/components/editorial/DetailFooterBand'
+import { SHELL } from '@/lib/shell'
 
 const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
@@ -87,33 +90,25 @@ export default function RepairRelineReplacePage() {
         ]}
       />
 
-      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden bg-[#0d1b2a]">
-        <div className="dot-pattern absolute inset-0 opacity-20 pointer-events-none" />
-        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#3e91ce]/10 blur-3xl rounded-full pointer-events-none" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Free Tool</p>
-          <h1 className="text-[2rem] sm:text-4xl md:text-6xl font-black text-white mb-6">Repair, Reline or Replace?</h1>
-          <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
-            Aging or deteriorating tank? Answer a few questions about its use, age, and condition and get a
-            practical guidance path — repair, reline with RPVC, replace, or inspect first — with the right
-            next step for your asset.
-          </p>
-          <Link
-            href="#assessment"
-            className="inline-flex items-center gap-2 bg-[#2a72ad] text-white px-8 py-3.5 rounded-full font-semibold hover:bg-[#246397] transition-colors"
-          >
-            Get My Result
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </Link>
-        </div>
-      </section>
+      <Masthead
+        kicker="Free Tool"
+        title="Repair, Reline or Replace?"
+        lead="Aging or deteriorating tank? Answer a few questions about its use, age, and condition and get a practical guidance path — repair, reline with RPVC, replace, or inspect first — with the right next step for your asset."
+        crumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Tools', href: '/tools' },
+          { label: "Repair, Reline or Replace?" },
+        ]}
+        imageSrc="/posts/corrosion-rpvc-liner.jpg"
+        imageAlt="RPVC liner installed inside a corroded steel tank as an alternative to replacement"
+        primaryCta={{ label: 'Discuss Your Project', href: '/contact' }}
+        secondaryCta={{ label: 'View Our Work', href: '/projects' }}
+      />
 
       <AssessmentTool slug="repair-reline-replace" />
 
       {/* The four paths */}
-      <section className="relative py-14 sm:py-20 overflow-hidden bg-[#30505b]">
+      <section className="relative py-8 sm:py-10 overflow-hidden bg-[#30505b]">
         <div className="dot-pattern absolute inset-0 opacity-10 pointer-events-none" />
         <div className="relative z-10 max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-black text-white text-center mb-12">Four Possible Paths</h2>
@@ -129,7 +124,7 @@ export default function RepairRelineReplacePage() {
         </div>
       </section>
 
-      <section className="bg-white py-12 sm:py-16">
+      <section className="bg-white py-8 sm:py-10">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Who this is for</p>
           <h2 className="text-2xl md:text-3xl font-black text-[#30505b] mb-8">
@@ -145,8 +140,8 @@ export default function RepairRelineReplacePage() {
         </div>
       </section>
 
-      <section className="bg-[#F4F6F8] py-12 sm:py-16">
-        <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section className="bg-[#F4F6F8] py-8 sm:py-10">
+        <div className={`${SHELL} grid grid-cols-1 md:grid-cols-3 gap-6`}>
           {[
             { title: 'RPVC Liner Systems', description: 'Restore an aging tank with a watertight, compliant internal barrier — without full replacement.', href: '/services/rpvc-liner-systems' },
             { title: 'Tank Inspection Technology', description: 'Confirm internal condition with ROV and UAV methods before you commit to works.', href: '/services/tank-inspection-technology' },
@@ -160,6 +155,8 @@ export default function RepairRelineReplacePage() {
           ))}
         </div>
       </section>
+
+      <DetailFooterBand family="tools" currentHref="/tools/repair-reline-replace" />
 
       <FAQBlock faqs={faqs} heading="Repair vs Reline vs Replace — FAQs" />
       <CTABanner

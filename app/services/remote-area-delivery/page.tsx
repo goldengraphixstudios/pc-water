@@ -5,6 +5,9 @@ import FAQBlock from '@/components/FAQBlock'
 import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import CTABanner from '@/components/CTABanner'
 import SectionProjects from '@/components/SectionProjects'
+import DetailRail from '@/components/editorial/DetailRail'
+import DetailFooterBand from '@/components/editorial/DetailFooterBand'
+import { SHELL } from '@/lib/shell'
 
 export const metadata: Metadata = {
   title: 'Remote Area Water Infrastructure Delivery',
@@ -88,9 +91,9 @@ export default function RemoteAreaDeliveryPage() {
         </div>
       </section>
 
-      <section className="bg-white py-14 sm:py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="bg-white py-8 sm:py-10">
+        <div className={SHELL}>
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_320px]">
             <div>
               <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Our Remote Capability</p>
               <h2 className="text-3xl font-black text-[#30505b] mb-6">Where Others Stop, We Start</h2>
@@ -118,13 +121,14 @@ export default function RemoteAreaDeliveryPage() {
                 </div>
               ))}
             </div>
-          </div>
+              <DetailRail family="services" currentHref="/services/remote-area-delivery" />
+            </div>
         </div>
       </section>
 
       <SectionProjects heading="Featured Project" slugs={['doomadgee-wtp']} bgColor="bg-[#F4F6F8]" />
 
-      <section className="bg-white py-12 sm:py-16">
+      <section className="bg-white py-8 sm:py-10">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-black text-[#30505b] mb-8">Industries We Serve</h2>
           <div className="flex flex-wrap justify-center gap-3">
@@ -164,6 +168,8 @@ export default function RemoteAreaDeliveryPage() {
           </div>
         </div>
       </section>
+
+      <DetailFooterBand family="services" currentHref="/services/remote-area-delivery" />
 
       <FAQBlock faqs={faqs} heading="Remote Delivery — FAQs" />
       <CTABanner heading="GOT A REMOTE PROJECT IN MIND?" subheading="Tell us your location, scope, and timeline. We have been there before." primaryCTA={{ label: 'Discuss Your Remote Project', href: '/contact' }} secondaryCTA={{ label: 'Download Remote Project Guide', href: '/downloads/remote-wtp-construction-commissioning.pdf' }} variant="navy" />

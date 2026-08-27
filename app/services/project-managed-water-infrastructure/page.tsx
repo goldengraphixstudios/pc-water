@@ -1,10 +1,13 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import AppImage from '@/components/AppImage'
 import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import FAQBlock from '@/components/FAQBlock'
 import CTABanner from '@/components/CTABanner'
 import SectionProjects from '@/components/SectionProjects'
+import Masthead from '@/components/editorial/Masthead'
+import DetailRail from '@/components/editorial/DetailRail'
+import DetailFooterBand from '@/components/editorial/DetailFooterBand'
+import { SHELL } from '@/lib/shell'
 
 export const metadata: Metadata = {
   title: 'Project Managed Water Infrastructure',
@@ -75,37 +78,24 @@ export default function ProjectManagedWaterInfrastructurePage() {
           { name: 'Project Managed Water Infrastructure', url: `${siteUrl}/services/project-managed-water-infrastructure` },
         ]}
       />
-      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
-        <AppImage
-          src="/water/water-15.jpg"
-          alt="Project managed water infrastructure delivery across Australia"
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-[#0d1b2a]/78" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Services</p>
-          <h1 className="text-[2.25rem] sm:text-5xl md:text-6xl font-black text-white mb-6">
-            Project Managed Water Infrastructure
-          </h1>
-          <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
-            One accountable delivery partner across planning, design coordination, procurement,
-            construction, commissioning, and handover.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 bg-[#2a72ad] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#246397] transition-colors"
-          >
-            Discuss Your Project
-          </Link>
-        </div>
-      </section>
+      <Masthead
+        kicker="Services"
+        title="Project Managed Water Infrastructure"
+        lead="One accountable delivery partner across planning, design coordination, procurement, construction, commissioning, and handover."
+        crumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Services', href: '/services' },
+          { label: "Project Managed Water Infrastructure" },
+        ]}
+        imageSrc="/water/water-15.jpg"
+        imageAlt="Project managed water infrastructure delivery across Australia"
+        primaryCta={{ label: 'Discuss Your Project', href: '/contact' }}
+        secondaryCta={{ label: 'View Our Work', href: '/projects' }}
+      />
 
-      <section className="bg-white py-14 sm:py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="bg-white py-8 sm:py-10">
+        <div className={SHELL}>
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_320px]">
             <div>
               <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Service Overview</p>
               <h2 className="text-3xl font-black text-[#30505b] mb-6">Reduce Interface Risk From Day One</h2>
@@ -137,12 +127,13 @@ export default function ProjectManagedWaterInfrastructurePage() {
                 </div>
               ))}
             </div>
-          </div>
+              <DetailRail family="services" currentHref="/services/project-managed-water-infrastructure" />
+            </div>
         </div>
       </section>
 
-      <section className="bg-[#F4F6F8] py-14 sm:py-20">
-        <div className="max-w-6xl mx-auto px-4">
+      <section className="bg-[#F4F6F8] py-8 sm:py-10">
+        <div className={SHELL}>
           <h2 className="text-3xl font-black text-[#30505b] text-center mb-12">How The Delivery Model Works</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -161,7 +152,7 @@ export default function ProjectManagedWaterInfrastructurePage() {
         </div>
       </section>
 
-      <section className="bg-white py-12 sm:py-16">
+      <section className="bg-white py-8 sm:py-10">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-black text-[#30505b] mb-8">Best Fit Sectors</h2>
           <div className="flex flex-wrap justify-center gap-3">
@@ -175,6 +166,8 @@ export default function ProjectManagedWaterInfrastructurePage() {
       </section>
 
       <SectionProjects heading="Featured Project" slugs={['borumba-hydro']} bgColor="bg-[#F4F6F8]" />
+
+      <DetailFooterBand family="services" currentHref="/services/project-managed-water-infrastructure" />
 
       <FAQBlock faqs={faqs} heading="Project Managed Water Infrastructure - FAQs" />
       <CTABanner

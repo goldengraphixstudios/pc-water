@@ -1,7 +1,21 @@
-﻿import type { Metadata } from 'next'
-import AppImage from '@/components/AppImage'
-import IndustryCard from '@/components/IndustryCard'
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import CTABanner from '@/components/CTABanner'
+import CrossLinks from '@/components/editorial/CrossLinks'
+import EntryCard from '@/components/editorial/EntryCard'
+import FlagshipBlock from '@/components/editorial/FlagshipBlock'
+import Masthead from '@/components/editorial/Masthead'
+import RuleHeading from '@/components/editorial/RuleHeading'
+import { Rail, RailArticles, RailContact, RailDownload, RailLinks, RailPanel } from '@/components/editorial/RailPanel'
+import { getPublicPosts, getPublicProjects } from '@/lib/cms/queries'
+import { enrichArticles, sortByNewest } from '@/lib/cms/taxonomy'
+import { SHELL } from '@/lib/shell'
+import { industries, STANDARDS } from '@/lib/site-directory'
+
+export const dynamic = 'force-static'
+
+const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
 export const metadata: Metadata = {
   title: 'Water Infrastructure Industries We Serve',
@@ -27,72 +41,192 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image', images: ['/hero.png'] },
 }
 
-const industries = [
-  {
-    title: 'Government & Councils',
-    description: 'Compliant, accountable water storage for public assets — tender-ready documentation, budget-conscious delivery, and community-focused outcomes.',
-    href: '/industries/government-councils',
-  },
-  {
-    title: 'Mining & Resources',
-    description: 'Robust water infrastructure engineered for remote, harsh-environment mining operations with zero compromise on safety or compliance.',
-    href: '/industries/mining-resources',
-  },
-  {
-    title: 'Industrial Facilities',
-    description: 'Reliable process water storage and fire suppression systems engineered for the demands of industrial operations.',
-    href: '/industries/industrial-facilities',
-  },
-  {
-    title: 'Commercial & Fire Compliance',
-    description: 'AS2304 fire water storage and AS1851 compliance for commercial properties — protecting assets, lives, and insurance coverage.',
-    href: '/industries/commercial-fire-compliance',
-  },
-  {
-    title: 'Remote & Regional Communities',
-    description: 'Safe water access delivered to remote and Indigenous communities — with specialist logistics, cultural sensitivity, and genuine care.',
-    href: '/industries/remote-regional-communities',
-  },
+/** The sector given the flagship slot at the top of the page. */
+const FLAGSHIP_HREF = '/industries/government-councils'
+
+
+const standards = STANDARDS
+
+const relatedServices = [
+  { label: 'Custom Tank Design & Engineering', href: '/services/custom-tank-design' },
+  { label: 'Fire Water Tank Solutions', href: '/services/fire-water-tanks' },
+  { label: 'Remote Area Project Delivery', href: '/services/remote-area-delivery' },
+  { label: 'Tender & Procurement Support', href: '/services/tender-procurement-support' },
+  { label: 'Tank Inspection Technology', href: '/services/tank-inspection-technology' },
+  { label: 'RPVC Liner Systems', href: '/services/rpvc-liner-systems' },
 ]
 
-export default function IndustriesPage() {
+export default async function IndustriesPage() {
+  const [projects, posts] = await Promise.all([getPublicProjects(), getPublicPosts()])
+
+  const lead = industries.find((i) => i.href === FLAGSHIP_HREF) ?? industries[0]
+  const rail = industries.filter((i) => i.href !== lead.href).slice(0, 3)
+
+  const relatedArticles = sortByNewest(enrichArticles(posts))
+    .slice(0, 4)
+    .map((a) => ({ id: a.id, slug: a.slug, title: a.title, readTime: a.readTime, kicker: a.category.shortName }))
+
+  /* Real delivered work, so each sector page is reachable from evidence
+     rather than only from the marketing copy above it. */
+  const proof = projects.slice(0, 3).map((p) => ({
+    href: `/projects/${p.slug}`,
+    title: p.title,
+    blurb: p.scope || p.summary,
+    kicker: p.sector,
+    imageSrc: p.heroImageUrl,
+    meta: p.location,
+  }))
+
+  const states = new Set(
+    projects
+      .map((p) => /queensland|qld/i.test(p.location) ? 'QLD'
+        : /tasmania|tas/i.test(p.location) ? 'TAS'
+        : /new south wales|nsw/i.test(p.location) ? 'NSW'
+        : /victoria|vic/i.test(p.location) ? 'VIC'
+        : /northern territory|nt/i.test(p.location) ? 'NT'
+        : /south australia/i.test(p.location) ? 'SA'
+        : /western australia|wa/i.test(p.location) ? 'WA'
+        : null)
+      .filter(Boolean),
+  )
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Industries We Serve',
+    description:
+      'Water storage and treatment infrastructure delivered to government, mining, industrial, commercial and remote community sectors across Australia.',
+    url: `${siteUrl}/industries`,
+    publisher: { '@type': 'Organization', name: 'PC Water Infrastructure', url: siteUrl },
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: industries.length,
+      itemListElement: industries.map((i, idx) => ({
+        '@type': 'ListItem',
+        position: idx + 1,
+        url: `${siteUrl}${i.href}`,
+        name: i.title,
+      })),
+    },
+  }
+
   return (
     <>
-      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
-        <AppImage
-          src="/heroes/industries.jpg"
-          alt="PC Water Infrastructure serving multiple industries including government, mining, and remote communities across Australia"
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-[#0d1b2a]/75" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Industries</p>
-          <h1 className="text-[2.25rem] sm:text-5xl md:text-6xl font-black text-white mb-6">BUILT FOR YOUR SECTOR</h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
-            Every industry has unique water storage demands. PC Water Infrastructure has the experience, compliance capability, and sector-specific expertise to meet yours.
-          </p>
-        </div>
-      </section>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: siteUrl },
+          { name: 'Industries', url: `${siteUrl}/industries` },
+        ]}
+      />
 
-      <section className="bg-[#F4F6F8] py-14 sm:py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {industries.map((industry) => (
-              <IndustryCard key={industry.href} {...industry} />
-            ))}
+      <Masthead
+        kicker="Industries"
+        title={
+          <>
+            BUILT FOR<br />
+            <span className="text-[#3e91ce]">YOUR SECTOR.</span>
+          </>
+        }
+        lead="Every industry has different water storage demands — different standards, procurement rules, site conditions and risk. These are the sectors we work in, and how our delivery model changes to suit each one."
+        crumbs={[{ label: 'Home', href: '/' }, { label: 'Industries' }]}
+        imageSrc="/heroes/industries.jpg"
+        imageAlt="PC Water Infrastructure serving government, mining, industrial and remote community sectors across Australia"
+        stats={[
+          { label: 'Sectors', value: industries.length },
+          { label: 'Projects', value: projects.length },
+          { label: 'States', value: states.size },
+        ]}
+      />
+
+      <FlagshipBlock
+        lead={lead}
+        rail={rail}
+        railTitle="Also serving"
+        seeAll={{ label: `See all ${industries.length} sectors`, href: '#sectors' }}
+      />
+
+      {/* ── All sectors + rail ── */}
+      <section id="sectors" className="scroll-mt-20 bg-[#f4f6f8] py-8 sm:py-10">
+        <div className={SHELL}>
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-10">
+            <div>
+              <RuleHeading meta={`${industries.length} sectors`}>Every Sector We Serve</RuleHeading>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                {industries.map((i) => (
+                  <EntryCard key={i.href} entry={i} />
+                ))}
+              </div>
+            </div>
+
+            <Rail>
+              <RailPanel title="Applicable standards">
+                <div className="flex flex-wrap gap-1.5">
+                  {standards.map((s) => (
+                    <span
+                      key={s}
+                      className="inline-flex items-center border border-gray-300 bg-white px-2.5 py-1 text-[11px] font-medium text-[#30505b]"
+                    >
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </RailPanel>
+
+              <RailPanel title="Services behind them">
+                <RailLinks links={relatedServices} />
+              </RailPanel>
+
+              <RailDownload />
+              <RailArticles articles={relatedArticles} />
+              <RailContact
+                heading="Not sure which sector fits?"
+                body="Tell us about the asset and the standard you answer to — we'll point you to the right team."
+                label="Talk to an engineer"
+              />
+            </Rail>
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-14 sm:py-20">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-black text-[#30505b] mb-6">SECTOR EXPERIENCE THAT MATTERS</h2>
-          <p className="text-gray-600 text-lg leading-relaxed">
-            Understanding the compliance environment, procurement constraints, and operational realities of each sector allows us to deliver solutions that genuinely fit — not just technically, but commercially and operationally. Our sector experience spans government, mining, industrial, commercial, and some of Australia's most remote communities.
-          </p>
+      {/* ── Proof ── */}
+      {proof.length > 0 && (
+        <section className="bg-[#0d1b2a] py-8 sm:py-10">
+          <div className={SHELL}>
+            <RuleHeading light meta={`${projects.length} in the portfolio`}>
+              Sector Experience, Delivered
+            </RuleHeading>
+            <CrossLinks links={proof} dark columns={3} />
+            <Link
+              href="/projects"
+              className="mt-5 inline-flex items-center gap-1.5 border-t border-white/20 pt-4 text-[13px] font-bold text-[#7fc2f0] transition-colors hover:text-white"
+            >
+              See every project
+              <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+        </section>
+      )}
+
+      {/* ── Why sector experience matters ── */}
+      <section className="bg-white py-8 sm:py-10">
+        <div className={SHELL}>
+          <RuleHeading>Sector Experience That Matters</RuleHeading>
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-14">
+            <p className="max-w-[68ch] text-[17px] font-medium leading-relaxed text-[#30505b]">
+              Understanding the compliance environment, procurement constraints, and operational realities of each
+              sector allows us to deliver solutions that genuinely fit — not just technically, but commercially and
+              operationally.
+            </p>
+            <p className="max-w-[68ch] leading-relaxed text-gray-600">
+              Our sector experience spans government, mining, industrial, commercial, and some of Australia&apos;s most
+              remote communities. That range is the reason a council tender, a mine site upgrade and a remote community
+              reservoir can all be delivered by the same team without the documentation, logistics or compliance
+              expectations of any one of them being treated as an afterthought.
+            </p>
+          </div>
         </div>
       </section>
 

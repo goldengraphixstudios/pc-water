@@ -6,6 +6,10 @@ import FAQBlock from '@/components/FAQBlock'
 import CTABanner from '@/components/CTABanner'
 import SectionProjects from '@/components/SectionProjects'
 import ToolPromo from '@/components/ToolPromo'
+import Masthead from '@/components/editorial/Masthead'
+import DetailRail from '@/components/editorial/DetailRail'
+import DetailFooterBand from '@/components/editorial/DetailFooterBand'
+import { SHELL } from '@/lib/shell'
 
 export const metadata: Metadata = {
   title: 'Fire Water Tank Solutions Australia',
@@ -62,31 +66,24 @@ export default function FireWaterTanksPage() {
           { name: 'Fire Water Tank Solutions', url: `${siteUrl}/services/fire-water-tanks` },
         ]}
       />
-      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
-        <AppImage
-          src="/heroes/fire-water-tanks.jpg"
-          alt="AS2304-compliant fire water tank installation and commissioning"
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-[#0d1b2a]/75" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Services</p>
-          <h1 className="text-[2.25rem] sm:text-5xl md:text-6xl font-black text-white mb-6">Fire Water Tank Solutions</h1>
-          <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
-            AS2304-compliant fire water storage systems designed for commercial, industrial, and mining applications — protecting lives, assets, and insurance compliance.
-          </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#2a72ad] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#246397] transition-colors">
-            Discuss Your Fire Water Requirement
-          </Link>
-        </div>
-      </section>
+      <Masthead
+        kicker="Services"
+        title="Fire Water Tank Solutions"
+        lead="AS2304-compliant fire water storage systems designed for commercial, industrial, and mining applications — protecting lives, assets, and insurance compliance."
+        crumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Services', href: '/services' },
+          { label: "Fire Water Tank Solutions" },
+        ]}
+        imageSrc="/heroes/fire-water-tanks.jpg"
+        imageAlt="AS2304-compliant fire water tank installation and commissioning"
+        primaryCta={{ label: 'Discuss Your Fire Water Requirement', href: '/contact' }}
+        secondaryCta={{ label: 'View Our Work', href: '/projects' }}
+      />
 
-      <section className="bg-white py-14 sm:py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="bg-white py-8 sm:py-10">
+        <div className={SHELL}>
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_320px]">
             <div>
               <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ What This Service Covers</p>
               <h2 className="text-3xl font-black text-[#30505b] mb-6">Compliance You Cannot Afford to Skip</h2>
@@ -114,12 +111,13 @@ export default function FireWaterTanksPage() {
                 </div>
               ))}
             </div>
-          </div>
+              <DetailRail family="services" currentHref="/services/fire-water-tanks" />
+            </div>
         </div>
       </section>
 
       {/* Standards callout */}
-      <section className="bg-[#F4F6F8] py-12 sm:py-16">
+      <section className="bg-[#F4F6F8] py-8 sm:py-10">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-black text-[#30505b] mb-8">Applicable Standards</h2>
           <div className="flex flex-wrap justify-center gap-4">
@@ -137,7 +135,7 @@ export default function FireWaterTanksPage() {
         </div>
       </section>
 
-      <section className="relative py-14 sm:py-20 overflow-hidden">
+      <section className="relative py-8 sm:py-10 overflow-hidden">
         <AppImage src="/water/water-12.jpg" alt="Dedicated fire water reserves held in AS2304-compliant storage" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#30505b]/87" />
         <div className="relative z-10 max-w-6xl mx-auto px-4">
@@ -159,7 +157,7 @@ export default function FireWaterTanksPage() {
         </div>
       </section>
 
-      <section className="bg-white py-12 sm:py-16">
+      <section className="bg-white py-8 sm:py-10">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-black text-[#30505b] mb-8">Industries We Serve</h2>
           <div className="flex flex-wrap justify-center gap-3">
@@ -200,8 +198,8 @@ export default function FireWaterTanksPage() {
         </div>
       </section>
 
-      <section className="bg-[#F4F6F8] py-12 sm:py-16">
-        <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section className="bg-[#F4F6F8] py-8 sm:py-10">
+        <div className={`${SHELL} grid grid-cols-1 md:grid-cols-3 gap-6`}>
           {[
             {
               title: 'Fire tank compliance article',
@@ -236,6 +234,8 @@ export default function FireWaterTanksPage() {
       />
 
       <SectionProjects heading="Featured Project" slugs={['clarence-road-liner']} bgColor="bg-[#F4F6F8]" />
+
+      <DetailFooterBand family="services" currentHref="/services/fire-water-tanks" />
 
       <FAQBlock faqs={faqs} heading="Fire Water Tanks — FAQs" />
       <CTABanner heading="IS YOUR FIRE WATER SYSTEM COMPLIANT?" subheading="Contact us for a compliance review and expert fire water storage consultation." primaryCTA={{ label: 'Request a Compliance Review', href: '/contact' }} secondaryCTA={{ label: 'Download Fire Water Guide', href: '/downloads/fire-water-compliance-guide.pdf' }} />

@@ -5,6 +5,10 @@ import FAQBlock from '@/components/FAQBlock'
 import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import CTABanner from '@/components/CTABanner'
 import SectionProjects from '@/components/SectionProjects'
+import Masthead from '@/components/editorial/Masthead'
+import DetailRail from '@/components/editorial/DetailRail'
+import DetailFooterBand from '@/components/editorial/DetailFooterBand'
+import { SHELL } from '@/lib/shell'
 
 export const metadata: Metadata = {
   title: 'Tank Foundation & Civil Integration',
@@ -59,31 +63,24 @@ export default function FoundationCivilPage() {
           { name: 'Tank Foundation & Civil Integration', url: `${siteUrl}/services/foundation-civil-integration` },
         ]}
       />
-      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
-        <AppImage
-          src="/heroes/foundation-civil-integration.jpg"
-          alt="Tank foundation and civil integration works at a project site"
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-[#0d1b2a]/75" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Services</p>
-          <h1 className="text-[2.25rem] sm:text-5xl md:text-6xl font-black text-white mb-6">Foundation & Civil Integration</h1>
-          <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
-            Engineered concrete foundations and civil integration for tanks of all sizes, site conditions, and structural requirements.
-          </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#2a72ad] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#246397] transition-colors">
-            Discuss Your Project
-          </Link>
-        </div>
-      </section>
+      <Masthead
+        kicker="Services"
+        title="Foundation & Civil Integration"
+        lead="Engineered concrete foundations and civil integration for tanks of all sizes, site conditions, and structural requirements."
+        crumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Services', href: '/services' },
+          { label: "Foundation & Civil Integration" },
+        ]}
+        imageSrc="/heroes/foundation-civil-integration.jpg"
+        imageAlt="Tank foundation and civil integration works at a project site"
+        primaryCta={{ label: 'Discuss Your Project', href: '/contact' }}
+        secondaryCta={{ label: 'View Our Work', href: '/projects' }}
+      />
 
-      <section className="bg-white py-14 sm:py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="bg-white py-8 sm:py-10">
+        <div className={SHELL}>
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_320px]">
             <div>
               <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Service Overview</p>
               <h2 className="text-3xl font-black text-[#30505b] mb-6">The Foundation Matters As Much As The Tank</h2>
@@ -111,11 +108,12 @@ export default function FoundationCivilPage() {
                 </div>
               ))}
             </div>
-          </div>
+              <DetailRail family="services" currentHref="/services/foundation-civil-integration" />
+            </div>
         </div>
       </section>
 
-      <section className="relative py-14 sm:py-20 overflow-hidden">
+      <section className="relative py-8 sm:py-10 overflow-hidden">
         <AppImage src="/water/water-13.jpg" alt="Water storage supported by engineered concrete foundations" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#30505b]/87" />
         <div className="relative z-10 max-w-6xl mx-auto px-4">
@@ -137,7 +135,7 @@ export default function FoundationCivilPage() {
         </div>
       </section>
 
-      <section className="bg-white py-12 sm:py-16">
+      <section className="bg-white py-8 sm:py-10">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-black text-[#30505b] mb-8">Industries We Serve</h2>
           <div className="flex flex-wrap justify-center gap-3">
@@ -179,6 +177,8 @@ export default function FoundationCivilPage() {
       </section>
 
       <SectionProjects heading="Featured Project" slugs={['doomadgee-wtp']} bgColor="bg-[#F4F6F8]" />
+
+      <DetailFooterBand family="services" currentHref="/services/foundation-civil-integration" />
 
       <FAQBlock faqs={faqs} heading="Foundation & Civil Integration — FAQs" />
       <CTABanner heading="BUILD ON SOLID FOUNDATIONS" subheading="Contact us to discuss your foundation engineering and civil integration requirements." primaryCTA={{ label: 'Discuss a Project', href: '/contact' }} secondaryCTA={{ label: 'Download Capability Statement', href: '/downloads/pc-tanks-capability-statement-2026.pdf' }} variant="navy" />

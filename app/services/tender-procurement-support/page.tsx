@@ -1,10 +1,13 @@
 ﻿import type { Metadata } from 'next'
-import AppImage from '@/components/AppImage'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
 import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import CTABanner from '@/components/CTABanner'
 import GatedDownloadLink from '@/components/GatedDownloadLink'
+import Masthead from '@/components/editorial/Masthead'
+import DetailRail from '@/components/editorial/DetailRail'
+import DetailFooterBand from '@/components/editorial/DetailFooterBand'
+import { SHELL } from '@/lib/shell'
 
 export const metadata: Metadata = {
   title: 'Water Infrastructure Tender & Procurement Support',
@@ -59,36 +62,24 @@ export default function TenderProcurementPage() {
           { name: 'Water Infrastructure Tender & Procurement Support', url: `${siteUrl}/services/tender-procurement-support` },
         ]}
       />
-      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
-        <AppImage
-          src="/heroes/tender-procurement-support.jpg"
-          alt="Water infrastructure tender and procurement support for government and major contractors"
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-[#0d1b2a]/75" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Services</p>
-          <h1 className="text-[2.25rem] sm:text-5xl md:text-6xl font-black text-white mb-6">Tender & Procurement Support</h1>
-          <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
-            Specialist procurement and tendering support for councils, government agencies, and major contractors — making PC Water Infrastructure easy to engage and easy to trust.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link href="/contact" className="inline-flex items-center gap-2 bg-[#2a72ad] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#246397] transition-colors">
-              Discuss Procurement
-            </Link>
-            <GatedDownloadLink resourceKey="capabilityStatement" className="inline-flex items-center gap-2 border border-white text-white px-8 py-3.5 rounded font-semibold hover:bg-white hover:text-[#30505b] transition-colors">
-              Download Capability Statement
-            </GatedDownloadLink>
-          </div>
-        </div>
-      </section>
+      <Masthead
+        kicker="Services"
+        title="Tender & Procurement Support"
+        lead="Specialist procurement and tendering support for councils, government agencies, and major contractors — making PC Water Infrastructure easy to engage and easy to trust."
+        crumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Services', href: '/services' },
+          { label: "Tender & Procurement Support" },
+        ]}
+        imageSrc="/heroes/tender-procurement-support.jpg"
+        imageAlt="Water infrastructure tender and procurement support for government and major contractors"
+        primaryCta={{ label: 'Discuss Procurement', href: '/contact' }}
+        secondaryCta={{ label: 'View Our Work', href: '/projects' }}
+      />
 
-      <section className="bg-white py-14 sm:py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="bg-white py-8 sm:py-10">
+        <div className={SHELL}>
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_320px]">
             <div>
               <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ What We Provide</p>
               <h2 className="text-3xl font-black text-[#30505b] mb-6">Government-Ready. Panel-Ready. Project-Ready.</h2>
@@ -116,11 +107,12 @@ export default function TenderProcurementPage() {
                 </div>
               ))}
             </div>
-          </div>
+              <DetailRail family="services" currentHref="/services/tender-procurement-support" />
+            </div>
         </div>
       </section>
 
-      <section className="bg-[#F4F6F8] py-14 sm:py-20">
+      <section className="bg-[#F4F6F8] py-8 sm:py-10">
         <div className="max-w-4xl mx-auto px-4">
             <h2 className="text-2xl font-black text-[#30505b] mb-8 text-center">Why Government Procurement Teams Choose PC Water Infrastructure</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -139,7 +131,7 @@ export default function TenderProcurementPage() {
         </div>
       </section>
 
-      <section className="bg-white py-12 sm:py-16">
+      <section className="bg-white py-8 sm:py-10">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-black text-[#30505b] mb-8">Industries We Serve</h2>
           <div className="flex flex-wrap justify-center gap-3">
@@ -179,6 +171,8 @@ export default function TenderProcurementPage() {
           </div>
         </div>
       </section>
+
+      <DetailFooterBand family="services" currentHref="/services/tender-procurement-support" />
 
       <FAQBlock faqs={faqs} heading="Tender & Procurement — FAQs" />
       <CTABanner heading="NEED PROCUREMENT SUPPORT?" subheading="Contact us to discuss your tender requirements and download our capability statement." primaryCTA={{ label: 'Discuss Your Procurement', href: '/contact' }} secondaryCTA={{ label: 'Download Capability Statement', href: '/downloads/pc-tanks-capability-statement-2026.pdf' }} variant="navy" />

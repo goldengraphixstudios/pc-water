@@ -4,6 +4,10 @@ import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
 import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import CTABanner from '@/components/CTABanner'
+import Masthead from '@/components/editorial/Masthead'
+import DetailRail from '@/components/editorial/DetailRail'
+import DetailFooterBand from '@/components/editorial/DetailFooterBand'
+import { SHELL } from '@/lib/shell'
 
 export const metadata: Metadata = {
   title: 'Builder & Contractor Partnerships',
@@ -58,31 +62,24 @@ export default function BuilderContractorPage() {
           { name: 'Builder & Contractor Partnerships', url: `${siteUrl}/services/builder-contractor-partnerships` },
         ]}
       />
-      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
-        <AppImage
-          src="/heroes/builder-contractor-partnerships.jpg"
-          alt="Water storage subcontract partnership installation project"
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-[#0d1b2a]/75" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Services</p>
-          <h1 className="text-[2.25rem] sm:text-5xl md:text-6xl font-black text-white mb-6">Builder & Contractor Partnerships</h1>
-          <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
-            Reliable specialist water storage subcontract services for builders, civil contractors, and project managers — with national reach and zero compromise on compliance.
-          </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#2a72ad] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#246397] transition-colors">
-            Discuss a Partnership
-          </Link>
-        </div>
-      </section>
+      <Masthead
+        kicker="Services"
+        title="Builder & Contractor Partnerships"
+        lead="Reliable specialist water storage subcontract services for builders, civil contractors, and project managers — with national reach and zero compromise on compliance."
+        crumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Services', href: '/services' },
+          { label: "Builder & Contractor Partnerships" },
+        ]}
+        imageSrc="/heroes/builder-contractor-partnerships.jpg"
+        imageAlt="Water storage subcontract partnership installation project"
+        primaryCta={{ label: 'Discuss a Partnership', href: '/contact' }}
+        secondaryCta={{ label: 'View Our Work', href: '/projects' }}
+      />
 
-      <section className="bg-white py-14 sm:py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="bg-white py-8 sm:py-10">
+        <div className={SHELL}>
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_320px]">
             <div>
               <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ The Subcontract Model</p>
               <h2 className="text-3xl font-black text-[#30505b] mb-6">Your Specialist Water Storage & WTP Infrastructure Partner</h2>
@@ -113,11 +110,12 @@ export default function BuilderContractorPage() {
                 </div>
               ))}
             </div>
-          </div>
+              <DetailRail family="services" currentHref="/services/builder-contractor-partnerships" />
+            </div>
         </div>
       </section>
 
-      <section className="relative py-14 sm:py-20 overflow-hidden">
+      <section className="relative py-8 sm:py-10 overflow-hidden">
         <AppImage src="/water/water-06.jpg" alt="Water infrastructure delivered through builder and contractor partnerships" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#30505b]/87" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
@@ -138,7 +136,7 @@ export default function BuilderContractorPage() {
         </div>
       </section>
 
-      <section className="bg-white py-12 sm:py-16">
+      <section className="bg-white py-8 sm:py-10">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-black text-[#30505b] mb-8">Industries We Serve</h2>
           <div className="flex flex-wrap justify-center gap-3">
@@ -178,6 +176,8 @@ export default function BuilderContractorPage() {
           </div>
         </div>
       </section>
+
+      <DetailFooterBand family="services" currentHref="/services/builder-contractor-partnerships" />
 
       <FAQBlock faqs={faqs} heading="Builder Partnerships — FAQs" />
       <CTABanner heading="LET'S BUILD SOMETHING TOGETHER" subheading="Contact us to register as a preferred subcontractor partner or discuss an upcoming project." primaryCTA={{ label: 'Discuss a Partnership', href: '/contact' }} secondaryCTA={{ label: 'Download Capability Statement', href: '/downloads/pc-tanks-capability-statement-2026.pdf' }} />

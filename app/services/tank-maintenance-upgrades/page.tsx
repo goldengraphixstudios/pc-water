@@ -6,6 +6,10 @@ import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import CTABanner from '@/components/CTABanner'
 import SectionProjects from '@/components/SectionProjects'
 import ToolPromo from '@/components/ToolPromo'
+import Masthead from '@/components/editorial/Masthead'
+import DetailRail from '@/components/editorial/DetailRail'
+import DetailFooterBand from '@/components/editorial/DetailFooterBand'
+import { SHELL } from '@/lib/shell'
 
 export const metadata: Metadata = {
   title: 'Water Tank Maintenance & Upgrades Australia',
@@ -61,31 +65,24 @@ export default function TankMaintenancePage() {
           { name: 'Water Tank Maintenance & Upgrades', url: `${siteUrl}/services/tank-maintenance-upgrades` },
         ]}
       />
-      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
-        <AppImage
-          src="/heroes/tank-maintenance-upgrades.jpg"
-          alt="Water tank maintenance and structural upgrade works in progress"
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-[#0d1b2a]/75" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Services</p>
-          <h1 className="text-[2.25rem] sm:text-5xl md:text-6xl font-black text-white mb-6">Tank Maintenance & Upgrades</h1>
-          <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
-            Planned and reactive maintenance, structural upgrades, and lifecycle extension for steel and concrete water storage assets — keeping your infrastructure performing for decades.
-          </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#2a72ad] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#246397] transition-colors">
-            Discuss Maintenance
-          </Link>
-        </div>
-      </section>
+      <Masthead
+        kicker="Services"
+        title="Tank Maintenance & Upgrades"
+        lead="Planned and reactive maintenance, structural upgrades, and lifecycle extension for steel and concrete water storage assets — keeping your infrastructure performing for decades."
+        crumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Services', href: '/services' },
+          { label: "Tank Maintenance & Upgrades" },
+        ]}
+        imageSrc="/heroes/tank-maintenance-upgrades.jpg"
+        imageAlt="Water tank maintenance and structural upgrade works in progress"
+        primaryCta={{ label: 'Discuss Maintenance', href: '/contact' }}
+        secondaryCta={{ label: 'View Our Work', href: '/projects' }}
+      />
 
-      <section className="bg-white py-14 sm:py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="bg-white py-8 sm:py-10">
+        <div className={SHELL}>
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_320px]">
             <div>
               <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Service Overview</p>
               <h2 className="text-3xl font-black text-[#30505b] mb-6">Protect Your Asset Investment</h2>
@@ -113,11 +110,12 @@ export default function TankMaintenancePage() {
                 </div>
               ))}
             </div>
-          </div>
+              <DetailRail family="services" currentHref="/services/tank-maintenance-upgrades" />
+            </div>
         </div>
       </section>
 
-      <section className="relative py-14 sm:py-20 overflow-hidden">
+      <section className="relative py-8 sm:py-10 overflow-hidden">
         <AppImage src="/water/water-14.jpg" alt="Water held in a professionally maintained storage tank" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#30505b]/87" />
         <div className="relative z-10 max-w-6xl mx-auto px-4">
@@ -145,7 +143,7 @@ export default function TankMaintenancePage() {
         </div>
       </section>
 
-      <section className="bg-white py-12 sm:py-16">
+      <section className="bg-white py-8 sm:py-10">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-black text-[#30505b] mb-8">Industries We Serve</h2>
           <div className="flex flex-wrap justify-center gap-3">
@@ -194,6 +192,8 @@ export default function TankMaintenancePage() {
         href="/tools/repair-reline-replace"
         ctaLabel="Get My Result"
       />
+
+      <DetailFooterBand family="services" currentHref="/services/tank-maintenance-upgrades" />
 
       <FAQBlock faqs={faqs} heading="Maintenance & Upgrades — FAQs" />
       <CTABanner heading="PROTECT YOUR WATER STORAGE ASSETS" subheading="Get an inspection-led maintenance assessment and protect your infrastructure investment." primaryCTA={{ label: 'Discuss Maintenance', href: '/contact' }} secondaryCTA={{ label: 'Download Maintenance Checklist', href: '/downloads/tank-maintenance-checklist.pdf' }} />

@@ -1,9 +1,12 @@
 ﻿import type { Metadata } from 'next'
-import AppImage from '@/components/AppImage'
 import Link from 'next/link'
 import FAQBlock from '@/components/FAQBlock'
 import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import CTABanner from '@/components/CTABanner'
+import Masthead from '@/components/editorial/Masthead'
+import DetailRail from '@/components/editorial/DetailRail'
+import DetailFooterBand from '@/components/editorial/DetailFooterBand'
+import { SHELL } from '@/lib/shell'
 
 export const metadata: Metadata = {
   title: 'Commercial Fire Water Tank Solutions',
@@ -58,24 +61,24 @@ export default function CommercialFireCompliancePage() {
           { name: 'Fire Water Tank Solutions for Commercial Properties', url: `${siteUrl}/industries/commercial-fire-compliance` },
         ]}
       />
-      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
-        <AppImage src="/heroes/commercial-fire-compliance.jpg" alt="Fire water tank system at a commercial facility — AS2304 compliant" fill priority className="object-cover object-center" sizes="100vw" />
-        <div className="absolute inset-0 bg-[#0d1b2a]/75" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4">
-          <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Industries</p>
-          <h1 className="text-[2.25rem] sm:text-5xl md:text-6xl font-black text-white mb-6">Fire Water Tank Solutions for Commercial Properties</h1>
-          <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
-            AS2304-compliant fire water storage and AS1851 annual inspection for commercial properties — protecting assets, lives, and insurance coverage.
-          </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-[#2a72ad] text-white px-8 py-3.5 rounded font-semibold hover:bg-[#246397] transition-colors">
-            Request a Compliance Review
-          </Link>
-        </div>
-      </section>
+      <Masthead
+        kicker="Industries"
+        title="Fire Water Tank Solutions for Commercial Properties"
+        lead="AS2304-compliant fire water storage and AS1851 annual inspection for commercial properties — protecting assets, lives, and insurance coverage."
+        crumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Industries', href: '/industries' },
+          { label: "Fire Water Tank Solutions for Commercial Properties" },
+        ]}
+        imageSrc="/heroes/commercial-fire-compliance.jpg"
+        imageAlt="Fire water tank system at a commercial facility — AS2304 compliant"
+        primaryCta={{ label: 'Request a Compliance Review', href: '/contact' }}
+        secondaryCta={{ label: 'View Our Work', href: '/projects' }}
+      />
 
-      <section className="bg-white py-14 sm:py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <section className="bg-white py-8 sm:py-10">
+        <div className={SHELL}>
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_320px]">
             <div>
               <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Compliance Challenges</p>
               <h2 className="text-3xl font-black text-[#30505b] mb-6">What Commercial Property Owners Face</h2>
@@ -119,9 +122,12 @@ export default function CommercialFireCompliancePage() {
                 </div>
               </div>
             </div>
-          </div>
+              <DetailRail family="industries" currentHref="/industries/commercial-fire-compliance" />
+            </div>
         </div>
       </section>
+
+      <DetailFooterBand family="industries" currentHref="/industries/commercial-fire-compliance" />
 
       <FAQBlock faqs={faqs} heading="Commercial Fire Compliance — FAQs" />
       <CTABanner heading="IS YOUR FIRE WATER SYSTEM COMPLIANT?" subheading="Get a compliance review from PC Water Infrastructure and protect your property, people, and insurance." primaryCTA={{ label: 'Request a Compliance Review', href: '/contact' }} secondaryCTA={{ label: 'Download Fire Water Guide', href: '/downloads/fire-water-compliance-guide.pdf' }} variant="navy" />

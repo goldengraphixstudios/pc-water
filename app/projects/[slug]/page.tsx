@@ -2,12 +2,26 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
-import AppImage from '@/components/AppImage'
 import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import CTABanner from '@/components/CTABanner'
 import GalleryLightbox from '@/components/GalleryLightbox'
+import CrossLinks from '@/components/editorial/CrossLinks'
+import Masthead from '@/components/editorial/Masthead'
+import PhotoMosaic from '@/components/editorial/PhotoMosaic'
+import RuleHeading from '@/components/editorial/RuleHeading'
+import {
+  Rail,
+  RailArticles,
+  RailContact,
+  RailDownload,
+  RailFacts,
+  RailLinks,
+  RailPanel,
+} from '@/components/editorial/RailPanel'
 import { getProjectServiceOption, PROJECT_SERVICE_FALLBACKS } from '@/lib/cms/project-services'
-import { getPublicProjectBySlug, getPublicProjects, renderContentBlocks } from '@/lib/cms/queries'
+import { getPublicPosts, getPublicProjectBySlug, getPublicProjects, renderContentBlocks } from '@/lib/cms/queries'
+import { enrichArticles, sortByNewest } from '@/lib/cms/taxonomy'
+import { SHELL } from '@/lib/shell'
 
 const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
@@ -74,14 +88,17 @@ export default async function ManagedProjectPage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const project = await getPublicProjectBySlug(slug)
+  const [project, allProjects, posts] = await Promise.all([
+    getPublicProjectBySlug(slug),
+    getPublicProjects(),
+    getPublicPosts(),
+  ])
 
   if (!project) {
     notFound()
   }
 
   // Wrap-around prev/next so every project receives incoming links from its neighbours
-  const allProjects = await getPublicProjects()
   const projectIndex = allProjects.findIndex((candidate) => candidate.slug === slug)
   const prevProject = allProjects.length > 1 ? allProjects[(projectIndex - 1 + allProjects.length) % allProjects.length] : null
   const nextProject = allProjects.length > 1 ? allProjects[(projectIndex + 1) % allProjects.length] : null
@@ -91,11 +108,59 @@ export default async function ManagedProjectPage({
     ? project.servicesDelivered
     : PROJECT_SERVICE_FALLBACKS[slug] ?? []
   const services = serviceNames.map(getProjectServiceOption)
-  const gallery = (project.galleryUrls.length ? project.galleryUrls : project.heroImageUrl ? [project.heroImageUrl] : [])
-    .map((src, index) => ({
-      src,
-      alt: `${project.title} image ${index + 1}`,
+
+  const galleryUrls = project.galleryUrls.length
+    ? project.galleryUrls
+    : project.heroImageUrl
+      ? [project.heroImageUrl]
+      : []
+  const gallery = galleryUrls.map((src, index) => ({
+    src,
+    alt: `${project.title} image ${index + 1}`,
+  }))
+  /* The opening spread reuses the first five frames; the lightbox below still
+     carries the complete set so nothing is unreachable. */
+  const spread = gallery.slice(0, 5)
+
+  /* Sibling projects, walking forward from this one and wrapping around, so
+     each project points at a different trio than its neighbours do. */
+  const siblings = allProjects
+    .map((_, i) => allProjects[(projectIndex + 1 + i) % allProjects.length])
+    .filter((p) => p.slug !== slug)
+    .slice(0, 3)
+    .map((p) => ({
+      href: `/projects/${p.slug}`,
+      title: p.title,
+      blurb: p.scope || p.summary,
+      kicker: p.sector,
+      imageSrc: p.heroImageUrl,
+      meta: p.location,
     }))
+
+  const relatedArticles = sortByNewest(enrichArticles(posts))
+    .slice(0, 4)
+    .map((a) => ({
+      id: a.id,
+      slug: a.slug,
+      title: a.title,
+      readTime: a.readTime,
+      kicker: a.category.shortName,
+    }))
+
+  const facts = [
+    { label: 'Sector', value: project.sector },
+    { label: 'Location', value: project.location },
+    { label: 'Scope', value: project.scope },
+    { label: 'Client', value: project.clientOrganisation },
+    { label: 'Status', value: project.projectStatus || 'Completed' },
+    { label: 'Contract value', value: project.contractValue },
+  ].filter((f): f is { label: string; value: string } => Boolean(f.value?.trim()))
+
+  const stats = [
+    { label: 'Sector', value: project.sector.split('/')[0].trim() },
+    { label: 'Status', value: project.projectStatus || 'Completed' },
+    ...(gallery.length > 1 ? [{ label: 'Images', value: gallery.length }] : []),
+  ]
 
   const projectUrl = `${siteUrl}/projects/${slug}`
 
@@ -108,122 +173,164 @@ export default async function ManagedProjectPage({
           { name: project.title, url: projectUrl },
         ]}
       />
-      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden min-h-[480px] flex items-end">
-        {project.heroImageUrl ? (
-          <AppImage
-            src={project.heroImageUrl}
-            alt={project.title}
-            fill
-            priority
-            className="object-cover object-center"
-            sizes="100vw"
-          />
-        ) : (
-          <div className="absolute inset-0 bg-gradient-to-br from-[#162538] via-[#30505b] to-[#3e91ce]" />
-        )}
-        <div className="absolute inset-0 bg-[#0d1b2a]/70" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 w-full">
-          <Link href="/projects" className="inline-flex items-center gap-2 text-[#3e91ce] text-sm mb-6 hover:gap-3 transition-all">
-            <svg className="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-            Back to Projects
-          </Link>
-          <div className="flex flex-wrap gap-3 mb-6">
-            <span className="bg-[#2a72ad] text-white text-xs font-semibold px-3 py-1 rounded-full">
-              {project.sector}
-            </span>
-          </div>
-          <h1 className="text-[1.9rem] sm:text-4xl md:text-5xl font-black text-white mb-4">{project.title}</h1>
-          <p className="text-gray-300 text-lg">{project.location}</p>
-        </div>
-      </section>
 
-      <section className="bg-white py-14 sm:py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-2">
-              <h2 className="text-2xl font-black text-[#30505b] mb-6">Project Overview</h2>
-              <p className="text-gray-600 leading-relaxed mb-8">{project.summary}</p>
-              <div>
+      <Masthead
+        kicker="Project"
+        title={project.title}
+        lead={project.summary}
+        crumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Projects', href: '/projects' },
+          { label: project.title },
+        ]}
+        imageSrc={project.heroImageUrl}
+        imageAlt={project.title}
+        stats={stats}
+        aside={
+          <p className="flex items-start gap-2 text-sm leading-relaxed text-gray-300">
+            <svg
+              className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#3e91ce]"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              aria-hidden="true"
+            >
+              <path
+                fillRule="evenodd"
+                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                clipRule="evenodd"
+              />
+            </svg>
+            {project.location}
+          </p>
+        }
+        primaryCta={{ label: 'Discuss a Similar Project', href: '/contact' }}
+      />
+
+      {/* ── Opening spread ── */}
+      {spread.length > 1 && (
+        <section className="bg-[#0d1b2a] py-5 sm:py-6">
+          <div className={SHELL}>
+            <PhotoMosaic
+              images={spread}
+              caption={`${project.title} — ${project.location}`}
+            />
+          </div>
+        </section>
+      )}
+
+      {/* ── Body: spec rail · narrative · context rail ── */}
+      <section className="bg-white py-8 sm:py-10">
+        <div className={SHELL}>
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-10 xl:grid-cols-[248px_minmax(0,1fr)_320px]">
+            {/* Left rail — the spec sheet */}
+            <div className="order-2 lg:order-none lg:col-span-2 xl:col-span-1 xl:col-start-1 xl:row-start-1">
+              <Rail variant="wrap">
+                <RailPanel title="Project snapshot">
+                  <RailFacts facts={facts} />
+                </RailPanel>
+
+                {services.length > 0 && (
+                  <RailPanel title="Services delivered">
+                    <RailLinks links={services.map((s) => ({ label: s.name, href: s.href }))} />
+                  </RailPanel>
+                )}
+
+                <RailContact />
+              </Rail>
+            </div>
+
+            {/* Centre — the narrative */}
+            <div className="order-1 lg:order-none xl:col-start-2 xl:row-start-1">
+              <RuleHeading meta={project.projectStatus || 'Completed'}>Project Overview</RuleHeading>
+              <p className="mb-6 max-w-[72ch] text-[17px] font-medium leading-relaxed text-[#30505b]">
+                {project.summary}
+              </p>
+              <div className="max-w-[72ch]">
                 {blocks.map((block, i) =>
                   block.type === 'heading' ? (
-                    <h3 key={i} className="text-xl font-black text-[#30505b] mt-10 mb-4">
+                    <h3 key={i} className="mt-9 mb-3 text-xl font-black text-[#0d1b2a]">
                       {block.text}
                     </h3>
                   ) : (
-                    <p key={i} className="text-gray-600 leading-relaxed mb-6">
+                    <p key={i} className="mb-5 leading-relaxed text-gray-600">
                       {block.text}
                     </p>
                   )
                 )}
               </div>
-            </div>
-
-            <div>
-              <div className="bg-[#F4F6F8] rounded-xl p-6 mb-6">
-                <h3 className="font-black text-[#30505b] text-sm tracking-widest uppercase mb-4">Project Snapshot</h3>
-                <dl className="space-y-3 text-sm">
-                  {[
-                    { label: 'Sector', value: project.sector },
-                    { label: 'Location', value: project.location },
-                    { label: 'Scope', value: project.scope },
-                    { label: 'Client / Organisation', value: project.clientOrganisation },
-                    { label: 'Status', value: project.projectStatus || 'Completed' },
-                  ].filter((item) => item.value?.trim()).map((item) => (
-                    <div key={item.label} className="flex justify-between gap-4 py-2 border-b border-gray-200 last:border-0">
-                      <dt className="text-gray-500 font-medium">{item.label}</dt>
-                      <dd className="text-[#30505b] font-semibold text-right whitespace-pre-line">{item.value}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
 
               {services.length > 0 && (
-                <div className="bg-[#30505b] rounded-xl p-6">
-                  <h3 className="font-black text-white text-sm tracking-widest uppercase mb-3">Services Delivered</h3>
-                  <ul className="space-y-2">
-                    {services.map((service) => (
-                      <li key={service.href} className="flex items-center gap-2 text-sm">
-                        <span className="w-1.5 h-1.5 bg-[#3e91ce] rounded-full flex-shrink-0" />
-                        <Link href={service.href} className="text-gray-300 hover:text-[#3e91ce] transition-colors">
-                          {service.name}
-                        </Link>
-                      </li>
+                <div className="mt-10 border-t border-gray-200 pt-6">
+                  <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.12em] text-[#2a72ad]">
+                    What this project involved
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {services.map((s) => (
+                      <Link
+                        key={s.href}
+                        href={s.href}
+                        className="inline-flex items-center border border-gray-300 px-3.5 py-2 text-[13px] font-medium text-[#30505b] transition-colors hover:border-[#3e91ce] hover:bg-[#3e91ce]/5 hover:text-[#2a72ad]"
+                      >
+                        {s.name}
+                      </Link>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               )}
+            </div>
+
+            {/* Right rail — wider context */}
+            <div className="order-3 lg:order-none xl:col-start-3 xl:row-start-1">
+              <Rail>
+                <RailArticles articles={relatedArticles} />
+                <RailDownload />
+                <RailPanel title="More from the portfolio">
+                  <RailLinks
+                    links={[
+                      ...(prevProject
+                        ? [{ label: prevProject.title, href: `/projects/${prevProject.slug}`, meta: '←' }]
+                        : []),
+                      ...(nextProject && nextProject.slug !== prevProject?.slug
+                        ? [{ label: nextProject.title, href: `/projects/${nextProject.slug}`, meta: '→' }]
+                        : []),
+                      { label: `All ${allProjects.length} projects`, href: '/projects' },
+                    ]}
+                  />
+                </RailPanel>
+              </Rail>
             </div>
           </div>
         </div>
       </section>
 
+      {/* ── Full gallery ── */}
       {gallery.length > 0 && (
-        <section className="bg-[#F4F6F8] py-12 sm:py-16">
-          <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-2xl font-black text-[#30505b] mb-8">Project Gallery</h2>
+        <section className="border-t border-gray-200 bg-[#f4f6f8] py-8 sm:py-10">
+          <div className={SHELL}>
+            <RuleHeading meta={`${gallery.length} ${gallery.length === 1 ? 'image' : 'images'}`}>
+              Project Gallery
+            </RuleHeading>
             <GalleryLightbox images={gallery} />
           </div>
         </section>
       )}
 
-      {prevProject && nextProject && (
-        <section className="bg-white py-10 border-t border-gray-100">
-          <div className="max-w-4xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {/* ── Sibling projects ── */}
+      {siblings.length > 0 && (
+        <section className="bg-[#0d1b2a] py-8 sm:py-10">
+          <div className={SHELL}>
+            <RuleHeading light meta={`${allProjects.length} in total`}>
+              Elsewhere in the portfolio
+            </RuleHeading>
+            <CrossLinks links={siblings} dark columns={3} />
             <Link
-              href={`/projects/${prevProject.slug}`}
-              className="rounded-xl border border-gray-200 px-5 py-4 hover:border-[#2a72ad] transition-colors"
+              href="/projects"
+              className="mt-5 inline-flex items-center gap-1.5 border-t border-white/20 pt-4 text-[13px] font-bold text-[#7fc2f0] transition-colors hover:text-white"
             >
-              <p className="text-xs text-gray-500 mb-1">← Previous project</p>
-              <p className="font-bold text-[#30505b]">{prevProject.title}</p>
-            </Link>
-            <Link
-              href={`/projects/${nextProject.slug}`}
-              className="rounded-xl border border-gray-200 px-5 py-4 hover:border-[#2a72ad] transition-colors sm:text-right"
-            >
-              <p className="text-xs text-gray-500 mb-1">Next project →</p>
-              <p className="font-bold text-[#30505b]">{nextProject.title}</p>
+              See every project
+              <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+              </svg>
             </Link>
           </div>
         </section>
