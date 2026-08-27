@@ -572,6 +572,126 @@ const resourceLinkMap: Record<
     relatedResources: ['does-tank-colour-affect-water-temperature-and-algae-growth', 'water-storage-in-harsh-environments-what-you-need-to-know', 'water-chemistry-and-disinfection-residual-why-it-matters-in-storage'],
     keywords: ['water tank insulation', 'tank freeze protection australia', 'water tank temperature control', 'insulated water storage tank cold climate'],
   },
+  'water-storage-and-tank-services-in-toowoomba-darling-downs-water-security': {
+    relatedServices: [
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+      { href: '/services/remote-area-delivery', label: 'Remote Area Project Delivery' },
+    ],
+    relatedResources: ['water-storage-in-harsh-environments-what-you-need-to-know', 'rainwater-harvesting-vs-reticulated-backup-storage-choosing-the-right-system', 'remote-community-water-security-redundancy-planning-beyond-a-single-tank'],
+    keywords: ['water tank services toowoomba', 'darling downs water storage', 'toowoomba water tank compliance', 'agricultural water storage queensland'],
+  },
+  'water-storage-and-tank-services-in-townsville-cyclone-and-monsoon-resilience': {
+    relatedServices: [
+      { href: '/services/custom-tank-design', label: 'Custom Tank Design' },
+      { href: '/services/fire-water-tanks', label: 'Fire Water Tank Solutions' },
+    ],
+    relatedResources: ['seismic-and-wind-loading-on-water-tanks-why-structural-design-doesnt-stop-at-the-walls', 'water-tank-freeboard-and-overflow-sizing-getting-the-numbers-right-for-storm-events', 'wind-uplift-on-empty-water-tanks-why-an-empty-tank-is-more-vulnerable-than-a-full-one'],
+    keywords: ['water tank services townsville', 'cyclone rated water tank queensland', 'townsville water storage', 'north queensland tank design'],
+  },
+  'water-storage-and-tank-services-in-rockhampton-flood-prone-site-considerations': {
+    relatedServices: [
+      { href: '/services/foundation-civil-integration', label: 'Foundation & Civil Integration' },
+      { href: '/services/tank-installation', label: 'Tank Installation' },
+    ],
+    relatedResources: ['foundation-and-civil-works-why-tank-failures-start-below-ground', 'water-tank-freeboard-and-overflow-sizing-getting-the-numbers-right-for-storm-events', '5-contamination-risks-not-source-water'],
+    keywords: ['water tank services rockhampton', 'fitzroy river flood water tank', 'flood prone water tank foundation', 'rockhampton water storage'],
+  },
+  'water-storage-and-tank-services-in-mackay-cyclone-region-and-sugar-industry-process-water': {
+    relatedServices: [
+      { href: '/services/water-treatment-solutions', label: 'Water Treatment Solutions' },
+      { href: '/services/fire-water-tanks', label: 'Fire Water Tank Solutions' },
+    ],
+    relatedResources: ['industrial-process-water-storage-when-potable-grade-isnt-the-right-specification', 'seismic-and-wind-loading-on-water-tanks-why-structural-design-doesnt-stop-at-the-walls', 'water-storage-and-tank-services-in-townsville-cyclone-and-monsoon-resilience'],
+    keywords: ['water tank services mackay', 'sugar industry process water queensland', 'mackay cyclone water tank', 'north queensland process water storage'],
+  },
+  'water-storage-and-tank-services-in-cairns-tropical-climate-and-reef-sensitive-compliance': {
+    relatedServices: [
+      { href: '/services/water-treatment-solutions', label: 'Water Treatment Solutions' },
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+    ],
+    relatedResources: ['legionella-risk-in-water-storage-tanks-what-actually-drives-it-and-how-its-controlled', 'water-storage-and-tank-services-in-townsville-cyclone-and-monsoon-resilience', 'water-tank-freeboard-and-overflow-sizing-getting-the-numbers-right-for-storm-events'],
+    keywords: ['water tank services cairns', 'tropical north queensland water storage', 'cairns water tank maintenance', 'great barrier reef catchment water compliance'],
+  },
+  'water-storage-and-tank-services-in-gladstone-industrial-process-water-for-a-heavy-industry-port': {
+    relatedServices: [
+      { href: '/services/water-treatment-solutions', label: 'Water Treatment Solutions' },
+      { href: '/services/project-managed-water-infrastructure', label: 'Project-Managed Water Infrastructure' },
+    ],
+    relatedResources: ['industrial-process-water-storage-when-potable-grade-isnt-the-right-specification', 'data-centre-and-critical-facility-water-storage-redundancy-requirements-explained', 'mining-and-resources-water-storage-compliance-beyond-standard-as-requirements'],
+    keywords: ['water tank services gladstone', 'gladstone industrial process water', 'LNG alumina process water storage', 'heavy industry water tank queensland'],
+  },
+  'water-storage-and-tank-services-in-adelaide-rainwater-and-mains-security-in-a-dry-capital': {
+    relatedServices: [
+      { href: '/services/water-treatment-solutions', label: 'Water Treatment Solutions' },
+      { href: '/services/tank-installation', label: 'Tank Installation' },
+    ],
+    relatedResources: ['rainwater-harvesting-vs-reticulated-backup-storage-choosing-the-right-system', 'water-storage-in-harsh-environments-what-you-need-to-know', 'water-chemistry-and-disinfection-residual-why-it-matters-in-storage'],
+    keywords: ['water tank services adelaide', 'adelaide rainwater tank sizing', 'south australia water security', 'adelaide backup water storage'],
+  },
+  'water-storage-and-tank-services-in-wagga-wagga-riverina-agricultural-water-security': {
+    relatedServices: [
+      { href: '/services/custom-tank-design', label: 'Custom Tank Design' },
+      { href: '/services/foundation-civil-integration', label: 'Foundation & Civil Integration' },
+    ],
+    relatedResources: ['foundation-and-civil-works-why-tank-failures-start-below-ground', 'water-storage-and-tank-services-in-dubbo-central-west-nsw-drought-resilient-storage', 'remote-community-water-security-redundancy-planning-beyond-a-single-tank'],
+    keywords: ['water tank services wagga wagga', 'riverina agricultural water storage', 'murrumbidgee flood water tank', 'nsw farm water tank sizing'],
+  },
+  'water-storage-and-tank-services-in-dubbo-central-west-nsw-drought-resilient-storage': {
+    relatedServices: [
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+      { href: '/services/project-managed-water-infrastructure', label: 'Project-Managed Water Infrastructure' },
+    ],
+    relatedResources: ['government-and-council-water-asset-management-reporting-under-budget-pressure', 'water-storage-and-tank-services-in-wagga-wagga-riverina-agricultural-water-security', 'remote-community-water-security-redundancy-planning-beyond-a-single-tank'],
+    keywords: ['water tank services dubbo', 'central west nsw drought water storage', 'dubbo water security', 'burrendong dam water supply'],
+  },
+  'water-storage-and-tank-services-in-bendigo-goldfields-water-security-planning': {
+    relatedServices: [
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+    ],
+    relatedResources: ['water-storage-and-tank-services-in-ballarat-cool-climate-tank-design-considerations', 'remote-community-water-security-redundancy-planning-beyond-a-single-tank', 'what-a-professional-tank-inspection-actually-covers'],
+    keywords: ['water tank services bendigo', 'central victoria water security', 'bendigo water storage', 'lake eppalock water supply'],
+  },
+  'water-storage-and-tank-services-in-ballarat-cool-climate-tank-design-considerations': {
+    relatedServices: [
+      { href: '/services/custom-tank-design', label: 'Custom Tank Design' },
+      { href: '/services/foundation-civil-integration', label: 'Foundation & Civil Integration' },
+    ],
+    relatedResources: ['water-tank-insulation-and-temperature-control-when-its-actually-needed', 'water-storage-and-tank-services-in-bendigo-goldfields-water-security-planning', 'foundation-and-civil-works-why-tank-failures-start-below-ground'],
+    keywords: ['water tank services ballarat', 'ballarat frost water tank', 'cool climate water storage victoria', 'goldfields water tank design'],
+  },
+  'water-storage-and-tank-services-in-geelong-industrial-port-water-infrastructure': {
+    relatedServices: [
+      { href: '/services/water-treatment-solutions', label: 'Water Treatment Solutions' },
+      { href: '/services/project-managed-water-infrastructure', label: 'Project-Managed Water Infrastructure' },
+    ],
+    relatedResources: ['industrial-process-water-storage-when-potable-grade-isnt-the-right-specification', 'builder-contractor-partnerships-getting-water-storage-right-on-a-new-build', 'fire-water-tank-as1851-service-levels-explained'],
+    keywords: ['water tank services geelong', 'geelong industrial water storage', 'barwon region water tank', 'geelong new development fire water'],
+  },
+  'water-storage-and-tank-services-in-darwin-tropical-remote-and-defence-sector-water-storage': {
+    relatedServices: [
+      { href: '/services/remote-area-delivery', label: 'Remote Area Project Delivery' },
+      { href: '/services/project-managed-water-infrastructure', label: 'Project-Managed Water Infrastructure' },
+    ],
+    relatedResources: ['modular-tanks-in-remote-australia-transport-access-and-assembly', 'data-centre-and-critical-facility-water-storage-redundancy-requirements-explained', 'water-storage-and-tank-services-in-townsville-cyclone-and-monsoon-resilience'],
+    keywords: ['water tank services darwin', 'northern territory water storage', 'darwin cyclone water tank', 'top end remote water infrastructure'],
+  },
+  'water-storage-and-tank-services-in-kalgoorlie-remote-goldfields-water-security': {
+    relatedServices: [
+      { href: '/services/water-treatment-solutions', label: 'Water Treatment Solutions' },
+      { href: '/services/remote-area-delivery', label: 'Remote Area Project Delivery' },
+    ],
+    relatedResources: ['mining-and-resources-water-storage-compliance-beyond-standard-as-requirements', 'water-storage-and-tank-services-in-darwin-tropical-remote-and-defence-sector-water-storage', 'remote-community-water-security-redundancy-planning-beyond-a-single-tank'],
+    keywords: ['water tank services kalgoorlie', 'goldfields water security wa', 'kalgoorlie mining water storage', 'golden pipeline water supply'],
+  },
+  'water-storage-and-tank-services-in-launceston-flood-history-and-cool-climate-storage': {
+    relatedServices: [
+      { href: '/services/foundation-civil-integration', label: 'Foundation & Civil Integration' },
+      { href: '/services/custom-tank-design', label: 'Custom Tank Design' },
+    ],
+    relatedResources: ['foundation-and-civil-works-why-tank-failures-start-below-ground', 'water-storage-and-tank-services-in-ballarat-cool-climate-tank-design-considerations', 'water-tank-insulation-and-temperature-control-when-its-actually-needed'],
+    keywords: ['water tank services launceston', 'tasmania water storage', 'launceston flood water tank', 'tamar valley agricultural water storage'],
+  },
 }
 
 export async function generateStaticParams() {
