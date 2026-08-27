@@ -100,13 +100,12 @@ export default function TankComplianceCheckerPage() {
           { label: 'Tools', href: '/tools' },
           { label: "Tank Compliance Checker" },
         ]}
-        imageSrc="/posts/fire-tank-inspection.jpg"
-        imageAlt="Internal inspection of a fire water tank being assessed against AS1851"
-        primaryCta={{ label: 'Discuss Your Project', href: '/contact' }}
-        secondaryCta={{ label: 'View Our Work', href: '/projects' }}
+        primaryCta={{ label: 'Start the Compliance Check', href: '#assessment' }}
+        secondaryCta={{ label: 'All Free Tools', href: '/tools' }}
       />
 
       {/* The tool */}
+      <div id="assessment" className="scroll-mt-20" />
       <AssessmentTool slug="tank-compliance-checker" />
 
       {/* How it works */}

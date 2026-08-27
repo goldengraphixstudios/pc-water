@@ -99,12 +99,11 @@ export default function RepairRelineReplacePage() {
           { label: 'Tools', href: '/tools' },
           { label: "Repair, Reline or Replace?" },
         ]}
-        imageSrc="/posts/corrosion-rpvc-liner.jpg"
-        imageAlt="RPVC liner installed inside a corroded steel tank as an alternative to replacement"
-        primaryCta={{ label: 'Discuss Your Project', href: '/contact' }}
-        secondaryCta={{ label: 'View Our Work', href: '/projects' }}
+        primaryCta={{ label: 'Start the Decision Tool', href: '#assessment' }}
+        secondaryCta={{ label: 'All Free Tools', href: '/tools' }}
       />
 
+      <div id="assessment" className="scroll-mt-20" />
       <AssessmentTool slug="repair-reline-replace" />
 
       {/* The four paths */}

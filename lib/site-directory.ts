@@ -193,7 +193,6 @@ export const tools: Entry[] = [
     kicker: 'Free assessment · 2 minutes',
     blurb:
       'Answer a few questions about your tank and get a fast indication of likely compliance risk — from low risk through to urgent review recommended — plus your recommended next step.',
-    imageSrc: '/posts/fire-tank-inspection.jpg',
     meta: 'Check compliance risk',
     points: ['Tank type, age & inspection history', 'AS2304 / AS1851 / AS4020 context', 'Instant risk indication'],
   },
@@ -203,7 +202,6 @@ export const tools: Entry[] = [
     kicker: 'Free decision tool · 2 minutes',
     blurb:
       'For aging or deteriorating tanks: find out whether the practical path is targeted repair, RPVC relining, full replacement, or an inspection first.',
-    imageSrc: '/posts/corrosion-rpvc-liner.jpg',
     meta: 'Get my result',
     points: ['Structural & corrosion condition', 'Liner / coating assessment', 'Clear recommended path'],
   },
@@ -216,7 +214,6 @@ export const projectPathways: Entry[] = [
     kicker: 'Project enquiry',
     blurb:
       'Leaking, corroded or deteriorating tank? Request a project-specific proposal covering repair, RPVC relining, upgrades or replacement — with the pathway confirmed at assessment.',
-    imageSrc: '/posts/corrosion-hero.jpg',
     meta: 'Request a proposal',
     points: ['Repair · Reline · Replace pathways', 'Councils, industrial & commercial', 'Reply within 1 business day'],
   },
@@ -226,7 +223,6 @@ export const projectPathways: Entry[] = [
     kicker: 'Project enquiry',
     blurb:
       'Planning water storage or treatment in remote Australia? Discuss an end-to-end delivery strategy — planning, civil, storage, treatment, installation and commissioning under one team.',
-    imageSrc: '/heroes/remote-area-delivery.jpg',
     meta: 'Discuss your project',
     points: ['End-to-end coordinated delivery', 'Freight, access & seasonal planning', 'Reply within 1 business day'],
   },
