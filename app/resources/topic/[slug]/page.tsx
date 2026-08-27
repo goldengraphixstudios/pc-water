@@ -20,6 +20,7 @@ import {
 export const dynamic = 'force-static'
 
 const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
+const SHELL = 'mx-auto w-full max-w-[1920px] px-4 sm:px-6 lg:px-8'
 
 export function generateStaticParams() {
   return TOPICS.map((t) => ({ slug: t.slug }))
@@ -99,7 +100,7 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
       <section className="relative overflow-hidden bg-[#0d1b2a] pt-28 pb-14 sm:pt-36 sm:pb-16 lg:pt-40">
         <div className="dot-pattern pointer-events-none absolute inset-0 opacity-20" />
         <div className="pointer-events-none absolute -right-32 top-0 h-[420px] w-[420px] rounded-full bg-[#3e91ce]/20 blur-3xl" />
-        <div className="relative z-10 mx-auto max-w-5xl px-4">
+        <div className={`relative z-10 ${SHELL}`}>
           <Breadcrumbs
             light
             items={[
@@ -128,7 +129,7 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
       </section>
 
       <section className="bg-white py-14 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4">
+        <div className={SHELL}>
           <ArticleBrowser
             heading={`Articles tagged ${topic.name}`}
             articles={articles}
@@ -142,7 +143,7 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
 
       {otherTopics.length > 0 && (
         <section className="border-t border-gray-100 bg-[#F4F6F8] py-12 sm:py-16">
-          <div className="mx-auto max-w-6xl px-4">
+          <div className={SHELL}>
             <p className="mb-2 text-xs font-bold uppercase tracking-widest text-[#3e91ce]">/ Related</p>
             <h2 className="mb-6 text-2xl font-black text-[#30505b]">OTHER TOPICS</h2>
             <div className="flex flex-wrap gap-2.5">

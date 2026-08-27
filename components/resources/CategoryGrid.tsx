@@ -2,7 +2,8 @@ import Link from 'next/link'
 import type { ArticleCategory } from '@/lib/cms/taxonomy'
 
 /**
- * Compact, image-led section tiles — magazine "sections" strip.
+ * Section rail — uniform, monochrome tiles. Wraps to a full-width row on
+ * large screens so there is never a horizontal scrollbar.
  */
 export default function CategoryGrid({
   categories,
@@ -14,7 +15,7 @@ export default function CategoryGrid({
   previews: Record<string, string>
 }) {
   return (
-    <div className="-mx-4 flex snap-x gap-3 overflow-x-auto px-4 pb-1 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 lg:grid-cols-5">
+    <div className="grid grid-cols-2 gap-px overflow-hidden rounded-lg bg-gray-200 sm:grid-cols-3 md:grid-cols-5 xl:grid-cols-10">
       {categories.map((c) => {
         const count = counts[c.slug] ?? 0
         const img = previews[c.slug]
@@ -22,31 +23,24 @@ export default function CategoryGrid({
           <Link
             key={c.slug}
             href={`/resources/category/${c.slug}`}
-            className="group relative flex h-28 w-40 flex-shrink-0 snap-start flex-col justify-end overflow-hidden rounded-xl bg-[#0d1b2a] sm:h-32 sm:w-auto"
+            className="group relative flex h-24 flex-col justify-end overflow-hidden bg-[#0d1b2a] xl:h-28"
           >
             {img && (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={img}
                 alt=""
-                className="absolute inset-0 h-full w-full object-cover opacity-55 transition-all duration-500 group-hover:scale-110 group-hover:opacity-70"
+                className="absolute inset-0 h-full w-full object-cover opacity-40 grayscale transition-all duration-500 group-hover:scale-105 group-hover:opacity-60 group-hover:grayscale-0"
                 loading="lazy"
               />
             )}
-            <span
-              className="absolute inset-0 transition-opacity duration-300 group-hover:opacity-90"
-              style={{
-                background: `linear-gradient(to top, ${c.accent}E6 0%, ${c.accent}66 45%, transparent 100%)`,
-              }}
-              aria-hidden="true"
-            />
+            <span className="absolute inset-0 bg-gradient-to-t from-[#0d1b2a] via-[#0d1b2a]/70 to-[#0d1b2a]/20" />
+            <span className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-[#3e91ce] transition-transform duration-300 group-hover:scale-x-100" />
             <span className="relative z-10 p-3">
-              <span className="block text-[13px] font-black leading-tight text-white drop-shadow-sm">
-                {c.name}
+              <span className="block text-[12px] font-bold leading-tight text-white transition-colors group-hover:text-[#7fc2f0]">
+                {c.shortName}
               </span>
-              <span className="mt-0.5 block text-[11px] font-semibold text-white/75">
-                {count} {count === 1 ? 'article' : 'articles'}
-              </span>
+              <span className="mt-0.5 block font-mono text-[10px] text-gray-500">{count}</span>
             </span>
           </Link>
         )

@@ -45,6 +45,14 @@ body {
 ::-webkit-scrollbar-track { background: #0d1b2a; }
 ::-webkit-scrollbar-thumb { background: #3e91ce; border-radius: 3px; }
 
+/* Thin, light scrollbar for inner scroll areas on light surfaces — the
+   global dark track above is only appropriate for the page scrollbar. */
+.thin-scroll { scrollbar-width: thin; scrollbar-color: #c7d2dc transparent; }
+.thin-scroll::-webkit-scrollbar { width: 5px; height: 5px; }
+.thin-scroll::-webkit-scrollbar-track { background: transparent; }
+.thin-scroll::-webkit-scrollbar-thumb { background: #c7d2dc; border-radius: 99px; }
+.thin-scroll::-webkit-scrollbar-thumb:hover { background: #9fb3c4; }
+
 /* Animated gradient text */
 .gradient-text {
   background: linear-gradient(135deg, #3e91ce, #ffffff, #3e91ce);

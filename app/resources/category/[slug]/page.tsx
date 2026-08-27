@@ -20,6 +20,7 @@ import {
 export const dynamic = 'force-static'
 
 const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
+const SHELL = 'mx-auto w-full max-w-[1920px] px-4 sm:px-6 lg:px-8'
 
 export function generateStaticParams() {
   return CATEGORIES.map((c) => ({ slug: c.slug }))
@@ -100,19 +101,10 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
         ]}
       />
 
-      {/* ── Section header ── */}
-      <section className="relative overflow-hidden bg-[#0d1b2a] pt-28 pb-14 sm:pt-36 sm:pb-16 lg:pt-40">
-        <div
-          className="pointer-events-none absolute inset-x-0 top-0 h-1.5"
-          style={{ backgroundColor: category.accent }}
-          aria-hidden="true"
-        />
-        <div
-          className="pointer-events-none absolute -right-32 top-0 h-[420px] w-[420px] rounded-full opacity-20 blur-3xl"
-          style={{ backgroundColor: category.accent }}
-          aria-hidden="true"
-        />
-        <div className="relative z-10 mx-auto max-w-5xl px-4">
+      {/* ── Section masthead ── */}
+      <section className="relative overflow-hidden border-b-4 border-[#3e91ce] bg-[#0d1b2a] pt-28 pb-10 sm:pt-32 sm:pb-12 lg:pt-36">
+        <div className="dot-pattern pointer-events-none absolute inset-0 opacity-15" />
+        <div className={`relative z-10 ${SHELL}`}>
           <Breadcrumbs
             light
             items={[
@@ -121,45 +113,49 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
               { label: category.name },
             ]}
           />
-          <p className="mb-3 text-xs font-bold uppercase tracking-widest" style={{ color: category.accent }}>
-            / Section
-          </p>
-          <h1 className="mb-5 text-[2rem] font-black leading-tight text-white sm:text-4xl md:text-5xl">
-            {category.name}
-          </h1>
-          <div className="max-w-3xl space-y-4">
-            {category.intro.map((para, i) => (
-              <p key={i} className={i === 0 ? 'text-lg leading-relaxed text-gray-200' : 'leading-relaxed text-gray-400'}>
-                {para}
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_420px] lg:gap-12">
+            <div>
+              <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#3e91ce]">/ Section</p>
+              <h1 className="mb-4 text-[1.9rem] font-black leading-[1.05] text-white sm:text-4xl lg:text-5xl">
+                {category.name}
+              </h1>
+              <p className="max-w-2xl text-base leading-relaxed text-gray-200 lg:text-lg">
+                {category.intro[0]}
               </p>
-            ))}
-          </div>
-          <div className="mt-7 flex flex-wrap gap-3">
-            <span className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white backdrop-blur-sm">
-              {articles.length} {articles.length === 1 ? 'article' : 'articles'}
-            </span>
-            <Link
-              href="/resources"
-              className="rounded-full border border-white/20 px-4 py-2 text-sm text-gray-300 transition-colors hover:border-[#3e91ce] hover:text-white"
-            >
-              ← All sections
-            </Link>
+            </div>
+            <div className="lg:border-l lg:border-white/15 lg:pl-8">
+              <p className="text-sm leading-relaxed text-gray-400">{category.intro[1]}</p>
+              <div className="mt-5 flex flex-wrap items-center gap-3">
+                <span className="border border-white/25 px-3 py-1.5 text-[13px] text-white">
+                  {articles.length} {articles.length === 1 ? 'article' : 'articles'}
+                </span>
+                <Link
+                  href="/resources"
+                  className="text-[13px] font-semibold text-gray-400 transition-colors hover:text-[#7fc2f0]"
+                >
+                  ← All sections
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Lead article in this section ── */}
-      <section className="bg-white py-12 sm:py-16">
-        <div className="mx-auto max-w-6xl px-4">
-          <p className="mb-5 text-xs font-bold uppercase tracking-widest text-[#3e91ce]">/ Start with</p>
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1.4fr_1fr]">
+      {/* ── Lead + more in section ── */}
+      <section className="bg-white py-8 sm:py-10">
+        <div className={SHELL}>
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1.5fr_1fr] lg:gap-10">
             <ArticleCard article={featured} variant="lead" />
             {rest.length > 0 && (
-              <div className="flex flex-col gap-3">
-                <p className="text-xs font-bold uppercase tracking-wider text-gray-400">More in this section</p>
-                {rest.slice(0, 5).map((a) => (
-                  <ArticleCard key={a.id} article={a} variant="compact" />
-                ))}
+              <div>
+                <h2 className="mb-2 border-b-2 border-[#0d1b2a] pb-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-[#0d1b2a]">
+                  More in this section
+                </h2>
+                <div className="divide-y divide-gray-200">
+                  {rest.slice(0, 6).map((a) => (
+                    <ArticleCard key={a.id} article={a} variant="compact" />
+                  ))}
+                </div>
               </div>
             )}
           </div>
@@ -167,10 +163,15 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
       </section>
 
       {/* ── All articles in this section ── */}
-      <section className="border-t border-gray-100 bg-[#F4F6F8] py-14 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4">
+      <section className="border-t border-gray-200 bg-[#f4f6f8] py-8 sm:py-10">
+        <div className={SHELL}>
+          <div className="mb-5 flex items-baseline justify-between gap-4 border-b-2 border-[#0d1b2a] pb-2">
+            <h2 className="text-lg font-black uppercase tracking-tight text-[#0d1b2a] sm:text-xl">
+              All {category.name}
+            </h2>
+            <span className="font-mono text-[11px] text-gray-500">{articles.length} articles</span>
+          </div>
           <ArticleBrowser
-            heading={`All ${category.name} articles`}
             articles={articles}
             categories={CATEGORIES}
             formats={FORMATS}
@@ -182,22 +183,18 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
       </section>
 
       {/* ── Other sections ── */}
-      <section className="bg-white py-12 sm:py-16">
-        <div className="mx-auto max-w-6xl px-4">
-          <p className="mb-2 text-xs font-bold uppercase tracking-widest text-[#3e91ce]">/ Keep reading</p>
-          <h2 className="mb-6 text-2xl font-black text-[#30505b]">OTHER SECTIONS</h2>
-          <div className="flex flex-wrap gap-3">
+      <section className="bg-white py-8 sm:py-10">
+        <div className={SHELL}>
+          <h2 className="mb-3 border-b-2 border-[#0d1b2a] pb-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-[#0d1b2a]">
+            Other sections
+          </h2>
+          <div className="flex flex-wrap gap-2">
             {otherCategories.map((c) => (
               <Link
                 key={c.slug}
                 href={`/resources/category/${c.slug}`}
-                className="group inline-flex items-center gap-2.5 rounded-full border border-gray-200 bg-white px-5 py-2.5 text-sm font-semibold text-[#30505b] transition-all hover:border-[#3e91ce] hover:text-[#3e91ce]"
+                className="inline-flex items-center border border-gray-300 px-3.5 py-2 text-[13px] font-medium text-[#30505b] transition-colors hover:border-[#3e91ce] hover:bg-[#3e91ce]/5 hover:text-[#2a72ad]"
               >
-                <span
-                  className="h-2 w-2 flex-shrink-0 rounded-full"
-                  style={{ backgroundColor: c.accent }}
-                  aria-hidden="true"
-                />
                 {c.name}
               </Link>
             ))}

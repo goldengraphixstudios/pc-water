@@ -26,6 +26,12 @@ export const dynamic = 'force-static'
 
 const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
+/**
+ * The library deliberately breaks the site's usual max-w-6xl container so the
+ * three-column workspace can use the full viewport width.
+ */
+const SHELL = 'mx-auto w-full max-w-[1920px] px-4 sm:px-6 lg:px-8'
+
 export const metadata: Metadata = {
   title: 'Articles & Insights',
   description:
@@ -93,7 +99,7 @@ export default async function ArticlesPage() {
   const regionCounts = countByRegion(articles)
   const topicCounts = countByTopic(articles)
   const featuredIds = new Set(featured.map((a) => a.id))
-  const sidebarRecent = latest.filter((a) => !featuredIds.has(a.id)).slice(0, 4)
+  const sidebarRecent = latest.filter((a) => !featuredIds.has(a.id)).slice(0, 5)
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -125,8 +131,8 @@ export default async function ArticlesPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      {/* ── Hero ── */}
-      <section className="relative flex min-h-[460px] items-end overflow-hidden pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24">
+      {/* ── Masthead ── */}
+      <section className="relative flex min-h-[380px] items-end overflow-hidden pt-28 pb-10 sm:pt-32 sm:pb-12 lg:pt-36">
         <AppImage
           src="/heroes/resources.jpg"
           alt="Water storage engineering articles and technical insights"
@@ -135,53 +141,61 @@ export default async function ArticlesPage() {
           className="object-cover object-center"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0d1b2a]/60 via-[#0d1b2a]/75 to-[#0d1b2a]/90" />
-        <div className="relative z-10 mx-auto w-full max-w-6xl px-4">
-          <p className="mb-4 text-xs font-bold uppercase tracking-widest text-[#3e91ce]">/ The Library</p>
-          <h1 className="mb-5 text-[2.25rem] font-black leading-none text-white sm:text-5xl md:text-6xl">
-            ENGINEERING KNOWLEDGE<br />
-            <span className="text-[#3e91ce]">WRITTEN DOWN.</span>
-          </h1>
-          <p className="mb-8 max-w-2xl text-lg leading-relaxed text-gray-300">
-            {articles.length} technical articles on water storage, compliance, maintenance and infrastructure
-            delivery — organised by section, topic and region. Written by engineers, for asset owners and operators.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <Link
-              href="#library"
-              className="inline-flex items-center gap-2 rounded-full bg-[#2a72ad] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#246397]"
-            >
-              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
-              </svg>
-              Search the library
-            </Link>
-            <Link
-              href="/resources/downloads"
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/20"
-            >
-              Free guides &amp; checklists →
-            </Link>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0d1b2a]/65 via-[#0d1b2a]/80 to-[#0d1b2a]/95" />
+        <div className={`relative z-10 ${SHELL}`}>
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-3xl">
+              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.2em] text-[#3e91ce]">
+                / The Library
+              </p>
+              <h1 className="mb-4 text-[2.1rem] font-black leading-[0.95] text-white sm:text-5xl lg:text-6xl">
+                ENGINEERING KNOWLEDGE<br />
+                <span className="text-[#3e91ce]">WRITTEN DOWN.</span>
+              </h1>
+              <p className="max-w-2xl text-base leading-relaxed text-gray-300">
+                {articles.length} technical articles on water storage, compliance, maintenance and delivery —
+                organised by section, topic and region.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2.5 lg:pb-1">
+              <Link
+                href="#library"
+                className="inline-flex items-center gap-2 bg-[#2a72ad] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#3e91ce]"
+              >
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
+                </svg>
+                Search the library
+              </Link>
+              <Link
+                href="/resources/downloads"
+                className="inline-flex items-center gap-2 border border-white/30 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:border-[#3e91ce] hover:text-[#7fc2f0]"
+              >
+                Free guides →
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Editorial front page: lead + featured ── */}
+      {/* ── Editor's Picks ── */}
       {lead && (
-        <section className="bg-[#0d1b2a] py-14 sm:py-20">
-          <div className="mx-auto max-w-6xl px-4">
-            <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+        <section className="bg-[#0d1b2a] py-10 sm:py-14">
+          <div className={SHELL}>
+            <div className="mb-6 flex flex-wrap items-end justify-between gap-4 border-b border-white/15 pb-3">
               <div>
-                <p className="mb-2 text-xs font-bold uppercase tracking-widest text-[#3e91ce]">/ Editor’s Picks</p>
-                <h2 className="text-2xl font-black text-white sm:text-3xl">START HERE</h2>
+                <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[#3e91ce]">
+                  / Editor’s Picks
+                </p>
+                <h2 className="text-xl font-black text-white sm:text-2xl">START HERE</h2>
               </div>
-              <p className="max-w-md text-sm leading-relaxed text-gray-400">
+              <p className="max-w-md text-[13px] leading-relaxed text-gray-400">
                 The articles we point people to most often — the ones that answer the questions asset owners
                 actually arrive with.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
               <ArticleCard article={lead} variant="lead" />
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {secondary.slice(0, 4).map((a) => (
@@ -193,51 +207,45 @@ export default async function ArticlesPage() {
         </section>
       )}
 
-      {/* ── Sections strip ── */}
-      <section className="border-b border-gray-100 bg-white pt-10 pb-8 sm:pt-14">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
-            <div>
-              <p className="mb-1 text-xs font-bold uppercase tracking-widest text-[#3e91ce]">/ Sections</p>
-              <h2 className="text-xl font-black text-[#30505b] sm:text-2xl">BROWSE BY SECTION</h2>
-            </div>
-            <p className="max-w-sm text-sm leading-relaxed text-gray-500">
-              Every article sits in one section — start with the one closest to your problem.
-            </p>
+      {/* ── Sections rail ── */}
+      <section className="border-b border-gray-200 bg-white py-6">
+        <div className={SHELL}>
+          <div className="mb-3 flex items-baseline justify-between gap-4">
+            <h2 className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#0d1b2a]">
+              Browse by section
+            </h2>
+            <span className="text-[11px] text-gray-400">{CATEGORIES.length} sections</span>
           </div>
           <CategoryGrid categories={CATEGORIES} counts={categoryCounts} previews={categoryPreviews} />
         </div>
       </section>
 
-      {/* ── Magazine layout: library + sidebar ── */}
-      <section id="library" className="scroll-mt-24 bg-[#F4F6F8] py-10 sm:py-14">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-10">
-            {/* Main column */}
-            <div className="min-w-0">
-              <div className="mb-6">
-                <p className="mb-1 text-xs font-bold uppercase tracking-widest text-[#3e91ce]">/ Full Library</p>
-                <h2 className="text-xl font-black text-[#30505b] sm:text-2xl">EVERY ARTICLE</h2>
-              </div>
-              <ArticleBrowser
-                articles={latest}
-                categories={CATEGORIES}
-                formats={FORMATS}
-                topics={TOPICS}
-                regions={REGIONS}
-                columns="two"
-              />
-            </div>
-
-            {/* Sidebar */}
-            <LibrarySidebar
-              regions={REGIONS}
-              regionCounts={regionCounts}
-              topics={TOPICS}
-              topicCounts={topicCounts}
-              mostRecent={sidebarRecent}
-            />
+      {/* ── Library workspace ── */}
+      <section id="library" className="scroll-mt-20 bg-[#f4f6f8] py-8 sm:py-10">
+        <div className={SHELL}>
+          <div className="mb-5 flex items-baseline justify-between gap-4 border-b-2 border-[#0d1b2a] pb-2">
+            <h2 className="text-lg font-black uppercase tracking-tight text-[#0d1b2a] sm:text-xl">
+              The Full Library
+            </h2>
+            <span className="font-mono text-[11px] text-gray-500">{articles.length} articles</span>
           </div>
+
+          <ArticleBrowser
+            articles={latest}
+            categories={CATEGORIES}
+            formats={FORMATS}
+            topics={TOPICS}
+            regions={REGIONS}
+            sidebar={
+              <LibrarySidebar
+                regions={REGIONS}
+                regionCounts={regionCounts}
+                topics={TOPICS}
+                topicCounts={topicCounts}
+                mostRecent={sidebarRecent}
+              />
+            }
+          />
         </div>
       </section>
 
