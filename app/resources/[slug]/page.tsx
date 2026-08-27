@@ -6,7 +6,9 @@ import AppImage from '@/components/AppImage'
 import ArticleJsonLd from '@/components/ArticleJsonLd'
 import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import CTABanner from '@/components/CTABanner'
+import Breadcrumbs from '@/components/resources/Breadcrumbs'
 import { getPublicPostBySlug, getPublicPosts } from '@/lib/cms/queries'
+import { enrichArticle } from '@/lib/cms/taxonomy'
 import { formatDate } from '@/lib/cms/utils'
 
 export const dynamic = 'force-static'
@@ -788,13 +790,15 @@ export default async function ResourceArticlePage({
   const nextPost = allPosts.length > 1 ? allPosts[(postIndex + 1) % allPosts.length] : null
   const articleUrl = `${siteUrl}/resources/${post.slug}`
   const articleDescription = post.seoDescription || post.excerpt
+  const meta = enrichArticle(post)
 
   return (
     <>
       <BreadcrumbJsonLd
         items={[
           { name: 'Home', url: siteUrl },
-          { name: 'Resources', url: `${siteUrl}/resources` },
+          { name: 'Articles', url: `${siteUrl}/resources` },
+          { name: meta.category.name, url: `${siteUrl}/resources/category/${meta.category.slug}` },
           { name: post.title, url: articleUrl },
         ]}
       />
@@ -823,24 +827,53 @@ export default async function ResourceArticlePage({
         )}
         <div className="absolute inset-0 bg-[#0d1b2a]/70" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 w-full">
-          <Link href="/resources" className="inline-flex items-center gap-2 text-[#7fc2f0] text-sm mb-6 hover:gap-3 transition-all">
-            <svg className="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-            Back to Resources
-          </Link>
-          <div className="flex flex-wrap gap-3 mb-6">
-            {post.tags.map((tag) => (
-              <span key={tag.slug} className="bg-[#2a72ad] text-white text-xs font-semibold px-3 py-1 rounded-full">
-                {tag.name}
-              </span>
-            ))}
+          <Breadcrumbs
+            light
+            items={[
+              { label: 'Home', href: '/' },
+              { label: 'Articles', href: '/resources' },
+              { label: meta.category.shortName, href: `/resources/category/${meta.category.slug}` },
+            ]}
+          />
+          <div className="flex flex-wrap items-center gap-2 mb-5">
+            <Link
+              href={`/resources/category/${meta.category.slug}`}
+              className="inline-flex items-center rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white transition-opacity hover:opacity-85"
+              style={{ backgroundColor: meta.category.accent }}
+            >
+              {meta.category.name}
+            </Link>
+            <span className="rounded-full border border-white/25 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white/80">
+              {meta.format.label}
+            </span>
+            {meta.region && (
+              <Link
+                href={`/resources/region/${meta.region.slug}`}
+                className="rounded-full border border-white/25 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white/80 transition-colors hover:border-[#3e91ce] hover:text-white"
+              >
+                {meta.region.name}
+              </Link>
+            )}
           </div>
           <h1 className="text-[1.9rem] sm:text-4xl md:text-5xl font-black text-white mb-4 leading-tight">{post.title}</h1>
-          <div className="flex items-center gap-4 text-gray-400 text-sm">
+          <div className="flex flex-wrap items-center gap-3 text-gray-400 text-sm">
             {post.readTime && <span className="bg-white/10 px-3 py-1 rounded-full text-white/70">{post.readTime}</span>}
             {post.publishedAt && <span>{formatDate(post.publishedAt)}</span>}
           </div>
+          {meta.topics.length > 0 && (
+            <div className="mt-5 flex flex-wrap items-center gap-2">
+              <span className="text-xs text-gray-500">Topics:</span>
+              {meta.topics.map((topic) => (
+                <Link
+                  key={topic.slug}
+                  href={`/resources/topic/${topic.slug}`}
+                  className="rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-gray-300 transition-colors hover:bg-white/20 hover:text-white"
+                >
+                  {topic.name}
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

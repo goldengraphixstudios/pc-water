@@ -1,5 +1,14 @@
 import type { MetadataRoute } from 'next'
 import { getPublicPosts, getPublicProjects } from '@/lib/cms/queries'
+import {
+  CATEGORIES,
+  REGIONS,
+  TOPICS,
+  countByCategory,
+  countByRegion,
+  countByTopic,
+  enrichArticles,
+} from '@/lib/cms/taxonomy'
 
 export const dynamic = 'force-static'
 
@@ -52,6 +61,42 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   ]
 
+  // priority 0.75 — article section hubs (pillar pages for each topic cluster)
+  const publishedPosts = posts.filter((post) => post.status === 'published')
+  const enriched = enrichArticles(publishedPosts)
+  const categoryCounts = countByCategory(enriched)
+  const regionCounts = countByRegion(enriched)
+  const topicCounts = countByTopic(enriched)
+
+  const categoryRoutes: MetadataRoute.Sitemap = CATEGORIES.filter(
+    (c) => (categoryCounts[c.slug] ?? 0) > 0,
+  ).map((c) => ({
+    url: `${BASE_URL}/resources/category/${c.slug}`,
+    lastModified,
+    changeFrequency: 'weekly' as const,
+    priority: 0.75,
+  }))
+
+  // priority 0.7 — regional article hubs
+  const regionRoutes: MetadataRoute.Sitemap = REGIONS.filter(
+    (r) => (regionCounts[r.slug] ?? 0) > 0,
+  ).map((r) => ({
+    url: `${BASE_URL}/resources/region/${r.slug}`,
+    lastModified,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  // priority 0.6 — cross-cutting topic archives
+  const topicRoutes: MetadataRoute.Sitemap = TOPICS.filter(
+    (t) => (topicCounts[t.slug] ?? 0) > 0,
+  ).map((t) => ({
+    url: `${BASE_URL}/resources/topic/${t.slug}`,
+    lastModified,
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }))
+
   // priority 0.65 — blog posts (sorted by most recently updated)
   const postRoutes = posts
     .filter((post) => post.status === 'published')
@@ -72,5 +117,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.6,
     }))
 
-  return [...routes, ...postRoutes, ...projectRoutes]
+  return [...routes, ...categoryRoutes, ...regionRoutes, ...topicRoutes, ...postRoutes, ...projectRoutes]
 }

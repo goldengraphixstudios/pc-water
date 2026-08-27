@@ -3,15 +3,30 @@ import Link from 'next/link'
 import AppImage from '@/components/AppImage'
 import FAQBlock from '@/components/FAQBlock'
 import CTABanner from '@/components/CTABanner'
-import ArticlesGrid from '@/components/ArticlesGrid'
+import ArticleCard from '@/components/resources/ArticleCard'
+import ArticleBrowser from '@/components/resources/ArticleBrowser'
+import CategoryGrid from '@/components/resources/CategoryGrid'
 import { getPublicPosts } from '@/lib/cms/queries'
+import {
+  CATEGORIES,
+  FORMATS,
+  REGIONS,
+  TOPICS,
+  countByCategory,
+  countByRegion,
+  enrichArticles,
+  getFeatured,
+  sortByNewest,
+} from '@/lib/cms/taxonomy'
 
 export const dynamic = 'force-static'
+
+const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
 export const metadata: Metadata = {
   title: 'Articles & Insights',
   description:
-    'Technical articles on water storage, tank maintenance, fire water compliance, RPVC liners, and remote project delivery across Australia.',
+    'A structured library of technical articles on water storage, tank maintenance, fire compliance, corrosion, inspection and regional water infrastructure across Australia.',
   keywords: [
     'water infrastructure articles',
     'water tank maintenance guide',
@@ -26,7 +41,7 @@ export const metadata: Metadata = {
     locale: 'en_AU',
     siteName: 'PC Water Infrastructure',
     title: 'Articles & Insights | PC Water',
-    description: 'Technical articles on water storage engineering, compliance, maintenance, and remote project delivery.',
+    description: 'A structured technical library on water storage engineering, compliance, maintenance and delivery.',
     url: 'https://pcwater.com.au/resources',
     images: [{ url: '/hero.png', width: 1200, height: 630, alt: 'PC Water Infrastructure — Engineered Water Asset Solutions' }],
   },
@@ -62,66 +77,50 @@ const faqs = [
     question: 'Can water tanks be inspected without emptying them?',
     answer: 'Yes. ROV (Remotely Operated Vehicle) and diver inspection methods allow detailed internal inspection while the tank remains in service and full. This eliminates the cost and disruption of dewatering, and is now the preferred approach for large tanks, reservoirs, and assets that cannot be taken offline.',
   },
-  {
-    question: 'How does vandalism affect water tank safety?',
-    answer: 'Vandalism to hatches, locks, and vent screens creates direct contamination pathways. A forced hatch or broken lock is not just a physical damage issue — it leaves the tank open to foreign object entry, deliberate contamination, and ongoing weather ingress. These access events often go unreported and unrepaired for months.',
-  },
-]
-
-const downloadTeasers = [
-  {
-    slug: 'tank-maintenance-checklist',
-    title: 'Tank Maintenance Checklist',
-    desc: 'Practical asset owner checklist for assessing tank condition and scheduling maintenance.',
-    tag: 'Maintenance',
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-      </svg>
-    ),
-  },
-  {
-    slug: 'tank-upgrade-decision-guide',
-    title: 'Tank Upgrade Decision Guide',
-    desc: 'Repair, reline, or replace? A practical decision framework for asset managers.',
-    tag: 'Asset Management',
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-      </svg>
-    ),
-  },
-  {
-    slug: 'fire-water-compliance-guide',
-    title: 'Fire Water Compliance Guide',
-    desc: 'AS2304 and AS1851 requirements — what engineers and operators need to know.',
-    tag: 'Compliance',
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
-      </svg>
-    ),
-  },
-  {
-    slug: 'wtp-operator-checklist',
-    title: 'WTP Operator Checklist',
-    desc: 'Day-to-day operational checklist for water treatment plant operators.',
-    tag: 'Operations',
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-      </svg>
-    ),
-  },
 ]
 
 export default async function ArticlesPage() {
-  const articles = await getPublicPosts()
+  const posts = await getPublicPosts()
+  const articles = enrichArticles(posts)
+  const latest = sortByNewest(articles)
+  const featured = getFeatured(articles, 5)
+  const [lead, ...secondary] = featured
+  const categoryCounts = countByCategory(articles)
+  const regionCounts = countByRegion(articles)
+  const regionsWithArticles = REGIONS.filter((r) => (regionCounts[r.slug] ?? 0) > 0)
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Articles & Insights',
+    description:
+      'A structured library of technical articles on water storage, tank maintenance, compliance and regional water infrastructure across Australia.',
+    url: `${siteUrl}/resources`,
+    publisher: { '@type': 'Organization', name: 'PC Water Infrastructure', url: siteUrl },
+    hasPart: CATEGORIES.map((c) => ({
+      '@type': 'CollectionPage',
+      name: c.name,
+      description: c.tagline,
+      url: `${siteUrl}/resources/category/${c.slug}`,
+    })),
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: latest.length,
+      itemListElement: latest.slice(0, 20).map((a, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        url: `${siteUrl}/resources/${a.slug}`,
+        name: a.title,
+      })),
+    },
+  }
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       {/* ── Hero ── */}
-      <section className="relative pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28 overflow-hidden min-h-[520px] flex items-end">
+      <section className="relative flex min-h-[460px] items-end overflow-hidden pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24">
         <AppImage
           src="/heroes/resources.jpg"
           alt="Water storage engineering articles and technical insights"
@@ -130,116 +129,158 @@ export default async function ArticlesPage() {
           className="object-cover object-center"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0d1b2a]/60 via-[#0d1b2a]/70 to-[#0d1b2a]/85" />
-        <div className="relative z-10 max-w-5xl mx-auto px-4 w-full">
-          <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Articles & Insights</p>
-          <h1 className="text-[2.25rem] sm:text-5xl md:text-6xl font-black text-white mb-5 leading-none">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0d1b2a]/60 via-[#0d1b2a]/75 to-[#0d1b2a]/90" />
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-4">
+          <p className="mb-4 text-xs font-bold uppercase tracking-widest text-[#3e91ce]">/ The Library</p>
+          <h1 className="mb-5 text-[2.25rem] font-black leading-none text-white sm:text-5xl md:text-6xl">
             ENGINEERING KNOWLEDGE<br />
             <span className="text-[#3e91ce]">WRITTEN DOWN.</span>
           </h1>
-          <p className="text-gray-300 text-lg max-w-2xl leading-relaxed mb-8">
-            Practical technical articles on water storage, tank maintenance, compliance, and infrastructure delivery — written by engineers for asset owners and operators.
+          <p className="mb-8 max-w-2xl text-lg leading-relaxed text-gray-300">
+            {articles.length} technical articles on water storage, compliance, maintenance and infrastructure
+            delivery — organised by section, topic and region. Written by engineers, for asset owners and operators.
           </p>
           <div className="flex flex-wrap gap-3">
-            <span className="bg-white/10 border border-white/20 text-white text-sm px-4 py-2 rounded-full backdrop-blur-sm">
-              {articles.length} articles
-            </span>
+            <Link
+              href="#library"
+              className="inline-flex items-center gap-2 rounded-full bg-[#2a72ad] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#246397]"
+            >
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
+              </svg>
+              Search the library
+            </Link>
             <Link
               href="/resources/downloads"
-              className="bg-[#3e91ce]/20 border border-[#3e91ce]/40 text-[#7fc2f0] text-sm px-4 py-2 rounded-full backdrop-blur-sm hover:bg-[#3e91ce]/30 transition-colors"
+              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/20"
             >
-              Looking for free guides? →
+              Free guides &amp; checklists →
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ── Stats strip ── */}
-      <section className="bg-[#0d1b2a] py-6 border-b border-white/5">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {[
-              { stat: articles.length.toString(), label: 'Technical Articles' },
-              { stat: '8+', label: 'Free Downloads' },
-              { stat: 'AS2304', label: 'Compliance Covered' },
-              { stat: 'Free', label: 'Always' },
-            ].map(({ stat, label }) => (
-              <div key={label}>
-                <p className="text-2xl font-black text-[#3e91ce]">{stat}</p>
-                <p className="text-gray-400 text-xs mt-1 font-medium uppercase tracking-wider">{label}</p>
+      {/* ── Editorial front page: lead + featured ── */}
+      {lead && (
+        <section className="bg-[#0d1b2a] py-14 sm:py-20">
+          <div className="mx-auto max-w-6xl px-4">
+            <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="mb-2 text-xs font-bold uppercase tracking-widest text-[#3e91ce]">/ Editor’s Picks</p>
+                <h2 className="text-2xl font-black text-white sm:text-3xl">START HERE</h2>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+              <p className="max-w-md text-sm leading-relaxed text-gray-400">
+                The articles we point people to most often — the ones that answer the questions asset owners
+                actually arrive with.
+              </p>
+            </div>
 
-      {/* ── Articles grid with filter ── */}
-      <section className="bg-[#F4F6F8] py-14 sm:py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Browse</p>
-            <h2 className="text-3xl font-black text-[#30505b]">ALL ARTICLES</h2>
-            <p className="text-gray-500 mt-3 max-w-xl mx-auto leading-relaxed">
-              Filter by topic or scroll through the full library. Every article is written to be actionable — not marketing.
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+              <ArticleCard article={lead} variant="lead" />
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {secondary.slice(0, 4).map((a) => (
+                  <ArticleCard key={a.id} article={a} variant="feature" />
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── Browse by section ── */}
+      <section className="bg-white py-14 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="mb-10 max-w-2xl">
+            <p className="mb-2 text-xs font-bold uppercase tracking-widest text-[#3e91ce]">/ Sections</p>
+            <h2 className="mb-3 text-2xl font-black text-[#30505b] sm:text-3xl">BROWSE BY SECTION</h2>
+            <p className="leading-relaxed text-gray-500">
+              Every article sits in one section. Each section is a complete body of work on that part of water
+              infrastructure — start with the one closest to your problem.
             </p>
           </div>
-          <ArticlesGrid articles={articles} />
+          <CategoryGrid categories={CATEGORIES} counts={categoryCounts} />
         </div>
       </section>
 
-      {/* ── Free Downloads teaser ── */}
+      {/* ── Browse by region ── */}
+      {regionsWithArticles.length > 0 && (
+        <section className="border-y border-gray-100 bg-[#F4F6F8] py-12 sm:py-16">
+          <div className="mx-auto max-w-6xl px-4">
+            <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="mb-2 text-xs font-bold uppercase tracking-widest text-[#3e91ce]">/ By Region</p>
+                <h2 className="text-2xl font-black text-[#30505b] sm:text-3xl">WHERE YOU OPERATE</h2>
+              </div>
+              <p className="max-w-md text-sm leading-relaxed text-gray-500">
+                Climate, industry and terrain change what a correct specification looks like. These guides cover
+                the regional realities.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              {regionsWithArticles.map((r) => (
+                <Link
+                  key={r.slug}
+                  href={`/resources/region/${r.slug}`}
+                  className="group inline-flex items-center gap-2.5 rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-[#30505b] transition-all hover:border-[#3e91ce] hover:text-[#3e91ce]"
+                >
+                  <span className="rounded-md bg-[#0d1b2a] px-2 py-0.5 text-[10px] font-bold text-white transition-colors group-hover:bg-[#3e91ce]">
+                    {r.shortName}
+                  </span>
+                  {r.name}
+                  <span className="text-gray-400">({regionCounts[r.slug]})</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── Full library: search + facets ── */}
+      <section id="library" className="scroll-mt-24 bg-white py-14 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="mb-8 max-w-2xl">
+            <p className="mb-2 text-xs font-bold uppercase tracking-widest text-[#3e91ce]">/ Full Library</p>
+            <h2 className="mb-3 text-2xl font-black text-[#30505b] sm:text-3xl">EVERY ARTICLE</h2>
+            <p className="leading-relaxed text-gray-500">
+              Search the full library, or narrow it by section, format, topic and region.
+            </p>
+          </div>
+          <ArticleBrowser
+            articles={latest}
+            categories={CATEGORIES}
+            formats={FORMATS}
+            topics={TOPICS}
+            regions={REGIONS}
+          />
+        </div>
+      </section>
+
+      {/* ── Downloads teaser ── */}
       <section className="bg-[#0d1b2a] py-14 sm:py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
             <div>
-              <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-3">/ Free Downloads</p>
-              <h2 className="text-3xl font-black text-white">TAKE SOMETHING WITH YOU</h2>
-              <p className="text-gray-400 mt-3 max-w-xl leading-relaxed">
-                Checklists, compliance guides, and decision frameworks — free to download. Enter your email to access any resource instantly.
+              <p className="mb-2 text-xs font-bold uppercase tracking-widest text-[#3e91ce]">/ Free Downloads</p>
+              <h2 className="mb-3 text-2xl font-black text-white sm:text-3xl">TAKE SOMETHING WITH YOU</h2>
+              <p className="max-w-xl leading-relaxed text-gray-400">
+                Checklists, compliance guides and decision frameworks — free to download, no strings attached.
               </p>
             </div>
             <Link
               href="/resources/downloads"
-              className="flex-shrink-0 flex items-center gap-2 bg-[#2a72ad] text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-[#246397] transition-colors"
+              className="inline-flex flex-shrink-0 items-center gap-2 rounded-full bg-[#2a72ad] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#246397]"
             >
               View All Downloads
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {downloadTeasers.map((item) => (
-              <Link
-                key={item.slug}
-                href="/resources/downloads"
-                className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-[#3e91ce]/40 transition-all duration-200 group"
-              >
-                <div className="w-10 h-10 bg-[#3e91ce]/20 rounded-xl flex items-center justify-center text-[#3e91ce] mb-4 group-hover:bg-[#3e91ce]/30 transition-colors">
-                  {item.icon}
-                </div>
-                <span className="text-[#3e91ce] text-xs font-semibold mb-2 block">{item.tag}</span>
-                <h3 className="text-white font-bold text-sm mb-2 leading-snug group-hover:text-[#7fc2f0] transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
-                <div className="flex items-center gap-1 text-[#3e91ce] text-xs font-semibold mt-4 group-hover:gap-2 transition-all">
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                  </svg>
-                  Download Free
-                </div>
-              </Link>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* ── FAQ ── */}
       <FAQBlock faqs={faqs} heading="COMMON QUESTIONS" />
 
-      {/* ── CTA ── */}
       <CTABanner
         heading="HAVE A SPECIFIC TECHNICAL QUESTION?"
         subheading="Our team responds to all technical and project enquiries within one business day."
