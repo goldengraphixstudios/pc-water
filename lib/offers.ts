@@ -5,8 +5,8 @@
  * `active: true` and a future `endsAt`. To end all promotions, set every
  * offer's `active` to false (or let `endsAt` pass — offers auto-expire).
  *
- * When `getActiveOffer()` returns null, the site shows a graceful
- * "no current offer" state on both the popup and the /offer page.
+ * When `getActiveOffer()` returns null, the popup stays hidden and the
+ * /offer page shows its "no current offer" state.
  */
 
 export interface OfferDiscount {
