@@ -412,6 +412,86 @@ const resourceLinkMap: Record<
     relatedResources: ['fire-tank-volume-and-draw-down-getting-the-numbers-right', 'water-tank-level-monitoring-and-scada-integration-what-to-specify', 'project-managed-water-infrastructure-why-one-point-of-accountability-matters'],
     keywords: ['data centre water storage redundancy', 'critical facility fire water tank', 'cooling water storage redundancy', 'data centre water infrastructure australia'],
   },
+  'government-and-council-water-asset-management-reporting-under-budget-pressure': {
+    relatedServices: [
+      { href: '/services/project-managed-water-infrastructure', label: 'Project-Managed Water Infrastructure' },
+      { href: '/services/tender-procurement-support', label: 'Tender & Procurement Support' },
+    ],
+    relatedResources: ['building-a-water-asset-register-what-councils-and-facility-managers-should-track', 'tender-and-procurement-for-water-infrastructure-what-councils-get-wrong', 'what-a-professional-tank-inspection-actually-covers'],
+    keywords: ['council water asset management', 'local government water infrastructure reporting', 'water tank maintenance budget council', 'council water asset condition reporting australia'],
+  },
+  'water-tank-coating-systems-compared-epoxy-polyurethane-and-zinc-rich-primers': {
+    relatedServices: [
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+    ],
+    relatedResources: ['how-to-read-a-tank-coating-failure', 'cathodic-protection-for-steel-water-tanks-does-your-tank-need-it', 'corrosion-is-killing-your-storage-tanks-and-heres-how-to-stop-it'],
+    keywords: ['water tank coating systems compared', 'epoxy vs polyurethane tank coating', 'zinc rich primer water tank', 'steel tank coating specification australia'],
+  },
+  'industrial-process-water-storage-when-potable-grade-isnt-the-right-specification': {
+    relatedServices: [
+      { href: '/services/water-treatment-solutions', label: 'Water Treatment Solutions' },
+      { href: '/services/custom-tank-design', label: 'Custom Tank Design' },
+    ],
+    relatedResources: ['custom-tank-design-when-a-standard-size-doesnt-fit-your-site', 'from-mines-to-hospitals-what-every-sector-gets-wrong-about-tank-maintenance', 'mining-and-resources-water-storage-compliance-beyond-standard-as-requirements'],
+    keywords: ['industrial process water storage', 'process water tank specification', 'non potable water storage tank australia', 'industrial water tank materials'],
+  },
+  'weld-inspection-and-ndt-for-steel-water-tanks-what-gets-checked-and-why': {
+    relatedServices: [
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+      { href: '/services/tank-installation', label: 'Tank Installation' },
+    ],
+    relatedResources: ['what-a-professional-tank-inspection-actually-covers', 'rov-inspection-vs-manned-entry-choosing-the-right-method', 'reading-a-tank-inspection-report-what-the-findings-actually-mean'],
+    keywords: ['weld inspection water tank', 'NDT steel tank welds', 'ultrasonic testing water tank weld', 'water tank weld quality australia'],
+  },
+  'water-tank-freeboard-and-overflow-sizing-getting-the-numbers-right-for-storm-events': {
+    relatedServices: [
+      { href: '/services/custom-tank-design', label: 'Custom Tank Design' },
+      { href: '/services/foundation-civil-integration', label: 'Foundation & Civil Integration' },
+    ],
+    relatedResources: ['seismic-and-wind-loading-on-water-tanks-why-structural-design-doesnt-stop-at-the-walls', 'foundation-and-civil-works-why-tank-failures-start-below-ground', 'fire-tank-volume-and-draw-down-getting-the-numbers-right'],
+    keywords: ['water tank freeboard sizing', 'tank overflow pipe sizing australia', 'storm event water tank design', 'water tank overtopping prevention'],
+  },
+  'remote-community-water-security-redundancy-planning-beyond-a-single-tank': {
+    relatedServices: [
+      { href: '/services/remote-area-delivery', label: 'Remote Area Project Delivery' },
+      { href: '/services/project-managed-water-infrastructure', label: 'Project-Managed Water Infrastructure' },
+    ],
+    relatedResources: ['modular-tanks-in-remote-australia-transport-access-and-assembly', 'water-storage-in-harsh-environments-what-you-need-to-know', 'project-managed-water-infrastructure-why-one-point-of-accountability-matters'],
+    keywords: ['remote community water security', 'remote water supply redundancy australia', 'water tank single point of failure remote', 'remote community water contingency planning'],
+  },
+  'potable-water-tank-commissioning-disinfection-and-testing-before-handover': {
+    relatedServices: [
+      { href: '/services/tank-installation', label: 'Tank Installation' },
+      { href: '/services/water-treatment-solutions', label: 'Water Treatment Solutions' },
+    ],
+    relatedResources: ['as4020-certification-what-it-actually-certifies-on-a-potable-water-tank', 'how-rpvc-liners-extend-the-life-of-aging-water-tanks', 'water-is-food-your-tank-is-the-crockery'],
+    keywords: ['water tank commissioning disinfection', 'potable water tank handover testing', 'new water tank chlorination australia', 'tank commissioning water quality testing'],
+  },
+  'water-tank-roof-types-compared-fixed-floating-and-geodesic-domes': {
+    relatedServices: [
+      { href: '/services/custom-tank-design', label: 'Custom Tank Design' },
+      { href: '/services/tank-installation', label: 'Tank Installation' },
+    ],
+    relatedResources: ['custom-tank-design-when-a-standard-size-doesnt-fit-your-site', 'tank-roof-and-hatch-overlooked-contamination-entry-point', 'birds-are-the-most-common-body-found-inside-australian-tanks'],
+    keywords: ['water tank roof types', 'geodesic dome water tank roof', 'open reservoir cover retrofit australia', 'fixed vs floating roof water tank'],
+  },
+  'vapour-corrosion-inhibitors-and-internal-atmosphere-control-in-partially-full-tanks': {
+    relatedServices: [
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+    ],
+    relatedResources: ['water-tank-coating-systems-compared-epoxy-polyurethane-and-zinc-rich-primers', 'cathodic-protection-for-steel-water-tanks-does-your-tank-need-it', 'how-to-read-a-tank-coating-failure'],
+    keywords: ['vapour space corrosion water tank', 'vapour corrosion inhibitor tank', 'corrosion above waterline steel tank', 'water tank internal atmosphere corrosion'],
+  },
+  'building-a-water-asset-register-what-councils-and-facility-managers-should-track': {
+    relatedServices: [
+      { href: '/services/project-managed-water-infrastructure', label: 'Project-Managed Water Infrastructure' },
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+    ],
+    relatedResources: ['government-and-council-water-asset-management-reporting-under-budget-pressure', 'reading-a-tank-inspection-report-what-the-findings-actually-mean', 'what-a-professional-tank-inspection-actually-covers'],
+    keywords: ['water asset register', 'council water tank asset tracking', 'water infrastructure asset management software', 'facility manager water tank records'],
+  },
 }
 
 export async function generateStaticParams() {
