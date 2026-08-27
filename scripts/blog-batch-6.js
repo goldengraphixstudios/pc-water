@@ -20,7 +20,7 @@ const posts = [
       'The same volume of water can be stored elevated, at ground level, or as an open reservoir — and each configuration answers a different pressure, land-use and cost question.',
     coverImage: 'sector-hero.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-09-19T09:00:00.000Z',
+    publishedAt: '2026-08-17T09:00:00.000Z',
     seoTitle: 'Elevated vs Ground-Level Water Tank Configuration | PC Water',
     seoDescription:
       'Elevated tanks, ground-level tanks and open reservoirs each solve a different pressure and land-use problem. A practical guide to choosing the right storage configuration.',
@@ -112,7 +112,7 @@ const posts = [
       'A water storage tank connected to more than one system is a potential path for contamination to travel backward into the network. Here is how backflow prevention actually protects against it.',
     coverImage: 'water-food-hero.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-09-20T09:00:00.000Z',
+    publishedAt: '2026-08-17T13:00:00.000Z',
     seoTitle: 'Backflow Prevention for Water Storage Tanks | PC Water',
     seoDescription:
       'Cross-connections between a storage tank and other systems create a backflow risk into the potable network. A practical explanation of how backflow prevention devices protect against it.',
@@ -200,7 +200,7 @@ const posts = [
       'Legionella risk in a storage tank is driven by a specific, predictable set of conditions — not bad luck. Understanding what drives it is what makes it controllable.',
     coverImage: 'water-food-biological.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-09-21T09:00:00.000Z',
+    publishedAt: '2026-08-17T17:00:00.000Z',
     seoTitle: 'Legionella Risk in Water Storage Tanks | PC Water',
     seoDescription:
       'Stagnation, warm temperature and biofilm together create the conditions Legionella needs to establish in a water storage tank. A practical explanation of the risk and its control.',
@@ -292,7 +292,7 @@ const posts = [
       'A tank that is hard or unsafe to access does not get inspected as often as it should. Here is what proper access, platforms and fall protection actually require — and why they matter for maintenance outcomes, not just safety compliance.',
     coverImage: 'ticking-hero.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-09-22T09:00:00.000Z',
+    publishedAt: '2026-08-18T09:00:00.000Z',
     seoTitle: 'Water Tank Access and Fall Protection Requirements | PC Water',
     seoDescription:
       'Ladders, platforms and fall protection on a water tank are safety requirements that also directly affect how well the tank gets maintained. A practical explanation of what is required.',
@@ -381,7 +381,7 @@ const posts = [
       'For a given volume, a tank can be wide and short or narrow and tall — and that shape decision drives structural loading, footprint, and cost in ways that are easy to underestimate.',
     coverImage: 'sector-hero.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-09-23T09:00:00.000Z',
+    publishedAt: '2026-08-18T15:00:00.000Z',
     seoTitle: 'Water Tank Diameter vs Height Trade-Offs | PC Water',
     seoDescription:
       'Tank shape — wide and short versus narrow and tall — drives hydrostatic loading, wind exposure and footprint in different ways. A practical explanation of the design trade-offs.',
@@ -472,7 +472,7 @@ const posts = [
       'A full tank is heavy enough to resist most wind loading on its own weight. An empty or partially empty tank loses that advantage — and that is exactly when uplift and anchorage failures happen.',
     coverImage: 'harsh-env-drone.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-09-24T09:00:00.000Z',
+    publishedAt: '2026-08-19T09:00:00.000Z',
     seoTitle: 'Wind Uplift Risk on Empty Water Tanks | PC Water',
     seoDescription:
       'An empty or partially full water tank loses the stabilising weight of its contents, making wind uplift and anchorage failure a real risk. A practical explanation of why and how it is managed.',
@@ -561,7 +561,7 @@ const posts = [
       'A water tank on a property being purchased is an asset with its own condition, compliance and remaining-life questions — questions that are far cheaper to ask before settlement than after.',
     coverImage: 'ticking-hero.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-09-25T09:00:00.000Z',
+    publishedAt: '2026-08-19T15:00:00.000Z',
     seoTitle: 'Pre-Purchase Water Tank Due Diligence | PC Water',
     seoDescription:
       'Condition, compliance and remaining service life are all worth checking on an existing water tank before purchasing a property. A practical pre-purchase due diligence guide.',
@@ -653,7 +653,7 @@ const posts = [
       'It is a common question with a genuinely useful answer: tank colour does measurably affect internal temperature and light penetration — and both drive water quality outcomes.',
     coverImage: 'water-food-hero.jpg',
     readTime: '5 min read',
-    publishedAt: '2026-09-26T09:00:00.000Z',
+    publishedAt: '2026-08-20T09:00:00.000Z',
     seoTitle: 'Does Water Tank Colour Affect Algae and Temperature? | PC Water',
     seoDescription:
       'Darker tank colours absorb more heat and some tank materials transmit more light — both affecting temperature and algae growth risk. A practical explanation of what actually matters.',
@@ -740,7 +740,7 @@ const posts = [
       'A sudden tank leak or failure demands an immediate decision — patch it now, or shut it down and wait for a proper repair. Here is how to tell which situation you are actually in.',
     coverImage: 'fire-tank-corroded.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-09-27T09:00:00.000Z',
+    publishedAt: '2026-08-20T15:00:00.000Z',
     seoTitle: 'Emergency Water Tank Repair Guidance | PC Water',
     seoDescription:
       'Some tank failures can be safely bridged with a temporary fix; others need immediate shutdown. A practical guide to telling the two situations apart during an emergency.',
@@ -833,7 +833,7 @@ const posts = [
       'Insulating a water tank is not a default upgrade every tank benefits from. Here is when it genuinely earns its cost, and when the water quality or freeze concern it addresses does not apply.',
     coverImage: 'harsh-env-hero.jpg',
     readTime: '5 min read',
-    publishedAt: '2026-09-28T09:00:00.000Z',
+    publishedAt: '2026-08-21T09:00:00.000Z',
     seoTitle: 'Water Tank Insulation: When It Is Needed | PC Water',
     seoDescription:
       'Insulation protects against freezing and reduces temperature-driven water quality issues, but is not universally necessary. A practical guide to when tank insulation is actually worthwhile.',

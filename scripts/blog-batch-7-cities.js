@@ -23,7 +23,7 @@ const posts = [
     coverImage: 'cities/toowoomba-water-tower.jpg',
     coverCredit: 'Photo: Kgbo, CC BY-SA 4.0, via Wikimedia Commons',
     readTime: '6 min read',
-    publishedAt: '2026-08-29T09:00:00.000Z',
+    publishedAt: '2026-08-21T15:00:00.000Z',
     seoTitle: 'Water Tank Services in Toowoomba | PC Water',
     seoDescription:
       'Toowoomba and the Darling Downs carry a well-known water security history. A practical look at what that means for storage tank compliance, capacity and maintenance in the region.',
@@ -112,7 +112,7 @@ const posts = [
     coverImage: 'cities/townsville-ross-river-dam.jpg',
     coverCredit: 'Photo: Ridiculopathy, CC0, via Wikimedia Commons',
     readTime: '6 min read',
-    publishedAt: '2026-08-29T15:00:00.000Z',
+    publishedAt: '2026-08-22T09:00:00.000Z',
     seoTitle: 'Water Tank Services in Townsville | PC Water',
     seoDescription:
       'Townsville water storage has to handle both cyclone-season extremes and dry-season demand. A practical look at what that means for tank design and compliance in North Queensland.',
@@ -201,7 +201,7 @@ const posts = [
     coverImage: 'cities/rockhampton-fitzroy-river.jpg',
     coverCredit: 'Photo: RegionalQueenslander, CC BY-SA 4.0, via Wikimedia Commons',
     readTime: '6 min read',
-    publishedAt: '2026-08-30T09:00:00.000Z',
+    publishedAt: '2026-08-22T15:00:00.000Z',
     seoTitle: 'Water Tank Services in Rockhampton | PC Water',
     seoDescription:
       'Rockhampton and the Fitzroy River floodplain carry a well-documented flood history. A practical look at what that means for water tank foundation, siting and maintenance decisions.',
@@ -290,7 +290,7 @@ const posts = [
     coverImage: 'cities/mackay-water-tower.jpg',
     coverCredit: 'Photo: Daniel Winter, CC BY-SA 3.0, via Wikimedia Commons',
     readTime: '6 min read',
-    publishedAt: '2026-08-30T15:00:00.000Z',
+    publishedAt: '2026-08-23T09:00:00.000Z',
     seoTitle: 'Water Tank Services in Mackay | PC Water',
     seoDescription:
       'Mackay sits in a cyclone corridor with a significant sugar industry water demand. A practical look at what these two factors mean for water storage specification in the region.',
@@ -379,7 +379,7 @@ const posts = [
     coverImage: 'cities/cairns-lake-morris.jpg',
     coverCredit: 'Photo: STAM2378, CC BY-SA 4.0, via Wikimedia Commons',
     readTime: '6 min read',
-    publishedAt: '2026-08-31T09:00:00.000Z',
+    publishedAt: '2026-08-23T13:00:00.000Z',
     seoTitle: 'Water Tank Services in Cairns | PC Water',
     seoDescription:
       'Cairns combines tropical climate extremes with reef-adjacent environmental sensitivity. A practical look at what that means for water storage design, discharge and compliance in the region.',
@@ -468,7 +468,7 @@ const posts = [
     coverImage: 'cities/gladstone-awoonga-dam.jpg',
     coverCredit: 'Photo: Ezykron, CC BY-SA 3.0, via Wikimedia Commons',
     readTime: '6 min read',
-    publishedAt: '2026-08-31T15:00:00.000Z',
+    publishedAt: '2026-08-23T17:00:00.000Z',
     seoTitle: 'Water Tank Services in Gladstone | PC Water',
     seoDescription:
       'Gladstone concentrates LNG, alumina and power generation industry in one port city. A practical look at what that means for process and fire water storage specification in the region.',
@@ -557,7 +557,7 @@ const posts = [
     coverImage: 'cities/adelaide-south-para-reservoir.jpg',
     coverCredit: 'Photo: ScottDavis (attributed), CC BY-SA 3.0, via Wikimedia Commons',
     readTime: '6 min read',
-    publishedAt: '2026-09-01T09:00:00.000Z',
+    publishedAt: '2026-08-24T09:00:00.000Z',
     seoTitle: 'Water Tank Services in Adelaide | PC Water',
     seoDescription:
       'Adelaide’s dry climate and reservoir-dependent supply have long supported a genuine rainwater tank culture. A practical look at what that means for tank sizing and backup planning today.',
@@ -646,7 +646,7 @@ const posts = [
     coverImage: 'cities/wagga-wagga-water-tower.jpg',
     coverCredit: 'Photo: Bidgee, CC BY 3.0, via Wikimedia Commons',
     readTime: '6 min read',
-    publishedAt: '2026-09-01T15:00:00.000Z',
+    publishedAt: '2026-08-24T15:00:00.000Z',
     seoTitle: 'Water Tank Services in Wagga Wagga | PC Water',
     seoDescription:
       'The Riverina region around Wagga Wagga sees both flood and drought extremes on the Murrumbidgee. A practical look at what that means for agricultural and property water storage.',
@@ -735,7 +735,7 @@ const posts = [
     coverImage: 'cities/dubbo-lake-burrendong.jpg',
     coverCredit: 'Photo: Shiftchange, Public Domain, via Wikimedia Commons',
     readTime: '6 min read',
-    publishedAt: '2026-09-02T09:00:00.000Z',
+    publishedAt: '2026-08-25T09:00:00.000Z',
     seoTitle: 'Water Tank Services in Dubbo | PC Water',
     seoDescription:
       'Central West NSW has faced some of the state’s most significant drought periods. A practical look at what drought-resilient water storage planning means for the Dubbo region.',
@@ -824,7 +824,7 @@ const posts = [
     coverImage: 'cities/bendigo-lake-eppalock.jpg',
     coverCredit: 'Photo: Mrmattc, CC BY 3.0, via Wikimedia Commons',
     readTime: '6 min read',
-    publishedAt: '2026-09-02T15:00:00.000Z',
+    publishedAt: '2026-08-25T15:00:00.000Z',
     seoTitle: 'Water Tank Services in Bendigo | PC Water',
     seoDescription:
       'Bendigo and the central Victorian goldfields region have a long history of water security challenges. A practical look at what that means for water tank planning today.',
@@ -913,7 +913,7 @@ const posts = [
     coverImage: 'cities/ballarat-lake-wendouree.jpg',
     coverCredit: 'Photo: Ed Dunens, CC BY 2.0, via Wikimedia Commons',
     readTime: '6 min read',
-    publishedAt: '2026-09-03T09:00:00.000Z',
+    publishedAt: '2026-08-26T09:00:00.000Z',
     seoTitle: 'Water Tank Services in Ballarat | PC Water',
     seoDescription:
       'Ballarat’s elevation brings genuine frost and cold-climate considerations for water tank fittings and pipework. A practical look at what that means for the region.',
@@ -1002,7 +1002,7 @@ const posts = [
     coverImage: 'cities/geelong-barwon-river.jpg',
     coverCredit: 'Photo: Luke Steenhuis, CC BY-SA 4.0, via Wikimedia Commons',
     readTime: '6 min read',
-    publishedAt: '2026-09-03T15:00:00.000Z',
+    publishedAt: '2026-08-26T15:00:00.000Z',
     seoTitle: 'Water Tank Services in Geelong | PC Water',
     seoDescription:
       'Geelong combines industrial port activity with significant residential and commercial growth. A practical look at what that mix means for water storage infrastructure in the region.',
@@ -1091,7 +1091,7 @@ const posts = [
     coverImage: 'cities/darwin-manton-dam.jpg',
     coverCredit: 'Photo: Andrew Finegan, CC BY 2.0, via Wikimedia Commons',
     readTime: '7 min read',
-    publishedAt: '2026-09-04T09:00:00.000Z',
+    publishedAt: '2026-08-27T09:00:00.000Z',
     seoTitle: 'Water Tank Services in Darwin | PC Water',
     seoDescription:
       'Darwin combines a monsoon-cyclone climate, remote NT logistics and significant defence and resources presence. A practical look at what that means for water storage specification.',
@@ -1183,7 +1183,7 @@ const posts = [
     coverImage: 'cities/kalgoorlie-golden-pipeline.jpg',
     coverCredit: 'Photo: Gnangarra, CC BY 2.5 AU, via Wikimedia Commons',
     readTime: '6 min read',
-    publishedAt: '2026-09-04T15:00:00.000Z',
+    publishedAt: '2026-08-27T15:00:00.000Z',
     seoTitle: 'Water Tank Services in Kalgoorlie | PC Water',
     seoDescription:
       'Kalgoorlie’s water supply has relied on a historic pipeline spanning hundreds of kilometres from the coast. A practical look at what that legacy means for water storage in the region today.',
@@ -1272,7 +1272,7 @@ const posts = [
     coverImage: 'cities/launceston-trevallyn-dam.jpg',
     coverCredit: 'Photo: Scott Davis, CC BY 2.5, via Wikimedia Commons',
     readTime: '6 min read',
-    publishedAt: '2026-09-05T09:00:00.000Z',
+    publishedAt: '2026-08-28T09:00:00.000Z',
     seoTitle: 'Water Tank Services in Launceston | PC Water',
     seoDescription:
       'Launceston sits at a river confluence with a documented flood history, in Tasmania’s genuinely cooler climate. A practical look at what that means for water tank siting and design.',

@@ -692,6 +692,15 @@ const resourceLinkMap: Record<
     relatedResources: ['foundation-and-civil-works-why-tank-failures-start-below-ground', 'water-storage-and-tank-services-in-ballarat-cool-climate-tank-design-considerations', 'water-tank-insulation-and-temperature-control-when-its-actually-needed'],
     keywords: ['water tank services launceston', 'tasmania water storage', 'launceston flood water tank', 'tamar valley agricultural water storage'],
   },
+  'planning-a-water-tank-shutdown-for-relining-refurbishment-and-return-to-service': {
+    relatedServices: [
+      { href: '/services/rpvc-liner-systems', label: 'RPVC Liner Systems' },
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+      { href: '/services/project-managed-water-infrastructure', label: 'Project-Managed Water Infrastructure' },
+    ],
+    relatedResources: ['reline-or-replace-ageing-steel-tank-lifecycle-cost', 'how-rpvc-liners-extend-the-life-of-aging-water-tanks', 'potable-water-tank-commissioning-disinfection-and-testing-before-handover'],
+    keywords: ['water tank shutdown planning', 'tank relining shutdown', 'water tank refurbishment return to service', 'planned water storage outage'],
+  },
 }
 
 export async function generateStaticParams() {

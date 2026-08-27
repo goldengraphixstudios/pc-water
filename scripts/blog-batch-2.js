@@ -20,7 +20,7 @@ const posts = [
       'Not every tank inspection needs a diver in the water. Here is how ROV, drone and manned-entry inspection compare — and how to pick the right method for your asset, budget and risk profile.',
     coverImage: 'corrosion-rov-inspection.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-08-14T09:00:00.000Z',
+    publishedAt: '2026-08-01T09:00:00.000Z',
     seoTitle: 'ROV vs Manned Entry Tank Inspection | PC Water',
     seoDescription:
       'ROV, drone and manned-entry inspection each answer different questions about a water tank. A practical guide to choosing the right method for your asset.',
@@ -110,7 +110,7 @@ const posts = [
       'A modular water tank looks simple on a spec sheet. Getting it to a remote site, through the access it actually has, and assembled before the wet season is a different problem entirely.',
     coverImage: 'harsh-env-drone.jpg',
     readTime: '7 min read',
-    publishedAt: '2026-08-15T09:00:00.000Z',
+    publishedAt: '2026-08-01T13:00:00.000Z',
     seoTitle: 'Modular Water Tanks for Remote Sites | PC Water',
     seoDescription:
       'Transport, access and assembly are what actually determine whether a modular tank project succeeds in remote Australia. A practical planning guide.',
@@ -201,7 +201,7 @@ const posts = [
       'A tank inspection report is only useful if you can translate its findings into a decision. Here is how to read condition ratings, defect notes and recommendations the way an engineer does.',
     coverImage: 'ticking-inspection.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-08-16T09:00:00.000Z',
+    publishedAt: '2026-08-01T17:00:00.000Z',
     seoTitle: 'How to Read a Water Tank Inspection Report | PC Water',
     seoDescription:
       'Condition ratings, defect notes and recommendations — a practical guide to reading a water tank inspection report and turning findings into a decision.',
@@ -288,7 +288,7 @@ const posts = [
       'A fire water tank that looks full can still fail its purpose if the usable volume, draw-down point and pump suction arrangement are not right. Here is what the numbers actually need to add up to.',
     coverImage: 'fire-tank-hero.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-08-17T09:00:00.000Z',
+    publishedAt: '2026-08-02T09:00:00.000Z',
     seoTitle: 'Fire Tank Volume and Draw-Down Explained | PC Water',
     seoDescription:
       'Usable volume, draw-down point and pump suction all determine whether a fire water tank actually delivers what AS2419 requires. A practical explainer.',
@@ -374,7 +374,7 @@ const posts = [
       'Water leaving a treatment plant compliant does not stay that way automatically. What happens to disinfection residual and water chemistry inside a storage tank — and why it is the storage asset’s job to protect it.',
     coverImage: 'water-food-hero.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-08-18T09:00:00.000Z',
+    publishedAt: '2026-08-02T15:00:00.000Z',
     seoTitle: 'Disinfection Residual in Water Storage Tanks | PC Water',
     seoDescription:
       'Disinfection residual decays inside storage, not just in the network. A practical explanation of water chemistry inside a tank and why storage design and condition matter.',

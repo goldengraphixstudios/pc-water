@@ -20,7 +20,7 @@ const posts = [
       'A tank rarely fails because of the tank alone. Uneven settlement, poor drainage and an undersized pad quietly set up structural problems years before they show on the surface.',
     coverImage: 'corrosion-hero.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-08-20T09:00:00.000Z',
+    publishedAt: '2026-08-03T09:00:00.000Z',
     seoTitle: 'Tank Foundations and Civil Works Explained | PC Water',
     seoDescription:
       'Uneven settlement, drainage and pad sizing determine whether a water tank stays sound for decades or develops structural problems early. A practical explainer.',
@@ -114,7 +114,7 @@ const posts = [
       'Not every site can take a standard tank footprint, height or capacity. Here is when custom design earns its cost — and what actually drives that decision.',
     coverImage: 'sector-hero.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-08-21T09:00:00.000Z',
+    publishedAt: '2026-08-03T15:00:00.000Z',
     seoTitle: 'Custom Water Tank Design Explained | PC Water',
     seoDescription:
       'Site footprint, height restrictions and unusual capacity needs can rule out a standard tank. A practical guide to when custom tank design is worth it.',
@@ -205,7 +205,7 @@ const posts = [
       'A tender specification written too generically invites the wrong bids and the wrong outcomes. Here is where water infrastructure tenders most often go off track — and how to fix it before bids close.',
     coverImage: 'sector-inspection.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-08-22T09:00:00.000Z',
+    publishedAt: '2026-08-04T09:00:00.000Z',
     seoTitle: 'Water Infrastructure Tender and Procurement Guide | PC Water',
     seoDescription:
       'Generic specifications, unclear scope boundaries and missing condition data are common tender pitfalls in water infrastructure procurement. A practical guide for councils and asset owners.',
@@ -297,7 +297,7 @@ const posts = [
       'Cathodic protection is standard on some steel tanks and absent on others, and the difference is not random. Here is what it actually does and when it earns its place.',
     coverImage: 'cleaning-inspection-corrosion.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-08-23T09:00:00.000Z',
+    publishedAt: '2026-08-04T15:00:00.000Z',
     seoTitle: 'Cathodic Protection for Water Tanks Explained | PC Water',
     seoDescription:
       'Cathodic protection slows corrosion at the metal itself, not just the coating. A practical explanation of how it works and when a steel water tank needs it.',
@@ -385,7 +385,7 @@ const posts = [
       'Manned entry into a water tank is confined space work by definition — and treating it otherwise is how serious incidents happen. What the requirements actually cover.',
     coverImage: 'ticking-hero.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-08-24T09:00:00.000Z',
+    publishedAt: '2026-08-05T09:00:00.000Z',
     seoTitle: 'Confined Space Entry for Water Tanks | PC Water',
     seoDescription:
       'Atmospheric testing, permits, ventilation and rescue planning are not optional extras for water tank entry — they are the requirements. A practical safety primer.',
@@ -481,7 +481,7 @@ const posts = [
       'Water storage is rarely the headline item on a new build, which is exactly why it goes wrong when it is treated as an afterthought. What a good builder-contractor partnership actually looks like.',
     coverImage: 'rpvc-hero.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-08-25T09:00:00.000Z',
+    publishedAt: '2026-08-05T15:00:00.000Z',
     seoTitle: 'Builder and Contractor Water Storage Partnerships | PC Water',
     seoDescription:
       'Water storage requirements are easy to under-specify on a new build. A practical look at what a strong builder-contractor partnership on water infrastructure actually delivers.',
@@ -573,7 +573,7 @@ const posts = [
       'Concrete reservoirs fail differently to steel tanks, and treating one like the other leads to the wrong diagnosis. Here is how spalling actually happens and why it is not just "concrete corrosion."',
     coverImage: 'cleaning-inspection-hero.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-08-26T09:00:00.000Z',
+    publishedAt: '2026-08-06T09:00:00.000Z',
     seoTitle: 'Concrete Reservoir Spalling Explained | PC Water',
     seoDescription:
       'Spalling in a concrete reservoir is driven by reinforcement corrosion, not the same mechanism as steel tank wall corrosion. A practical explanation of the difference and what it means for repair.',
@@ -662,7 +662,7 @@ const posts = [
       'A turbidity spike right after a tank clean can look alarming — but a temporary rise is expected. Here is how to tell normal post-clean turbidity from a sign something went wrong.',
     coverImage: 'tank-interior-sediment.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-08-27T09:00:00.000Z',
+    publishedAt: '2026-08-06T13:00:00.000Z',
     seoTitle: 'Turbidity After Water Tank Cleaning Explained | PC Water',
     seoDescription:
       'A short-lived turbidity spike after tank cleaning is normal. A practical guide to what to expect, how long it should last, and when a spike signals a real problem.',
@@ -751,7 +751,7 @@ const posts = [
       'Splitting a water infrastructure project across civil, tank supply, liner and commissioning contractors seems efficient on paper. In practice, it is where accountability — and the project — gets lost.',
     coverImage: 'harsh-env-hero.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-08-28T09:00:00.000Z',
+    publishedAt: '2026-08-06T17:00:00.000Z',
     seoTitle: 'Project-Managed Water Infrastructure Delivery | PC Water',
     seoDescription:
       'Multiple contractors on a water infrastructure project without a single point of accountability is where delays, disputes and defects hide. A practical explanation of project-managed delivery.',
@@ -839,7 +839,7 @@ const posts = [
       'A reddish-brown slime inside a tank is not just an unpleasant find during cleaning. Iron bacteria colonies can accelerate corrosion and taint water quality long before anyone notices them.',
     coverImage: 'iron-bacteria-fouling.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-08-29T09:00:00.000Z',
+    publishedAt: '2026-08-07T09:00:00.000Z',
     seoTitle: 'Iron Bacteria in Water Tanks Explained | PC Water',
     seoDescription:
       'Iron bacteria form slime colonies that accelerate localised corrosion and cause discolouration and odour in water storage tanks. What causes it and how it is managed.',

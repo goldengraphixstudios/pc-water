@@ -20,7 +20,7 @@ const posts = [
       'A tank warranty reads simply until you actually need to claim on it. Here is what typically triggers a valid claim, and what quietly voids cover before you ever get there.',
     coverImage: 'corrosion-coating-comparison.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-08-30T09:00:00.000Z',
+    publishedAt: '2026-08-07T15:00:00.000Z',
     seoTitle: 'Water Tank Warranty Claims Explained | PC Water',
     seoDescription:
       'Maintenance gaps, unapproved modifications and missing records are common reasons water tank warranty claims are refused. A practical guide to what actually protects your cover.',
@@ -114,7 +114,7 @@ const posts = [
       'Mining and resources sites carry water compliance obligations most standard tank guidance does not cover — process water separation, site-specific risk assessments and regulator reporting among them.',
     coverImage: 'harsh-env-drone.jpg',
     readTime: '7 min read',
-    publishedAt: '2026-08-31T09:00:00.000Z',
+    publishedAt: '2026-08-08T09:00:00.000Z',
     seoTitle: 'Mining Water Storage Compliance Australia | PC Water',
     seoDescription:
       'Mining and resources water storage carries compliance obligations beyond standard Australian Standards — process separation, site risk assessment and regulator reporting explained.',
@@ -206,7 +206,7 @@ const posts = [
       'A static water supply tank for bushfire protection has specific requirements that a standard rainwater or potable tank does not meet by default. What actually needs to be right.',
     coverImage: 'fire-tank-hero.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-09-01T09:00:00.000Z',
+    publishedAt: '2026-08-08T15:00:00.000Z',
     seoTitle: 'Bushfire Static Water Supply Tanks Explained | PC Water',
     seoDescription:
       'Static water supply requirements for bushfire-prone properties cover volume, fitting standards and accessibility — not just having a tank on site. A practical explainer.',
@@ -298,7 +298,7 @@ const posts = [
       'A level sensor bolted onto a tank is not the same as a monitoring system that actually tells an operator what they need to know, when they need to know it. What good specification looks like.',
     coverImage: 'rov-sediment-measurement.png',
     readTime: '6 min read',
-    publishedAt: '2026-09-02T09:00:00.000Z',
+    publishedAt: '2026-08-09T09:00:00.000Z',
     seoTitle: 'Water Tank Level Monitoring and SCADA Explained | PC Water',
     seoDescription:
       'Sensor type, alarm thresholds and communication reliability all determine whether a tank monitoring system actually works when it matters. A specification guide.',
@@ -391,7 +391,7 @@ const posts = [
       'Both systems store water for when you need it, but they solve different problems. Confusing the two leads to storage that is sized and configured for the wrong purpose.',
     coverImage: 'water-food-hero.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-09-03T09:00:00.000Z',
+    publishedAt: '2026-08-09T15:00:00.000Z',
     seoTitle: 'Rainwater Harvesting vs Backup Water Storage | PC Water',
     seoDescription:
       'Rainwater harvesting tanks and reticulated backup storage answer different needs. A practical guide to which system — or combination — fits your situation.',
@@ -483,7 +483,7 @@ const posts = [
       'Taking a water tank out of service is not as simple as draining it and walking away. Residual contamination, structural hazards and site remediation all need to be managed properly.',
     coverImage: 'sediment-tank-hero.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-09-04T09:00:00.000Z',
+    publishedAt: '2026-08-10T09:00:00.000Z',
     seoTitle: 'Water Tank Decommissioning and Removal | PC Water',
     seoDescription:
       'Decommissioning a water tank properly means managing residual sediment, structural hazards and site remediation — not just draining and demolishing. A practical guide.',
@@ -575,7 +575,7 @@ const posts = [
       'AS4020 certification is often quoted as a blanket assurance of safety. What it actually certifies is narrower and more specific — and knowing the difference matters.',
     coverImage: 'rpvc-hero.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-09-05T09:00:00.000Z',
+    publishedAt: '2026-08-10T15:00:00.000Z',
     seoTitle: 'AS4020 Certification for Water Tanks Explained | PC Water',
     seoDescription:
       'AS4020 certifies that a product does not adversely affect drinking water quality — it does not certify structural design or installation. A practical explanation.',
@@ -663,7 +663,7 @@ const posts = [
       'A tank failure that triggers an insurance claim gets scrutinised for maintenance history and foreseeability, not just cause. Here is what that scrutiny actually looks for.',
     coverImage: 'ticking-hero.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-09-06T09:00:00.000Z',
+    publishedAt: '2026-08-11T09:00:00.000Z',
     seoTitle: 'Water Tank Insurance Claims and Risk | PC Water',
     seoDescription:
       'Maintenance history, foreseeability and documented inspections all affect how a water tank insurance claim is assessed. A practical look at what insurers examine.',
@@ -752,7 +752,7 @@ const posts = [
       'A tank wall thick enough to hold water is not automatically thick enough to survive the dynamic forces of an earthquake or extreme wind event. What that additional design layer covers.',
     coverImage: 'corrosion-hero.jpg',
     readTime: '7 min read',
-    publishedAt: '2026-09-07T09:00:00.000Z',
+    publishedAt: '2026-08-11T15:00:00.000Z',
     seoTitle: 'Seismic and Wind Loading on Water Tanks | PC Water',
     seoDescription:
       "Sloshing loads, anchorage and foundation interaction are structural considerations beyond a tank wall's ability to simply hold water. A practical explanation of seismic and wind design.",
@@ -840,7 +840,7 @@ const posts = [
       'Cooling water and fire water storage for a data centre or critical facility cannot tolerate a single point of failure. What genuine redundancy actually requires.',
     coverImage: 'sector-inspection.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-09-08T09:00:00.000Z',
+    publishedAt: '2026-08-12T09:00:00.000Z',
     seoTitle: 'Data Centre Water Storage Redundancy | PC Water',
     seoDescription:
       "Cooling water continuity and fire compliance both demand genuine redundancy in a data centre or critical facility's water storage. A practical explanation of what that requires.",

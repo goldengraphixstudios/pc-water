@@ -20,7 +20,7 @@ const posts = [
       'Councils manage ageing water storage assets against reporting obligations and constrained budgets at the same time. Here is how well-run asset management programs reconcile the two.',
     coverImage: 'sector-hero.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-09-09T09:00:00.000Z',
+    publishedAt: '2026-08-12T13:00:00.000Z',
     seoTitle: 'Council Water Asset Management Explained | PC Water',
     seoDescription:
       'Reporting obligations, ageing infrastructure and constrained budgets all shape how councils manage water storage assets. A practical explanation of what a sound program looks like.',
@@ -111,7 +111,7 @@ const posts = [
       'Not every coating system suits every tank. Here is how epoxy, polyurethane and zinc-rich primer systems actually differ, and what should drive the choice between them.',
     coverImage: 'corrosion-coating-comparison.jpg',
     readTime: '7 min read',
-    publishedAt: '2026-09-10T09:00:00.000Z',
+    publishedAt: '2026-08-12T17:00:00.000Z',
     seoTitle: 'Water Tank Coating Systems Explained | PC Water',
     seoDescription:
       'Epoxy, polyurethane and zinc-rich primer coating systems protect steel water tanks differently. A practical comparison of how each performs and where each fits.',
@@ -203,7 +203,7 @@ const posts = [
       'Specifying every industrial water tank to potable standards seems like the safe default. It is often the wrong one — and the more expensive one. Here is how to specify process water storage correctly.',
     coverImage: 'harsh-env-hero.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-09-11T09:00:00.000Z',
+    publishedAt: '2026-08-13T09:00:00.000Z',
     seoTitle: 'Industrial Process Water Storage Explained | PC Water',
     seoDescription:
       'Process water storage often needs a different specification to potable storage — sometimes more resistant, sometimes simpler. A practical guide to specifying industrial process water tanks correctly.',
@@ -292,7 +292,7 @@ const posts = [
       'A weld can look perfect on the surface and still hide a defect that compromises the tank. Here is what non-destructive testing actually checks, and why visual inspection alone is not enough.',
     coverImage: 'corrosion-rov-inspection.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-09-12T09:00:00.000Z',
+    publishedAt: '2026-08-13T15:00:00.000Z',
     seoTitle: 'Weld Inspection and NDT for Water Tanks | PC Water',
     seoDescription:
       'Visual inspection cannot detect subsurface weld defects. A practical explanation of the non-destructive testing methods used to verify weld integrity on steel water tanks.',
@@ -383,7 +383,7 @@ const posts = [
       'Freeboard and overflow capacity are two of the least visible numbers in a tank design — and two of the most consequential when a storm event actually tests them.',
     coverImage: 'sediment-tank-hero.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-09-13T09:00:00.000Z',
+    publishedAt: '2026-08-14T09:00:00.000Z',
     seoTitle: 'Water Tank Freeboard and Overflow Sizing | PC Water',
     seoDescription:
       'Freeboard allowance and overflow pipe sizing determine whether a tank handles a storm inflow event safely. A practical explanation of getting these design numbers right.',
@@ -472,7 +472,7 @@ const posts = [
       'A single tank, however well maintained, is a single point of failure for a remote community with no easy backup supply. Here is what genuine water security redundancy looks like.',
     coverImage: 'harsh-env-drone.jpg',
     readTime: '7 min read',
-    publishedAt: '2026-09-14T09:00:00.000Z',
+    publishedAt: '2026-08-14T15:00:00.000Z',
     seoTitle: 'Remote Community Water Security Redundancy | PC Water',
     seoDescription:
       'A remote community relying on a single water tank has no backup if that tank fails. A practical explanation of redundancy planning for genuine water security.',
@@ -561,7 +561,7 @@ const posts = [
       'A newly installed or relined tank is not ready for potable water the moment construction finishes. Here is what proper commissioning actually involves before handover.',
     coverImage: 'water-food-hatch.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-09-15T09:00:00.000Z',
+    publishedAt: '2026-08-15T09:00:00.000Z',
     seoTitle: 'Potable Water Tank Commissioning Explained | PC Water',
     seoDescription:
       'Disinfection, flushing and water quality testing are all required before a new or relined potable water tank can be safely handed over. A practical commissioning guide.',
@@ -654,7 +654,7 @@ const posts = [
       'A tank roof does more than keep the weather out. Fixed, floating and geodesic dome roof types each suit different tank sizes, exposures and maintenance approaches.',
     coverImage: 'sector-hero.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-09-16T09:00:00.000Z',
+    publishedAt: '2026-08-15T15:00:00.000Z',
     seoTitle: 'Water Tank Roof Types Compared | PC Water',
     seoDescription:
       'Fixed roofs, floating roofs and geodesic domes each offer different structural, maintenance and contamination-control advantages on a water storage tank. A practical comparison.',
@@ -745,7 +745,7 @@ const posts = [
       'The corrosion above the waterline is often worse than below it. Here is why the vapour space in a partially full tank is a distinct corrosion risk, and how it is managed.',
     coverImage: 'corrosion-hero.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-09-17T09:00:00.000Z',
+    publishedAt: '2026-08-16T09:00:00.000Z',
     seoTitle: 'Vapour Space Corrosion in Water Tanks Explained | PC Water',
     seoDescription:
       'The area above the waterline in a partially full tank corrodes differently to the submerged steel below it. A practical explanation of vapour space corrosion and how it is controlled.',
@@ -833,7 +833,7 @@ const posts = [
       'A water asset register that only lists what tanks exist is a directory, not a management tool. Here is what a genuinely useful register actually tracks.',
     coverImage: 'ticking-hero.jpg',
     readTime: '6 min read',
-    publishedAt: '2026-09-18T09:00:00.000Z',
+    publishedAt: '2026-08-16T15:00:00.000Z',
     seoTitle: 'Water Asset Register: What to Track | PC Water',
     seoDescription:
       'A useful water asset register tracks condition history, maintenance records and risk data, not just a list of tanks. A practical guide for councils and facility managers.',

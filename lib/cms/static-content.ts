@@ -1834,9 +1834,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "ROV vs Manned Entry Tank Inspection | PC Water",
     seoDescription:
       "ROV, drone and manned-entry inspection each answer different questions about a water tank. A practical guide to choosing the right method for your asset.",
-    publishedAt: '2026-08-14T09:00:00.000Z',
-    createdAt: '2026-08-14T09:00:00.000Z',
-    updatedAt: '2026-08-14T09:00:00.000Z',
+    publishedAt: '2026-08-01T09:00:00.000Z',
+    createdAt: '2026-08-01T09:00:00.000Z',
+    updatedAt: '2026-08-01T09:00:00.000Z',
     tags: [
       { id: 'tag-tank-inspection-rov', name: 'Tank Inspection', slug: 'tank-inspection' },
       { id: 'tag-technology-rov', name: 'Technology', slug: 'technology' },
@@ -1929,9 +1929,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Modular Water Tanks for Remote Sites | PC Water",
     seoDescription:
       "Transport, access and assembly are what actually determine whether a modular tank project succeeds in remote Australia. A practical planning guide.",
-    publishedAt: '2026-08-15T09:00:00.000Z',
-    createdAt: '2026-08-15T09:00:00.000Z',
-    updatedAt: '2026-08-15T09:00:00.000Z',
+    publishedAt: '2026-08-01T13:00:00.000Z',
+    createdAt: '2026-08-01T13:00:00.000Z',
+    updatedAt: '2026-08-01T13:00:00.000Z',
     tags: [
       { id: 'tag-remote-modular', name: 'Remote Projects', slug: 'remote-projects' },
       { id: 'tag-tank-installation-modular', name: 'Tank Installation', slug: 'tank-installation' },
@@ -2020,9 +2020,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "How to Read a Water Tank Inspection Report | PC Water",
     seoDescription:
       "Condition ratings, defect notes and recommendations — a practical guide to reading a water tank inspection report and turning findings into a decision.",
-    publishedAt: '2026-08-16T09:00:00.000Z',
-    createdAt: '2026-08-16T09:00:00.000Z',
-    updatedAt: '2026-08-16T09:00:00.000Z',
+    publishedAt: '2026-08-01T17:00:00.000Z',
+    createdAt: '2026-08-01T17:00:00.000Z',
+    updatedAt: '2026-08-01T17:00:00.000Z',
     tags: [
       { id: 'tag-tank-inspection-report', name: 'Tank Inspection', slug: 'tank-inspection' },
       { id: 'tag-asset-management-report', name: 'Asset Management', slug: 'asset-management' },
@@ -2110,9 +2110,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Fire Tank Volume and Draw-Down Explained | PC Water",
     seoDescription:
       "Usable volume, draw-down point and pump suction all determine whether a fire water tank actually delivers what AS2419 requires. A practical explainer.",
-    publishedAt: '2026-08-17T09:00:00.000Z',
-    createdAt: '2026-08-17T09:00:00.000Z',
-    updatedAt: '2026-08-17T09:00:00.000Z',
+    publishedAt: '2026-08-02T09:00:00.000Z',
+    createdAt: '2026-08-02T09:00:00.000Z',
+    updatedAt: '2026-08-02T09:00:00.000Z',
     tags: [
       { id: 'tag-fire-compliance-volume', name: 'Fire Compliance', slug: 'fire-compliance' },
       { id: 'tag-compliance-volume', name: 'Compliance', slug: 'compliance' },
@@ -2201,9 +2201,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Disinfection Residual in Water Storage Tanks | PC Water",
     seoDescription:
       "Disinfection residual decays inside storage, not just in the network. A practical explanation of water chemistry inside a tank and why storage design and condition matter.",
-    publishedAt: '2026-08-18T09:00:00.000Z',
-    createdAt: '2026-08-18T09:00:00.000Z',
-    updatedAt: '2026-08-18T09:00:00.000Z',
+    publishedAt: '2026-08-02T15:00:00.000Z',
+    createdAt: '2026-08-02T15:00:00.000Z',
+    updatedAt: '2026-08-02T15:00:00.000Z',
     tags: [
       { id: 'tag-potable-water-chem', name: 'Potable Water', slug: 'potable-water' },
       { id: 'tag-water-quality-chem', name: 'Water Quality', slug: 'water-quality' },
@@ -2299,9 +2299,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Tank Foundations and Civil Works Explained | PC Water",
     seoDescription:
       "Uneven settlement, drainage and pad sizing determine whether a water tank stays sound for decades or develops structural problems early. A practical explainer.",
-    publishedAt: '2026-08-20T09:00:00.000Z',
-    createdAt: '2026-08-20T09:00:00.000Z',
-    updatedAt: '2026-08-20T09:00:00.000Z',
+    publishedAt: '2026-08-03T09:00:00.000Z',
+    createdAt: '2026-08-03T09:00:00.000Z',
+    updatedAt: '2026-08-03T09:00:00.000Z',
     tags: [
       { id: 'tag-tank-installation-found', name: 'Tank Installation', slug: 'tank-installation' },
       { id: 'tag-asset-management-found', name: 'Asset Management', slug: 'asset-management' },
@@ -2394,9 +2394,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Custom Water Tank Design Explained | PC Water",
     seoDescription:
       "Site footprint, height restrictions and unusual capacity needs can rule out a standard tank. A practical guide to when custom tank design is worth it.",
-    publishedAt: '2026-08-21T09:00:00.000Z',
-    createdAt: '2026-08-21T09:00:00.000Z',
-    updatedAt: '2026-08-21T09:00:00.000Z',
+    publishedAt: '2026-08-03T15:00:00.000Z',
+    createdAt: '2026-08-03T15:00:00.000Z',
+    updatedAt: '2026-08-03T15:00:00.000Z',
     tags: [
       { id: 'tag-tank-installation-custom', name: 'Tank Installation', slug: 'tank-installation' },
       { id: 'tag-project-managed-custom', name: 'Project Delivery', slug: 'project-managed' },
@@ -2490,9 +2490,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Water Infrastructure Tender and Procurement Guide | PC Water",
     seoDescription:
       "Generic specifications, unclear scope boundaries and missing condition data are common tender pitfalls in water infrastructure procurement. A practical guide for councils and asset owners.",
-    publishedAt: '2026-08-22T09:00:00.000Z',
-    createdAt: '2026-08-22T09:00:00.000Z',
-    updatedAt: '2026-08-22T09:00:00.000Z',
+    publishedAt: '2026-08-04T09:00:00.000Z',
+    createdAt: '2026-08-04T09:00:00.000Z',
+    updatedAt: '2026-08-04T09:00:00.000Z',
     tags: [
       { id: 'tag-government-tender', name: 'Government', slug: 'government' },
       { id: 'tag-project-managed-tender', name: 'Project Delivery', slug: 'project-managed' },
@@ -2582,9 +2582,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Cathodic Protection for Water Tanks Explained | PC Water",
     seoDescription:
       "Cathodic protection slows corrosion at the metal itself, not just the coating. A practical explanation of how it works and when a steel water tank needs it.",
-    publishedAt: '2026-08-23T09:00:00.000Z',
-    createdAt: '2026-08-23T09:00:00.000Z',
-    updatedAt: '2026-08-23T09:00:00.000Z',
+    publishedAt: '2026-08-04T15:00:00.000Z',
+    createdAt: '2026-08-04T15:00:00.000Z',
+    updatedAt: '2026-08-04T15:00:00.000Z',
     tags: [
       { id: 'tag-corrosion-cathodic', name: 'Corrosion', slug: 'corrosion' },
       { id: 'tag-tank-maintenance-cathodic', name: 'Tank Maintenance', slug: 'tank-maintenance' },
@@ -2682,9 +2682,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Confined Space Entry for Water Tanks | PC Water",
     seoDescription:
       "Atmospheric testing, permits, ventilation and rescue planning are not optional extras for water tank entry — they are the requirements. A practical safety primer.",
-    publishedAt: '2026-08-24T09:00:00.000Z',
-    createdAt: '2026-08-24T09:00:00.000Z',
-    updatedAt: '2026-08-24T09:00:00.000Z',
+    publishedAt: '2026-08-05T09:00:00.000Z',
+    createdAt: '2026-08-05T09:00:00.000Z',
+    updatedAt: '2026-08-05T09:00:00.000Z',
     tags: [
       { id: 'tag-tank-inspection-confined', name: 'Tank Inspection', slug: 'tank-inspection' },
       { id: 'tag-compliance-confined', name: 'Compliance', slug: 'compliance' },
@@ -2778,9 +2778,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Builder and Contractor Water Storage Partnerships | PC Water",
     seoDescription:
       "Water storage requirements are easy to under-specify on a new build. A practical look at what a strong builder-contractor partnership on water infrastructure actually delivers.",
-    publishedAt: '2026-08-25T09:00:00.000Z',
-    createdAt: '2026-08-25T09:00:00.000Z',
-    updatedAt: '2026-08-25T09:00:00.000Z',
+    publishedAt: '2026-08-05T15:00:00.000Z',
+    createdAt: '2026-08-05T15:00:00.000Z',
+    updatedAt: '2026-08-05T15:00:00.000Z',
     tags: [
       { id: 'tag-commercial-builder', name: 'Commercial', slug: 'commercial' },
       { id: 'tag-project-managed-builder', name: 'Project Delivery', slug: 'project-managed' },
@@ -2871,9 +2871,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Concrete Reservoir Spalling Explained | PC Water",
     seoDescription:
       "Spalling in a concrete reservoir is driven by reinforcement corrosion, not the same mechanism as steel tank wall corrosion. A practical explanation of the difference and what it means for repair.",
-    publishedAt: '2026-08-26T09:00:00.000Z',
-    createdAt: '2026-08-26T09:00:00.000Z',
-    updatedAt: '2026-08-26T09:00:00.000Z',
+    publishedAt: '2026-08-06T09:00:00.000Z',
+    createdAt: '2026-08-06T09:00:00.000Z',
+    updatedAt: '2026-08-06T09:00:00.000Z',
     tags: [
       { id: 'tag-tank-maintenance-spalling', name: 'Tank Maintenance', slug: 'tank-maintenance' },
       { id: 'tag-asset-management-spalling', name: 'Asset Management', slug: 'asset-management' },
@@ -2964,9 +2964,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Turbidity After Water Tank Cleaning Explained | PC Water",
     seoDescription:
       "A short-lived turbidity spike after tank cleaning is normal. A practical guide to what to expect, how long it should last, and when a spike signals a real problem.",
-    publishedAt: '2026-08-27T09:00:00.000Z',
-    createdAt: '2026-08-27T09:00:00.000Z',
-    updatedAt: '2026-08-27T09:00:00.000Z',
+    publishedAt: '2026-08-06T13:00:00.000Z',
+    createdAt: '2026-08-06T13:00:00.000Z',
+    updatedAt: '2026-08-06T13:00:00.000Z',
     tags: [
       { id: 'tag-water-quality-turbidity', name: 'Water Quality', slug: 'water-quality' },
       { id: 'tag-tank-cleaning-turbidity', name: 'Tank Cleaning', slug: 'tank-cleaning' },
@@ -3056,9 +3056,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Project-Managed Water Infrastructure Delivery | PC Water",
     seoDescription:
       "Multiple contractors on a water infrastructure project without a single point of accountability is where delays, disputes and defects hide. A practical explanation of project-managed delivery.",
-    publishedAt: '2026-08-28T09:00:00.000Z',
-    createdAt: '2026-08-28T09:00:00.000Z',
-    updatedAt: '2026-08-28T09:00:00.000Z',
+    publishedAt: '2026-08-06T17:00:00.000Z',
+    createdAt: '2026-08-06T17:00:00.000Z',
+    updatedAt: '2026-08-06T17:00:00.000Z',
     tags: [
       { id: 'tag-project-managed-accountability', name: 'Project Delivery', slug: 'project-managed' },
       { id: 'tag-remote-projects-accountability', name: 'Remote Projects', slug: 'remote-projects' },
@@ -3153,9 +3153,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Iron Bacteria in Water Tanks Explained | PC Water",
     seoDescription:
       "Iron bacteria form slime colonies that accelerate localised corrosion and cause discolouration and odour in water storage tanks. What causes it and how it is managed.",
-    publishedAt: '2026-08-29T09:00:00.000Z',
-    createdAt: '2026-08-29T09:00:00.000Z',
-    updatedAt: '2026-08-29T09:00:00.000Z',
+    publishedAt: '2026-08-07T09:00:00.000Z',
+    createdAt: '2026-08-07T09:00:00.000Z',
+    updatedAt: '2026-08-07T09:00:00.000Z',
     tags: [
       { id: 'tag-water-quality-bacteria', name: 'Water Quality', slug: 'water-quality' },
       { id: 'tag-corrosion-bacteria', name: 'Corrosion', slug: 'corrosion' },
@@ -3251,9 +3251,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Water Tank Warranty Claims Explained | PC Water",
     seoDescription:
       "Maintenance gaps, unapproved modifications and missing records are common reasons water tank warranty claims are refused. A practical guide to what actually protects your cover.",
-    publishedAt: '2026-08-30T09:00:00.000Z',
-    createdAt: '2026-08-30T09:00:00.000Z',
-    updatedAt: '2026-08-30T09:00:00.000Z',
+    publishedAt: '2026-08-07T15:00:00.000Z',
+    createdAt: '2026-08-07T15:00:00.000Z',
+    updatedAt: '2026-08-07T15:00:00.000Z',
     tags: [
       { id: 'tag-asset-management-warranty', name: 'Asset Management', slug: 'asset-management' },
       { id: 'tag-tank-maintenance-warranty', name: 'Tank Maintenance', slug: 'tank-maintenance' },
@@ -3347,9 +3347,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Mining Water Storage Compliance Australia | PC Water",
     seoDescription:
       "Mining and resources water storage carries compliance obligations beyond standard Australian Standards — process separation, site risk assessment and regulator reporting explained.",
-    publishedAt: '2026-08-31T09:00:00.000Z',
-    createdAt: '2026-08-31T09:00:00.000Z',
-    updatedAt: '2026-08-31T09:00:00.000Z',
+    publishedAt: '2026-08-08T09:00:00.000Z',
+    createdAt: '2026-08-08T09:00:00.000Z',
+    updatedAt: '2026-08-08T09:00:00.000Z',
     tags: [
       { id: 'tag-mining-resources', name: 'Mining & Resources', slug: 'mining-resources' },
       { id: 'tag-compliance-mining', name: 'Compliance', slug: 'compliance' },
@@ -3443,9 +3443,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Bushfire Static Water Supply Tanks Explained | PC Water",
     seoDescription:
       "Static water supply requirements for bushfire-prone properties cover volume, fitting standards and accessibility — not just having a tank on site. A practical explainer.",
-    publishedAt: '2026-09-01T09:00:00.000Z',
-    createdAt: '2026-09-01T09:00:00.000Z',
-    updatedAt: '2026-09-01T09:00:00.000Z',
+    publishedAt: '2026-08-08T15:00:00.000Z',
+    createdAt: '2026-08-08T15:00:00.000Z',
+    updatedAt: '2026-08-08T15:00:00.000Z',
     tags: [
       { id: 'tag-fire-compliance-bushfire', name: 'Fire Compliance', slug: 'fire-compliance' },
       { id: 'tag-remote-community-bushfire', name: 'Remote Community', slug: 'remote-community' },
@@ -3540,9 +3540,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Water Tank Level Monitoring and SCADA Explained | PC Water",
     seoDescription:
       "Sensor type, alarm thresholds and communication reliability all determine whether a tank monitoring system actually works when it matters. A specification guide.",
-    publishedAt: '2026-09-02T09:00:00.000Z',
-    createdAt: '2026-09-02T09:00:00.000Z',
-    updatedAt: '2026-09-02T09:00:00.000Z',
+    publishedAt: '2026-08-09T09:00:00.000Z',
+    createdAt: '2026-08-09T09:00:00.000Z',
+    updatedAt: '2026-08-09T09:00:00.000Z',
     tags: [
       { id: 'tag-technology-scada', name: 'Technology', slug: 'technology' },
       { id: 'tag-tank-inspection-scada', name: 'Tank Inspection', slug: 'tank-inspection' },
@@ -3636,9 +3636,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Rainwater Harvesting vs Backup Water Storage | PC Water",
     seoDescription:
       "Rainwater harvesting tanks and reticulated backup storage answer different needs. A practical guide to which system — or combination — fits your situation.",
-    publishedAt: '2026-09-03T09:00:00.000Z',
-    createdAt: '2026-09-03T09:00:00.000Z',
-    updatedAt: '2026-09-03T09:00:00.000Z',
+    publishedAt: '2026-08-09T15:00:00.000Z',
+    createdAt: '2026-08-09T15:00:00.000Z',
+    updatedAt: '2026-08-09T15:00:00.000Z',
     tags: [
       { id: 'tag-potable-water-rainwater', name: 'Potable Water', slug: 'potable-water' },
       { id: 'tag-remote-community-rainwater', name: 'Remote Community', slug: 'remote-community' },
@@ -3732,9 +3732,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Water Tank Decommissioning and Removal | PC Water",
     seoDescription:
       "Decommissioning a water tank properly means managing residual sediment, structural hazards and site remediation — not just draining and demolishing. A practical guide.",
-    publishedAt: '2026-09-04T09:00:00.000Z',
-    createdAt: '2026-09-04T09:00:00.000Z',
-    updatedAt: '2026-09-04T09:00:00.000Z',
+    publishedAt: '2026-08-10T09:00:00.000Z',
+    createdAt: '2026-08-10T09:00:00.000Z',
+    updatedAt: '2026-08-10T09:00:00.000Z',
     tags: [
       { id: 'tag-asset-management-decommission', name: 'Asset Management', slug: 'asset-management' },
       { id: 'tag-tank-maintenance-decommission', name: 'Tank Maintenance', slug: 'tank-maintenance' },
@@ -3824,9 +3824,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "AS4020 Certification for Water Tanks Explained | PC Water",
     seoDescription:
       "AS4020 certifies that a product does not adversely affect drinking water quality — it does not certify structural design or installation. A practical explanation.",
-    publishedAt: '2026-09-05T09:00:00.000Z',
-    createdAt: '2026-09-05T09:00:00.000Z',
-    updatedAt: '2026-09-05T09:00:00.000Z',
+    publishedAt: '2026-08-10T15:00:00.000Z',
+    createdAt: '2026-08-10T15:00:00.000Z',
+    updatedAt: '2026-08-10T15:00:00.000Z',
     tags: [
       { id: 'tag-compliance-as4020', name: 'Compliance', slug: 'compliance' },
       { id: 'tag-potable-water-as4020', name: 'Potable Water', slug: 'potable-water' },
@@ -3917,9 +3917,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Water Tank Insurance Claims and Risk | PC Water",
     seoDescription:
       "Maintenance history, foreseeability and documented inspections all affect how a water tank insurance claim is assessed. A practical look at what insurers examine.",
-    publishedAt: '2026-09-06T09:00:00.000Z',
-    createdAt: '2026-09-06T09:00:00.000Z',
-    updatedAt: '2026-09-06T09:00:00.000Z',
+    publishedAt: '2026-08-11T09:00:00.000Z',
+    createdAt: '2026-08-11T09:00:00.000Z',
+    updatedAt: '2026-08-11T09:00:00.000Z',
     tags: [
       { id: 'tag-asset-management-insurance', name: 'Asset Management', slug: 'asset-management' },
       { id: 'tag-compliance-insurance', name: 'Compliance', slug: 'compliance' },
@@ -4009,9 +4009,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Seismic and Wind Loading on Water Tanks | PC Water",
     seoDescription:
       "Sloshing loads, anchorage and foundation interaction are structural considerations beyond a tank wall's ability to simply hold water. A practical explanation of seismic and wind design.",
-    publishedAt: '2026-09-07T09:00:00.000Z',
-    createdAt: '2026-09-07T09:00:00.000Z',
-    updatedAt: '2026-09-07T09:00:00.000Z',
+    publishedAt: '2026-08-11T15:00:00.000Z',
+    createdAt: '2026-08-11T15:00:00.000Z',
+    updatedAt: '2026-08-11T15:00:00.000Z',
     tags: [
       { id: 'tag-tank-installation-seismic', name: 'Tank Installation', slug: 'tank-installation' },
       { id: 'tag-custom-tank-seismic', name: 'Custom Tank Design', slug: 'custom-tank-design' },
@@ -4102,9 +4102,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Data Centre Water Storage Redundancy | PC Water",
     seoDescription:
       "Cooling water continuity and fire compliance both demand genuine redundancy in a data centre or critical facility's water storage. A practical explanation of what that requires.",
-    publishedAt: '2026-09-08T09:00:00.000Z',
-    createdAt: '2026-09-08T09:00:00.000Z',
-    updatedAt: '2026-09-08T09:00:00.000Z',
+    publishedAt: '2026-08-12T09:00:00.000Z',
+    createdAt: '2026-08-12T09:00:00.000Z',
+    updatedAt: '2026-08-12T09:00:00.000Z',
     tags: [
       { id: 'tag-industrial-facilities-datacentre', name: 'Industrial Facilities', slug: 'industrial-facilities' },
       { id: 'tag-project-managed-datacentre', name: 'Project Delivery', slug: 'project-managed' },
@@ -4197,9 +4197,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Council Water Asset Management Explained | PC Water",
     seoDescription:
       "Reporting obligations, ageing infrastructure and constrained budgets all shape how councils manage water storage assets. A practical explanation of what a sound program looks like.",
-    publishedAt: '2026-09-09T09:00:00.000Z',
-    createdAt: '2026-09-09T09:00:00.000Z',
-    updatedAt: '2026-09-09T09:00:00.000Z',
+    publishedAt: '2026-08-12T13:00:00.000Z',
+    createdAt: '2026-08-12T13:00:00.000Z',
+    updatedAt: '2026-08-12T13:00:00.000Z',
     tags: [
       { id: 'tag-government-asset-mgmt', name: 'Government', slug: 'government' },
       { id: 'tag-asset-management-council', name: 'Asset Management', slug: 'asset-management' },
@@ -4293,9 +4293,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Water Tank Coating Systems Explained | PC Water",
     seoDescription:
       "Epoxy, polyurethane and zinc-rich primer coating systems protect steel water tanks differently. A practical comparison of how each performs and where each fits.",
-    publishedAt: '2026-09-10T09:00:00.000Z',
-    createdAt: '2026-09-10T09:00:00.000Z',
-    updatedAt: '2026-09-10T09:00:00.000Z',
+    publishedAt: '2026-08-12T17:00:00.000Z',
+    createdAt: '2026-08-12T17:00:00.000Z',
+    updatedAt: '2026-08-12T17:00:00.000Z',
     tags: [
       { id: 'tag-tank-maintenance-coatings', name: 'Tank Maintenance', slug: 'tank-maintenance' },
       { id: 'tag-corrosion-coatings', name: 'Corrosion', slug: 'corrosion' },
@@ -4386,9 +4386,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Industrial Process Water Storage Explained | PC Water",
     seoDescription:
       "Process water storage often needs a different specification to potable storage — sometimes more resistant, sometimes simpler. A practical guide to specifying industrial process water tanks correctly.",
-    publishedAt: '2026-09-11T09:00:00.000Z',
-    createdAt: '2026-09-11T09:00:00.000Z',
-    updatedAt: '2026-09-11T09:00:00.000Z',
+    publishedAt: '2026-08-13T09:00:00.000Z',
+    createdAt: '2026-08-13T09:00:00.000Z',
+    updatedAt: '2026-08-13T09:00:00.000Z',
     tags: [
       { id: 'tag-industrial-facilities-process', name: 'Industrial Facilities', slug: 'industrial-facilities' },
       { id: 'tag-water-treatment-process', name: 'Water Treatment Solutions', slug: 'water-treatment' },
@@ -4481,9 +4481,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Weld Inspection and NDT for Water Tanks | PC Water",
     seoDescription:
       "Visual inspection cannot detect subsurface weld defects. A practical explanation of the non-destructive testing methods used to verify weld integrity on steel water tanks.",
-    publishedAt: '2026-09-12T09:00:00.000Z',
-    createdAt: '2026-09-12T09:00:00.000Z',
-    updatedAt: '2026-09-12T09:00:00.000Z',
+    publishedAt: '2026-08-13T15:00:00.000Z',
+    createdAt: '2026-08-13T15:00:00.000Z',
+    updatedAt: '2026-08-13T15:00:00.000Z',
     tags: [
       { id: 'tag-tank-inspection-ndt', name: 'Tank Inspection', slug: 'tank-inspection' },
       { id: 'tag-tank-installation-ndt', name: 'Tank Installation', slug: 'tank-installation' },
@@ -4574,9 +4574,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Water Tank Freeboard and Overflow Sizing | PC Water",
     seoDescription:
       "Freeboard allowance and overflow pipe sizing determine whether a tank handles a storm inflow event safely. A practical explanation of getting these design numbers right.",
-    publishedAt: '2026-09-13T09:00:00.000Z',
-    createdAt: '2026-09-13T09:00:00.000Z',
-    updatedAt: '2026-09-13T09:00:00.000Z',
+    publishedAt: '2026-08-14T09:00:00.000Z',
+    createdAt: '2026-08-14T09:00:00.000Z',
+    updatedAt: '2026-08-14T09:00:00.000Z',
     tags: [
       { id: 'tag-custom-tank-freeboard', name: 'Custom Tank Design', slug: 'custom-tank-design' },
       { id: 'tag-foundation-civil-freeboard', name: 'Foundation & Civil', slug: 'foundation-civil' },
@@ -4667,9 +4667,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Remote Community Water Security Redundancy | PC Water",
     seoDescription:
       "A remote community relying on a single water tank has no backup if that tank fails. A practical explanation of redundancy planning for genuine water security.",
-    publishedAt: '2026-09-14T09:00:00.000Z',
-    createdAt: '2026-09-14T09:00:00.000Z',
-    updatedAt: '2026-09-14T09:00:00.000Z',
+    publishedAt: '2026-08-14T15:00:00.000Z',
+    createdAt: '2026-08-14T15:00:00.000Z',
+    updatedAt: '2026-08-14T15:00:00.000Z',
     tags: [
       { id: 'tag-remote-community-security', name: 'Remote Community', slug: 'remote-community' },
       { id: 'tag-remote-projects-security', name: 'Remote Projects', slug: 'remote-projects' },
@@ -4764,9 +4764,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Potable Water Tank Commissioning Explained | PC Water",
     seoDescription:
       "Disinfection, flushing and water quality testing are all required before a new or relined potable water tank can be safely handed over. A practical commissioning guide.",
-    publishedAt: '2026-09-15T09:00:00.000Z',
-    createdAt: '2026-09-15T09:00:00.000Z',
-    updatedAt: '2026-09-15T09:00:00.000Z',
+    publishedAt: '2026-08-15T09:00:00.000Z',
+    createdAt: '2026-08-15T09:00:00.000Z',
+    updatedAt: '2026-08-15T09:00:00.000Z',
     tags: [
       { id: 'tag-tank-installation-commissioning', name: 'Tank Installation', slug: 'tank-installation' },
       { id: 'tag-potable-water-commissioning', name: 'Potable Water', slug: 'potable-water' },
@@ -4859,9 +4859,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Water Tank Roof Types Compared | PC Water",
     seoDescription:
       "Fixed roofs, floating roofs and geodesic domes each offer different structural, maintenance and contamination-control advantages on a water storage tank. A practical comparison.",
-    publishedAt: '2026-09-16T09:00:00.000Z',
-    createdAt: '2026-09-16T09:00:00.000Z',
-    updatedAt: '2026-09-16T09:00:00.000Z',
+    publishedAt: '2026-08-15T15:00:00.000Z',
+    createdAt: '2026-08-15T15:00:00.000Z',
+    updatedAt: '2026-08-15T15:00:00.000Z',
     tags: [
       { id: 'tag-custom-tank-roof', name: 'Custom Tank Design', slug: 'custom-tank-design' },
       { id: 'tag-tank-installation-roof', name: 'Tank Installation', slug: 'tank-installation' },
@@ -4951,9 +4951,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Vapour Space Corrosion in Water Tanks Explained | PC Water",
     seoDescription:
       "The area above the waterline in a partially full tank corrodes differently to the submerged steel below it. A practical explanation of vapour space corrosion and how it is controlled.",
-    publishedAt: '2026-09-17T09:00:00.000Z',
-    createdAt: '2026-09-17T09:00:00.000Z',
-    updatedAt: '2026-09-17T09:00:00.000Z',
+    publishedAt: '2026-08-16T09:00:00.000Z',
+    createdAt: '2026-08-16T09:00:00.000Z',
+    updatedAt: '2026-08-16T09:00:00.000Z',
     tags: [
       { id: 'tag-corrosion-vapour', name: 'Corrosion', slug: 'corrosion' },
       { id: 'tag-tank-maintenance-vapour', name: 'Tank Maintenance', slug: 'tank-maintenance' },
@@ -5047,9 +5047,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Water Asset Register: What to Track | PC Water",
     seoDescription:
       "A useful water asset register tracks condition history, maintenance records and risk data, not just a list of tanks. A practical guide for councils and facility managers.",
-    publishedAt: '2026-09-18T09:00:00.000Z',
-    createdAt: '2026-09-18T09:00:00.000Z',
-    updatedAt: '2026-09-18T09:00:00.000Z',
+    publishedAt: '2026-08-16T15:00:00.000Z',
+    createdAt: '2026-08-16T15:00:00.000Z',
+    updatedAt: '2026-08-16T15:00:00.000Z',
     tags: [
       { id: 'tag-asset-management-register', name: 'Asset Management', slug: 'asset-management' },
       { id: 'tag-government-register', name: 'Government', slug: 'government' },
@@ -5143,9 +5143,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Elevated vs Ground-Level Water Tank Configuration | PC Water",
     seoDescription:
       "Elevated tanks, ground-level tanks and open reservoirs each solve a different pressure and land-use problem. A practical guide to choosing the right storage configuration.",
-    publishedAt: '2026-09-19T09:00:00.000Z',
-    createdAt: '2026-09-19T09:00:00.000Z',
-    updatedAt: '2026-09-19T09:00:00.000Z',
+    publishedAt: '2026-08-17T09:00:00.000Z',
+    createdAt: '2026-08-17T09:00:00.000Z',
+    updatedAt: '2026-08-17T09:00:00.000Z',
     tags: [
       { id: 'tag-custom-tank-config', name: 'Custom Tank Design', slug: 'custom-tank-design' },
       { id: 'tag-tank-installation-config', name: 'Tank Installation', slug: 'tank-installation' },
@@ -5235,9 +5235,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Backflow Prevention for Water Storage Tanks | PC Water",
     seoDescription:
       "Cross-connections between a storage tank and other systems create a backflow risk into the potable network. A practical explanation of how backflow prevention devices protect against it.",
-    publishedAt: '2026-09-20T09:00:00.000Z',
-    createdAt: '2026-09-20T09:00:00.000Z',
-    updatedAt: '2026-09-20T09:00:00.000Z',
+    publishedAt: '2026-08-17T13:00:00.000Z',
+    createdAt: '2026-08-17T13:00:00.000Z',
+    updatedAt: '2026-08-17T13:00:00.000Z',
     tags: [
       { id: 'tag-potable-water-backflow', name: 'Potable Water', slug: 'potable-water' },
       { id: 'tag-compliance-backflow', name: 'Compliance', slug: 'compliance' },
@@ -5331,9 +5331,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Legionella Risk in Water Storage Tanks | PC Water",
     seoDescription:
       "Stagnation, warm temperature and biofilm together create the conditions Legionella needs to establish in a water storage tank. A practical explanation of the risk and its control.",
-    publishedAt: '2026-09-21T09:00:00.000Z',
-    createdAt: '2026-09-21T09:00:00.000Z',
-    updatedAt: '2026-09-21T09:00:00.000Z',
+    publishedAt: '2026-08-17T17:00:00.000Z',
+    createdAt: '2026-08-17T17:00:00.000Z',
+    updatedAt: '2026-08-17T17:00:00.000Z',
     tags: [
       { id: 'tag-water-quality-legionella', name: 'Water Quality', slug: 'water-quality' },
       { id: 'tag-potable-water-legionella', name: 'Potable Water', slug: 'potable-water' },
@@ -5424,9 +5424,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Water Tank Access and Fall Protection Requirements | PC Water",
     seoDescription:
       "Ladders, platforms and fall protection on a water tank are safety requirements that also directly affect how well the tank gets maintained. A practical explanation of what is required.",
-    publishedAt: '2026-09-22T09:00:00.000Z',
-    createdAt: '2026-09-22T09:00:00.000Z',
-    updatedAt: '2026-09-22T09:00:00.000Z',
+    publishedAt: '2026-08-18T09:00:00.000Z',
+    createdAt: '2026-08-18T09:00:00.000Z',
+    updatedAt: '2026-08-18T09:00:00.000Z',
     tags: [
       { id: 'tag-tank-inspection-access', name: 'Tank Inspection', slug: 'tank-inspection' },
       { id: 'tag-compliance-access', name: 'Compliance', slug: 'compliance' },
@@ -5519,9 +5519,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Water Tank Diameter vs Height Trade-Offs | PC Water",
     seoDescription:
       "Tank shape — wide and short versus narrow and tall — drives hydrostatic loading, wind exposure and footprint in different ways. A practical explanation of the design trade-offs.",
-    publishedAt: '2026-09-23T09:00:00.000Z',
-    createdAt: '2026-09-23T09:00:00.000Z',
-    updatedAt: '2026-09-23T09:00:00.000Z',
+    publishedAt: '2026-08-18T15:00:00.000Z',
+    createdAt: '2026-08-18T15:00:00.000Z',
+    updatedAt: '2026-08-18T15:00:00.000Z',
     tags: [
       { id: 'tag-custom-tank-shape', name: 'Custom Tank Design', slug: 'custom-tank-design' },
       { id: 'tag-foundation-civil-shape', name: 'Foundation & Civil', slug: 'foundation-civil' },
@@ -5612,9 +5612,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Wind Uplift Risk on Empty Water Tanks | PC Water",
     seoDescription:
       "An empty or partially full water tank loses the stabilising weight of its contents, making wind uplift and anchorage failure a real risk. A practical explanation of why and how it is managed.",
-    publishedAt: '2026-09-24T09:00:00.000Z',
-    createdAt: '2026-09-24T09:00:00.000Z',
-    updatedAt: '2026-09-24T09:00:00.000Z',
+    publishedAt: '2026-08-19T09:00:00.000Z',
+    createdAt: '2026-08-19T09:00:00.000Z',
+    updatedAt: '2026-08-19T09:00:00.000Z',
     tags: [
       { id: 'tag-custom-tank-uplift', name: 'Custom Tank Design', slug: 'custom-tank-design' },
       { id: 'tag-foundation-civil-uplift', name: 'Foundation & Civil', slug: 'foundation-civil' },
@@ -5708,9 +5708,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Pre-Purchase Water Tank Due Diligence | PC Water",
     seoDescription:
       "Condition, compliance and remaining service life are all worth checking on an existing water tank before purchasing a property. A practical pre-purchase due diligence guide.",
-    publishedAt: '2026-09-25T09:00:00.000Z',
-    createdAt: '2026-09-25T09:00:00.000Z',
-    updatedAt: '2026-09-25T09:00:00.000Z',
+    publishedAt: '2026-08-19T15:00:00.000Z',
+    createdAt: '2026-08-19T15:00:00.000Z',
+    updatedAt: '2026-08-19T15:00:00.000Z',
     tags: [
       { id: 'tag-asset-management-duediligence', name: 'Asset Management', slug: 'asset-management' },
       { id: 'tag-tank-inspection-duediligence', name: 'Tank Inspection', slug: 'tank-inspection' },
@@ -5799,9 +5799,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Does Water Tank Colour Affect Algae and Temperature? | PC Water",
     seoDescription:
       "Darker tank colours absorb more heat and some tank materials transmit more light — both affecting temperature and algae growth risk. A practical explanation of what actually matters.",
-    publishedAt: '2026-09-26T09:00:00.000Z',
-    createdAt: '2026-09-26T09:00:00.000Z',
-    updatedAt: '2026-09-26T09:00:00.000Z',
+    publishedAt: '2026-08-20T09:00:00.000Z',
+    createdAt: '2026-08-20T09:00:00.000Z',
+    updatedAt: '2026-08-20T09:00:00.000Z',
     tags: [
       { id: 'tag-water-quality-colour', name: 'Water Quality', slug: 'water-quality' },
       { id: 'tag-tank-maintenance-colour', name: 'Tank Maintenance', slug: 'tank-maintenance' },
@@ -5896,9 +5896,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Emergency Water Tank Repair Guidance | PC Water",
     seoDescription:
       "Some tank failures can be safely bridged with a temporary fix; others need immediate shutdown. A practical guide to telling the two situations apart during an emergency.",
-    publishedAt: '2026-09-27T09:00:00.000Z',
-    createdAt: '2026-09-27T09:00:00.000Z',
-    updatedAt: '2026-09-27T09:00:00.000Z',
+    publishedAt: '2026-08-20T15:00:00.000Z',
+    createdAt: '2026-08-20T15:00:00.000Z',
+    updatedAt: '2026-08-20T15:00:00.000Z',
     tags: [
       { id: 'tag-tank-maintenance-emergency', name: 'Tank Maintenance', slug: 'tank-maintenance' },
       { id: 'tag-compliance-emergency', name: 'Compliance', slug: 'compliance' },
@@ -5988,9 +5988,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Water Tank Insulation: When It Is Needed | PC Water",
     seoDescription:
       "Insulation protects against freezing and reduces temperature-driven water quality issues, but is not universally necessary. A practical guide to when tank insulation is actually worthwhile.",
-    publishedAt: '2026-09-28T09:00:00.000Z',
-    createdAt: '2026-09-28T09:00:00.000Z',
-    updatedAt: '2026-09-28T09:00:00.000Z',
+    publishedAt: '2026-08-21T09:00:00.000Z',
+    createdAt: '2026-08-21T09:00:00.000Z',
+    updatedAt: '2026-08-21T09:00:00.000Z',
     tags: [
       { id: 'tag-custom-tank-insulation', name: 'Custom Tank Design', slug: 'custom-tank-design' },
       { id: 'tag-water-quality-insulation', name: 'Water Quality', slug: 'water-quality' },
@@ -6080,9 +6080,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Water Tank Services in Toowoomba | PC Water",
     seoDescription:
       "Toowoomba and the Darling Downs carry a well-known water security history. A practical look at what that means for storage tank compliance, capacity and maintenance in the region.",
-    publishedAt: '2026-08-29T09:00:00.000Z',
-    createdAt: '2026-08-29T09:00:00.000Z',
-    updatedAt: '2026-08-29T09:00:00.000Z',
+    publishedAt: '2026-08-21T15:00:00.000Z',
+    createdAt: '2026-08-21T15:00:00.000Z',
+    updatedAt: '2026-08-21T15:00:00.000Z',
     tags: [
       { id: 'tag-remote-community-toowoomba', name: 'Remote Community', slug: 'remote-community' },
       { id: 'tag-asset-management-toowoomba', name: 'Asset Management', slug: 'asset-management' },
@@ -6172,9 +6172,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Water Tank Services in Townsville | PC Water",
     seoDescription:
       "Townsville water storage has to handle both cyclone-season extremes and dry-season demand. A practical look at what that means for tank design and compliance in North Queensland.",
-    publishedAt: '2026-08-29T15:00:00.000Z',
-    createdAt: '2026-08-29T15:00:00.000Z',
-    updatedAt: '2026-08-29T15:00:00.000Z',
+    publishedAt: '2026-08-22T09:00:00.000Z',
+    createdAt: '2026-08-22T09:00:00.000Z',
+    updatedAt: '2026-08-22T09:00:00.000Z',
     tags: [
       { id: 'tag-remote-community-townsville', name: 'Remote Community', slug: 'remote-community' },
       { id: 'tag-fire-compliance-townsville', name: 'Fire Compliance', slug: 'fire-compliance' },
@@ -6264,9 +6264,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Water Tank Services in Rockhampton | PC Water",
     seoDescription:
       "Rockhampton and the Fitzroy River floodplain carry a well-documented flood history. A practical look at what that means for water tank foundation, siting and maintenance decisions.",
-    publishedAt: '2026-08-30T09:00:00.000Z',
-    createdAt: '2026-08-30T09:00:00.000Z',
-    updatedAt: '2026-08-30T09:00:00.000Z',
+    publishedAt: '2026-08-22T15:00:00.000Z',
+    createdAt: '2026-08-22T15:00:00.000Z',
+    updatedAt: '2026-08-22T15:00:00.000Z',
     tags: [
       { id: 'tag-foundation-civil-rockhampton', name: 'Foundation & Civil', slug: 'foundation-civil' },
       { id: 'tag-remote-community-rockhampton', name: 'Remote Community', slug: 'remote-community' },
@@ -6356,9 +6356,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Water Tank Services in Mackay | PC Water",
     seoDescription:
       "Mackay sits in a cyclone corridor with a significant sugar industry water demand. A practical look at what these two factors mean for water storage specification in the region.",
-    publishedAt: '2026-08-30T15:00:00.000Z',
-    createdAt: '2026-08-30T15:00:00.000Z',
-    updatedAt: '2026-08-30T15:00:00.000Z',
+    publishedAt: '2026-08-23T09:00:00.000Z',
+    createdAt: '2026-08-23T09:00:00.000Z',
+    updatedAt: '2026-08-23T09:00:00.000Z',
     tags: [
       { id: 'tag-industrial-facilities-mackay', name: 'Industrial Facilities', slug: 'industrial-facilities' },
       { id: 'tag-fire-compliance-mackay', name: 'Fire Compliance', slug: 'fire-compliance' },
@@ -6448,9 +6448,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Water Tank Services in Cairns | PC Water",
     seoDescription:
       "Cairns combines tropical climate extremes with reef-adjacent environmental sensitivity. A practical look at what that means for water storage design, discharge and compliance in the region.",
-    publishedAt: '2026-08-31T09:00:00.000Z',
-    createdAt: '2026-08-31T09:00:00.000Z',
-    updatedAt: '2026-08-31T09:00:00.000Z',
+    publishedAt: '2026-08-23T13:00:00.000Z',
+    createdAt: '2026-08-23T13:00:00.000Z',
+    updatedAt: '2026-08-23T13:00:00.000Z',
     tags: [
       { id: 'tag-water-treatment-cairns', name: 'Water Treatment Solutions', slug: 'water-treatment' },
       { id: 'tag-remote-community-cairns', name: 'Remote Community', slug: 'remote-community' },
@@ -6540,9 +6540,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Water Tank Services in Gladstone | PC Water",
     seoDescription:
       "Gladstone concentrates LNG, alumina and power generation industry in one port city. A practical look at what that means for process and fire water storage specification in the region.",
-    publishedAt: '2026-08-31T15:00:00.000Z',
-    createdAt: '2026-08-31T15:00:00.000Z',
-    updatedAt: '2026-08-31T15:00:00.000Z',
+    publishedAt: '2026-08-23T17:00:00.000Z',
+    createdAt: '2026-08-23T17:00:00.000Z',
+    updatedAt: '2026-08-23T17:00:00.000Z',
     tags: [
       { id: 'tag-industrial-facilities-gladstone', name: 'Industrial Facilities', slug: 'industrial-facilities' },
       { id: 'tag-water-treatment-gladstone', name: 'Water Treatment Solutions', slug: 'water-treatment' },
@@ -6632,9 +6632,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Water Tank Services in Adelaide | PC Water",
     seoDescription:
       "Adelaide’s dry climate and reservoir-dependent supply have long supported a genuine rainwater tank culture. A practical look at what that means for tank sizing and backup planning today.",
-    publishedAt: '2026-09-01T09:00:00.000Z',
-    createdAt: '2026-09-01T09:00:00.000Z',
-    updatedAt: '2026-09-01T09:00:00.000Z',
+    publishedAt: '2026-08-24T09:00:00.000Z',
+    createdAt: '2026-08-24T09:00:00.000Z',
+    updatedAt: '2026-08-24T09:00:00.000Z',
     tags: [
       { id: 'tag-remote-community-adelaide', name: 'Remote Community', slug: 'remote-community' },
       { id: 'tag-potable-water-adelaide', name: 'Potable Water', slug: 'potable-water' },
@@ -6724,9 +6724,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Water Tank Services in Wagga Wagga | PC Water",
     seoDescription:
       "The Riverina region around Wagga Wagga sees both flood and drought extremes on the Murrumbidgee. A practical look at what that means for agricultural and property water storage.",
-    publishedAt: '2026-09-01T15:00:00.000Z',
-    createdAt: '2026-09-01T15:00:00.000Z',
-    updatedAt: '2026-09-01T15:00:00.000Z',
+    publishedAt: '2026-08-24T15:00:00.000Z',
+    createdAt: '2026-08-24T15:00:00.000Z',
+    updatedAt: '2026-08-24T15:00:00.000Z',
     tags: [
       { id: 'tag-remote-projects-wagga', name: 'Remote Projects', slug: 'remote-projects' },
       { id: 'tag-asset-management-wagga', name: 'Asset Management', slug: 'asset-management' },
@@ -6816,9 +6816,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Water Tank Services in Dubbo | PC Water",
     seoDescription:
       "Central West NSW has faced some of the state’s most significant drought periods. A practical look at what drought-resilient water storage planning means for the Dubbo region.",
-    publishedAt: '2026-09-02T09:00:00.000Z',
-    createdAt: '2026-09-02T09:00:00.000Z',
-    updatedAt: '2026-09-02T09:00:00.000Z',
+    publishedAt: '2026-08-25T09:00:00.000Z',
+    createdAt: '2026-08-25T09:00:00.000Z',
+    updatedAt: '2026-08-25T09:00:00.000Z',
     tags: [
       { id: 'tag-remote-community-dubbo', name: 'Remote Community', slug: 'remote-community' },
       { id: 'tag-asset-management-dubbo', name: 'Asset Management', slug: 'asset-management' },
@@ -6908,9 +6908,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Water Tank Services in Bendigo | PC Water",
     seoDescription:
       "Bendigo and the central Victorian goldfields region have a long history of water security challenges. A practical look at what that means for water tank planning today.",
-    publishedAt: '2026-09-02T15:00:00.000Z',
-    createdAt: '2026-09-02T15:00:00.000Z',
-    updatedAt: '2026-09-02T15:00:00.000Z',
+    publishedAt: '2026-08-25T15:00:00.000Z',
+    createdAt: '2026-08-25T15:00:00.000Z',
+    updatedAt: '2026-08-25T15:00:00.000Z',
     tags: [
       { id: 'tag-remote-community-bendigo', name: 'Remote Community', slug: 'remote-community' },
       { id: 'tag-asset-management-bendigo', name: 'Asset Management', slug: 'asset-management' },
@@ -7000,9 +7000,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Water Tank Services in Ballarat | PC Water",
     seoDescription:
       "Ballarat’s elevation brings genuine frost and cold-climate considerations for water tank fittings and pipework. A practical look at what that means for the region.",
-    publishedAt: '2026-09-03T09:00:00.000Z',
-    createdAt: '2026-09-03T09:00:00.000Z',
-    updatedAt: '2026-09-03T09:00:00.000Z',
+    publishedAt: '2026-08-26T09:00:00.000Z',
+    createdAt: '2026-08-26T09:00:00.000Z',
+    updatedAt: '2026-08-26T09:00:00.000Z',
     tags: [
       { id: 'tag-custom-tank-ballarat', name: 'Custom Tank Design', slug: 'custom-tank-design' },
       { id: 'tag-tank-maintenance-ballarat', name: 'Tank Maintenance', slug: 'tank-maintenance' },
@@ -7092,9 +7092,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Water Tank Services in Geelong | PC Water",
     seoDescription:
       "Geelong combines industrial port activity with significant residential and commercial growth. A practical look at what that mix means for water storage infrastructure in the region.",
-    publishedAt: '2026-09-03T15:00:00.000Z',
-    createdAt: '2026-09-03T15:00:00.000Z',
-    updatedAt: '2026-09-03T15:00:00.000Z',
+    publishedAt: '2026-08-26T15:00:00.000Z',
+    createdAt: '2026-08-26T15:00:00.000Z',
+    updatedAt: '2026-08-26T15:00:00.000Z',
     tags: [
       { id: 'tag-industrial-facilities-geelong', name: 'Industrial Facilities', slug: 'industrial-facilities' },
       { id: 'tag-commercial-geelong', name: 'Commercial', slug: 'commercial' },
@@ -7187,9 +7187,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Water Tank Services in Darwin | PC Water",
     seoDescription:
       "Darwin combines a monsoon-cyclone climate, remote NT logistics and significant defence and resources presence. A practical look at what that means for water storage specification.",
-    publishedAt: '2026-09-04T09:00:00.000Z',
-    createdAt: '2026-09-04T09:00:00.000Z',
-    updatedAt: '2026-09-04T09:00:00.000Z',
+    publishedAt: '2026-08-27T09:00:00.000Z',
+    createdAt: '2026-08-27T09:00:00.000Z',
+    updatedAt: '2026-08-27T09:00:00.000Z',
     tags: [
       { id: 'tag-remote-projects-darwin', name: 'Remote Projects', slug: 'remote-projects' },
       { id: 'tag-fire-compliance-darwin', name: 'Fire Compliance', slug: 'fire-compliance' },
@@ -7279,9 +7279,9 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Water Tank Services in Kalgoorlie | PC Water",
     seoDescription:
       "Kalgoorlie’s water supply has relied on a historic pipeline spanning hundreds of kilometres from the coast. A practical look at what that legacy means for water storage in the region today.",
-    publishedAt: '2026-09-04T15:00:00.000Z',
-    createdAt: '2026-09-04T15:00:00.000Z',
-    updatedAt: '2026-09-04T15:00:00.000Z',
+    publishedAt: '2026-08-27T15:00:00.000Z',
+    createdAt: '2026-08-27T15:00:00.000Z',
+    updatedAt: '2026-08-27T15:00:00.000Z',
     tags: [
       { id: 'tag-mining-resources-kalgoorlie', name: 'Mining & Resources', slug: 'mining-resources' },
       { id: 'tag-remote-projects-kalgoorlie', name: 'Remote Projects', slug: 'remote-projects' },
@@ -7371,13 +7371,137 @@ export const fallbackPosts: CmsPost[] = [
     seoTitle: "Water Tank Services in Launceston | PC Water",
     seoDescription:
       "Launceston sits at a river confluence with a documented flood history, in Tasmania’s genuinely cooler climate. A practical look at what that means for water tank siting and design.",
-    publishedAt: '2026-09-05T09:00:00.000Z',
-    createdAt: '2026-09-05T09:00:00.000Z',
-    updatedAt: '2026-09-05T09:00:00.000Z',
+    publishedAt: '2026-08-28T09:00:00.000Z',
+    createdAt: '2026-08-28T09:00:00.000Z',
+    updatedAt: '2026-08-28T09:00:00.000Z',
     tags: [
       { id: 'tag-foundation-civil-launceston', name: 'Foundation & Civil', slug: 'foundation-civil' },
       { id: 'tag-custom-tank-launceston', name: 'Custom Tank Design', slug: 'custom-tank-design' },
       { id: 'tag-remote-community-launceston', name: 'Remote Community', slug: 'remote-community' },
+    ],
+  },
+  {
+    id: staticId('post', 'Planning a Water Tank Shutdown for Relining, Refurbishment a'),
+    title: "Planning a Water Tank Shutdown for Relining, Refurbishment and Return to Service",
+    slug: 'planning-a-water-tank-shutdown-for-relining-refurbishment-and-return-to-service',
+    excerpt:
+      "A tank shutdown is not just a calendar booking. The risk sits in water continuity, access, cleaning, testing, documentation and the decision points that determine whether the asset can safely return to service.",
+    content: `<p class="article-lead">
+  A water tank shutdown usually looks simple on a program: take the tank offline, complete the internal works, test it, and return it to service. In practice, that line item carries more risk than most asset owners expect.
+</p>
+
+<p>The tank is not just a container. It is part of a live operating system. It may be feeding a potable network, a fire service, an industrial process, a remote community, or a commercial building that cannot tolerate extended disruption. If the shutdown is planned only around the contractor's site access, the project is already under-scoped.</p>
+
+<p>Good shutdown planning starts with one question: what must remain true while this tank is unavailable? The answer determines temporary supply, staging, isolation points, cleaning method, testing requirements, documentation, and the final return-to-service decision.</p>
+
+<figure>
+  <img src="${BASE}/rpvc-hero.jpg" alt="Internal RPVC liner system installed inside a water storage tank"/>
+  <figcaption><strong>Relining changes the tank from the inside out.</strong> The work may be physical, but the shutdown plan is operational, compliance-led, and documentation-heavy.</figcaption>
+</figure>
+
+<div class="article-divider"><span>The shutdown starts before the tank is empty</span></div>
+
+<h3>Confirm what the tank actually supports</h3>
+<p>The first planning failure is assuming everyone knows what the tank feeds. In older facilities, drawings may be incomplete, valves may not match the plan, and pipework may have been modified over years of maintenance. Before any shutdown is approved, the project team should confirm whether the tank supports potable water, fire water, process water, irrigation, washdown, cooling, or more than one function.</p>
+
+<p>This matters because each use has a different tolerance for downtime. A process water tank may affect production. A potable tank may trigger water quality requirements before recommissioning. A fire water tank may create a compliance gap the moment it is isolated. A dual-use asset can create several risks at once.</p>
+
+<h3>Check redundancy before relying on it</h3>
+<p>Many sites describe themselves as having backup storage because a second tank exists. That is not the same as proven redundancy. The second tank must have sufficient usable volume, confirmed valve positions, known pump capacity, and enough isolation flexibility to support the site while the primary asset is offline.</p>
+
+<p>If the backup tank has not been inspected, cleaned, or verified recently, it can become the weak point in the shutdown. The maintenance project then depends on an asset whose condition is unknown. That is how a planned intervention becomes an unplanned operational problem.</p>
+
+<div class="article-divider"><span>Access and preparation decide the real program</span></div>
+
+<h3>Internal access is not only a safety issue</h3>
+<p>Tank access planning normally focuses on confined space rules, fall protection, ventilation and rescue. Those are non-negotiable, but they are only part of the program risk. Access also determines how quickly the crew can clean, inspect, remove waste, prepare surfaces, install liner panels, test welds and demobilise.</p>
+
+<p>A small hatch can slow material handling. Poor laydown space can delay preparation. Restricted vehicle access can affect vacuum tanker setup, scaffold delivery, crane positioning or waste removal. These are not minor site details. They determine whether a three-day window stays three days.</p>
+
+<div class="article-photo-grid">
+  <figure>
+    <img src="${BASE}/cleaning-inspection-hero.jpg" alt="Tank cleaning and inspection work being prepared before refurbishment"/>
+    <figcaption><strong>Cleaning is part of the shutdown, not a separate chore.</strong> Sediment, coatings, liner condition and access constraints all affect how quickly a tank can be made ready for internal works.</figcaption>
+  </figure>
+  <figure>
+    <img src="${BASE}/fire-tank-inspection.jpg" alt="Fire water tank inspection and maintenance documentation being reviewed"/>
+    <figcaption><strong>Return to service needs evidence.</strong> Inspection records, test results and handover notes are what turn a completed repair into a defensible asset decision.</figcaption>
+  </figure>
+</div>
+
+<h3>Cleaning can reveal a different job</h3>
+<p>Shutdown scopes often begin with an assumed repair path: reline the tank, patch a section, replace a fitting, or refurbish the internal surface. But the real condition is confirmed only once the tank is accessed and cleaned. Sediment can hide corrosion. A failed coating can conceal pitting. A liner can look intact from above while failing at penetrations, corners or seam transitions.</p>
+
+<p>The shutdown plan should include decision points. If the inspection reveals structural loss, failed substrate, unexpected contamination, or a non-compliant fitting arrangement, the team needs a defined pathway for engineering review, variation approval and revised return-to-service timing. Without that pathway, the crew finds the issue, everyone stops, and the program starts drifting.</p>
+
+<blockquote class="article-quotable">
+  <p>A tank shutdown is not successful because the work finished quickly. It is successful when the asset returns to service with the right evidence behind it: condition confirmed, works completed, testing passed, and operational risk closed.</p>
+</blockquote>
+
+<div class="article-pull-stat">
+  <span class="stat-num">4</span>
+  <span class="stat-label">Controls that make a shutdown manageable: supply continuity, safe access, condition hold-points, and return-to-service evidence</span>
+</div>
+
+<div class="article-divider"><span>Return to service is a controlled step</span></div>
+
+<h3>Testing must match the tank's purpose</h3>
+<p>After relining or refurbishment, return to service should not rely on visual completion alone. The testing path depends on the asset. A potable tank may require cleaning verification, disinfection, flushing, water quality testing and confirmation that materials in contact with drinking water are suitable. A fire water tank needs confidence that usable volume, fittings, suction arrangement and inspection records support the required compliance position. An industrial process tank may need chemical compatibility checks or site-specific acceptance criteria.</p>
+
+<p>The mistake is treating testing as paperwork after completion. Testing is part of the program. If samples require lab turnaround, if the tank must hold water for leak verification, or if client witnessing is required, those dates belong in the shutdown plan from the beginning.</p>
+
+<h3>Documentation is what closes the risk</h3>
+<p>For an asset owner, the most valuable output is not only the repaired tank. It is the record that proves what was done, what was found, what was tested, and what assumptions remain. Good handover documentation should include pre-work condition notes, photos, cleaning records, material data, liner or coating details, test results, defect notes, and recommendations for future inspection intervals.</p>
+
+<p>That documentation protects the next maintenance decision. It gives the site a baseline, helps insurers and auditors understand the asset condition, and prevents the same questions being reopened from memory two years later.</p>
+
+<div class="article-divider"><span>Shutdown planning checklist</span></div>
+
+<table class="checklist-table">
+  <thead>
+    <tr><th>Planning question</th><th>Why it matters</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>What systems does the tank support?</td><td>Potable, fire, process and dual-use tanks carry different shutdown risks</td></tr>
+    <tr><td>Is redundancy verified, not assumed?</td><td>Backup tanks and alternate supply paths must have confirmed usable capacity</td></tr>
+    <tr><td>Are access and laydown constraints known?</td><td>Hatches, cranes, vacuum equipment, waste removal and scaffold can drive the real schedule</td></tr>
+    <tr><td>What condition findings trigger a hold-point?</td><td>Structural loss, failed coatings or unexpected contamination may change the repair pathway</td></tr>
+    <tr><td>What evidence is needed before return to service?</td><td>Testing, photos, materials records and handover documentation close the compliance loop</td></tr>
+  </tbody>
+</table>
+
+<div class="article-faq-item">
+  <p class="faq-q">How long should a water tank shutdown be planned for?</p>
+  <p class="faq-a">The shutdown length depends on tank size, access, cleaning requirement, repair scope, liner or coating system, testing requirements and whether the tank needs laboratory water quality clearance before return to service. The safer approach is to plan around hold-points rather than assume a fixed duration from the first site walk.</p>
+</div>
+
+<div class="article-faq-item">
+  <p class="faq-q">Can a tank be relined without interrupting site water supply?</p>
+  <p class="faq-a">Sometimes, but only if the site has verified redundancy or an acceptable temporary supply arrangement. The tank being relined must usually be isolated, cleaned and accessed internally, so continuity depends on what other storage, pumping or supply options can safely support the site during that window.</p>
+</div>
+
+<div class="article-faq-item">
+  <p class="faq-q">What is the biggest cause of delay during tank refurbishment?</p>
+  <p class="faq-a">The common delay is not the liner or repair work itself. It is an unexpected condition finding after cleaning, unclear approval pathway for variations, poor access planning, delayed testing, or missing return-to-service documentation requirements. These can all be planned for before the tank comes offline.</p>
+</div>
+
+<div class="article-cta">
+  <p>Planning a relining or refurbishment window? PC Water Infrastructure can help scope the shutdown, confirm the condition risks and return the asset to service with the right evidence behind it.</p>
+  <a href="/contact" class="cta-btn">Plan a tank shutdown</a>
+</div>`,
+    coverImageUrl: `${BASE}/rpvc-hero.jpg`,
+    readTime: '7 min read',
+    status: 'published',
+    seoTitle: "Water Tank Shutdown Planning for Relining and Refurbishment | PC Water",
+    seoDescription:
+      "How to plan a water tank shutdown for relining or refurbishment, including access, temporary supply, testing, documentation and return-to-service risk.",
+    publishedAt: '2026-08-28T15:00:00.000Z',
+    createdAt: '2026-08-28T15:00:00.000Z',
+    updatedAt: '2026-08-28T15:00:00.000Z',
+    tags: [
+      { id: 'tag-tank-maintenance-shutdown-planning', name: 'Tank Maintenance', slug: 'tank-maintenance' },
+      { id: 'tag-rpvc-liners-shutdown-planning', name: 'RPVC Liners', slug: 'rpvc-liners' },
+      { id: 'tag-project-managed-shutdown-planning', name: 'Project Delivery', slug: 'project-managed' },
     ],
   },
 ]
