@@ -76,6 +76,9 @@ export default async function ProjectsPage() {
 
   const lead = items.find((p) => p.featured) ?? items[0]
   const rest = items.filter((p) => p.slug !== lead?.slug)
+  /* The flagship rail shows the other featured projects only — three keeps
+     each row readable and the column balanced against the lead card. */
+  const alsoFeatured = rest.filter((p) => p.featured).slice(0, 3)
 
   // Sidebar facets
   const locationCounts = new Map<string, number>()
@@ -189,16 +192,25 @@ export default async function ProjectsPage() {
 
             <div className="grid grid-cols-1 gap-5 lg:grid-cols-[1.5fr_1fr]">
               <ProjectCard project={lead} variant="lead" />
-              {rest.length > 0 && (
-                <div>
+              {alsoFeatured.length > 0 && (
+                <div className="flex flex-col">
                   <h3 className="mb-2 border-b border-white/20 pb-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-white">
                     Also in the portfolio
                   </h3>
                   <div className="divide-y divide-white/10 [&_h4]:text-white [&_p]:text-gray-400 [&_span]:text-[#7fc2f0]">
-                    {rest.slice(0, 5).map((p) => (
+                    {alsoFeatured.map((p) => (
                       <ProjectCard key={p.slug} project={p} variant="compact" />
                     ))}
                   </div>
+                  <a
+                    href="#portfolio"
+                    className="mt-3 inline-flex items-center gap-1.5 text-[13px] font-bold text-[#7fc2f0] transition-colors hover:text-white"
+                  >
+                    See all {items.length} projects
+                    <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
                 </div>
               )}
             </div>
@@ -207,7 +219,7 @@ export default async function ProjectsPage() {
       )}
 
       {/* ── Portfolio ── */}
-      <section className="bg-[#f4f6f8] py-8 sm:py-10">
+      <section id="portfolio" className="scroll-mt-20 bg-[#f4f6f8] py-8 sm:py-10">
         <div className={SHELL}>
           <div className="mb-5 flex items-baseline justify-between gap-4 border-b-2 border-[#0d1b2a] pb-2">
             <h2 className="text-lg font-black uppercase tracking-tight text-[#0d1b2a] sm:text-xl">
