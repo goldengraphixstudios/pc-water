@@ -21,16 +21,12 @@ import {
   getFeatured,
   sortByNewest,
 } from '@/lib/cms/taxonomy'
+import { SHELL } from '@/lib/shell'
 
 export const dynamic = 'force-static'
 
 const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
 
-/**
- * The library deliberately breaks the site's usual max-w-6xl container so the
- * three-column workspace can use the full viewport width.
- */
-const SHELL = 'mx-auto w-full max-w-[1920px] px-4 sm:px-6 lg:px-8'
 
 export const metadata: Metadata = {
   title: 'Articles & Insights',

@@ -15,11 +15,11 @@ import {
   enrichArticles,
   sortByNewest,
 } from '@/lib/cms/taxonomy'
+import { SHELL } from '@/lib/shell'
 
 export const dynamic = 'force-static'
 
 const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
-const SHELL = 'mx-auto w-full max-w-[1920px] px-4 sm:px-6 lg:px-8'
 
 export function generateStaticParams() {
   return REGIONS.map((r) => ({ slug: r.slug }))

@@ -1,8 +1,12 @@
 import type { Metadata } from 'next'
 import Image from '@/components/AppImage'
-import ProjectsGrid from '@/components/ProjectsGrid'
 import CTABanner from '@/components/CTABanner'
-import { getPublicProjects, toProjectGridItems } from '@/lib/cms/queries'
+import ProjectCard, { type ProjectItem } from '@/components/projects/ProjectCard'
+import ProjectsBrowser from '@/components/projects/ProjectsBrowser'
+import ProjectsSidebar from '@/components/projects/ProjectsSidebar'
+import { getPublicPosts, getPublicProjects } from '@/lib/cms/queries'
+import { enrichArticles, sortByNewest } from '@/lib/cms/taxonomy'
+import { SHELL } from '@/lib/shell'
 
 export const metadata: Metadata = {
   title: 'Water Infrastructure Projects',
@@ -13,15 +17,14 @@ export const metadata: Metadata = {
     'water tank project portfolio',
     'engineered water storage projects',
   ],
-  alternates: {
-    canonical: '/projects',
-  },
+  alternates: { canonical: '/projects' },
   openGraph: {
     type: 'website',
     locale: 'en_AU',
     siteName: 'PC Water Infrastructure',
     title: 'Water Infrastructure Projects',
-    description: 'Water storage infrastructure delivered across government, mining, industrial, and remote community sectors across Australia.',
+    description:
+      'Water storage infrastructure delivered across government, mining, industrial, and remote community sectors across Australia.',
     url: 'https://pcwater.com.au/projects',
     images: [{ url: '/hero.png', width: 1200, height: 630, alt: 'PC Water Infrastructure — Engineered Water Asset Solutions' }],
   },
@@ -30,33 +33,201 @@ export const metadata: Metadata = {
 
 export const dynamic = 'force-static'
 
+const siteUrl = process.env.SITE_URL || 'https://pcwater.com.au'
+
+/** Compound sectors like "Hydro Energy / Government" become two facets. */
+function splitSector(sector: string): string[] {
+  return sector
+    .split('/')
+    .map((s) => s.trim())
+    .filter(Boolean)
+}
+
+/** Best-effort state extraction from the free-text location field. */
+function stateFromLocation(location: string): string | null {
+  const map: Array<[RegExp, string]> = [
+    [/queensland|\bqld\b/i, 'Queensland'],
+    [/tasmania|\btas\b/i, 'Tasmania'],
+    [/new south wales|\bnsw\b/i, 'New South Wales'],
+    [/victoria|\bvic\b/i, 'Victoria'],
+    [/northern territory|\bnt\b/i, 'Northern Territory'],
+    [/south australia|\bsa\b/i, 'South Australia'],
+    [/western australia|\bwa\b/i, 'Western Australia'],
+  ]
+  for (const [re, name] of map) if (re.test(location)) return name
+  return null
+}
+
 export default async function ProjectsPage() {
-  const projects = await getPublicProjects()
+  const [projects, posts] = await Promise.all([getPublicProjects(), getPublicPosts()])
+
+  const items: ProjectItem[] = projects.map((p) => ({
+    slug: p.slug,
+    title: p.title,
+    sector: p.sector,
+    sectorTags: splitSector(p.sector),
+    location: p.location,
+    scope: p.scope || p.summary,
+    imageSrc: p.heroImageUrl,
+    featured: p.featured,
+    client: p.clientOrganisation ?? null,
+    projectStatus: p.projectStatus ?? null,
+  }))
+
+  const lead = items.find((p) => p.featured) ?? items[0]
+  const rest = items.filter((p) => p.slug !== lead?.slug)
+
+  // Sidebar facets
+  const locationCounts = new Map<string, number>()
+  for (const p of projects) {
+    const state = stateFromLocation(p.location)
+    if (state) locationCounts.set(state, (locationCounts.get(state) ?? 0) + 1)
+  }
+  const locations = [...locationCounts.entries()]
+    .map(([label, count]) => ({ label, count }))
+    .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label))
+
+  const serviceCounts = new Map<string, number>()
+  for (const p of projects) {
+    for (const s of p.servicesDelivered ?? []) {
+      const label = s.trim()
+      if (label) serviceCounts.set(label, (serviceCounts.get(label) ?? 0) + 1)
+    }
+  }
+  const services = [...serviceCounts.entries()]
+    .map(([label, count]) => ({ label, count }))
+    .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label))
+    .slice(0, 12)
+
+  const relatedArticles = sortByNewest(enrichArticles(posts)).slice(0, 4)
+
+  const sectorCount = new Set(items.flatMap((p) => p.sectorTags)).size
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Water Infrastructure Projects',
+    description:
+      'Water storage infrastructure delivered across government, mining, industrial and remote community sectors across Australia.',
+    url: `${siteUrl}/projects`,
+    publisher: { '@type': 'Organization', name: 'PC Water Infrastructure', url: siteUrl },
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: items.length,
+      itemListElement: items.map((p, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        url: `${siteUrl}/projects/${p.slug}`,
+        name: p.title,
+      })),
+    },
+  }
 
   return (
     <>
-      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden min-h-[500px] flex items-center">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
+      {/* ── Masthead ── */}
+      <section className="relative flex min-h-[380px] items-end overflow-hidden pt-28 pb-10 sm:pt-32 sm:pb-12 lg:pt-36">
         <Image
           src="/projects/borumba-03.jpg"
-            alt="PC Water Infrastructure project portfolio"
+          alt="PC Water Infrastructure project portfolio"
           fill
           priority
           className="object-cover object-center"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-[#0d1b2a]/75" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <p className="text-[#3e91ce] text-xs font-bold tracking-widest uppercase mb-4">/ Our Work</p>
-          <h1 className="text-[2.25rem] sm:text-5xl md:text-6xl font-black text-white mb-6">
-            BUILT TO PERFORM.<br />DESIGNED TO LAST.
-          </h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
-            From remote Indigenous communities to industrial facilities, hydro energy schemes to municipal reservoirs — every PC Water Infrastructure project is delivered with the same commitment to engineering excellence and lasting performance.
-          </p>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0d1b2a]/65 via-[#0d1b2a]/80 to-[#0d1b2a]/95" />
+        <div className={`relative z-10 ${SHELL}`}>
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-3xl">
+              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.2em] text-[#3e91ce]">/ Our Work</p>
+              <h1 className="mb-4 text-[2.1rem] font-black leading-[0.95] text-white sm:text-5xl lg:text-6xl">
+                BUILT TO PERFORM.<br />
+                <span className="text-[#3e91ce]">DESIGNED TO LAST.</span>
+              </h1>
+              <p className="max-w-2xl text-base leading-relaxed text-gray-300">
+                From remote Indigenous communities to industrial facilities, hydro energy schemes to municipal
+                reservoirs — delivered with the same commitment to engineering excellence and lasting performance.
+              </p>
+            </div>
+            <dl className="flex gap-8 lg:pb-1">
+              <div>
+                <dt className="text-[10px] font-bold uppercase tracking-[0.12em] text-gray-400">Projects</dt>
+                <dd className="text-3xl font-black text-white">{items.length}</dd>
+              </div>
+              <div>
+                <dt className="text-[10px] font-bold uppercase tracking-[0.12em] text-gray-400">Sectors</dt>
+                <dd className="text-3xl font-black text-white">{sectorCount}</dd>
+              </div>
+              {locations.length > 0 && (
+                <div>
+                  <dt className="text-[10px] font-bold uppercase tracking-[0.12em] text-gray-400">States</dt>
+                  <dd className="text-3xl font-black text-white">{locations.length}</dd>
+                </div>
+              )}
+            </dl>
+          </div>
         </div>
       </section>
 
-      <ProjectsGrid projects={toProjectGridItems(projects)} />
+      {/* ── Flagship project ── */}
+      {lead && (
+        <section className="bg-[#0d1b2a] py-10 sm:py-14">
+          <div className={SHELL}>
+            <div className="mb-6 flex flex-wrap items-end justify-between gap-4 border-b border-white/15 pb-3">
+              <div>
+                <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[#3e91ce]">
+                  / Flagship
+                </p>
+                <h2 className="text-xl font-black text-white sm:text-2xl">START HERE</h2>
+              </div>
+              <p className="max-w-md text-[13px] leading-relaxed text-gray-400">
+                A representative example of how we scope, deliver and commission water storage infrastructure.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-5 lg:grid-cols-[1.5fr_1fr]">
+              <ProjectCard project={lead} variant="lead" />
+              {rest.length > 0 && (
+                <div>
+                  <h3 className="mb-2 border-b border-white/20 pb-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-white">
+                    Also in the portfolio
+                  </h3>
+                  <div className="divide-y divide-white/10 [&_h4]:text-white [&_p]:text-gray-400 [&_span]:text-[#7fc2f0]">
+                    {rest.slice(0, 5).map((p) => (
+                      <ProjectCard key={p.slug} project={p} variant="compact" />
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── Portfolio ── */}
+      <section className="bg-[#f4f6f8] py-8 sm:py-10">
+        <div className={SHELL}>
+          <div className="mb-5 flex items-baseline justify-between gap-4 border-b-2 border-[#0d1b2a] pb-2">
+            <h2 className="text-lg font-black uppercase tracking-tight text-[#0d1b2a] sm:text-xl">
+              The Full Portfolio
+            </h2>
+            <span className="font-mono text-[11px] text-gray-500">{items.length} projects</span>
+          </div>
+
+          <ProjectsBrowser
+            projects={items}
+            sidebar={
+              <ProjectsSidebar
+                locations={locations}
+                services={services}
+                relatedArticles={relatedArticles}
+              />
+            }
+          />
+        </div>
+      </section>
 
       <CTABanner
         heading="DISCUSS A SIMILAR PROJECT"
