@@ -492,6 +492,86 @@ const resourceLinkMap: Record<
     relatedResources: ['government-and-council-water-asset-management-reporting-under-budget-pressure', 'reading-a-tank-inspection-report-what-the-findings-actually-mean', 'what-a-professional-tank-inspection-actually-covers'],
     keywords: ['water asset register', 'council water tank asset tracking', 'water infrastructure asset management software', 'facility manager water tank records'],
   },
+  'elevated-tank-vs-ground-level-tank-vs-reservoir-choosing-the-right-configuration': {
+    relatedServices: [
+      { href: '/services/custom-tank-design', label: 'Custom Tank Design' },
+      { href: '/services/tank-installation', label: 'Tank Installation' },
+    ],
+    relatedResources: ['tank-diameter-vs-height-the-structural-and-cost-trade-offs-behind-tank-shape', 'water-tank-roof-types-compared-fixed-floating-and-geodesic-domes', 'custom-tank-design-when-a-standard-size-doesnt-fit-your-site'],
+    keywords: ['elevated water tank vs ground level', 'water storage configuration comparison', 'open reservoir vs tank australia', 'water tank pressure design'],
+  },
+  'backflow-prevention-and-cross-connection-control-for-water-storage-tanks': {
+    relatedServices: [
+      { href: '/services/water-treatment-solutions', label: 'Water Treatment Solutions' },
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+    ],
+    relatedResources: ['as4020-certification-what-it-actually-certifies-on-a-potable-water-tank', 'water-chemistry-and-disinfection-residual-why-it-matters-in-storage', '5-contamination-risks-not-source-water'],
+    keywords: ['backflow prevention water tank', 'cross connection control australia', 'backflow prevention device testing', 'water tank contamination backflow risk'],
+  },
+  'legionella-risk-in-water-storage-tanks-what-actually-drives-it-and-how-its-controlled': {
+    relatedServices: [
+      { href: '/services/water-treatment-solutions', label: 'Water Treatment Solutions' },
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+    ],
+    relatedResources: ['iron-bacteria-in-water-tanks-the-slime-thats-quietly-corroding-your-asset', 'water-chemistry-and-disinfection-residual-why-it-matters-in-storage', 'how-often-should-a-water-tank-be-cleaned'],
+    keywords: ['legionella risk water tank', 'legionella control water storage australia', 'water tank stagnation legionella', 'legionella risk management plan tank'],
+  },
+  'water-tank-access-ladders-platforms-and-fall-protection-whs-requirements-explained': {
+    relatedServices: [
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+    ],
+    relatedResources: ['confined-space-entry-requirements-for-water-tank-work-a-safety-primer', 'what-a-professional-tank-inspection-actually-covers', 'reading-a-tank-inspection-report-what-the-findings-actually-mean'],
+    keywords: ['water tank access ladder requirements', 'tank fall protection WHS australia', 'water tank platform safety', 'tank access compliance inspection'],
+  },
+  'tank-diameter-vs-height-the-structural-and-cost-trade-offs-behind-tank-shape': {
+    relatedServices: [
+      { href: '/services/custom-tank-design', label: 'Custom Tank Design' },
+      { href: '/services/foundation-civil-integration', label: 'Foundation & Civil Integration' },
+    ],
+    relatedResources: ['elevated-tank-vs-ground-level-tank-vs-reservoir-choosing-the-right-configuration', 'seismic-and-wind-loading-on-water-tanks-why-structural-design-doesnt-stop-at-the-walls', 'foundation-and-civil-works-why-tank-failures-start-below-ground'],
+    keywords: ['water tank diameter vs height', 'tank shape structural design', 'water tank footprint design australia', 'tank hydrostatic pressure design'],
+  },
+  'wind-uplift-on-empty-water-tanks-why-an-empty-tank-is-more-vulnerable-than-a-full-one': {
+    relatedServices: [
+      { href: '/services/custom-tank-design', label: 'Custom Tank Design' },
+      { href: '/services/foundation-civil-integration', label: 'Foundation & Civil Integration' },
+    ],
+    relatedResources: ['seismic-and-wind-loading-on-water-tanks-why-structural-design-doesnt-stop-at-the-walls', 'tank-diameter-vs-height-the-structural-and-cost-trade-offs-behind-tank-shape', 'water-tank-decommissioning-what-proper-removal-and-site-remediation-involves'],
+    keywords: ['wind uplift empty water tank', 'water tank anchorage wind design', 'empty tank wind risk australia', 'tank roof uplift wind loading'],
+  },
+  'pre-purchase-water-tank-due-diligence-what-to-check-before-buying-a-property': {
+    relatedServices: [
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+    ],
+    relatedResources: ['what-a-professional-tank-inspection-actually-covers', 'water-tank-warranty-claims-what-voids-cover-and-what-doesnt', 'water-tank-insurance-and-risk-what-insurers-actually-look-for-after-a-claim'],
+    keywords: ['pre purchase water tank inspection', 'due diligence water tank property', 'commercial property water tank check', 'water tank condition before buying'],
+  },
+  'does-tank-colour-affect-water-temperature-and-algae-growth': {
+    relatedServices: [
+      { href: '/services/water-treatment-solutions', label: 'Water Treatment Solutions' },
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+    ],
+    relatedResources: ['water-tank-insulation-and-temperature-control-when-its-actually-needed', 'water-chemistry-and-disinfection-residual-why-it-matters-in-storage', 'iron-bacteria-in-water-tanks-the-slime-thats-quietly-corroding-your-asset'],
+    keywords: ['does tank colour affect algae', 'water tank temperature algae growth', 'water tank colour water quality', 'tank material light penetration algae'],
+  },
+  'emergency-water-tank-repair-what-temporary-fixes-are-safe-and-what-should-wait': {
+    relatedServices: [
+      { href: '/services/tank-maintenance-upgrades', label: 'Tank Maintenance & Upgrades' },
+      { href: '/services/tank-inspection-technology', label: 'Tank Inspection Technology' },
+    ],
+    relatedResources: ['is-your-water-tank-a-ticking-time-bomb-5-signs-your-tank-is-failing', 'reline-or-replace-ageing-steel-tank-lifecycle-cost', 'what-a-professional-tank-inspection-actually-covers'],
+    keywords: ['emergency water tank repair', 'temporary water tank fix', 'water tank leak emergency response australia', 'tank failure assessment'],
+  },
+  'water-tank-insulation-and-temperature-control-when-its-actually-needed': {
+    relatedServices: [
+      { href: '/services/custom-tank-design', label: 'Custom Tank Design' },
+      { href: '/services/remote-area-delivery', label: 'Remote Area Project Delivery' },
+    ],
+    relatedResources: ['does-tank-colour-affect-water-temperature-and-algae-growth', 'water-storage-in-harsh-environments-what-you-need-to-know', 'water-chemistry-and-disinfection-residual-why-it-matters-in-storage'],
+    keywords: ['water tank insulation', 'tank freeze protection australia', 'water tank temperature control', 'insulated water storage tank cold climate'],
+  },
 }
 
 export async function generateStaticParams() {
