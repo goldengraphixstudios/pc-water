@@ -1,4 +1,5 @@
 import type { Entry } from '@/components/editorial/EntryCard'
+import { PATHWAYS, TOOLS } from '@/lib/tools/directory'
 
 /**
  * One source of truth for the service, industry and tool directories.
@@ -186,47 +187,28 @@ export const industries: Entry[] = [
   },
 ]
 
-export const tools: Entry[] = [
-  {
-    href: '/tools/tank-compliance-checker',
-    title: 'Tank Compliance Checker',
-    kicker: 'Free assessment · 2 minutes',
-    blurb:
-      'Answer a few questions about your tank and get a fast indication of likely compliance risk — from low risk through to urgent review recommended — plus your recommended next step.',
-    meta: 'Check compliance risk',
-    points: ['Tank type, age & inspection history', 'AS2304 / AS1851 / AS4020 context', 'Instant risk indication'],
-  },
-  {
-    href: '/tools/repair-reline-replace',
-    title: 'Repair vs Reline vs Replace',
-    kicker: 'Free decision tool · 2 minutes',
-    blurb:
-      'For aging or deteriorating tanks: find out whether the practical path is targeted repair, RPVC relining, full replacement, or an inspection first.',
-    meta: 'Get my result',
-    points: ['Structural & corrosion condition', 'Liner / coating assessment', 'Clear recommended path'],
-  },
-]
+/**
+ * The tools and enquiry pathways are defined in lib/tools/directory with the
+ * inputs and outcomes the /tools page renders. Sibling rails only need the
+ * summary shape, so derive it here rather than restating the copy.
+ */
+export const tools: Entry[] = TOOLS.map((t) => ({
+  href: t.href,
+  title: t.title,
+  blurb: t.blurb,
+  kicker: `Free tool · ${t.questions} questions`,
+  meta: t.cta,
+  points: t.asks.slice(0, 3),
+}))
 
-export const projectPathways: Entry[] = [
-  {
-    href: '/campaigns/tank-remediation',
-    title: 'Tank Remediation',
-    kicker: 'Project enquiry',
-    blurb:
-      'Leaking, corroded or deteriorating tank? Request a project-specific proposal covering repair, RPVC relining, upgrades or replacement — with the pathway confirmed at assessment.',
-    meta: 'Request a proposal',
-    points: ['Repair · Reline · Replace pathways', 'Councils, industrial & commercial', 'Reply within 1 business day'],
-  },
-  {
-    href: '/campaigns/remote-water-infrastructure',
-    title: 'Remote Water Infrastructure',
-    kicker: 'Project enquiry',
-    blurb:
-      'Planning water storage or treatment in remote Australia? Discuss an end-to-end delivery strategy — planning, civil, storage, treatment, installation and commissioning under one team.',
-    meta: 'Discuss your project',
-    points: ['End-to-end coordinated delivery', 'Freight, access & seasonal planning', 'Reply within 1 business day'],
-  },
-]
+export const projectPathways: Entry[] = PATHWAYS.map((p) => ({
+  href: p.href,
+  title: p.title,
+  blurb: p.blurb,
+  kicker: 'Project enquiry',
+  meta: p.cta,
+  points: p.points,
+}))
 
 /** Every service across both divisions, in catalogue order. */
 export const allServices: Entry[] = [...waterSolutionsServices, ...pcTanksServices]

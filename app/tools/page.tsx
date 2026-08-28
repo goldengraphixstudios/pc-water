@@ -6,10 +6,11 @@ import CrossLinks from '@/components/editorial/CrossLinks'
 import Masthead from '@/components/editorial/Masthead'
 import RuleHeading from '@/components/editorial/RuleHeading'
 import { Rail, RailArticles, RailContact, RailDownload, RailLinks, RailPanel } from '@/components/editorial/RailPanel'
-import ToolCard, { PathwayCard, type Pathway, type Tool } from '@/components/tools/ToolCard'
+import ToolCard, { PathwayCard } from '@/components/tools/ToolCard'
 import { getPublicPosts, getPublicProjects } from '@/lib/cms/queries'
 import { enrichArticles, sortByNewest } from '@/lib/cms/taxonomy'
 import { SHELL } from '@/lib/shell'
+import { PATHWAYS, TOOLS } from '@/lib/tools/directory'
 
 export const dynamic = 'force-static'
 
@@ -38,77 +39,6 @@ export const metadata: Metadata = {
   },
   twitter: { card: 'summary_large_image' as const, images: ['/hero.png'] },
 }
-
-/* The inputs and outcomes below mirror lib/tools/*.ts — the questions each
-   assessment actually asks and the results it can return. */
-const tools: Tool[] = [
-  {
-    href: '/tools/tank-compliance-checker',
-    title: 'Tank Compliance Checker',
-    blurb:
-      'Answer a few questions about your tank and get a fast indication of likely compliance risk — plus the recommended next step for your asset.',
-    asks: [
-      'Tank type & construction',
-      'Age of the asset',
-      'Last formal inspection',
-      'Visible corrosion or damage',
-      'Site environment',
-      'Maintenance & documentation',
-    ],
-    outcomes: [
-      { label: 'Low apparent risk', tone: 'low' },
-      { label: 'Moderate risk', tone: 'moderate' },
-      { label: 'High risk', tone: 'high' },
-      { label: 'Urgent review', tone: 'urgent' },
-    ],
-    questions: 8,
-    minutes: '2 min',
-    cta: 'Check Compliance Risk',
-  },
-  {
-    href: '/tools/repair-reline-replace',
-    title: 'Repair vs Reline vs Replace',
-    blurb:
-      'For aging or deteriorating tanks: find out whether the practical path is targeted repair, RPVC relining, full replacement, or an inspection first.',
-    asks: [
-      'What the tank stores',
-      'Age of the asset',
-      'Structural condition',
-      'Liner or coating condition',
-      'Level of corrosion',
-      'Downtime tolerance',
-    ],
-    outcomes: [
-      { label: 'Inspect first', tone: 'info' },
-      { label: 'Targeted repair', tone: 'low' },
-      { label: 'RPVC reline', tone: 'moderate' },
-      { label: 'Replacement', tone: 'high' },
-    ],
-    questions: 8,
-    minutes: '2 min',
-    cta: 'Get My Result',
-  },
-]
-
-// Higher-intent project funnels — request a project-specific proposal / strategy.
-const projectPathways: Pathway[] = [
-  {
-    href: '/campaigns/tank-remediation',
-    title: 'Tank Remediation',
-    blurb:
-      'Leaking, corroded or deteriorating tank? Request a project-specific proposal covering repair, RPVC relining, upgrades or replacement — with the pathway confirmed at assessment.',
-    points: ['Repair · Reline · Replace pathways', 'Councils, industrial & commercial', 'Reply within 1 business day'],
-    cta: 'Request a Remediation Proposal',
-  },
-  {
-    href: '/campaigns/remote-water-infrastructure',
-    title: 'Remote Water Infrastructure',
-    blurb:
-      'Planning water storage or treatment in remote Australia? Discuss an end-to-end delivery strategy — planning, civil, storage, treatment, installation and commissioning under one team.',
-    points: ['End-to-end coordinated delivery', 'Freight, access & seasonal planning', 'Reply within 1 business day'],
-    cta: 'Discuss Your Remote Project',
-  },
-]
 
 const howItWorks = [
   {
@@ -167,8 +97,8 @@ export default async function ToolsPage() {
     publisher: { '@type': 'Organization', name: 'PC Water Infrastructure', url: siteUrl },
     mainEntity: {
       '@type': 'ItemList',
-      numberOfItems: tools.length,
-      itemListElement: tools.map((t, i) => ({
+      numberOfItems: TOOLS.length,
+      itemListElement: TOOLS.map((t, i) => ({
         '@type': 'ListItem',
         position: i + 1,
         url: `${siteUrl}${t.href}`,
@@ -200,7 +130,7 @@ export default async function ToolsPage() {
         lead="Two free, rule-based tools that take a few details about your asset and return a reasoned verdict — compliance risk, or whether to repair, reline or replace. Built on the same engineering experience behind our inspection, relining and compliance work."
         crumbs={[{ label: 'Home', href: '/' }, { label: 'Tools' }]}
         stats={[
-          { label: 'Tools', value: tools.length },
+          { label: 'Tools', value: TOOLS.length },
           { label: 'Questions each', value: 8 },
           { label: 'Cost', value: 'Free' },
         ]}
@@ -213,7 +143,7 @@ export default async function ToolsPage() {
             <div>
               <RuleHeading meta="No signup · Result on screen">Start Here</RuleHeading>
               <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
-                {tools.map((t, i) => (
+                {TOOLS.map((t, i) => (
                   <ToolCard key={t.href} tool={t} index={i + 1} />
                 ))}
               </div>
@@ -290,7 +220,7 @@ export default async function ToolsPage() {
             engineering team — with a project-specific proposal or delivery strategy to follow.
           </p>
           <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-            {projectPathways.map((p) => (
+            {PATHWAYS.map((p) => (
               <PathwayCard key={p.href} pathway={p} />
             ))}
           </div>
