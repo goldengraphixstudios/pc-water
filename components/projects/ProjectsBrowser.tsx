@@ -96,12 +96,12 @@ export default function ProjectsBrowser({
             ))}
           </div>
         ) : (
-          <div className="rounded-md border border-dashed border-gray-300 bg-white py-14 text-center">
+          <div className="rounded-lg border border-dashed border-gray-300 bg-white py-14 text-center">
             <p className="mb-1 font-bold text-[#30505b]">No projects in this sector yet</p>
             <button
               type="button"
               onClick={() => setSector('all')}
-              className="mt-3 rounded-md bg-[#2a72ad] px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#246397]"
+              className="mt-3 rounded-lg bg-[#2a72ad] px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#246397]"
             >
               Show all projects
             </button>

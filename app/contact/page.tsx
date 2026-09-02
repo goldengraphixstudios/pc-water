@@ -102,7 +102,7 @@ export default function ContactPage() {
                     <div>
                       <p className="text-xs font-bold text-gray-400 uppercase tracking-wide mb-0.5">{item.label}</p>
                       {item.href ? (
-                        <a href={item.href} className="text-[#30505b] font-semibold hover:text-[#3e91ce] transition-colors text-sm">{item.value}</a>
+                        <a href={item.href} className="inline-block py-1 text-[#30505b] font-semibold hover:text-[#3e91ce] transition-colors text-sm">{item.value}</a>
                       ) : (
                         <p className="text-[#30505b] font-semibold text-sm">{item.value}</p>
                       )}
@@ -156,10 +156,10 @@ export default function ContactPage() {
                   Get an instant read on your tank with our free tools before you reach out.
                 </p>
                 <div className="flex flex-col gap-2">
-                  <Link href="/tools/tank-compliance-checker" className="text-sm font-semibold text-[#30505b] hover:text-[#3e91ce] transition-colors">
+                  <Link href="/tools/tank-compliance-checker" className="py-1.5 text-sm font-semibold text-[#30505b] hover:text-[#3e91ce] transition-colors">
                     → Check compliance risk
                   </Link>
-                  <Link href="/tools/repair-reline-replace" className="text-sm font-semibold text-[#30505b] hover:text-[#3e91ce] transition-colors">
+                  <Link href="/tools/repair-reline-replace" className="py-1.5 text-sm font-semibold text-[#30505b] hover:text-[#3e91ce] transition-colors">
                     → Repair, reline or replace?
                   </Link>
                 </div>

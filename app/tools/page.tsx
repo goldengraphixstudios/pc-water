@@ -153,7 +153,7 @@ export default async function ToolsPage() {
                 <RuleHeading meta="Same for both tools">How They Work</RuleHeading>
                 <ol className="grid grid-cols-1 gap-5 sm:grid-cols-3">
                   {howItWorks.map((s) => (
-                    <li key={s.step} className="border-t-2 border-[#0d1b2a] pt-3">
+                    <li key={s.step} className="border-l-2 border-[#0d1b2a] pl-3 sm:border-l-0 sm:border-t-2 sm:pl-0 sm:pt-3">
                       <p className="mb-1 font-mono text-[13px] font-bold text-[#2a72ad]">{s.step}</p>
                       <h3 className="mb-1.5 text-[15px] font-black text-[#0d1b2a]">{s.title}</h3>
                       <p className="text-[13px] leading-relaxed text-gray-600">{s.body}</p>
@@ -174,7 +174,7 @@ export default async function ToolsPage() {
                   {standards.map((s) => (
                     <span
                       key={s}
-                      className="inline-flex items-center border border-gray-300 bg-white px-2.5 py-1 text-[11px] font-medium text-[#30505b]"
+                      className="inline-flex items-center rounded-full border border-gray-300 bg-white px-2.5 py-1 text-[11px] font-medium text-[#30505b]"
                     >
                       {s}
                     </span>

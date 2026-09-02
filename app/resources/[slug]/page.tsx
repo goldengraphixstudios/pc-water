@@ -848,13 +848,13 @@ export default async function ResourceArticlePage({
             >
               {meta.category.name}
             </Link>
-            <span className="rounded-full border border-white/25 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white/80">
+            <span className="rounded-full rounded-full border border-white/25 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white/80">
               {meta.format.label}
             </span>
             {meta.region && (
               <Link
                 href={`/resources/region/${meta.region.slug}`}
-                className="rounded-full border border-white/25 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white/80 transition-colors hover:border-[#3e91ce] hover:text-white"
+                className="rounded-full rounded-full border border-white/25 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white/80 transition-colors hover:border-[#3e91ce] hover:text-white"
               >
                 {meta.region.name}
               </Link>

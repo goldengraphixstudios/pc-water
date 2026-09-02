@@ -94,7 +94,7 @@ export default function HomePage() {
         <Image src="/water/water-17.jpg" alt="Water storage infrastructure background" fill className="object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 bg-[#0d1b2a]/88" />
         <div className="dot-pattern absolute inset-0 opacity-20 pointer-events-none" />
-        <StaggerContainer className="relative z-10 max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6">
+        <StaggerContainer className="relative z-10 max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
           <StaggerItem>
             <AnimatedCounter value="20+" label="Years Experience" sub="Combined team expertise" />
           </StaggerItem>
@@ -449,8 +449,8 @@ export default function HomePage() {
               { code: 'ADWG', label: 'Australian Drinking Water Guidelines' },
             ].map((std) => (
               <StaggerItem key={std.code}>
-                <div className="group bg-white border-2 border-gray-100 hover:border-[#3e91ce] rounded-2xl p-6 text-center transition-all duration-300 hover:shadow-lg hover:shadow-[#3e91ce]/10 hover:-translate-y-1">
-                  <p className="text-[#3e91ce] font-black text-2xl mb-2">{std.code}</p>
+                <div className="group bg-white border-2 border-gray-100 hover:border-[#3e91ce] rounded-2xl p-4 sm:p-6 text-center transition-all duration-300 hover:shadow-lg hover:shadow-[#3e91ce]/10 hover:-translate-y-1">
+                  <p className="text-[#3e91ce] font-black text-xl sm:text-2xl mb-2">{std.code}</p>
                   <p className="text-[#30505b] text-xs font-semibold">{std.label}</p>
                 </div>
               </StaggerItem>

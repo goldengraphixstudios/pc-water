@@ -119,7 +119,7 @@ export default async function DownloadsPage() {
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 w-full">
           <div className="flex items-center gap-3 mb-4">
-            <Link href="/resources" className="text-gray-500 text-xs hover:text-gray-400 transition-colors">
+            <Link href="/resources" className="inline-block py-1.5 text-gray-500 text-xs hover:text-gray-400 transition-colors">
               Articles & Insights
             </Link>
             <span className="text-gray-600 text-xs">/</span>

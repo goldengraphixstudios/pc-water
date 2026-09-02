@@ -54,7 +54,9 @@ export default function AssessmentTool({ slug }: { slug: string }) {
 
   return (
     <section className="bg-white py-12 sm:py-16" id="assessment">
-      <div className="max-w-3xl mx-auto px-4">
+      {/* The question slides in from x:24, so clip it — otherwise the
+          transition briefly widens the page on narrow phones. */}
+      <div className="max-w-3xl mx-auto px-4 overflow-x-hidden">
         {/* Progress */}
         <div className="mb-8">
           <div className="flex items-center justify-between text-xs font-semibold text-gray-500 mb-2">

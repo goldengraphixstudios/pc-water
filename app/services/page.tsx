@@ -172,7 +172,7 @@ export default async function ServicesPage() {
                     <li key={s.href}>
                       <Link
                         href={s.href}
-                        className="group flex items-center gap-2 text-[13px] font-medium text-[#30505b] transition-colors hover:text-[#2a72ad]"
+                        className="group flex items-center gap-2 py-1.5 text-[13px] font-medium text-[#30505b] transition-colors hover:text-[#2a72ad]"
                       >
                         <span
                           className="h-1.5 w-1.5 flex-shrink-0 rounded-full"
@@ -212,7 +212,7 @@ export default async function ServicesPage() {
                   {standards.map((s) => (
                     <span
                       key={s}
-                      className="inline-flex items-center border border-gray-300 bg-white px-2.5 py-1 text-[11px] font-medium text-[#30505b]"
+                      className="inline-flex items-center rounded-full border border-gray-300 bg-white px-2.5 py-1 text-[11px] font-medium text-[#30505b]"
                     >
                       {s}
                     </span>
@@ -315,7 +315,7 @@ export default async function ServicesPage() {
                       <li key={s.href}>
                         <Link
                           href={s.href}
-                          className="block py-2 text-[13px] font-medium text-[#30505b] transition-colors hover:text-[#2a72ad]"
+                          className="block py-2.5 text-[13px] font-medium text-[#30505b] transition-colors hover:text-[#2a72ad]"
                         >
                           {s.name}
                         </Link>

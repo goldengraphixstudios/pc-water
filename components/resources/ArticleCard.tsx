@@ -75,7 +75,7 @@ function FeatureCard({ article }: { article: EnrichedArticle }) {
   return (
     <Link
       href={`/resources/${article.slug}`}
-      className="group flex h-full flex-col overflow-hidden rounded-lg border border-white/10 bg-white/[0.04] transition-colors duration-300 hover:border-[#3e91ce]/50 hover:bg-white/[0.08]"
+      className="group flex h-full flex-col overflow-hidden rounded-xl border border-white/10 bg-white/[0.04] transition-colors duration-300 hover:border-[#3e91ce]/50 hover:bg-white/[0.08]"
     >
       <div className="relative h-32 overflow-hidden bg-[#162538]">
         {article.coverImageUrl && (
@@ -106,7 +106,7 @@ function StandardCard({ article }: { article: EnrichedArticle }) {
   return (
     <Link
       href={`/resources/${article.slug}`}
-      className="group flex h-full flex-row gap-3 border-b border-gray-200 bg-white py-3 transition-colors hover:bg-[#f4f6f8] sm:flex-col sm:gap-0 sm:rounded-lg sm:border sm:border-gray-200 sm:py-0 sm:hover:border-[#3e91ce]/50 sm:hover:bg-white sm:hover:shadow-md"
+      className="group flex h-full flex-row gap-3 rounded-xl border-b border-gray-200 bg-white py-3 transition-all hover:bg-[#f4f6f8] sm:flex-col sm:gap-0 sm:border sm:border-gray-200 sm:py-0 sm:shadow-sm sm:hover:border-[#3e91ce]/50 sm:hover:bg-white sm:hover:shadow-lg"
     >
       <div className="relative h-[72px] w-[72px] flex-shrink-0 overflow-hidden rounded bg-[#162538] sm:h-36 sm:w-full sm:rounded-none sm:rounded-t-lg">
         {article.coverImageUrl ? (

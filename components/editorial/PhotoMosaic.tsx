@@ -31,7 +31,7 @@ export default function PhotoMosaic({
     <figure className={className}>
       <div className={`grid grid-cols-2 gap-2 sm:gap-3 ${full ? 'lg:grid-cols-4' : 'lg:grid-cols-3'}`}>
         <div
-          className={`relative col-span-2 aspect-[4/3] overflow-hidden bg-[#162538] lg:aspect-auto ${
+          className={`relative col-span-2 aspect-[4/3] overflow-hidden rounded-xl bg-[#162538] lg:aspect-auto ${
             full ? 'row-span-2 lg:min-h-[340px]' : 'lg:min-h-[300px]'
           }`}
         >
@@ -46,7 +46,7 @@ export default function PhotoMosaic({
         {tiles.map((img) => (
           <div
             key={img.src}
-            className={`relative aspect-[4/3] overflow-hidden bg-[#162538] lg:aspect-auto ${
+            className={`relative aspect-[4/3] overflow-hidden rounded-xl bg-[#162538] lg:aspect-auto ${
               full ? 'lg:min-h-[164px]' : 'lg:min-h-[300px]'
             }`}
           >

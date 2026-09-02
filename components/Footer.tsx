@@ -91,10 +91,10 @@ export default function Footer() {
           {/* Menu */}
           <div>
             <h3 className="text-[#3e91ce] font-bold text-xs tracking-widest uppercase mb-5">Menu</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-0.5 sm:space-y-1">
               {menuLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-gray-400 hover:text-white text-sm transition-colors">
+                  <Link href={link.href} className="block py-2 sm:py-1 text-gray-400 hover:text-white text-sm transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -105,10 +105,10 @@ export default function Footer() {
           {/* Industries */}
           <div>
             <h3 className="text-[#3e91ce] font-bold text-xs tracking-widest uppercase mb-5">Industries</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-0.5 sm:space-y-1">
               {industries.map((ind) => (
                 <li key={ind.href}>
-                  <Link href={ind.href} className="text-gray-400 hover:text-white text-sm transition-colors">
+                  <Link href={ind.href} className="block py-2 sm:py-1 text-gray-400 hover:text-white text-sm transition-colors">
                     {ind.label}
                   </Link>
                 </li>
@@ -119,10 +119,10 @@ export default function Footer() {
           {/* Services */}
           <div>
             <h3 className="text-[#3e91ce] font-bold text-xs tracking-widest uppercase mb-5">Services</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-0.5 sm:space-y-1">
               {services.map((s) => (
                 <li key={s.href}>
-                  <Link href={s.href} className="text-gray-400 hover:text-white text-sm transition-colors">
+                  <Link href={s.href} className="block py-2 sm:py-1 text-gray-400 hover:text-white text-sm transition-colors">
                     {s.label}
                   </Link>
                 </li>
@@ -144,14 +144,14 @@ export default function Footer() {
                 <svg className="w-4 h-4 text-[#3e91ce] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
                 </svg>
-                <a href="tel:1300029804" className="hover:text-white transition-colors">1300 029 804</a>
+                <a href="tel:1300029804" className="inline-block py-1 hover:text-white transition-colors">1300 029 804</a>
               </li>
               <li className="flex items-center gap-3">
                 <svg className="w-4 h-4 text-[#3e91ce] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
                 </svg>
-                <a href="mailto:contact@pcwater.com.au" className="hover:text-white transition-colors">contact@pcwater.com.au</a>
+                <a href="mailto:contact@pcwater.com.au" className="inline-block py-1 hover:text-white transition-colors">contact@pcwater.com.au</a>
               </li>
               <li className="flex items-center gap-3">
                 <svg className="w-4 h-4 text-[#3e91ce] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -194,9 +194,9 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
           <p>© 2013–2026 PC Water Infrastructure. All Rights Reserved.</p>
           <div className="flex items-center gap-4">
-            <Link href="/" className="hover:text-gray-300 transition-colors">Home</Link>
-            <Link href="/projects" className="hover:text-gray-300 transition-colors">Projects</Link>
-            <Link href="/resources" className="hover:text-gray-300 transition-colors">Resources</Link>
+            <Link href="/" className="py-2 hover:text-gray-300 transition-colors">Home</Link>
+            <Link href="/projects" className="py-2 hover:text-gray-300 transition-colors">Projects</Link>
+            <Link href="/resources" className="py-2 hover:text-gray-300 transition-colors">Resources</Link>
           </div>
         </div>
       </div>

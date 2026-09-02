@@ -165,7 +165,7 @@ export default async function IndustriesPage() {
                   {standards.map((s) => (
                     <span
                       key={s}
-                      className="inline-flex items-center border border-gray-300 bg-white px-2.5 py-1 text-[11px] font-medium text-[#30505b]"
+                      className="inline-flex items-center rounded-full border border-gray-300 bg-white px-2.5 py-1 text-[11px] font-medium text-[#30505b]"
                     >
                       {s}
                     </span>

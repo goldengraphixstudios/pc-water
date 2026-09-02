@@ -269,7 +269,7 @@ export default async function ManagedProjectPage({
                       <Link
                         key={s.href}
                         href={s.href}
-                        className="inline-flex items-center border border-gray-300 px-3.5 py-2 text-[13px] font-medium text-[#30505b] transition-colors hover:border-[#3e91ce] hover:bg-[#3e91ce]/5 hover:text-[#2a72ad]"
+                        className="inline-flex items-center rounded-lg border border-gray-300 px-3.5 py-2 text-[13px] font-medium text-[#30505b] transition-colors hover:border-[#3e91ce] hover:bg-[#3e91ce]/5 hover:text-[#2a72ad]"
                       >
                         {s.name}
                       </Link>

@@ -48,7 +48,7 @@ export default function ProjectsSidebar({ locations, services, relatedArticles }
             {services.map((s) => (
               <span
                 key={s.label}
-                className="inline-flex items-center gap-1 border border-gray-300 px-2 py-1 text-[11px] font-medium text-[#30505b]"
+                className="inline-flex items-center gap-1 rounded-full border border-gray-300 px-2.5 py-1.5 text-[11px] font-medium text-[#30505b]"
               >
                 {s.label}
                 <span className="font-mono text-[10px] text-gray-400">{s.count}</span>
@@ -59,7 +59,7 @@ export default function ProjectsSidebar({ locations, services, relatedArticles }
       )}
 
       {/* Capability statement */}
-      <section className="bg-[#0d1b2a] p-5">
+      <section className="rounded-xl bg-[#0d1b2a] p-5">
         <p className="mb-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-[#3e91ce]">
           Capability statement
         </p>
@@ -71,7 +71,7 @@ export default function ProjectsSidebar({ locations, services, relatedArticles }
         </p>
         <a
           href="/downloads/pc-tanks-capability-statement-2026.pdf"
-          className="inline-flex items-center gap-1.5 bg-[#2a72ad] px-4 py-2 text-[13px] font-semibold text-white transition-colors hover:bg-[#3e91ce]"
+          className="inline-flex items-center gap-1.5 rounded-lg bg-[#2a72ad] px-4 py-2 text-[13px] font-semibold text-white transition-colors hover:bg-[#3e91ce]"
         >
           Download PDF
           <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -102,7 +102,7 @@ export default function ProjectsSidebar({ locations, services, relatedArticles }
           </div>
           <Link
             href="/resources"
-            className="mt-2 inline-flex items-center gap-1.5 text-[13px] font-bold text-[#2a72ad] transition-colors hover:text-[#3e91ce]"
+            className="mt-2 inline-flex items-center gap-1.5 py-1.5 text-[13px] font-bold text-[#2a72ad] transition-colors hover:text-[#3e91ce]"
           >
             Browse the library
             <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -112,7 +112,7 @@ export default function ProjectsSidebar({ locations, services, relatedArticles }
         </Panel>
       )}
 
-      <section className="border-l-2 border-[#3e91ce] bg-[#f4f6f8] p-4">
+      <section className="rounded-xl border border-gray-200 border-l-2 border-l-[#3e91ce] bg-[#f4f6f8] p-4">
         <h3 className="mb-1.5 text-[14px] font-black leading-snug text-[#30505b]">
           Have a similar project?
         </h3>
@@ -121,7 +121,7 @@ export default function ProjectsSidebar({ locations, services, relatedArticles }
         </p>
         <Link
           href="/contact"
-          className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#2a72ad] transition-colors hover:text-[#3e91ce]"
+          className="inline-flex items-center gap-1.5 py-1.5 text-[13px] font-bold text-[#2a72ad] transition-colors hover:text-[#3e91ce]"
         >
           Discuss a project
           <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

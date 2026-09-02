@@ -27,7 +27,7 @@ function LeadCard({ entry }: { entry: Entry }) {
   return (
     <Link
       href={entry.href}
-      className="group relative flex min-h-[380px] flex-col justify-end overflow-hidden bg-[#0d1b2a] lg:min-h-[440px]"
+      className="group relative flex min-h-[380px] flex-col justify-end overflow-hidden rounded-2xl bg-[#0d1b2a] lg:min-h-[440px]"
     >
       {entry.imageSrc && (
         <AppImage
@@ -69,9 +69,9 @@ function StandardCard({ entry }: { entry: Entry }) {
   return (
     <Link
       href={entry.href}
-      className="group flex h-full flex-row gap-3 border-b border-gray-200 bg-white py-3 transition-colors hover:bg-[#f4f6f8] sm:flex-col sm:gap-0 sm:border sm:border-gray-200 sm:py-0 sm:hover:border-[#3e91ce]/50 sm:hover:bg-white sm:hover:shadow-md"
+      className="group flex h-full flex-row gap-3 rounded-xl border-b border-gray-200 bg-white py-3 transition-all hover:bg-[#f4f6f8] sm:flex-col sm:gap-0 sm:border sm:border-gray-200 sm:py-0 sm:shadow-sm sm:hover:border-[#3e91ce]/50 sm:hover:bg-white sm:hover:shadow-lg"
     >
-      <div className="relative h-[72px] w-[72px] flex-shrink-0 overflow-hidden bg-[#162538] sm:h-52 sm:w-full">
+      <div className="relative h-[72px] w-[72px] flex-shrink-0 overflow-hidden rounded-lg bg-[#162538] sm:h-52 sm:w-full sm:rounded-b-none sm:rounded-t-xl">
         {entry.imageSrc ? (
           <AppImage
             src={entry.imageSrc}
@@ -124,7 +124,7 @@ function StandardCard({ entry }: { entry: Entry }) {
 function RailCard({ entry }: { entry: Entry }) {
   return (
     <Link href={entry.href} className="group flex min-h-0 flex-1 items-stretch gap-4 py-3">
-      <div className="relative w-32 flex-shrink-0 overflow-hidden bg-[#162538] sm:w-40">
+      <div className="relative w-32 flex-shrink-0 overflow-hidden rounded-lg bg-[#162538] sm:w-40">
         {entry.imageSrc ? (
           <AppImage
             src={entry.imageSrc}

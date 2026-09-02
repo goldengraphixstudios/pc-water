@@ -39,10 +39,10 @@ export default function CrossLinks({
         <Link
           key={l.href}
           href={l.href}
-          className={`group flex flex-col overflow-hidden border transition-colors ${
+          className={`group flex flex-col overflow-hidden rounded-xl border transition-colors ${
             dark
-              ? 'border-white/15 bg-white/[0.04] hover:border-[#3e91ce]/60'
-              : 'border-gray-200 bg-white hover:border-[#3e91ce]/60 hover:shadow-md'
+              ? 'border-white/15 bg-white/[0.04] hover:border-[#3e91ce]/60 hover:bg-white/[0.07]'
+              : 'border-gray-200 bg-white shadow-sm hover:border-[#3e91ce]/60 hover:shadow-lg'
           }`}
         >
           {l.imageSrc && (

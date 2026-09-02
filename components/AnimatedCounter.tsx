@@ -30,12 +30,12 @@ export default function AnimatedCounter({ value, label, sub }: Props) {
   }, [inView, num, value, isNumber])
 
   return (
-    <div ref={ref} className="text-center p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-[#3e91ce]/50 transition-all duration-500 group hover:bg-white/10">
-      <p ref={displayRef} className="text-5xl font-black text-white mb-2 group-hover:text-[#3e91ce] transition-colors duration-300">
+    <div ref={ref} className="text-center p-4 sm:p-6 lg:p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-[#3e91ce]/50 transition-all duration-500 group hover:bg-white/10">
+      <p ref={displayRef} className="text-[1.75rem] sm:text-4xl lg:text-5xl font-black text-white mb-2 leading-none break-words group-hover:text-[#3e91ce] transition-colors duration-300">
         {isNumber ? '0' : value}
       </p>
-      <p className="text-sm font-bold text-[#3e91ce] mb-1 uppercase tracking-wider">{label}</p>
-      <p className="text-xs text-gray-500">{sub}</p>
+      <p className="text-[11px] sm:text-sm font-bold text-[#3e91ce] mb-1 uppercase tracking-normal sm:tracking-wider leading-snug">{label}</p>
+      <p className="text-[11px] sm:text-xs text-gray-500 leading-snug">{sub}</p>
     </div>
   )
 }

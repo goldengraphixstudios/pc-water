@@ -16,7 +16,7 @@ export default function Breadcrumbs({ items, light = false }: { items: Crumb[]; 
               {item.href && !last ? (
                 <Link
                   href={item.href}
-                  className={`font-medium transition-colors ${
+                  className={`inline-block py-1 font-medium transition-colors ${
                     light ? 'text-gray-400 hover:text-[#7fc2f0]' : 'text-gray-500 hover:text-[#2a72ad]'
                   }`}
                 >

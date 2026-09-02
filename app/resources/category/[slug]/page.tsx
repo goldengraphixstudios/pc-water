@@ -126,7 +126,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
             <div className="lg:border-l lg:border-white/15 lg:pl-8">
               <p className="text-sm leading-relaxed text-gray-400">{category.intro[1]}</p>
               <div className="mt-5 flex flex-wrap items-center gap-3">
-                <span className="border border-white/25 px-3 py-1.5 text-[13px] text-white">
+                <span className="rounded-full border border-white/25 px-3 py-1.5 text-[13px] text-white">
                   {articles.length} {articles.length === 1 ? 'article' : 'articles'}
                 </span>
                 <Link
@@ -193,7 +193,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
               <Link
                 key={c.slug}
                 href={`/resources/category/${c.slug}`}
-                className="inline-flex items-center border border-gray-300 px-3.5 py-2 text-[13px] font-medium text-[#30505b] transition-colors hover:border-[#3e91ce] hover:bg-[#3e91ce]/5 hover:text-[#2a72ad]"
+                className="inline-flex items-center rounded-lg border border-gray-300 px-3.5 py-2 text-[13px] font-medium text-[#30505b] transition-colors hover:border-[#3e91ce] hover:bg-[#3e91ce]/5 hover:text-[#2a72ad]"
               >
                 {c.name}
               </Link>

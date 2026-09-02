@@ -77,7 +77,7 @@ export default function LibrarySidebar({
         </Panel>
       )}
 
-      <section className="bg-[#0d1b2a] p-5">
+      <section className="rounded-xl bg-[#0d1b2a] p-5">
         <p className="mb-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-[#3e91ce]">
           Free downloads
         </p>
@@ -87,7 +87,7 @@ export default function LibrarySidebar({
         </p>
         <Link
           href="/resources/downloads"
-          className="inline-flex items-center gap-1.5 bg-[#2a72ad] px-4 py-2 text-[13px] font-semibold text-white transition-colors hover:bg-[#3e91ce]"
+          className="inline-flex items-center gap-1.5 rounded-lg bg-[#2a72ad] px-4 py-2 text-[13px] font-semibold text-white transition-colors hover:bg-[#3e91ce]"
         >
           Browse downloads
           <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -103,7 +103,7 @@ export default function LibrarySidebar({
               <Link
                 key={t.slug}
                 href={`/resources/topic/${t.slug}`}
-                className="inline-flex items-center gap-1 border border-gray-300 px-2 py-1 text-[11px] font-medium text-[#30505b] transition-colors hover:border-[#3e91ce] hover:bg-[#3e91ce]/5 hover:text-[#2a72ad]"
+                className="inline-flex items-center gap-1 rounded-full border border-gray-300 px-2.5 py-1.5 text-[11px] font-medium text-[#30505b] transition-colors hover:border-[#3e91ce] hover:bg-[#3e91ce]/5 hover:text-[#2a72ad]"
               >
                 {t.name}
                 <span className="font-mono text-[10px] text-gray-400">{topicCounts[t.slug]}</span>
@@ -113,7 +113,7 @@ export default function LibrarySidebar({
         </Panel>
       )}
 
-      <section className="border-l-2 border-[#3e91ce] bg-[#f4f6f8] p-4">
+      <section className="rounded-xl border border-gray-200 border-l-2 border-l-[#3e91ce] bg-[#f4f6f8] p-4">
         <h3 className="mb-1.5 text-[14px] font-black leading-snug text-[#30505b]">
           Have a specific question?
         </h3>
@@ -122,7 +122,7 @@ export default function LibrarySidebar({
         </p>
         <Link
           href="/contact"
-          className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#2a72ad] transition-colors hover:text-[#3e91ce]"
+          className="inline-flex items-center gap-1.5 py-1.5 text-[13px] font-bold text-[#2a72ad] transition-colors hover:text-[#3e91ce]"
         >
           Contact our team
           <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

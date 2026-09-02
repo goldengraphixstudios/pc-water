@@ -77,7 +77,7 @@ export default function Masthead({
                 {primaryCta && (
                   <Link
                     href={primaryCta.href}
-                    className="inline-flex items-center gap-2 bg-[#2a72ad] px-6 py-3 text-[14px] font-bold text-white transition-colors hover:bg-[#3e91ce]"
+                    className="inline-flex items-center gap-2 rounded-lg bg-[#2a72ad] px-6 py-3 text-[14px] font-bold text-white shadow-sm transition-colors hover:bg-[#3e91ce]"
                   >
                     {primaryCta.label}
                     <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -88,7 +88,7 @@ export default function Masthead({
                 {secondaryCta && (
                   <Link
                     href={secondaryCta.href}
-                    className="inline-flex items-center gap-2 border border-white/30 px-6 py-3 text-[14px] font-bold text-white transition-colors hover:border-[#3e91ce] hover:text-[#7fc2f0]"
+                    className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-6 py-3 text-[14px] font-bold text-white transition-colors hover:border-[#3e91ce] hover:text-[#7fc2f0]"
                   >
                     {secondaryCta.label}
                   </Link>

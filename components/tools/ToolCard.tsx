@@ -39,7 +39,7 @@ function Arrow() {
  */
 export default function ToolCard({ tool, index }: { tool: Tool; index: number }) {
   return (
-    <div className="flex flex-col border border-gray-200 bg-white transition-colors hover:border-[#3e91ce]/60">
+    <div className="flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all hover:border-[#3e91ce]/60 hover:shadow-lg">
       <div className="flex items-center justify-between border-b border-gray-200 bg-[#f4f6f8] px-5 py-2.5">
         <span className="font-mono text-[13px] font-bold text-[#2a72ad]">
           {String(index).padStart(2, '0')}
@@ -70,7 +70,7 @@ export default function ToolCard({ tool, index }: { tool: Tool; index: number })
           {tool.outcomes.map((o) => (
             <span
               key={o.label}
-              className={`inline-flex items-center border px-2.5 py-1 text-[11px] font-semibold ${TONES[o.tone]}`}
+              className={`inline-flex items-center rounded-full border px-2.5 py-1 text-[11px] font-semibold ${TONES[o.tone]}`}
             >
               {o.label}
             </span>
@@ -80,7 +80,7 @@ export default function ToolCard({ tool, index }: { tool: Tool; index: number })
         <div className="mt-auto border-t border-gray-200 pt-5">
           <Link
             href={tool.href}
-            className="inline-flex w-full items-center justify-center gap-2 bg-[#2a72ad] px-6 py-3.5 text-[15px] font-bold text-white transition-colors hover:bg-[#3e91ce]"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#2a72ad] px-6 py-3.5 text-[15px] font-bold text-white shadow-sm transition-colors hover:bg-[#3e91ce]"
           >
             {tool.cta}
             <Arrow />
@@ -108,8 +108,8 @@ export interface Pathway {
  */
 export function PathwayCard({ pathway }: { pathway: Pathway }) {
   return (
-    <div className="flex flex-col border border-white/15 bg-white/[0.04] p-5 transition-colors hover:border-[#3e91ce]/60 sm:p-6">
-      <span className="mb-3 inline-flex items-center gap-2 self-start border border-white/25 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-white">
+    <div className="flex flex-col rounded-2xl border border-white/15 bg-white/[0.04] p-5 transition-colors hover:border-[#3e91ce]/60 hover:bg-white/[0.07] sm:p-6">
+      <span className="mb-3 inline-flex items-center gap-2 self-start rounded-full border border-white/25 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-white">
         <span className="h-1.5 w-1.5 rounded-full bg-[#3e91ce]" />
         Project enquiry
       </span>
@@ -125,7 +125,7 @@ export function PathwayCard({ pathway }: { pathway: Pathway }) {
       </ul>
       <Link
         href={pathway.href}
-        className="mt-auto inline-flex w-full items-center justify-center gap-2 border border-[#3e91ce] px-6 py-3.5 text-[15px] font-bold text-white transition-colors hover:bg-[#2a72ad] hover:border-[#2a72ad]"
+        className="mt-auto inline-flex w-full items-center justify-center gap-2 rounded-lg border border-[#3e91ce] px-6 py-3.5 text-[15px] font-bold text-white transition-colors hover:border-[#2a72ad] hover:bg-[#2a72ad]"
       >
         {pathway.cta}
         <Arrow />

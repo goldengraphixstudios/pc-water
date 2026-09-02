@@ -92,13 +92,13 @@ export function RailDownload({
   label?: string
 }) {
   return (
-    <section className="bg-[#0d1b2a] p-5">
+    <section className="rounded-xl bg-[#0d1b2a] p-5">
       <p className="mb-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-[#3e91ce]">{kicker}</p>
       <h3 className="mb-2 text-[15px] font-black leading-snug text-white">{heading}</h3>
       <p className="mb-4 text-[13px] leading-relaxed text-gray-400">{body}</p>
       <a
         href={href}
-        className="inline-flex items-center gap-1.5 bg-[#2a72ad] px-4 py-2 text-[13px] font-semibold text-white transition-colors hover:bg-[#3e91ce]"
+        className="inline-flex items-center gap-1.5 rounded-lg bg-[#2a72ad] px-4 py-2 text-[13px] font-semibold text-white transition-colors hover:bg-[#3e91ce]"
       >
         {label}
         <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -127,12 +127,12 @@ export function RailContact({
   href?: string
 }) {
   return (
-    <section className="border-l-2 border-[#3e91ce] bg-[#f4f6f8] p-4">
+    <section className="rounded-xl border border-gray-200 border-l-2 border-l-[#3e91ce] bg-[#f4f6f8] p-4">
       <h3 className="mb-1.5 text-[14px] font-black leading-snug text-[#30505b]">{heading}</h3>
       <p className="mb-3 text-[12px] leading-relaxed text-gray-600">{body}</p>
       <Link
         href={href}
-        className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#2a72ad] transition-colors hover:text-[#3e91ce]"
+        className="inline-flex items-center gap-1.5 py-1.5 text-[13px] font-bold text-[#2a72ad] transition-colors hover:text-[#3e91ce]"
       >
         {label}
         <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -169,7 +169,7 @@ export function RailArticles({
       </div>
       <Link
         href="/resources"
-        className="mt-2 inline-flex items-center gap-1.5 text-[13px] font-bold text-[#2a72ad] transition-colors hover:text-[#3e91ce]"
+        className="mt-2 inline-flex items-center gap-1.5 py-1.5 text-[13px] font-bold text-[#2a72ad] transition-colors hover:text-[#3e91ce]"
       >
         Browse the library
         <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

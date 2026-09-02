@@ -55,7 +55,7 @@ function RailRow({
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      className={`flex w-full items-center justify-between gap-2 rounded px-2 py-[7px] text-left text-[13px] leading-tight transition-colors ${
+      className={`flex w-full items-center justify-between gap-2 rounded-lg px-2.5 py-2.5 text-left text-[13px] leading-tight transition-colors ${
         active
           ? 'bg-[#2a72ad] font-semibold text-white'
           : 'text-[#30505b] hover:bg-[#e8edf2] hover:text-[#2a72ad]'
@@ -265,7 +265,7 @@ export default function ArticleBrowser({
         <button
           type="button"
           onClick={resetAll}
-          className="w-full rounded border border-gray-300 px-2 py-2 text-[12px] font-semibold text-[#30505b] transition-colors hover:border-[#3e91ce] hover:text-[#2a72ad]"
+          className="w-full rounded-md border border-gray-300 px-2 py-2 text-[12px] font-semibold text-[#30505b] transition-colors hover:border-[#3e91ce] hover:text-[#2a72ad]"
         >
           Clear {activeCount} filter{activeCount === 1 ? '' : 's'}
         </button>
@@ -320,7 +320,7 @@ export default function ArticleBrowser({
                   setVisible(PAGE_SIZE)
                 }}
                 placeholder={`Search ${articles.length} articles…`}
-                className="w-full rounded-md border border-gray-300 bg-white py-2.5 pl-10 pr-9 text-sm text-[#30505b] outline-none transition-colors placeholder:text-gray-400 focus:border-[#3e91ce] focus:ring-1 focus:ring-[#3e91ce]"
+                className="w-full rounded-lg border border-gray-300 bg-white py-2.5 pl-10 pr-9 text-sm text-[#30505b] outline-none transition-colors placeholder:text-gray-400 focus:border-[#3e91ce] focus:ring-1 focus:ring-[#3e91ce]"
               />
               {query && (
                 <button
@@ -345,7 +345,7 @@ export default function ArticleBrowser({
                 type="button"
                 onClick={() => setMobileFilters((s) => !s)}
                 aria-expanded={mobileFilters}
-                className={`inline-flex items-center gap-1.5 rounded-md border px-3.5 py-2.5 text-sm font-semibold transition-colors lg:hidden ${
+                className={`inline-flex items-center gap-1.5 rounded-lg border px-3.5 py-2.5 text-sm font-semibold transition-colors lg:hidden ${
                   activeCount > 0
                     ? 'border-[#3e91ce] bg-[#3e91ce]/10 text-[#2a72ad]'
                     : 'border-gray-300 bg-white text-[#30505b]'
@@ -370,7 +370,7 @@ export default function ArticleBrowser({
                   id="article-sort"
                   value={sort}
                   onChange={(e) => setSort(e.target.value as SortKey)}
-                  className="w-full cursor-pointer appearance-none rounded-md border border-gray-300 bg-white py-2.5 pl-3.5 pr-9 text-sm font-medium text-[#30505b] outline-none transition-colors hover:border-[#3e91ce] focus:border-[#3e91ce]"
+                  className="w-full cursor-pointer appearance-none rounded-lg border border-gray-300 bg-white py-2.5 pl-3.5 pr-9 text-sm font-medium text-[#30505b] outline-none transition-colors hover:border-[#3e91ce] focus:border-[#3e91ce]"
                 >
                   <option value="newest">Newest first</option>
                   <option value="oldest">Oldest first</option>
@@ -391,7 +391,7 @@ export default function ArticleBrowser({
 
           {/* Mobile filter panel */}
           {mobileFilters && (
-            <div className="mb-4 rounded-md border border-gray-200 bg-white p-4 lg:hidden">{railContent}</div>
+            <div className="mb-4 rounded-lg border border-gray-200 bg-white p-4 lg:hidden">{railContent}</div>
           )}
 
           {/* Result bar */}
@@ -426,7 +426,7 @@ export default function ArticleBrowser({
                   <button
                     type="button"
                     onClick={() => setVisible((v) => v + PAGE_SIZE)}
-                    className="inline-flex items-center gap-2 rounded-md border border-[#30505b] px-6 py-2.5 text-sm font-semibold text-[#30505b] transition-colors hover:bg-[#30505b] hover:text-white"
+                    className="inline-flex items-center gap-2 rounded-lg border border-[#30505b] px-6 py-2.5 text-sm font-semibold text-[#30505b] transition-colors hover:bg-[#30505b] hover:text-white"
                   >
                     Load {Math.min(PAGE_SIZE, filtered.length - visible)} more
                     <span className="font-mono text-xs opacity-60">
@@ -437,13 +437,13 @@ export default function ArticleBrowser({
               )}
             </>
           ) : (
-            <div className="rounded-md border border-dashed border-gray-300 bg-white py-14 text-center">
+            <div className="rounded-lg border border-dashed border-gray-300 bg-white py-14 text-center">
               <p className="mb-1 font-bold text-[#30505b]">No results</p>
               <p className="mb-4 text-sm text-gray-500">Try a broader search or clear the filters.</p>
               <button
                 type="button"
                 onClick={resetAll}
-                className="rounded-md bg-[#2a72ad] px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#246397]"
+                className="rounded-lg bg-[#2a72ad] px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#246397]"
               >
                 Reset all
               </button>
